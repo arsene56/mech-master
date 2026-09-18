@@ -1,0 +1,15 @@
+D:\Code\Mech.Master\Tools\Tests\bin\Release\net8.0\MechMaster.Domain.Tests.exe
+D:\Code\Mech.Master\Tools\Tests\bin\Release\net8.0\MechMaster.Domain.Tests.deps.json
+D:\Code\Mech.Master\Tools\Tests\bin\Release\net8.0\MechMaster.Domain.Tests.runtimeconfig.json
+D:\Code\Mech.Master\Tools\Tests\bin\Release\net8.0\MechMaster.Domain.Tests.dll
+D:\Code\Mech.Master\Tools\Tests\bin\Release\net8.0\MechMaster.Domain.Tests.pdb
+D:\Code\Mech.Master\Tools\Tests\obj\Release\net8.0\MechMaster.Domain.Tests.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\Mech.Master\Tools\Tests\obj\Release\net8.0\MechMaster.Domain.Tests.AssemblyInfoInputs.cache
+D:\Code\Mech.Master\Tools\Tests\obj\Release\net8.0\MechMaster.Domain.Tests.AssemblyInfo.cs
+D:\Code\Mech.Master\Tools\Tests\obj\Release\net8.0\MechMaster.Domain.Tests.csproj.CoreCompileInputs.cache
+D:\Code\Mech.Master\Tools\Tests\obj\Release\net8.0\MechMaster.Domain.Tests.sourcelink.json
+D:\Code\Mech.Master\Tools\Tests\obj\Release\net8.0\MechMaster.Domain.Tests.dll
+D:\Code\Mech.Master\Tools\Tests\obj\Release\net8.0\refint\MechMaster.Domain.Tests.dll
+D:\Code\Mech.Master\Tools\Tests\obj\Release\net8.0\MechMaster.Domain.Tests.pdb
+D:\Code\Mech.Master\Tools\Tests\obj\Release\net8.0\MechMaster.Domain.Tests.genruntimeconfig.cache
+D:\Code\Mech.Master\Tools\Tests\obj\Release\net8.0\ref\MechMaster.Domain.Tests.dll
