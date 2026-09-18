@@ -1,0 +1,20 @@
+{
+  "name": "MechMaster.Editor",
+  "rootNamespace": "MechMaster.Editor",
+  "references": [
+    "MechMaster.Domain",
+    "MechMaster.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
+

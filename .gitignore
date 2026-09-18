@@ -1,0 +1,43 @@
+# Unity / Tuanjie generated directories
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]in/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# IDE files
+.vs/
+.vscode/
+.idea/
+/*.csproj
+/*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Blender and Python generated files
+*.blend1
+*.blend2
+__pycache__/
+*.py[cod]
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local build/export output
+Exports/
+wxgame/

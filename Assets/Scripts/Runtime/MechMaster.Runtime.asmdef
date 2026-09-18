@@ -1,0 +1,17 @@
+{
+  "name": "MechMaster.Runtime",
+  "rootNamespace": "MechMaster.Runtime",
+  "references": [
+    "MechMaster.Domain"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
+

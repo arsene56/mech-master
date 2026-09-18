@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!129 &1
+PlayerSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 26
+  productGUID: 5b4759b5b1dc4d0b9d6260b688ca0d42
+  companyName: MechMaster
+  productName: 机械大师
+  defaultScreenWidth: 1920
+  defaultScreenHeight: 1080
+  defaultScreenWidthWeb: 1920
+  defaultScreenHeightWeb: 1080
+  m_ActiveColorSpace: 1
+  use32BitDisplayBuffer: 1
+  resizableWindow: 1
+  runInBackground: 1
+  captureSingleScreen: 0
+  stripEngineCode: 1
+  managedStrippingLevel: 1
+  scriptingBackend:
+    WebGL: 1
+  il2cppCompilerConfiguration: {}
+  applicationIdentifier:
+    Standalone: com.mechmaster.prototype
+    WebGL: com.mechmaster.prototype
+  AndroidBundleVersionCode: 1
+  bundleVersion: 0.1.0
+
