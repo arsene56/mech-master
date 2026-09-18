@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "bike.hardtail.27_5.2x10.v1",
+  "displayName": "27.5 英寸 2×10 硬尾山地车",
+  "unit": "millimetre",
+  "serviceAccuracy": "repair-training",
+  "dimensions": {
+    "wheelBeadSeatDiameter": 584,
+    "nominalTireWidth": 57,
+    "wheelOuterDiameter": 698,
+    "wheelbase": 1120,
+    "frontTravel": 120,
+    "bottomBracketShellWidth": 73,
+    "frontHubSpacing": 110,
+    "rearHubSpacing": 148,
+    "frontAxleDiameter": 15,
+    "rearAxleDiameter": 12,
+    "frontRotorDiameter": 180,
+    "rearRotorDiameter": 160,
+    "spokesPerWheel": 32,
+    "frontChainringTeeth": [36, 22],
+    "cassetteTeeth": [11, 13, 15, 17, 19, 21, 24, 28, 32, 36]
+  },
+  "assemblies": [
+    {
+      "id": "frame",
+      "name": "车架与车架小件",
+      "components": [
+        { "id": "frame_weldment", "name": "铝合金车架焊接总成", "quantity": 1, "serviceBoundary": "non-separable", "tool": "hand" },
+        { "id": "derailleur_hanger", "name": "后拨尾钩", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "derailleur_hanger_bolt", "name": "尾钩固定螺栓", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "cable_guide", "name": "外走线线夹", "quantity": 8, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "cable_guide_bolt", "name": "线夹螺栓", "quantity": 8, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "chainstay_protector", "name": "后下叉保护贴", "quantity": 1, "serviceBoundary": "non-separable", "tool": "hand" },
+        { "id": "bottle_boss_bolt", "name": "水壶架孔螺栓", "quantity": 2, "serviceBoundary": "individual", "tool": "hex_key" }
+      ]
+    },
+    {
+      "id": "cockpit_headset",
+      "name": "碗组与把组",
+      "components": [
+        { "id": "handlebar", "name": "横把", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "grip", "name": "把套", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "bar_end_plug", "name": "把堵", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "stem_body", "name": "把立主体", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "stem_faceplate", "name": "把立面盖", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "stem_faceplate_bolt", "name": "把立面盖螺栓", "quantity": 4, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "stem_clamp_bolt", "name": "把立舵管夹紧螺栓", "quantity": 2, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "top_cap", "name": "碗组顶盖", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "top_cap_bolt", "name": "预紧螺栓", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "headset_spacer", "name": "舵管垫圈", "quantity": 3, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "upper_cover", "name": "上碗盖", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "compression_ring", "name": "压环", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "headset_bearing", "name": "碗组密封轴承", "quantity": 2, "serviceBoundary": "service-unit", "tool": "hand" },
+        { "id": "crown_race", "name": "下档圈", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "star_nut", "name": "太阳花芯", "quantity": 1, "serviceBoundary": "installed", "tool": "hand" }
+      ]
+    },
+    {
+      "id": "fork",
+      "name": "120 mm 气压避震前叉",
+      "components": [
+        { "id": "steerer", "name": "锥形舵管", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "crown", "name": "叉肩", "quantity": 1, "serviceBoundary": "installed", "tool": "hand" },
+        { "id": "stanchion", "name": "内管", "quantity": 2, "serviceBoundary": "installed", "tool": "hand" },
+        { "id": "lower_casting", "name": "外管总成", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "dust_wiper", "name": "防尘油封", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "foam_ring", "name": "润滑海绵圈", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "guide_bushing", "name": "导向衬套", "quantity": 4, "serviceBoundary": "installed", "tool": "hand" },
+        { "id": "air_top_cap", "name": "气室顶盖", "quantity": 1, "serviceBoundary": "individual", "tool": "socket" },
+        { "id": "air_valve_core", "name": "气门芯", "quantity": 1, "serviceBoundary": "individual", "tool": "valve_tool" },
+        { "id": "air_piston", "name": "空气弹簧活塞", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "air_shaft", "name": "空气弹簧轴", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "air_seal_head", "name": "气室密封头", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "negative_spring", "name": "负弹簧", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "damper_top_cap", "name": "阻尼顶盖", "quantity": 1, "serviceBoundary": "individual", "tool": "socket" },
+        { "id": "compression_adjuster", "name": "压缩阻尼旋钮", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "damper_cartridge", "name": "阻尼筒", "quantity": 1, "serviceBoundary": "service-unit", "tool": "hand" },
+        { "id": "rebound_shaft", "name": "回弹阻尼轴", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "rebound_knob", "name": "回弹旋钮", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "foot_nut", "name": "底部固定螺母", "quantity": 2, "serviceBoundary": "individual", "tool": "socket" },
+        { "id": "crush_washer", "name": "密封垫圈", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" }
+      ]
+    },
+    {
+      "id": "wheel_front",
+      "name": "前轮组",
+      "components": [
+        { "id": "tire", "name": "57-584 外胎", "quantity": 1, "serviceBoundary": "individual", "tool": "tire_lever" },
+        { "id": "inner_tube", "name": "内胎", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "valve_core", "name": "气门芯", "quantity": 1, "serviceBoundary": "individual", "tool": "valve_tool" },
+        { "id": "valve_nut", "name": "气门嘴螺母", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "rim_tape", "name": "胎垫", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "rim", "name": "584 mm 轮圈", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "spoke", "name": "辐条", "quantity": 32, "serviceBoundary": "individual-with-batch", "tool": "spoke_wrench" },
+        { "id": "nipple", "name": "辐条帽", "quantity": 32, "serviceBoundary": "individual-with-batch", "tool": "spoke_wrench" },
+        { "id": "hub_shell", "name": "15×110 前花鼓壳体", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "hub_axle", "name": "前花鼓轴", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "hub_bearing", "name": "花鼓密封轴承", "quantity": 2, "serviceBoundary": "service-unit", "tool": "bearing_tool" },
+        { "id": "hub_end_cap", "name": "花鼓端盖", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "thru_axle", "name": "15 mm 前筒轴", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "rotor", "name": "180 mm 六钉碟片", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "rotor_bolt", "name": "碟片固定螺栓", "quantity": 6, "serviceBoundary": "individual", "tool": "torx_key" },
+        { "id": "rotor_lock_washer", "name": "碟片防松垫片", "quantity": 6, "serviceBoundary": "individual", "tool": "hand" }
+      ]
+    },
+    {
+      "id": "wheel_rear",
+      "name": "后轮组与十速飞轮",
+      "components": [
+        { "id": "tire", "name": "57-584 外胎", "quantity": 1, "serviceBoundary": "individual", "tool": "tire_lever" },
+        { "id": "inner_tube", "name": "内胎", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "valve_core", "name": "气门芯", "quantity": 1, "serviceBoundary": "individual", "tool": "valve_tool" },
+        { "id": "valve_nut", "name": "气门嘴螺母", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "rim_tape", "name": "胎垫", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "rim", "name": "584 mm 轮圈", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "spoke", "name": "辐条", "quantity": 32, "serviceBoundary": "individual-with-batch", "tool": "spoke_wrench" },
+        { "id": "nipple", "name": "辐条帽", "quantity": 32, "serviceBoundary": "individual-with-batch", "tool": "spoke_wrench" },
+        { "id": "hub_shell", "name": "12×148 后花鼓壳体", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "hub_axle", "name": "后花鼓轴", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "hub_bearing", "name": "花鼓密封轴承", "quantity": 2, "serviceBoundary": "service-unit", "tool": "bearing_tool" },
+        { "id": "hub_end_cap", "name": "花鼓端盖", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "thru_axle", "name": "12 mm 后筒轴", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "freehub_body", "name": "十速塔基", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "freehub_bearing", "name": "塔基轴承", "quantity": 2, "serviceBoundary": "service-unit", "tool": "bearing_tool" },
+        { "id": "freehub_seal", "name": "塔基防尘密封圈", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "pawl", "name": "棘爪", "quantity": 3, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "pawl_spring", "name": "棘爪弹簧", "quantity": 3, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "cassette_sprocket", "name": "飞轮片", "quantity": 10, "serviceBoundary": "individual", "tool": "cassette_tool" },
+        { "id": "cassette_spacer", "name": "飞轮垫圈", "quantity": 9, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "cassette_lockring", "name": "飞轮锁环", "quantity": 1, "serviceBoundary": "individual", "tool": "cassette_tool" },
+        { "id": "rotor", "name": "160 mm 六钉碟片", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "rotor_bolt", "name": "碟片固定螺栓", "quantity": 6, "serviceBoundary": "individual", "tool": "torx_key" },
+        { "id": "rotor_lock_washer", "name": "碟片防松垫片", "quantity": 6, "serviceBoundary": "individual", "tool": "hand" }
+      ]
+    },
+    {
+      "id": "brake_front",
+      "name": "前液压碟刹",
+      "components": [
+        { "id": "lever_body", "name": "刹把主缸壳体", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "lever_clamp", "name": "刹把夹环", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "lever_clamp_bolt", "name": "刹把夹环螺栓", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "lever_blade", "name": "刹把手柄", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "lever_pivot", "name": "手柄转轴", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "master_piston", "name": "主缸活塞", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "master_seal", "name": "主缸密封圈", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "return_spring", "name": "刹把回位弹簧", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "reservoir_diaphragm", "name": "储油仓膜片", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "reservoir_cap", "name": "储油仓盖", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "reservoir_cap_bolt", "name": "储油仓盖螺栓", "quantity": 2, "serviceBoundary": "individual", "tool": "torx_key" },
+        { "id": "hose", "name": "液压油管", "quantity": 1, "serviceBoundary": "individual", "tool": "hose_tool" },
+        { "id": "compression_nut", "name": "油管压紧螺母", "quantity": 1, "serviceBoundary": "individual", "tool": "wrench" },
+        { "id": "olive", "name": "油管橄榄头", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "connector_insert", "name": "油管连接芯", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "caliper_half", "name": "卡钳壳体半体", "quantity": 2, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "caliper_body_bolt", "name": "卡钳壳体螺栓", "quantity": 2, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "caliper_piston", "name": "卡钳活塞", "quantity": 2, "serviceBoundary": "individual", "tool": "piston_tool" },
+        { "id": "caliper_piston_seal", "name": "活塞密封圈", "quantity": 2, "serviceBoundary": "individual", "tool": "seal_pick" },
+        { "id": "brake_pad", "name": "来令片", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "pad_spring", "name": "来令片回位弹簧", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "pad_pin", "name": "来令片固定销", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "retaining_clip", "name": "固定销保险卡", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "bleed_screw", "name": "排气螺丝", "quantity": 1, "serviceBoundary": "individual", "tool": "wrench" },
+        { "id": "bleed_o_ring", "name": "排气螺丝密封圈", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "mount_adapter", "name": "卡钳转接座", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "mount_bolt", "name": "卡钳安装螺栓", "quantity": 2, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "mount_snap_ring", "name": "安装螺栓防脱环", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" }
+      ]
+    },
+    {
+      "id": "brake_rear",
+      "name": "后液压碟刹",
+      "inheritComponentsFrom": "brake_front"
+    },
+    {
+      "id": "crank_bottom_bracket",
+      "name": "曲柄、中轴与双盘",
+      "components": [
+        { "id": "crank_arm", "name": "曲柄", "quantity": 2, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "crank_spindle", "name": "曲柄轴心", "quantity": 1, "serviceBoundary": "installed", "tool": "hand" },
+        { "id": "pinch_bolt", "name": "左曲柄夹紧螺栓", "quantity": 2, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "preload_cap", "name": "曲柄预紧盖", "quantity": 1, "serviceBoundary": "individual", "tool": "preload_tool" },
+        { "id": "chainring", "name": "牙盘片", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "chainring_bolt", "name": "牙盘螺栓", "quantity": 4, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "chainring_nut", "name": "牙盘螺母", "quantity": 4, "serviceBoundary": "individual", "tool": "chainring_nut_tool" },
+        { "id": "bottom_bracket_cup", "name": "BSA 中轴杯", "quantity": 2, "serviceBoundary": "individual", "tool": "bottom_bracket_tool" },
+        { "id": "bottom_bracket_bearing", "name": "中轴密封轴承", "quantity": 2, "serviceBoundary": "service-unit", "tool": "bearing_tool" },
+        { "id": "bottom_bracket_seal", "name": "中轴防尘密封圈", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "bottom_bracket_sleeve", "name": "中轴防水套筒", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "bottom_bracket_spacer", "name": "中轴垫圈", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" }
+      ]
+    },
+    {
+      "id": "front_derailleur",
+      "name": "前拨链器",
+      "components": [
+        { "id": "clamp", "name": "前拨夹环", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "clamp_bolt", "name": "夹环螺栓", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "body", "name": "前拨主体", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "cage_plate", "name": "导链板", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "link_plate", "name": "前拨连杆", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "pivot_pin", "name": "前拨转轴", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "return_spring", "name": "前拨回位弹簧", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "limit_screw", "name": "限位螺丝", "quantity": 2, "serviceBoundary": "individual", "tool": "screwdriver" },
+        { "id": "cable_anchor", "name": "变速线固定螺栓与垫片", "quantity": 1, "serviceBoundary": "service-unit", "tool": "hex_key" }
+      ]
+    },
+    {
+      "id": "rear_derailleur",
+      "name": "后拨链器",
+      "components": [
+        { "id": "b_knuckle", "name": "B 转节", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "p_knuckle", "name": "P 转节", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "link_plate", "name": "四连杆片", "quantity": 4, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "pivot_pin", "name": "连杆转轴", "quantity": 4, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "return_spring", "name": "后拨回位弹簧", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "cage_plate", "name": "导轮架侧板", "quantity": 2, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "jockey_wheel", "name": "导轮", "quantity": 2, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "jockey_bushing", "name": "导轮衬套", "quantity": 4, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "jockey_bolt", "name": "导轮螺栓", "quantity": 2, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "limit_screw", "name": "限位螺丝", "quantity": 2, "serviceBoundary": "individual", "tool": "screwdriver" },
+        { "id": "b_tension_screw", "name": "B 张力螺丝", "quantity": 1, "serviceBoundary": "individual", "tool": "screwdriver" },
+        { "id": "cable_anchor", "name": "变速线固定螺栓与垫片", "quantity": 1, "serviceBoundary": "service-unit", "tool": "hex_key" }
+      ]
+    },
+    {
+      "id": "chain",
+      "name": "十速链条",
+      "components": [
+        { "id": "chain_link", "name": "链节", "quantity": 110, "serviceBoundary": "visual-repeat", "tool": "chain_tool" },
+        { "id": "quick_link", "name": "快拆扣半片", "quantity": 2, "serviceBoundary": "individual", "tool": "quick_link_pliers" }
+      ]
+    },
+    {
+      "id": "pedals",
+      "name": "左右脚踏",
+      "components": [
+        { "id": "pedal_body", "name": "脚踏主体", "quantity": 2, "serviceBoundary": "individual", "tool": "pedal_wrench" },
+        { "id": "pedal_axle", "name": "脚踏轴", "quantity": 2, "serviceBoundary": "individual", "tool": "wrench" },
+        { "id": "pedal_bearing", "name": "脚踏轴承", "quantity": 4, "serviceBoundary": "service-unit", "tool": "bearing_tool" },
+        { "id": "pedal_seal", "name": "脚踏密封圈", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "pedal_end_cap", "name": "脚踏端盖", "quantity": 2, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "pedal_washer", "name": "脚踏垫圈", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "pedal_nut", "name": "脚踏锁紧螺母", "quantity": 2, "serviceBoundary": "individual", "tool": "socket" },
+        { "id": "traction_pin", "name": "脚踏防滑钉", "quantity": 16, "serviceBoundary": "individual-with-batch", "tool": "hex_key" }
+      ]
+    },
+    {
+      "id": "saddle_seatpost",
+      "name": "鞍座、座管与座管夹",
+      "components": [
+        { "id": "seatpost", "name": "座管", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "saddle_shell", "name": "鞍座底壳", "quantity": 1, "serviceBoundary": "non-separable", "tool": "hand" },
+        { "id": "saddle_padding", "name": "鞍座填充层", "quantity": 1, "serviceBoundary": "non-separable", "tool": "hand" },
+        { "id": "saddle_cover", "name": "鞍座表皮", "quantity": 1, "serviceBoundary": "non-separable", "tool": "hand" },
+        { "id": "saddle_rail", "name": "鞍座弓", "quantity": 2, "serviceBoundary": "installed", "tool": "hand" },
+        { "id": "saddle_clamp_plate", "name": "鞍座夹板", "quantity": 2, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "saddle_clamp_bolt", "name": "鞍座夹紧螺栓", "quantity": 2, "serviceBoundary": "individual", "tool": "hex_key" },
+        { "id": "seatpost_collar", "name": "座管夹", "quantity": 1, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "seatpost_collar_bolt", "name": "座管夹螺栓", "quantity": 1, "serviceBoundary": "individual", "tool": "hex_key" }
+      ]
+    },
+    {
+      "id": "controls_cables",
+      "name": "变速控制与外走线",
+      "components": [
+        { "id": "shifter", "name": "指拨", "quantity": 2, "serviceBoundary": "service-unit", "tool": "hex_key" },
+        { "id": "shift_inner_cable", "name": "变速内线", "quantity": 2, "serviceBoundary": "individual", "tool": "cable_cutter" },
+        { "id": "shift_housing", "name": "变速线管", "quantity": 2, "serviceBoundary": "individual", "tool": "cable_cutter" },
+        { "id": "housing_ferrule", "name": "线管帽", "quantity": 8, "serviceBoundary": "individual", "tool": "hand" },
+        { "id": "cable_end_cap", "name": "内线尾帽", "quantity": 2, "serviceBoundary": "individual", "tool": "crimp_tool" }
+      ]
+    }
+  ]
+}
+

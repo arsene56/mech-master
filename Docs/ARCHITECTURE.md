@@ -1,547 +1,250 @@
-# 机械大师：架构说明
+# 机械大师：系统架构
 
-本文描述首版自行车拆装样片的当前实现、边界和演进方向。文档中的“当前”表示仓库里已经存在的代码，“计划”表示取得微信小游戏 AppID、安装完整团结引擎编辑器或进入多机械量产阶段后再实现的内容。
+本文描述 27.5 英寸 2×10 工程自行车版本的当前实现。工程已通过本机团结引擎 Editor 的编译与 Play Mode 验证；微信小游戏 AppID、微信开发者工具与真机测试仍属于后续工作。
 
 ## 1. 架构目标
 
-架构优先保证以下能力：
+1. 机械尺寸、零件身份、模型对象和交互步骤使用可校验的单一数据链。
+2. 同一台车能按总成、同类零件组、单个实体呈现三种难度。
+3. 拆解与组装共用一套状态，玩家可自由选择尚未操作的零件。
+4. 领域规则不依赖 Unity/Tuanjie 或微信 API，可由 .NET 直接测试。
+5. 高精度源模型与微信运行 LOD 分离，增加细节不直接拖累运行端。
+6. 新增汽车、摩托车或其他机械时可复用目录、绑定和加载结构。
 
-1. 拆装规则可以脱离引擎测试。
-2. 同一个真实零件模型可以按难度组合成不同操作粒度。
-3. 拆解与组装共用一套状态，不维护两份易失配的流程。
-4. 3D 对象名、逻辑 ID 和科普内容之间有稳定映射。
-5. 首版能离线运行，平台能力通过适配边界逐步接入。
-6. 后续增加汽车、摩托车等模块时不重写核心状态机。
-
-不以首版为目标的能力包括联网账号、排行榜、商业化激励、专业扭矩训练和实时多人协作。
-
-## 2. 系统上下文
+## 2. 数据与资产主链
 
 ```mermaid
 flowchart LR
-    Player[儿童或青少年玩家]
-    Editor[内容开发者]
-    Manuals[厂商公开维修手册]
-    Blender[Blender 资产流水线]
-    Game[机械大师运行时]
-    Store[本地存档]
-    WeChat[微信小游戏平台]
-
-    Player -->|触摸或鼠标| Game
-    Game -->|3D 反馈与科普文本| Player
-    Editor -->|零件定义与知识内容| Game
-    Manuals -->|结构和顺序依据| Editor
-    Blender -->|FBX 与稳定对象名| Game
-    Game --> Store
-    Store --> Game
-    Game -. 取得 AppID 后构建 .-> WeChat
+    Manual[公开维修资料] --> BOM[bicycle_engineering.json<br/>14 模块 / 595 实体]
+    BOM --> SourceScript[generate_engineering_bicycle.py]
+    SourceScript --> Blend[BicycleEngineeringSource.blend]
+    SourceScript --> ModelMap[bicycle_model_manifest.json]
+    Blend --> LODScript[export_engineering_lods.py]
+    LODScript --> LOD0[14 个模块 LOD0]
+    LODScript --> LOD1[整车 LOD1]
+    LODScript --> LOD2[整车 LOD2]
+    LODScript --> RuntimeMap[bicycle_runtime_assets.json]
+    BOM --> CatalogScript[Generate-BicycleInteractionCatalog.ps1]
+    ModelMap --> CatalogScript
+    CatalogScript --> Plans[BicycleInteractionCatalog.json<br/>14 / 195 / 595 步]
+    Plans --> Runtime[Unity/Tuanjie 运行时]
+    LOD0 --> Runtime
 ```
 
-首版运行时不依赖网络服务。微信平台还不是领域规则的一部分。
+手工修改生成后的 FBX 或交互目录会在下一次生成时被覆盖。修改应进入 BOM 或生成脚本。
 
-## 3. 总体分层
+## 3. 运行时分层
 
 ```mermaid
 flowchart TB
-    UI[表现层<br/>PrototypeUI]
-    Input[输入层<br/>PartInteractionController<br/>OrbitCameraController]
-    App[应用协调层<br/>MechMasterApp]
-    Domain[领域层<br/>DisassemblyPlan<br/>PartDefinition<br/>FrontBrakeCatalog]
-    View[3D 视图层<br/>BikeModelView<br/>MechanicalPartView]
-    Infra[本地基础设施<br/>LocalProgressStore<br/>VoiceNarrator<br/>FeedbackAudio]
-    Assets[资产层<br/>FBX、字体、音频]
-    Platform[平台适配层<br/>计划实现]
+    UI[PrototypeUI]
+    Input[PartInteractionController<br/>OrbitCameraController]
+    App[MechMasterApp]
+    Loader[EngineeringBicycleCatalogLoader]
+    Domain[PartDefinition<br/>DisassemblyPlan<br/>OperationResult]
+    Binding[BikeModelView<br/>MechanicalPartView<br/>MechanicalPartHitProxy]
+    Infra[LocalProgressStore<br/>FeedbackAudio<br/>VoiceNarrator]
+    Assets[JSON + 模块 FBX]
 
     UI --> App
     Input --> App
-    App --> Domain
-    App --> View
+    App --> Loader
+    Loader --> Domain
+    Loader --> Assets
+    App --> Binding
+    Binding --> Assets
     App --> Infra
-    View --> Assets
-    Infra -. 后续替换 .-> Platform
 ```
 
-依赖方向以领域层为中心。`MechMaster.Domain` 不引用 Unity、微信 SDK 或文件系统。
+### 3.1 领域层
 
-## 4. 代码与目录映射
+`Assets/Scripts/Domain` 不引用 Unity。核心不变量：
 
-| 目录 | 职责 | 运行环境 |
-| --- | --- | --- |
-| `Assets/Scripts/Domain` | 拆装顺序、难度、工具、零件知识 | 纯 C# |
-| `Assets/Scripts/Runtime` | 应用入口、3D、输入、存档、音频 | Unity/Tuanjie Runtime |
-| `Assets/Scripts/Runtime/UI` | 首版程序化界面 | Unity/Tuanjie Runtime |
-| `Assets/Scripts/Editor` | 资产和目录校验 | Editor Only |
-| `Assets/Art/Models/Source` | Blender 主源文件 | Blender |
-| `Assets/Resources` | 首版运行时加载资源 | Unity/Tuanjie Runtime |
-| `Tools/Blender` | 可重复生成和验证模型 | Blender Python |
-| `Tools/Tests` | 无引擎领域测试 | .NET 8 |
-| `Docs` | 产品、架构、开发和来源记录 | 文档 |
+- 计划至少包含一个步骤，步骤 ID 在计划内唯一。
+- 拆解可处理任意尚未拆下的步骤。
+- 组装可处理任意仍处于拆下状态的步骤。
+- 重复操作和错误工具不改变状态。
+- `RemovedCount == Steps.Count` 表示完全拆开。
+- `RemovedCount == 0` 表示完整组装。
 
-程序集边界：
+`PartDefinition` 除名称、工具和三层科普文本外，还携带 `AssemblyId`、`ComponentId` 和模型对象名集合。旧的前刹车目录仍可作为小型领域样例使用，但正式启动流程读取整车目录。
 
-- `MechMaster.Domain.asmdef`：禁用引擎引用。
-- `MechMaster.Runtime.asmdef`：只引用 Domain。
-- `MechMaster.Editor.asmdef`：只在 Editor 平台编译，引用 Domain 和 Runtime。
+### 3.2 三档粒度
 
-## 5. 领域层
+| 难度 | 生成规则 | 步骤数 | 一个步骤绑定 |
+| --- | --- | ---: | --- |
+| Simple | 每个装配模块一步 | 14 | 模块内全部实体 |
+| Standard | 每类零件一步 | 195 | 同类实体集合 |
+| Advanced | 每个物理实体一步 | 595 | 唯一模型对象 |
 
-### 5.1 类型职责
+组装不维护第二份清单，而是直接操作同一个已拆零件集合。拆解与组装都不限制顺序，BOM 增减零件时也不会产生两份清单漂移。
 
-| 类型 | 职责 |
-| --- | --- |
-| `DifficultyLevel` | `Simple`、`Standard`、`Advanced` 三档粒度 |
-| `AssemblyMode` | 拆解或组装 |
-| `ToolKind` | 手、内六角扳手、梅花扳手 |
-| `PartDefinition` | 稳定 ID、名称、工具和三层知识文本 |
-| `DisassemblyPlan` | 有序步骤、已拆集合、顺序和工具校验 |
-| `OperationResult` | 成功或结构化失败及用户提示 |
-| `FrontBrakeCatalog` | 当前前刹车模块的三档内容工厂 |
+### 3.3 应用协调
 
-### 5.2 状态不变量
+`MechMasterApp` 是当前组合根：
 
-`DisassemblyPlan` 必须始终满足：
+1. 读取本地难度、工具、进度和讲解设置。
+2. 通过 `EngineeringBicycleCatalogLoader` 创建计划。
+3. 从 `Resources` 实例化 14 个模块 LOD0。
+4. 由 `BikeModelView` 将步骤绑定到 FBX 对象。
+5. 恢复准确的已拆零件 ID 集合并刷新分类托盘位置。
+6. 接收 UI 和输入命令，保存新状态。
 
-- 至少有一个步骤。
-- 同一计划中的零件 ID 唯一且区分大小写。
-- 拆解只能处理第一个尚未拆下的步骤。
-- 组装只能处理最后一个仍处于拆下状态的步骤。
-- 错误顺序和错误工具都不改变状态。
-- `RemovedCount == 0` 表示完整组装状态。
-- `RemovedCount == Steps.Count` 表示完整拆解状态。
+当前原型为验证 595 实体交互会一次装载全部 LOD0。微信量产版本应先显示整车 LOD1，只在进入某个模块时替换成该模块 LOD0，并在退出时释放。
 
-### 5.3 拆装状态机
+## 4. 交互绑定
+
+模型源对象同时具有：
+
+- Blender 对象名，例如 `MM_wheel_front_spoke_01`。
+- 稳定逻辑 ID，例如 `bike.wheel_front.spoke.01`。
+- 装配 ID、维修边界和 LOD 元数据。
+
+生成器把逻辑 ID 与对象名写入 `bicycle_model_manifest.json`；内容生成器再把所需对象名写进每个 `PartDefinition` 对应的 JSON 步骤。运行时不猜测 Blender 自动名称。
+
+`BikeModelView` 为每个计划步骤建立一个 `MechanicalPartView`。若一个步骤控制多个对象，所有对象都通过 `MechanicalPartHitProxy` 指向同一个视图；因此点击一根辐条或一个总成中的任一可见实体，都能找到正确的逻辑步骤。
+
+运行时为各零件网格建立独立 `MeshCollider`，避免车架等中空结构被包围盒误选；几何表面接近时优先选择较小的精确目标。真机阶段需要按模块启用并评估简化碰撞网格的性能。
+
+## 5. 拆装状态与表现
 
 ```mermaid
 stateDiagram-v2
-    [*] --> 完整状态
-    完整状态 --> 拆解中: 正确零件 + 正确工具
-    拆解中 --> 拆解中: 继续按正序拆解
-    拆解中 --> 完全拆开: 最后一个零件拆下
-    完全拆开 --> 组装中: 切换组装模式
-    组装中 --> 组装中: 按严格倒序装回
-    组装中 --> 完整状态: 最后一个零件装回
-
-    拆解中 --> 拆解中: 错误顺序或错误工具
-    组装中 --> 组装中: 错误顺序或错误工具
+    [*] --> 完整整车
+    完整整车 --> 拆解中: 正确零件 + 正确工具
+    拆解中 --> 拆解中: 任选未拆零件
+    拆解中 --> 完全拆开: 最后一步拆下
+    完全拆开 --> 组装中: 切换模式
+    组装中 --> 组装中: 任选托盘零件装回
+    组装中 --> 完整整车: 最后一步装回
 ```
 
-组装不是独立步骤表，而是同一个 `Steps` 列表的严格倒序。这让新增和修订拆解步骤时不会忘记同步组装流程。
+`MechanicalPartView` 保存每个目标 Transform 的初始局部位置，并用确定性插值移动到所属模块的分类托盘。没有启用刚体自由掉落，因为儿童科普需要稳定、可恢复的关系展示，微信端也能避免额外物理开销。
 
-### 5.4 难度不是数值倍率
+托盘按 14 个模块分区，同一模块内部使用稳定槽位索引，避免 595 个零件无序堆叠。正式美术阶段仍应在源模型中增加模块级拆装轴与停靠点。
 
-三档难度分别创建独立的 `PartDefinition` 序列，不使用“步骤数乘倍率”。原因是每档需要改变的是语义单元：
+## 6. 3D 资产架构
 
-- 启蒙模式把卡钳、来令片、固定件视为“前刹车总成”。
-- 探索模式把来令片和弹簧作为一组。
-- 进阶模式把保险卡、固定销、弹簧、左右来令片分别操作。
+### 6.1 Source
 
-知识文本也按难度逐层叠加，而不是简单改变字体或提示次数。
+- `BicycleEngineeringSource.blend`
+- 595 个有稳定 ID 的零件对象，其中 585 个网格对象。
+- 105,652 顶点，101,472 面。
+- 保留齿形、胎纹、紧固件、密封、活塞、轴承、弹簧和重复件。
+- 用于特写、教学渲染和派生运行资产，不直接在微信端整体加载。
 
-## 6. 应用协调层
+### 6.2 LOD0
 
-`MechMasterApp` 是当前组合根，负责创建和连接领域对象、模型视图、输入、摄像机、UI、音频与存档。
+- 每个装配模块一个 FBX，共 14 个。
+- 保留该模块所有独立交互对象和 Source 级局部结构。
+- 预期按当前学习模块加载；原型为全量交互暂时一起装载。
 
-它不应该包含具体零件几何知识；当前模型映射位于 `BikeModelView`。进入第二个正式机械模块前，需要进一步抽象模块注册和加载接口。
+### 6.3 LOD1
 
-### 6.1 启动顺序
+- 整车观察模型。
+- 过滤内部密封、轴承、活塞等不可见细节。
+- 每个模块合并为一个对象，共 14 个对象、59,487 面。
 
-```mermaid
-sequenceDiagram
-    participant Engine as Unity/Tuanjie
-    participant App as MechMasterApp
-    participant Store as LocalProgressStore
-    participant Domain as FrontBrakeCatalog
-    participant Resources as Resources
-    participant View as BikeModelView
-    participant UI as PrototypeUI
+### 6.4 LOD2
 
-    Engine->>App: RuntimeInitializeOnLoad
-    App->>App: 创建摄像机、灯光、输入和 UI
-    App->>Store: 读取难度、工具、进度和设置
-    App->>Domain: CreatePlan(difficulty)
-    App->>Domain: 重放已拆步骤并恢复模式
-    App->>Resources: Load BicyclePrototype
-    Resources-->>App: FBX Prefab
-    App->>View: Bind(plan)
-    App->>View: Refresh(plan, immediate)
-    App->>UI: 发布当前状态
-```
+- 菜单缩略图或远景。
+- 过滤细小重复件并合并整车。
+- 1 个对象、21,657 面。
 
-运行入口通过 `RuntimeInitializeOnLoadMethod` 创建，因此场景不需要手工绑定脚本引用。
+FBX 使用 `-Z Forward / Y Up`，引擎中 `1 unit = 1 m`。自由缩放通过摄像机距离完成，不改变机械物理尺度。
 
-### 6.2 操作请求顺序
+## 7. 尺寸与模块边界
 
-一次拖动操作经过以下路径：
+自动验证锁定：
 
-1. `PartInteractionController` 射线检测 `MechanicalPartView`。
-2. 按下时调用 `SelectPart`，更新科普面板。
-3. 拖动距离达到阈值且手指松开时调用 `Operate(partId)`。
-4. `DisassemblyPlan.TryOperate` 校验零件、顺序和工具。
-5. 成功时 `BikeModelView.Refresh` 播放爆炸或归位动画。
-6. `FeedbackAudio` 和 `VoiceNarrator` 提供反馈。
-7. `LocalProgressStore` 写入新状态。
-8. UI 通过 `StateChanged` 事件重新绘制。
+- 轮外径 698 mm、轴距 1120 mm。
+- 前后花鼓开档 110 / 148 mm。
+- 前后碟片约 180 / 160 mm。
+- 前后各 32 根辐条。
+- 10 片飞轮、2 片牙盘、110 节链条。
+- 前后制动各展开为 37 个实体单元。
 
-## 7. 输入与摄像机
+焊接、粘接、硫化和铆死结构是制造边界；链条以快拆扣作为拆装边界；密封轴承作为维修单元。详细约定见 `ENGINEERING_BOM.md`。
 
-### 7.1 输入所有权
+## 8. 内容生成
 
-输入冲突按以下优先级处理：
+`Generate-BicycleInteractionCatalog.ps1` 同时读取 BOM 和模型清单：
 
-1. UI 面板。
-2. 已命中的机械零件。
-3. 空白区域镜头操作。
+- 展开后刹车继承前刹车的 37 个零件定义。
+- 按安全的整车拆解模块顺序生成三档计划。
+- 将工具归并为手、内六角、梅花三类，不涉及规格和扭矩。
+- 根据零件类型生成儿童可读的基础作用、探索原理和进阶边界。
+- 校验每个物理实体都存在模型对象。
 
-`PartInteractionController.IsDraggingPart` 用于在零件操作期间暂时禁止镜头旋转。
+当前知识文本由规则生成，保证覆盖完整；进入正式内容制作时应由自行车维修人员和儿童教育编辑逐条审校，而不是把规则生成文本视为最终出版稿。
 
-### 7.2 手势映射
+## 9. 本地存档
 
-| 输入 | 行为 |
-| --- | --- |
-| 轻点零件 | 选择并显示知识，不更改状态 |
-| 拖动零件后松手 | 尝试拆下或装回 |
-| 单指拖动空白 | 旋转镜头 |
-| 双指缩放 | 改变镜头距离 |
-| 鼠标右键拖动 | 桌面端旋转 |
-| 鼠标滚轮 | 桌面端缩放 |
+`LocalProgressStore` 使用 `PlayerPrefs`，保存当前难度、工具、讲解开关、每档的 `RemovedCount` 与模式。恢复时重建计划并重放前 N 个步骤。
 
-触摸阈值用屏幕像素表达，真机阶段应按 DPI 和儿童手势测试调整。
+该压缩方式成立是因为状态机保证已拆集合始终是步骤前缀。正式微信版本应抽象 `IProgressStore`，加入 schema 版本、损坏回退和微信存储容量处理。
 
-## 8. 3D 模型与逻辑绑定
+## 10. 验证体系
 
-### 8.1 单位和坐标
-
-Blender 场景使用公制，`1 Blender Unit = 1 m`。当前模型基准：
-
-| 指标 | 数值 |
-| --- | ---: |
-| 轴距 | 1.120 m |
-| 轮胎外径 | 0.698 m |
-| 前碟片直径 | 0.180 m |
-| 网格对象数 | 40 |
-| 顶点数 | 8,256 |
-| 多边形数 | 7,274 |
-
-FBX 以 `-Z Forward / Y Up` 导出，引擎中保持 1:1 比例。自由缩放由摄像机距离实现，不修改模型物理尺度。
-
-### 8.2 稳定对象名
-
-逻辑代码不依赖 Blender 自动生成的 `Cube.001`，而依赖人工约定的稳定名称，例如：
-
-- `Front_ThruAxle`
-- `Front_Tire`
-- `Front_Rim`
-- `Front_Spokes`
-- `Front_Hub`
-- `Front_EndCaps`
-- `Front_Caliper`
-- `LeftPad` / `RightPad`
-- `PadSpring` / `PadPin` / `RetainingClip`
-- `Front_Rotor` / `RotorBolts`
-
-重命名这些对象属于接口变更，必须同步模型映射和验证器。
-
-### 8.3 难度绑定
-
-一个逻辑零件可绑定多个网格。例如启蒙模式的 `front_brake_assembly` 同时控制卡钳、来令片、弹簧、固定销、保险卡、安装螺栓和油管。
-
-同一网格在不同难度下可以属于不同逻辑单元，但同一个计划内不应被两个可操作单元重复控制。
-
-### 8.4 视图状态
-
-`MechanicalPartView` 保存每个受控 Transform 的初始局部位置。拆下时沿预计算方向移动形成爆炸图；装回时插值到原位。
-
-首版不启用刚体物理模拟，原因是确定性的教育流程比自由掉落更重要，也能降低微信小游戏端的性能和交互不确定性。
-
-## 9. UI 架构
-
-当前 UI 由 `PrototypeUI.OnGUI` 程序化绘制，优点是仓库恢复后无需依赖 Prefab GUID 就能运行。布局包括：
-
-- 顶部品牌和模块标题。
-- 左侧难度、工具、模式、重置和讲解控制。
-- 右侧零件知识与下一步提示。
-- 底部状态反馈。
-
-程序化 UI 适合样片，不适合长期内容生产。进入美术和多分辨率适配阶段后应迁移到 UGUI 或 UI Toolkit Prefab，并保持调用的应用层命令不变。
-
-## 10. 存档
-
-### 10.1 当前实现
-
-`LocalProgressStore` 使用 `PlayerPrefs`，键统一以 `mech_master.v1.` 开头，保存：
-
-- 当前难度。
-- 当前工具。
-- 讲解开关。
-- 每档难度的 `RemovedCount`。
-- 每档难度的 `AssemblyMode`。
-
-恢复时先创建全新计划，再按顺序重放前 N 个拆解操作。因为状态机保证已拆集合始终是步骤前缀，所以不需要序列化零件数组。
-
-组装中状态也可以用剩余的前缀数量表达：完整拆解后按倒序移除集合元素，集合仍是原步骤列表的前缀。
-
-### 10.2 演进要求
-
-正式微信版本应抽取：
-
-```csharp
-public interface IProgressStore
-{
-    ProgressSnapshot Load(string moduleId, DifficultyLevel difficulty);
-    void Save(ProgressSnapshot snapshot);
-}
-```
-
-本地与微信实现必须共享版本化数据结构，并提供损坏数据回退、schema 迁移和容量限制处理。
-
-## 11. 音频
-
-### 11.1 当前实现
-
-`FeedbackAudio` 在运行时生成短促的成功和错误音，不依赖外部音频文件。`VoiceNarrator` 保留统一入口，当前只输出带前缀的开发日志。
-
-这样可以验证调用链，同时避免在未完成许可审查前引入来源不明的素材。
-
-### 11.2 许可要求
-
-预录语音和音效接入前必须登记作者、来源、许可证、下载日期和修改方式。具体规则见音频目录说明。
-
-## 12. 3D 资产流水线
-
-```mermaid
-flowchart LR
-    Script[generate_bicycle.py]
-    Blend[BicyclePrototype.blend]
-    FBX[BicyclePrototype.fbx]
-    Preview[预览 PNG]
-    Validate[validate_bicycle.py]
-    Import[Unity/Tuanjie 导入]
-    EditorCheck[PrototypeValidator]
-
-    Script --> Blend
-    Script --> FBX
-    Script --> Preview
-    Blend --> Validate
-    FBX --> Import
-    Import --> EditorCheck
-```
-
-### 12.1 生成阶段
-
-生成脚本负责：
-
-- 清空 Blender 场景。
-- 用真实米制尺寸创建自行车和前刹车细节。
-- 创建写实但轻量的材质。
-- 设置三点灯光和预览相机。
-- 保存 `.blend` 主源、导出 FBX 并渲染预览图。
-
-生成脚本是可重复的，不能手工编辑 FBX 后丢失来源。
-
-### 12.2 Blender 验证
-
-`validate_bicycle.py` 检查：
-
-- 必需对象名。
-- 轴距范围 1.08–1.16 m。
-- 27.5 英寸轮径范围 0.69–0.71 m。
-- 180 mm 碟片误差不超过 3 mm。
-- 前辐条组具有足够多的面。
-- 网格、顶点和多边形统计。
-
-### 12.3 Unity/Tuanjie 验证
-
-`PrototypeValidator` 在导入后检查 FBX 是否存在、稳定对象名是否完整，以及三档计划是否为 4/8/12 步。
-
-Blender 校验和引擎校验解决不同问题，两者都必须执行。
-
-## 13. 资源加载策略
-
-当前 `MechMasterApp` 通过 `Resources.Load<GameObject>("BicyclePrototype")` 加载样片模型，优点是实现简单、离线可运行。
-
-`Resources` 不适合作为量产目录，因为其中资源会统一进入构建且难以精细分包。进入多机械阶段后计划改为：
-
-1. 启动包保留 UI、配置和首个轻量模块。
-2. 每台机械使用独立资源包。
-3. 微信分包或远程下载负责按需获取。
-4. 资源缓存层处理版本、校验和失败重试。
-5. 领域目录只持有逻辑资源键，不持有平台路径。
-
-## 14. 微信小游戏适配边界
-
-### 14.1 当前状态
-
-- 项目按微信小游戏立项。
-- 尚未取得 AppID。
-- 当前机器未安装完整团结引擎 Editor 和微信构建模块。
-- 尚未进行微信开发者工具模拟器或真机测试。
-
-因此不能声称微信构建、包体和性能已经通过。
-
-### 14.2 计划中的平台接口
-
-```csharp
-public interface IPlatformStorage
-{
-    string Read(string key);
-    void Write(string key, string value);
-}
-
-public interface IPlatformAudio
-{
-    void PlayNarration(string clipId);
-}
-
-public interface IModelProvider
-{
-    void Load(string moduleId, Action<GameObject> completed);
-}
-```
-
-具体接口签名可在接入 SDK 时调整，但依赖方向不可反转：微信 SDK 实现接口，领域层不知道微信类型。
-
-平台层还需要覆盖：
-
-- 生命周期和前后台切换。
-- 本地文件与缓存配额。
-- 分包和远程资源失败处理。
-- 音频解锁、暂停与恢复。
-- 安全区、横竖屏和触摸差异。
-- 隐私授权与儿童保护要求。
-
-## 15. 性能策略
-
-### 15.1 目标
-
-首版策略是轻量、确定、可测，而不是追求桌面级材质效果。
-
-### 15.2 当前措施
-
-- 40 个网格对象，约 8.3k 顶点。
-- 重复辐条在 Blender 中合并为一个网格对象。
-- 无骨骼动画和蒙皮。
-- 拆装使用 Transform 插值，不使用刚体模拟。
-- 材质数量受控，无高成本透明材质。
-- 射线检测只在按下时执行。
-- 领域状态不在每帧分配集合。
-
-### 15.3 真机阶段必须测量
-
-- 初始包、分包和下载资源大小。
-- 首次进入和二次进入耗时。
-- 峰值内存。
-- 中低端设备帧率、发热和耗电。
-- Draw Call、SetPass、纹理显存和 Shader 变体。
-- 高频触摸下的 GC Alloc。
-- 切换多个模块后的资源释放。
-
-只有取得真机数据后才能确定最终预算。
-
-## 16. 隐私与儿童安全
-
-首版不需要账号、位置、相册、通讯录、麦克风和行为画像。除平台强制信息外，不主动收集个人信息。
-
-产品内容必须明确：
-
-- 这是科普模拟，不是实际维修认证。
-- 制动系统属于安全关键部件。
-- 真实拆装由监护人或专业技师指导。
-- 刚使用后的碟片可能高温。
-- 刹车油和污染物相关模拟不鼓励儿童自行操作真车。
-
-## 17. 测试架构
-
-| 层级 | 当前工具 | 覆盖内容 |
+| 层级 | 工具 | 当前覆盖 |
 | --- | --- | --- |
-| 领域单元测试 | .NET 8 控制台 | 步骤数、顺序、工具、完成状态、知识分层 |
-| 资产结构测试 | Blender Python | 名称、尺寸、几何统计 |
-| 导入检查 | Unity Editor Menu/CLI | FBX 对象名与目录定义 |
-| 交互测试 | Play Mode 手工测试 | 触摸、镜头、拖动、UI、存档 |
-| 平台测试 | 计划：微信开发者工具与真机 | 包体、性能、生命周期、音频和缓存 |
+| 领域与目录 | .NET 8 | 状态机、BOM、595 数量、三档计数、595 对象一一绑定 |
+| 源模型 | Blender Python | 唯一 ID、模块数量、尺寸、几何统计 |
+| 运行资产 | Blender Python | 14 个 LOD0 文件、文件大小、LOD 面数递减 |
+| 编辑器导入 | 待完整 Editor | C# 编译、FBX 名称、Play Mode |
+| 微信平台 | 待 AppID/工具 | 分包、内存、帧率、生命周期、触摸与音频 |
 
-当前领域测试不依赖 NUnit，便于没有编辑器时先验证业务规则。取得稳定编辑器环境后，可再增加 PlayMode/EditMode 自动化测试。
+自动化当前可以证明数据、几何和文件链闭合，但不能替代尚未执行的团结引擎导入与微信真机验证。
 
-## 18. 添加新机械模块
+## 11. 性能与微信演进
 
-建议的目标接口：
+当前 FBX 总量约数 MB，几何量对桌面样片可控，但 595 个 GameObject、Collider 和 IMGUI 不应直接作为微信量产终态。平台阶段应实施：
+
+1. 整车默认加载 LOD1。
+2. 当前模块切换到 LOD0，其他模块保留 LOD1 或 LOD2。
+3. 只为当前交互模块启用碰撞热区。
+4. 模块 FBX 进入微信分包或版本化远程资源。
+5. 合并材质、纹理图集、Shader 变体裁剪和移动端压缩。
+6. 用真机数据确定内存、Draw Call 和面数预算。
+
+## 12. 已知边界
+
+- 模型为程序化维修训练模型，不是任何厂商 CAD，也不含制造公差和材料仿真。
+- 曲面、铸件外形、齿片镂空和线缆走向仍可继续做美术级精修。
+- 自动生成知识文本需专家和教育编辑审核。
+- UI 仍是 IMGUI 样片，应迁移到 UGUI 或 UI Toolkit。
+- 当前运行时全量加载 LOD0；按需模块加载接口是微信接入前的高优先级工作。
+- 已通过本机团结引擎 Editor 编译与 Play Mode；尚未执行微信导出和真机验证。
+
+## 13. 新增机械模块
+
+建议每个新机械提供：
+
+1. 版本化模块 ID、尺寸基准和维修边界。
+2. 机器可读 BOM。
+3. Source / LOD0 / LOD1 / LOD2 资产。
+4. 稳定零件 ID 与模型清单。
+5. 三档交互目录和分层知识。
+6. 领域、尺寸、绑定和资源预算测试。
+7. 公开资料与资产许可记录。
+
+可进一步抽象：
 
 ```csharp
 public interface IMechanicalModule
 {
     string Id { get; }
-    string DisplayName { get; }
     DisassemblyPlan CreatePlan(DifficultyLevel difficulty);
-    IReadOnlyDictionary<string, string[]> CreateModelBindings(
-        DifficultyLevel difficulty);
+    IReadOnlyList<string> RuntimeResourceKeys { get; }
 }
 ```
 
-新增模块流程：
+小部件先组装再进入整机的需求，后续可用子计划表达：变速器或避震子计划完成后产出“总成”，整车计划再引用该总成。
 
-1. 明确模块范围和儿童知识目标。
-2. 收集公开维修资料并登记来源。
-3. 用真实单位制作模型和稳定对象名。
-4. 定义三档拆装粒度。
-5. 为每个零件填写分层知识。
-6. 添加领域、Blender 和导入测试。
-7. 配置资源包和模块入口。
-8. 在目标设备完成性能与可用性测试。
-
-对于“先组装小部件、再装成整机”的需求，计划用父子计划或装配子系统表达，例如：
-
-- 变速器子计划完成后生成“变速器总成”。
-- 避震子计划完成后生成“前叉总成”。
-- 整车计划依赖这些总成，而不重复所有内部步骤。
-
-## 19. 当前技术债务
-
-1. UI 使用 IMGUI，尚未做正式 Prefab 和设计系统。
-2. `BikeModelView` 仍硬编码自行车对象映射。
-3. `MechMasterApp` 同时承担组合、流程和部分场景创建职责。
-4. `Resources` 加载不适合多模块和微信分包。
-5. 讲解音频尚未接入真实音频资产。
-6. 爆炸方向由步骤索引生成，尚未使用美术标注锚点。
-7. 目前使用 BoxCollider 自动点选，细小零件需要真机调整热区。
-8. 尚未验证团结引擎编译和微信导出。
-9. 本地存档没有 schema 迁移和损坏数据诊断。
-10. 没有内容管理后台或本地化工作流。
-
-这些问题不阻止验证核心玩法，但进入生产前必须按优先级处理。
-
-## 20. 架构决策摘要
-
-| 决策 | 选择 | 原因 |
-| --- | --- | --- |
-| 引擎语言 | C# | 团结引擎/Unity 原生脚本生态 |
-| 领域层 | 纯 C# | 可脱离引擎快速测试 |
-| 3D 单位 | 米制 1:1 | 保持机械比例可信 |
-| 难度 | 独立步骤目录 | 体现真实语义粒度，而非数值倍率 |
-| 组装顺序 | 拆解严格倒序 | 单一事实来源，避免流程漂移 |
-| 拆出表现 | 确定性爆炸图 | 易理解、低性能成本、便于恢复 |
-| 首版存档 | PlayerPrefs | 离线、简单，符合当前范围 |
-| 首版资源 | Resources | 快速验证；量产时替换 |
-| 3D 生成 | Blender Python | 可重复、可校验、易审查尺寸 |
-| 微信集成 | 适配层 | 防止平台 API 污染规则和内容 |
-
-## 21. 完成定义
-
-一个机械模块只有同时满足以下条件才算完成：
-
-- 结构与顺序有公开资料依据。
-- 模型使用真实单位并通过尺寸验证。
-- 所有可操作零件具有稳定逻辑 ID 和对象映射。
-- 三档难度都能完整拆解并倒序组装。
-- 错误顺序和错误工具不会推进状态。
-- 科普文本适合对应年龄且包含安全边界。
-- 领域测试、资产测试和导入测试通过。
-- 新资产来源和许可证已记录。
-- 在目标微信设备上满足最终确定的包体、内存和帧率预算。
-
-## 22. 相关文档
+## 14. 相关文档
 
 - [项目说明](../README.md)
+- [整车工程 BOM](ENGINEERING_BOM.md)
 - [产品规格](PRODUCT_SPEC.md)
 - [开发与验证](DEVELOPMENT.md)
 - [资料来源](References/SOURCES.md)
-- [音频资产规范](../Assets/Audio/README.md)
-

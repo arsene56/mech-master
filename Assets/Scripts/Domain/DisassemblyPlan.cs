@@ -78,23 +78,20 @@ namespace MechMaster.Domain
                     null);
             }
 
-            PartDefinition expected = ExpectedPart;
-            if (expected == null)
+            bool alreadyRemoved = removedPartIds.Contains(part.Id);
+            if (Mode == AssemblyMode.Disassemble && alreadyRemoved)
             {
-                string completeMessage = Mode == AssemblyMode.Disassemble
-                    ? "拆解已经完成，可以开始组装。"
-                    : "组装已经完成。";
                 return OperationResult.Failed(
                     OperationFailure.AlreadyComplete,
-                    completeMessage,
+                    "“" + part.DisplayName + "”已经拆下并存放在分类托盘中。",
                     part);
             }
 
-            if (!string.Equals(expected.Id, part.Id, StringComparison.Ordinal))
+            if (Mode == AssemblyMode.Assemble && !alreadyRemoved)
             {
                 return OperationResult.Failed(
-                    OperationFailure.WrongOrder,
-                    "先观察连接关系，下一步应处理“" + expected.DisplayName + "”。",
+                    OperationFailure.AlreadyComplete,
+                    "“" + part.DisplayName + "”已经安装在整车上。",
                     part);
             }
 
@@ -138,4 +135,3 @@ namespace MechMaster.Domain
         }
     }
 }
-

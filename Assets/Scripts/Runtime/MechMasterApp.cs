@@ -8,7 +8,6 @@ namespace MechMaster.Runtime
     [DefaultExecutionOrder(-100)]
     public sealed class MechMasterApp : MonoBehaviour
     {
-        private const string BicycleResourceName = "BicyclePrototype";
         private GameObject modelInstance;
         private BikeModelView bikeModelView;
         private FeedbackAudio feedbackAudio;
@@ -46,6 +45,11 @@ namespace MechMaster.Runtime
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            if (Application.isEditor)
+            {
+                QualitySettings.antiAliasing = 8;
+                QualitySettings.anisotropicFiltering = AnisotropicFiltering.ForceEnable;
+            }
             feedbackAudio = gameObject.AddComponent<FeedbackAudio>();
             narrator = gameObject.AddComponent<VoiceNarrator>();
             narrator.Enabled = LocalProgressStore.LoadNarrationEnabled();
@@ -56,6 +60,13 @@ namespace MechMaster.Runtime
             interaction.Initialize(sceneCamera);
             gameObject.AddComponent<PrototypeUI>();
             CreatePlan(LocalProgressStore.LoadDifficulty(), true);
+            Debug.Log(
+                "MECH_MASTER_RENDER_INFO screen=" + Screen.width + "x" + Screen.height
+                + ", current=" + Screen.currentResolution.width + "x"
+                + Screen.currentResolution.height
+                + ", dpi=" + Screen.dpi
+                + ", quality=" + QualitySettings.names[QualitySettings.GetQualityLevel()]
+                + ", msaa=" + QualitySettings.antiAliasing);
         }
 
         public void SetDifficulty(DifficultyLevel difficulty)
@@ -90,7 +101,9 @@ namespace MechMaster.Runtime
                 }
 
                 SelectedPart = part;
-                StatusMessage = "已选中“" + part.DisplayName + "”，拖动并松手即可操作。";
+                StatusMessage = "已选中“" + part.DisplayName + "”；使用“"
+                    + DisassemblyPlan.ToolDisplayName(part.RequiredTool)
+                    + "”后，可按任意顺序进行拖放。";
                 narrator.Speak(part.DisplayName + "。" + part.GetKnowledge(Plan.Difficulty));
                 NotifyStateChanged();
                 return;
@@ -108,9 +121,16 @@ namespace MechMaster.Runtime
 
             if (result.Succeeded)
             {
+                if (Plan.Mode == AssemblyMode.Disassemble)
+                {
+                    StatusMessage = result.Message + " 已放入“"
+                        + BicycleAssemblyInfo.DisplayName(result.Part.AssemblyId)
+                        + "”分类托盘。";
+                }
+
                 feedbackAudio.PlaySuccess();
                 bikeModelView.Refresh(Plan, false);
-                narrator.Speak(result.Message);
+                narrator.Speak(StatusMessage);
             }
             else
             {
@@ -120,20 +140,63 @@ namespace MechMaster.Runtime
             SaveAndNotify();
         }
 
+        public void SetTrayHover(
+            string assemblyId,
+            bool correctAssembly,
+            bool ready)
+        {
+            if (bikeModelView != null)
+            {
+                bikeModelView.SetTrayHighlight(assemblyId, correctAssembly, ready);
+            }
+        }
+
+        public void RejectTrayDrop(string partId, string hoveredAssemblyId)
+        {
+            PartDefinition part = FindPart(partId);
+            if (part == null)
+            {
+                return;
+            }
+
+            StatusMessage = string.IsNullOrEmpty(hoveredAssemblyId)
+                ? "请把“" + part.DisplayName + "”拖到下方“"
+                  + BicycleAssemblyInfo.DisplayName(part.AssemblyId) + "”分类槽位，变色后再松手。"
+                : "这里是“" + BicycleAssemblyInfo.DisplayName(hoveredAssemblyId)
+                  + "”槽位；“" + part.DisplayName + "”应放入“"
+                  + BicycleAssemblyInfo.DisplayName(part.AssemblyId) + "”槽位。";
+            feedbackAudio.PlayError();
+            NotifyStateChanged();
+        }
+
+        public void RejectAssemblyDrop(string partId)
+        {
+            PartDefinition part = FindPart(partId);
+            if (part == null)
+            {
+                return;
+            }
+
+            StatusMessage = "组装时请把“" + part.DisplayName
+                + "”从分类托盘拖回上方整车区域后再松手。";
+            feedbackAudio.PlayError();
+            NotifyStateChanged();
+        }
+
         public void ToggleMode()
         {
             if (Plan.Mode == AssemblyMode.Disassemble)
             {
                 if (!Plan.IsDisassemblyComplete)
                 {
-                    StatusMessage = "请先完成拆解，再开始倒序组装。";
+                    StatusMessage = "请先完成拆解，再开始组装。";
                     feedbackAudio.PlayError();
                     NotifyStateChanged();
                     return;
                 }
 
                 Plan.SetMode(AssemblyMode.Assemble);
-                StatusMessage = "进入组装模式，请按拆解的相反顺序装回。";
+                StatusMessage = "进入组装模式，可从托盘中任选零件装回。";
             }
             else
             {
@@ -177,7 +240,7 @@ namespace MechMaster.Runtime
 
         private void CreatePlan(DifficultyLevel difficulty, bool restoreProgress)
         {
-            Plan = FrontBrakeCatalog.CreatePlan(difficulty);
+            Plan = EngineeringBicycleCatalogLoader.CreatePlan(difficulty);
             if (restoreProgress)
             {
                 RestoreProgress();
@@ -185,12 +248,37 @@ namespace MechMaster.Runtime
 
             SelectedPart = Plan.ExpectedPart ?? Plan.Steps[0];
             StatusMessage = DifficultyDisplayName(difficulty)
-                + "已就绪：选择工具，再拖动目标零件并松手。";
+                + "已就绪：零件可自由选择；选择匹配工具后拖入分类托盘。";
             LoadModel();
             SaveAndNotify();
         }
 
         private void RestoreProgress()
+        {
+            string[] savedPartIds = LocalProgressStore.LoadRemovedPartIds(Plan.Difficulty);
+            if (savedPartIds.Length > 0)
+            {
+                foreach (string partId in savedPartIds)
+                {
+                    PartDefinition part = FindPart(partId);
+                    if (part != null)
+                    {
+                        Plan.TryOperate(part.Id, part.RequiredTool);
+                    }
+                }
+            }
+            else
+            {
+                RestoreLegacyProgressCount();
+            }
+
+            if (LocalProgressStore.LoadMode(Plan.Difficulty) == AssemblyMode.Assemble)
+            {
+                Plan.SetMode(AssemblyMode.Assemble);
+            }
+        }
+
+        private void RestoreLegacyProgressCount()
         {
             int removedCount = Mathf.Clamp(
                 LocalProgressStore.LoadRemovedCount(Plan.Difficulty),
@@ -202,11 +290,6 @@ namespace MechMaster.Runtime
                 PartDefinition part = Plan.Steps[index];
                 Plan.TryOperate(part.Id, part.RequiredTool);
             }
-
-            if (LocalProgressStore.LoadMode(Plan.Difficulty) == AssemblyMode.Assemble)
-            {
-                Plan.SetMode(AssemblyMode.Assemble);
-            }
         }
 
         private void LoadModel()
@@ -216,16 +299,22 @@ namespace MechMaster.Runtime
                 Destroy(modelInstance);
             }
 
-            GameObject prefab = Resources.Load<GameObject>(BicycleResourceName);
-            if (prefab == null)
+            modelInstance = new GameObject("BicycleEngineering_Runtime");
+            foreach (string resourcePath in EngineeringBicycleCatalogLoader.ModuleResourcePaths)
             {
-                StatusMessage = "未找到自行车模型 Assets/Resources/BicyclePrototype.fbx。";
-                Debug.LogError(StatusMessage);
-                return;
-            }
+                GameObject prefab = Resources.Load<GameObject>(resourcePath);
+                if (prefab == null)
+                {
+                    StatusMessage = "未找到工程自行车模块：" + resourcePath;
+                    Debug.LogError(StatusMessage);
+                    Destroy(modelInstance);
+                    modelInstance = null;
+                    return;
+                }
 
-            modelInstance = Instantiate(prefab);
-            modelInstance.name = "BicyclePrototype_Runtime";
+                GameObject module = Instantiate(prefab, modelInstance.transform, false);
+                module.name = prefab.name;
+            }
             modelInstance.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
             modelInstance.transform.localScale = Vector3.one;
             bikeModelView = modelInstance.AddComponent<BikeModelView>();
@@ -258,6 +347,8 @@ namespace MechMaster.Runtime
             sceneCamera.nearClipPlane = 0.03f;
             sceneCamera.farClipPlane = 100f;
             sceneCamera.fieldOfView = 42f;
+            sceneCamera.allowHDR = true;
+            sceneCamera.allowMSAA = true;
             if (sceneCamera.GetComponent<OrbitCameraController>() == null)
             {
                 sceneCamera.gameObject.AddComponent<OrbitCameraController>();
@@ -295,6 +386,24 @@ namespace MechMaster.Runtime
             StateChanged?.Invoke();
         }
 
+        private PartDefinition FindPart(string partId)
+        {
+            if (Plan == null)
+            {
+                return null;
+            }
+
+            foreach (PartDefinition part in Plan.Steps)
+            {
+                if (string.Equals(part.Id, partId, StringComparison.Ordinal))
+                {
+                    return part;
+                }
+            }
+
+            return null;
+        }
+
         private static string DifficultyDisplayName(DifficultyLevel difficulty)
         {
             switch (difficulty)
@@ -309,4 +418,3 @@ namespace MechMaster.Runtime
         }
     }
 }
-

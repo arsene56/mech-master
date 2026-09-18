@@ -12,12 +12,15 @@ PlayerSettings:
   defaultScreenWidthWeb: 1920
   defaultScreenHeightWeb: 1080
   m_ActiveColorSpace: 1
+  activeInputHandler: 0
   use32BitDisplayBuffer: 1
   resizableWindow: 1
   runInBackground: 1
   captureSingleScreen: 0
   stripEngineCode: 1
-  managedStrippingLevel: 1
+  managedStrippingLevel:
+    Standalone: 1
+    WebGL: 1
   scriptingBackend:
     WebGL: 1
   il2cppCompilerConfiguration: {}
@@ -26,4 +29,3 @@ PlayerSettings:
     WebGL: com.mechmaster.prototype
   AndroidBundleVersionCode: 1
   bundleVersion: 0.1.0
-

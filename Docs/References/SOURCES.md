@@ -17,7 +17,11 @@
 ## 自行车维修资料
 
 - [Shimano Technical Documents](https://si.shimano.com/)
+- [Shimano BR-MT200 / SM-BH59 / SM-RT26 爆炸图](https://si.shimano.com/en/pdfs/ev/BR-MT200-4349/EV-BR-MT200-4349D.pdf)
 - [SRAM Service](https://www.sram.com/en/service)
+- [SRAM Boost 110/148 花鼓尺寸图](https://www.sram.com/globalassets/document-hierarchy/frame-fit-specifications/mtb/gen.0000000005566-2018-rev-a-mtb-road-hubs-build-specifications.pdf)
+- [SRAM Guide RE 液压卡钳维修手册](https://www.sram.com/globalassets/document-hierarchy/service-manuals/sram-mtb/brakes/gen.0000000005128-rev-a-guide-re-service-manual-english)
+- [Schwalbe 57-584 轮胎规格](https://www.schwalbe.com/en/tube-search)
 - [Park Tool Repair Help](https://www.parktool.com/en-int/blog/repair-help)
 - ISO 4210 自行车安全要求：只用于核对安全术语和设计边界，标准正文需通过合法渠道取得。
 
@@ -36,4 +40,3 @@
 每个正式发布模块应记录模块名称和版本、参考厂商与手册编号、手册版本、采用的顺序、差异说明、复核人、复核日期和全部资产许可证。
 
 在未完成上述记录前，内容只能视为研发样片，不能宣称为特定产品的维修教程。
-

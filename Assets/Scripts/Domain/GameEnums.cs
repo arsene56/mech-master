@@ -24,9 +24,7 @@ namespace MechMaster.Domain
     {
         None,
         UnknownPart,
-        WrongOrder,
         WrongTool,
         AlreadyComplete
     }
 }
-

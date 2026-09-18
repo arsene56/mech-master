@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "bike.hardtail.27_5.2x10.v1",
+  "sourcePartObjects": 595,
+  "moduleLod0": [
+    {
+      "assemblyId": "frame",
+      "resourcePath": "Models/Bicycle/Modules/frame_LOD0",
+      "partObjects": 22,
+      "sourcePolygons": 2684,
+      "bytes": 206236
+    },
+    {
+      "assemblyId": "cockpit_headset",
+      "resourcePath": "Models/Bicycle/Modules/cockpit_headset_LOD0",
+      "partObjects": 24,
+      "sourcePolygons": 13456,
+      "bytes": 544828
+    },
+    {
+      "assemblyId": "fork",
+      "resourcePath": "Models/Bicycle/Modules/fork_LOD0",
+      "partObjects": 28,
+      "sourcePolygons": 4136,
+      "bytes": 257836
+    },
+    {
+      "assemblyId": "wheel_front",
+      "resourcePath": "Models/Bicycle/Modules/wheel_front_LOD0",
+      "partObjects": 90,
+      "sourcePolygons": 18872,
+      "bytes": 991852
+    },
+    {
+      "assemblyId": "wheel_rear",
+      "resourcePath": "Models/Bicycle/Modules/wheel_rear_LOD0",
+      "partObjects": 120,
+      "sourcePolygons": 25676,
+      "bytes": 1242348
+    },
+    {
+      "assemblyId": "brake_front",
+      "resourcePath": "Models/Bicycle/Modules/brake_front_LOD0",
+      "partObjects": 37,
+      "sourcePolygons": 5928,
+      "bytes": 350684
+    },
+    {
+      "assemblyId": "brake_rear",
+      "resourcePath": "Models/Bicycle/Modules/brake_rear_LOD0",
+      "partObjects": 37,
+      "sourcePolygons": 5928,
+      "bytes": 350300
+    },
+    {
+      "assemblyId": "crank_bottom_bracket",
+      "resourcePath": "Models/Bicycle/Modules/crank_bottom_bracket_LOD0",
+      "partObjects": 25,
+      "sourcePolygons": 4884,
+      "bytes": 234060
+    },
+    {
+      "assemblyId": "front_derailleur",
+      "resourcePath": "Models/Bicycle/Modules/front_derailleur_LOD0",
+      "partObjects": 14,
+      "sourcePolygons": 2606,
+      "bytes": 151420
+    },
+    {
+      "assemblyId": "rear_derailleur",
+      "resourcePath": "Models/Bicycle/Modules/rear_derailleur_LOD0",
+      "partObjects": 26,
+      "sourcePolygons": 2716,
+      "bytes": 195468
+    },
+    {
+      "assemblyId": "chain",
+      "resourcePath": "Models/Bicycle/Modules/chain_LOD0",
+      "partObjects": 112,
+      "sourcePolygons": 10976,
+      "bytes": 728524
+    },
+    {
+      "assemblyId": "pedals",
+      "resourcePath": "Models/Bicycle/Modules/pedals_LOD0",
+      "partObjects": 32,
+      "sourcePolygons": 2060,
+      "bytes": 185580
+    },
+    {
+      "assemblyId": "saddle_seatpost",
+      "resourcePath": "Models/Bicycle/Modules/saddle_seatpost_LOD0",
+      "partObjects": 12,
+      "sourcePolygons": 1798,
+      "bytes": 123228
+    },
+    {
+      "assemblyId": "controls_cables",
+      "resourcePath": "Models/Bicycle/Modules/controls_cables_LOD0",
+      "partObjects": 16,
+      "sourcePolygons": 2632,
+      "bytes": 170012
+    }
+  ],
+  "wholeBikeLod1": {
+    "resourcePath": "Models/Bicycle/BicycleEngineering_LOD1",
+    "objects": 14,
+    "polygons": 59487,
+    "bytes": 2569708
+  },
+  "wholeBikeLod2": {
+    "resourcePath": "Models/Bicycle/BicycleEngineering_LOD2",
+    "objects": 1,
+    "polygons": 21657,
+    "bytes": 979708
+  }
+}

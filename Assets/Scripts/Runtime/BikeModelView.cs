@@ -10,13 +10,20 @@ namespace MechMaster.Runtime
     {
         private readonly Dictionary<string, MechanicalPartView> parts =
             new Dictionary<string, MechanicalPartView>(StringComparer.Ordinal);
+        private readonly Dictionary<string, Renderer> trayRenderers =
+            new Dictionary<string, Renderer>(StringComparer.Ordinal);
         private Dictionary<string, Transform> namedTransforms;
+        private string highlightedTrayAssemblyId;
+        private bool highlightedTrayCorrect;
+        private bool highlightedTrayReady;
 
         public IReadOnlyDictionary<string, MechanicalPartView> Parts => parts;
 
         public void Bind(DisassemblyPlan plan)
         {
             parts.Clear();
+            Dictionary<string, int> assemblySlotIndices =
+                new Dictionary<string, int>(StringComparer.Ordinal);
             namedTransforms = GetComponentsInChildren<Transform>(true)
                 .GroupBy(item => item.name, StringComparer.Ordinal)
                 .ToDictionary(group => group.Key, group => group.First(), StringComparer.Ordinal);
@@ -24,7 +31,7 @@ namespace MechMaster.Runtime
             for (int index = 0; index < plan.Steps.Count; index++)
             {
                 PartDefinition definition = plan.Steps[index];
-                string[] objectNames = ResolveObjectNames(definition.Id, plan.Difficulty);
+                string[] objectNames = ResolveObjectNames(definition, plan.Difficulty);
                 if (objectNames.Length == 0)
                 {
                     Debug.LogWarning("没有为零件配置模型映射：" + definition.Id);
@@ -44,22 +51,102 @@ namespace MechMaster.Runtime
 
                 Transform anchor = targets[0];
                 MechanicalPartView view = anchor.gameObject.AddComponent<MechanicalPartView>();
-                Vector3 direction = ExplodedDirection(index, plan.Steps.Count);
+                int slotIndex;
+                if (!assemblySlotIndices.TryGetValue(definition.AssemblyId, out slotIndex))
+                {
+                    slotIndex = 0;
+                }
+                assemblySlotIndices[definition.AssemblyId] = slotIndex + 1;
+                Vector3 trayPosition = BicycleAssemblyInfo.PartPosition(
+                    definition.AssemblyId,
+                    slotIndex);
+                Vector3 worldOffset = trayPosition - anchor.position;
                 List<Renderer> targetRenderers = targets
                     .SelectMany(target => target.GetComponentsInChildren<Renderer>(true))
                     .Distinct()
                     .ToList();
-                view.Initialize(definition, targets, targetRenderers, direction);
+                view.Initialize(definition, targets, targetRenderers, worldOffset);
 
-                Collider collider = anchor.GetComponent<Collider>();
-                if (collider == null)
+                foreach (Transform target in targets)
                 {
-                    BoxCollider boxCollider = anchor.gameObject.AddComponent<BoxCollider>();
-                    boxCollider.isTrigger = false;
+                    AttachPreciseHitTargets(target, view);
                 }
 
                 parts.Add(definition.Id, view);
             }
+
+            BuildDisplayTray();
+        }
+
+        private static void AttachPreciseHitTargets(
+            Transform target,
+            MechanicalPartView owner)
+        {
+            bool attached = false;
+            MeshFilter[] meshFilters = target.GetComponentsInChildren<MeshFilter>(true);
+            foreach (MeshFilter meshFilter in meshFilters)
+            {
+                if (meshFilter.sharedMesh == null)
+                {
+                    continue;
+                }
+
+                MeshCollider meshCollider = meshFilter.GetComponent<MeshCollider>();
+                if (meshCollider == null)
+                {
+                    meshCollider = meshFilter.gameObject.AddComponent<MeshCollider>();
+                }
+                meshCollider.sharedMesh = meshFilter.sharedMesh;
+                meshCollider.convex = false;
+                meshCollider.isTrigger = false;
+                AttachHitProxy(meshFilter.gameObject, owner);
+                attached = true;
+            }
+
+            SkinnedMeshRenderer[] skinnedRenderers =
+                target.GetComponentsInChildren<SkinnedMeshRenderer>(true);
+            foreach (SkinnedMeshRenderer skinnedRenderer in skinnedRenderers)
+            {
+                if (skinnedRenderer.sharedMesh == null)
+                {
+                    continue;
+                }
+
+                MeshCollider meshCollider = skinnedRenderer.GetComponent<MeshCollider>();
+                if (meshCollider == null)
+                {
+                    meshCollider = skinnedRenderer.gameObject.AddComponent<MeshCollider>();
+                }
+                meshCollider.sharedMesh = skinnedRenderer.sharedMesh;
+                meshCollider.convex = false;
+                meshCollider.isTrigger = false;
+                AttachHitProxy(skinnedRenderer.gameObject, owner);
+                attached = true;
+            }
+
+            if (attached)
+            {
+                return;
+            }
+
+            // Non-mesh helper objects still need a small selectable volume.
+            BoxCollider fallback = target.GetComponent<BoxCollider>();
+            if (fallback == null)
+            {
+                fallback = target.gameObject.AddComponent<BoxCollider>();
+            }
+            fallback.isTrigger = false;
+            AttachHitProxy(target.gameObject, owner);
+        }
+
+        private static void AttachHitProxy(GameObject target, MechanicalPartView owner)
+        {
+            MechanicalPartHitProxy proxy = target.GetComponent<MechanicalPartHitProxy>();
+            if (proxy == null)
+            {
+                proxy = target.AddComponent<MechanicalPartHitProxy>();
+            }
+            proxy.Initialize(owner);
         }
 
         public void Refresh(DisassemblyPlan plan, bool immediate)
@@ -70,6 +157,7 @@ namespace MechMaster.Runtime
                 if (parts.TryGetValue(part.Id, out view))
                 {
                     view.SetRemoved(plan.IsRemoved(part.Id), immediate);
+                    view.SetExpected(false);
                 }
             }
         }
@@ -80,16 +168,123 @@ namespace MechMaster.Runtime
             return parts.TryGetValue(partId, out view) ? view : null;
         }
 
-        private static Vector3 ExplodedDirection(int index, int count)
+        public void SetTrayHighlight(
+            string assemblyId,
+            bool correctAssembly,
+            bool ready)
         {
-            float angle = Mathf.Lerp(-65f, 65f, count <= 1 ? 0.5f : index / (float)(count - 1));
-            Vector3 radial = Quaternion.Euler(0f, angle, 0f) * new Vector3(0.35f, 0.12f, 0.12f);
-            radial.y -= 0.18f + index * 0.025f;
-            return radial;
+            if (string.Equals(
+                    highlightedTrayAssemblyId,
+                    assemblyId,
+                    StringComparison.Ordinal)
+                && highlightedTrayCorrect == correctAssembly
+                && highlightedTrayReady == ready)
+            {
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(highlightedTrayAssemblyId))
+            {
+                ApplyTrayColor(highlightedTrayAssemblyId, DefaultTrayColor(highlightedTrayAssemblyId));
+            }
+
+            highlightedTrayAssemblyId = assemblyId;
+            highlightedTrayCorrect = correctAssembly;
+            highlightedTrayReady = ready;
+            if (string.IsNullOrEmpty(assemblyId))
+            {
+                return;
+            }
+
+            Color color = !correctAssembly
+                ? new Color(0.72f, 0.08f, 0.08f, 1f)
+                : ready
+                    ? new Color(0.06f, 0.8f, 0.28f, 1f)
+                    : new Color(0.9f, 0.46f, 0.04f, 1f);
+            ApplyTrayColor(assemblyId, color);
         }
 
-        private static string[] ResolveObjectNames(string partId, DifficultyLevel difficulty)
+        private void BuildDisplayTray()
         {
+            trayRenderers.Clear();
+            highlightedTrayAssemblyId = null;
+            highlightedTrayCorrect = false;
+            highlightedTrayReady = false;
+            Transform existing = transform.Find("DisassembledPartsTray");
+            if (existing != null)
+            {
+                Destroy(existing.gameObject);
+            }
+
+            GameObject trayRoot = new GameObject("DisassembledPartsTray");
+            trayRoot.transform.SetParent(transform, false);
+            Shader trayShader = Shader.Find("Standard");
+            Material trayMaterial = trayShader == null ? null : new Material(trayShader);
+            if (trayMaterial != null)
+            {
+                trayMaterial.color = new Color(0.055f, 0.085f, 0.11f, 1f);
+            }
+
+            for (int index = 0; index < BicycleAssemblyInfo.OrderedIds.Length; index++)
+            {
+                string assemblyId = BicycleAssemblyInfo.OrderedIds[index];
+                GameObject cell = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                cell.name = "TrayCell_" + assemblyId;
+                cell.transform.SetParent(trayRoot.transform, false);
+                cell.transform.localPosition =
+                    BicycleAssemblyInfo.TrayCellPosition(assemblyId) + new Vector3(0f, -0.02f, 0f);
+                cell.transform.localScale = new Vector3(0.34f, 0.025f, 0.25f);
+
+                Collider collider = cell.GetComponent<Collider>();
+                if (collider != null)
+                {
+                    cell.layer = 2;
+                    Destroy(collider);
+                }
+
+                Renderer cellRenderer = cell.GetComponent<Renderer>();
+                if (cellRenderer != null && trayMaterial != null)
+                {
+                    cellRenderer.sharedMaterial = trayMaterial;
+                    trayRenderers[assemblyId] = cellRenderer;
+                    ApplyTrayColor(assemblyId, DefaultTrayColor(assemblyId));
+                }
+            }
+        }
+
+        private void ApplyTrayColor(string assemblyId, Color color)
+        {
+            Renderer targetRenderer;
+            if (!trayRenderers.TryGetValue(assemblyId, out targetRenderer)
+                || targetRenderer == null)
+            {
+                return;
+            }
+
+            MaterialPropertyBlock block = new MaterialPropertyBlock();
+            block.SetColor("_Color", color);
+            block.SetColor("_BaseColor", color);
+            targetRenderer.SetPropertyBlock(block);
+        }
+
+        private static Color DefaultTrayColor(string assemblyId)
+        {
+            int index = BicycleAssemblyInfo.IndexOf(assemblyId);
+            return index % 2 == 0
+                ? new Color(0.07f, 0.12f, 0.16f, 1f)
+                : new Color(0.055f, 0.095f, 0.13f, 1f);
+        }
+
+        private static string[] ResolveObjectNames(
+            PartDefinition definition,
+            DifficultyLevel difficulty)
+        {
+            if (definition.ModelObjectNames.Count > 0)
+            {
+                return definition.ModelObjectNames.ToArray();
+            }
+
+            string partId = definition.Id;
             switch (partId)
             {
                 case "front_thru_axle":
@@ -134,4 +329,3 @@ namespace MechMaster.Runtime
         }
     }
 }
-

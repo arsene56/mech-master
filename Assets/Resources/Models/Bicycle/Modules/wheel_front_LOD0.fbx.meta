@@ -1,0 +1,861 @@
+fileFormatVersion: 2
+guid: DigbsXmlVnvlwd/WmgV+rNUk3JHDLhgPRYn7iB6lbFlSOZ5oVVdHD5Y=
+ModelImporter:
+  serializedVersion: 22361
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    aCLCompressionLevel: 3
+    aCLCurvePrecision: 0.01
+    aCLFastSampleMode: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+    tuanjieGIEnable: 0
+    tuanjieGIGenSDFFactor: 1
+    tuanjieGIGenSDFBias: 0.25
+    tuanjieGIDoubleSidedMode: 0
+    tuanjieGIGenFacetNums: 12
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    totalVerticesCount: 23938
+    totalTrianglesCount: 38352
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  virtualGeometry:
+    virtualGeometry: 0
+    useTransparent: 0
+    setVGForeachMesh: 0
+    isFirstUse: 1
+    virtualGeometrySettings:
+      generateGeometryBuffer: 0
+      surfaceCompensation: 0
+      allMeshUse: 1
+      ignoreSimpleMesh: 0
+      transformScaleState: 0
+      isPossibleOverflow: 0
+      hasBoneData: 0
+      isBoneCountOverflow: 0
+    virtualGeometryPlatformSettings: []
+    selectedVGMeshes:
+    - index: 0
+      meshName: MM_wheel_front_hub_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 1
+      meshName: MM_wheel_front_hub_bearing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 2
+      meshName: MM_wheel_front_hub_bearing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 3
+      meshName: MM_wheel_front_hub_end_cap_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 4
+      meshName: MM_wheel_front_hub_end_cap_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 5
+      meshName: MM_wheel_front_hub_shell
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 6
+      meshName: MM_wheel_front_inner_tube
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 7
+      meshName: MM_wheel_front_nipple_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 8
+      meshName: MM_wheel_front_nipple_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 9
+      meshName: MM_wheel_front_nipple_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 10
+      meshName: MM_wheel_front_nipple_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 11
+      meshName: MM_wheel_front_nipple_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 12
+      meshName: MM_wheel_front_nipple_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 13
+      meshName: MM_wheel_front_nipple_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 14
+      meshName: MM_wheel_front_nipple_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 15
+      meshName: MM_wheel_front_nipple_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 16
+      meshName: MM_wheel_front_nipple_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 17
+      meshName: MM_wheel_front_nipple_11
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 18
+      meshName: MM_wheel_front_nipple_12
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 19
+      meshName: MM_wheel_front_nipple_13
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 20
+      meshName: MM_wheel_front_nipple_14
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 21
+      meshName: MM_wheel_front_nipple_15
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 22
+      meshName: MM_wheel_front_nipple_16
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 23
+      meshName: MM_wheel_front_nipple_17
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 24
+      meshName: MM_wheel_front_nipple_18
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 25
+      meshName: MM_wheel_front_nipple_19
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 26
+      meshName: MM_wheel_front_nipple_20
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 27
+      meshName: MM_wheel_front_nipple_21
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 28
+      meshName: MM_wheel_front_nipple_22
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 29
+      meshName: MM_wheel_front_nipple_23
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 30
+      meshName: MM_wheel_front_nipple_24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 31
+      meshName: MM_wheel_front_nipple_25
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 32
+      meshName: MM_wheel_front_nipple_26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 33
+      meshName: MM_wheel_front_nipple_27
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 34
+      meshName: MM_wheel_front_nipple_28
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 35
+      meshName: MM_wheel_front_nipple_29
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 36
+      meshName: MM_wheel_front_nipple_30
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 37
+      meshName: MM_wheel_front_nipple_31
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 38
+      meshName: MM_wheel_front_nipple_32
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 39
+      meshName: MM_wheel_front_rim
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 40
+      meshName: MM_wheel_front_rim_tape
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 41
+      meshName: MM_wheel_front_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 42
+      meshName: MM_wheel_front_rotor_bolt_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 43
+      meshName: MM_wheel_front_rotor_bolt_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 44
+      meshName: MM_wheel_front_rotor_bolt_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 45
+      meshName: MM_wheel_front_rotor_bolt_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 46
+      meshName: MM_wheel_front_rotor_bolt_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 47
+      meshName: MM_wheel_front_rotor_bolt_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 48
+      meshName: MM_wheel_front_rotor_washer_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 49
+      meshName: MM_wheel_front_rotor_washer_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 50
+      meshName: MM_wheel_front_rotor_washer_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 51
+      meshName: MM_wheel_front_rotor_washer_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 52
+      meshName: MM_wheel_front_rotor_washer_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 53
+      meshName: MM_wheel_front_rotor_washer_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 54
+      meshName: MM_wheel_front_spoke_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 55
+      meshName: MM_wheel_front_spoke_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 56
+      meshName: MM_wheel_front_spoke_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 57
+      meshName: MM_wheel_front_spoke_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 58
+      meshName: MM_wheel_front_spoke_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 59
+      meshName: MM_wheel_front_spoke_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 60
+      meshName: MM_wheel_front_spoke_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 61
+      meshName: MM_wheel_front_spoke_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 62
+      meshName: MM_wheel_front_spoke_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 63
+      meshName: MM_wheel_front_spoke_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 64
+      meshName: MM_wheel_front_spoke_11
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 65
+      meshName: MM_wheel_front_spoke_12
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 66
+      meshName: MM_wheel_front_spoke_13
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 67
+      meshName: MM_wheel_front_spoke_14
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 68
+      meshName: MM_wheel_front_spoke_15
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 69
+      meshName: MM_wheel_front_spoke_16
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 70
+      meshName: MM_wheel_front_spoke_17
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 71
+      meshName: MM_wheel_front_spoke_18
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 72
+      meshName: MM_wheel_front_spoke_19
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 73
+      meshName: MM_wheel_front_spoke_20
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 74
+      meshName: MM_wheel_front_spoke_21
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 75
+      meshName: MM_wheel_front_spoke_22
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 76
+      meshName: MM_wheel_front_spoke_23
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 77
+      meshName: MM_wheel_front_spoke_24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 78
+      meshName: MM_wheel_front_spoke_25
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 79
+      meshName: MM_wheel_front_spoke_26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 80
+      meshName: MM_wheel_front_spoke_27
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 81
+      meshName: MM_wheel_front_spoke_28
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 82
+      meshName: MM_wheel_front_spoke_29
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 83
+      meshName: MM_wheel_front_spoke_30
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 84
+      meshName: MM_wheel_front_spoke_31
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 85
+      meshName: MM_wheel_front_spoke_32
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 86
+      meshName: MM_wheel_front_thru_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 87
+      meshName: MM_wheel_front_tire
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 88
+      meshName: MM_wheel_front_valve_core
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 89
+      meshName: MM_wheel_front_valve_nut
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    supportVGMeshes:
+    - index: 0
+      meshName: MM_wheel_front_hub_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 1
+      meshName: MM_wheel_front_hub_bearing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 2
+      meshName: MM_wheel_front_hub_bearing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 3
+      meshName: MM_wheel_front_hub_end_cap_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 4
+      meshName: MM_wheel_front_hub_end_cap_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 5
+      meshName: MM_wheel_front_hub_shell
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 6
+      meshName: MM_wheel_front_inner_tube
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 7
+      meshName: MM_wheel_front_nipple_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 8
+      meshName: MM_wheel_front_nipple_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 9
+      meshName: MM_wheel_front_nipple_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 10
+      meshName: MM_wheel_front_nipple_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 11
+      meshName: MM_wheel_front_nipple_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 12
+      meshName: MM_wheel_front_nipple_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 13
+      meshName: MM_wheel_front_nipple_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 14
+      meshName: MM_wheel_front_nipple_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 15
+      meshName: MM_wheel_front_nipple_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 16
+      meshName: MM_wheel_front_nipple_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 17
+      meshName: MM_wheel_front_nipple_11
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 18
+      meshName: MM_wheel_front_nipple_12
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 19
+      meshName: MM_wheel_front_nipple_13
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 20
+      meshName: MM_wheel_front_nipple_14
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 21
+      meshName: MM_wheel_front_nipple_15
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 22
+      meshName: MM_wheel_front_nipple_16
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 23
+      meshName: MM_wheel_front_nipple_17
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 24
+      meshName: MM_wheel_front_nipple_18
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 25
+      meshName: MM_wheel_front_nipple_19
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 26
+      meshName: MM_wheel_front_nipple_20
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 27
+      meshName: MM_wheel_front_nipple_21
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 28
+      meshName: MM_wheel_front_nipple_22
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 29
+      meshName: MM_wheel_front_nipple_23
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 30
+      meshName: MM_wheel_front_nipple_24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 31
+      meshName: MM_wheel_front_nipple_25
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 32
+      meshName: MM_wheel_front_nipple_26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 33
+      meshName: MM_wheel_front_nipple_27
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 34
+      meshName: MM_wheel_front_nipple_28
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 35
+      meshName: MM_wheel_front_nipple_29
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 36
+      meshName: MM_wheel_front_nipple_30
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 37
+      meshName: MM_wheel_front_nipple_31
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 38
+      meshName: MM_wheel_front_nipple_32
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 39
+      meshName: MM_wheel_front_rim
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 40
+      meshName: MM_wheel_front_rim_tape
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 41
+      meshName: MM_wheel_front_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 42
+      meshName: MM_wheel_front_rotor_bolt_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 43
+      meshName: MM_wheel_front_rotor_bolt_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 44
+      meshName: MM_wheel_front_rotor_bolt_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 45
+      meshName: MM_wheel_front_rotor_bolt_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 46
+      meshName: MM_wheel_front_rotor_bolt_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 47
+      meshName: MM_wheel_front_rotor_bolt_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 48
+      meshName: MM_wheel_front_rotor_washer_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 49
+      meshName: MM_wheel_front_rotor_washer_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 50
+      meshName: MM_wheel_front_rotor_washer_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 51
+      meshName: MM_wheel_front_rotor_washer_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 52
+      meshName: MM_wheel_front_rotor_washer_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 53
+      meshName: MM_wheel_front_rotor_washer_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 54
+      meshName: MM_wheel_front_spoke_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 55
+      meshName: MM_wheel_front_spoke_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 56
+      meshName: MM_wheel_front_spoke_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 57
+      meshName: MM_wheel_front_spoke_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 58
+      meshName: MM_wheel_front_spoke_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 59
+      meshName: MM_wheel_front_spoke_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 60
+      meshName: MM_wheel_front_spoke_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 61
+      meshName: MM_wheel_front_spoke_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 62
+      meshName: MM_wheel_front_spoke_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 63
+      meshName: MM_wheel_front_spoke_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 64
+      meshName: MM_wheel_front_spoke_11
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 65
+      meshName: MM_wheel_front_spoke_12
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 66
+      meshName: MM_wheel_front_spoke_13
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 67
+      meshName: MM_wheel_front_spoke_14
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 68
+      meshName: MM_wheel_front_spoke_15
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 69
+      meshName: MM_wheel_front_spoke_16
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 70
+      meshName: MM_wheel_front_spoke_17
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 71
+      meshName: MM_wheel_front_spoke_18
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 72
+      meshName: MM_wheel_front_spoke_19
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 73
+      meshName: MM_wheel_front_spoke_20
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 74
+      meshName: MM_wheel_front_spoke_21
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 75
+      meshName: MM_wheel_front_spoke_22
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 76
+      meshName: MM_wheel_front_spoke_23
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 77
+      meshName: MM_wheel_front_spoke_24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 78
+      meshName: MM_wheel_front_spoke_25
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 79
+      meshName: MM_wheel_front_spoke_26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 80
+      meshName: MM_wheel_front_spoke_27
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 81
+      meshName: MM_wheel_front_spoke_28
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 82
+      meshName: MM_wheel_front_spoke_29
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 83
+      meshName: MM_wheel_front_spoke_30
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 84
+      meshName: MM_wheel_front_spoke_31
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 85
+      meshName: MM_wheel_front_spoke_32
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 86
+      meshName: MM_wheel_front_thru_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 87
+      meshName: MM_wheel_front_tire
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 88
+      meshName: MM_wheel_front_valve_core
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 89
+      meshName: MM_wheel_front_valve_nut
+      lodLevel: 0
+      meshGeometryBuffer: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  overrideDefaultPose: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    namedPoseList:
+    - name: Default
+      skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    defaultPoseIndex: -1
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

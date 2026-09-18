@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using MechMaster.Domain;
 using UnityEngine;
 
@@ -33,6 +34,16 @@ namespace MechMaster.Runtime
             return Mathf.Max(0, PlayerPrefs.GetInt(ProgressKey(difficulty, "removed"), 0));
         }
 
+        public static string[] LoadRemovedPartIds(DifficultyLevel difficulty)
+        {
+            string value = PlayerPrefs.GetString(
+                ProgressKey(difficulty, "removedIds"),
+                string.Empty);
+            return string.IsNullOrEmpty(value)
+                ? new string[0]
+                : value.Split('|');
+        }
+
         public static AssemblyMode LoadMode(DifficultyLevel difficulty)
         {
             int value = PlayerPrefs.GetInt(
@@ -52,6 +63,17 @@ namespace MechMaster.Runtime
             PlayerPrefs.SetInt(Prefix + "tool", (int)tool);
             PlayerPrefs.SetInt(Prefix + "narration", narrationEnabled ? 1 : 0);
             PlayerPrefs.SetInt(ProgressKey(plan.Difficulty, "removed"), plan.RemovedCount);
+            var removedIds = new List<string>();
+            foreach (PartDefinition part in plan.Steps)
+            {
+                if (plan.IsRemoved(part.Id))
+                {
+                    removedIds.Add(part.Id);
+                }
+            }
+            PlayerPrefs.SetString(
+                ProgressKey(plan.Difficulty, "removedIds"),
+                string.Join("|", removedIds));
             PlayerPrefs.SetInt(ProgressKey(plan.Difficulty, "mode"), (int)plan.Mode);
             PlayerPrefs.Save();
         }
@@ -59,6 +81,7 @@ namespace MechMaster.Runtime
         public static void ClearProgress(DifficultyLevel difficulty)
         {
             PlayerPrefs.DeleteKey(ProgressKey(difficulty, "removed"));
+            PlayerPrefs.DeleteKey(ProgressKey(difficulty, "removedIds"));
             PlayerPrefs.DeleteKey(ProgressKey(difficulty, "mode"));
             PlayerPrefs.Save();
         }
@@ -69,4 +92,3 @@ namespace MechMaster.Runtime
         }
     }
 }
-

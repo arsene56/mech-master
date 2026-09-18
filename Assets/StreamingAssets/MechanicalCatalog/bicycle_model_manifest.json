@@ -1,0 +1,4177 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "bike.hardtail.27_5.2x10.v1",
+  "sourceAsset": "Assets/Art/Models/Source/BicycleEngineeringSource.blend",
+  "unit": "metre",
+  "partObjects": 595,
+  "meshObjects": 585,
+  "vertices": 105652,
+  "polygons": 101472,
+  "parts": [
+    {
+      "object": "MM_brake_front_bleed_o_ring",
+      "partId": "bike.brake_front.bleed_o_ring.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_bleed_screw",
+      "partId": "bike.brake_front.bleed_screw.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_brake_pad_1",
+      "partId": "bike.brake_front.brake_pad.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_brake_pad_2",
+      "partId": "bike.brake_front.brake_pad.02",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_caliper_body_bolt_1",
+      "partId": "bike.brake_front.caliper_body_bolt.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_caliper_body_bolt_2",
+      "partId": "bike.brake_front.caliper_body_bolt.02",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_caliper_half_1",
+      "partId": "bike.brake_front.caliper_half.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_caliper_half_2",
+      "partId": "bike.brake_front.caliper_half.02",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_caliper_piston_1",
+      "partId": "bike.brake_front.caliper_piston.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_caliper_piston_2",
+      "partId": "bike.brake_front.caliper_piston.02",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_piston_seal_1",
+      "partId": "bike.brake_front.caliper_piston_seal.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_piston_seal_2",
+      "partId": "bike.brake_front.caliper_piston_seal.02",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_compression_nut",
+      "partId": "bike.brake_front.compression_nut.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_connector_insert",
+      "partId": "bike.brake_front.connector_insert.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_hose",
+      "partId": "bike.brake_front.hose.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "CURVE"
+    },
+    {
+      "object": "MM_brake_front_lever_blade",
+      "partId": "bike.brake_front.lever_blade.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "CURVE"
+    },
+    {
+      "object": "MM_brake_front_lever_body",
+      "partId": "bike.brake_front.lever_body.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_lever_clamp",
+      "partId": "bike.brake_front.lever_clamp.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_lever_clamp_bolt",
+      "partId": "bike.brake_front.lever_clamp_bolt.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_lever_pivot",
+      "partId": "bike.brake_front.lever_pivot.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_master_piston",
+      "partId": "bike.brake_front.master_piston.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_master_seal_1",
+      "partId": "bike.brake_front.master_seal.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_master_seal_2",
+      "partId": "bike.brake_front.master_seal.02",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_mount_adapter",
+      "partId": "bike.brake_front.mount_adapter.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_mount_bolt_1",
+      "partId": "bike.brake_front.mount_bolt.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_mount_bolt_2",
+      "partId": "bike.brake_front.mount_bolt.02",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_mount_snap_ring_1",
+      "partId": "bike.brake_front.mount_snap_ring.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_mount_snap_ring_2",
+      "partId": "bike.brake_front.mount_snap_ring.02",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_olive",
+      "partId": "bike.brake_front.olive.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_pad_pin",
+      "partId": "bike.brake_front.pad_pin.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_pad_spring",
+      "partId": "bike.brake_front.pad_spring.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_reservoir_cap",
+      "partId": "bike.brake_front.reservoir_cap.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_reservoir_cap_bolt_1",
+      "partId": "bike.brake_front.reservoir_cap_bolt.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_reservoir_cap_bolt_2",
+      "partId": "bike.brake_front.reservoir_cap_bolt.02",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_reservoir_diaphragm",
+      "partId": "bike.brake_front.reservoir_diaphragm.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_retaining_clip",
+      "partId": "bike.brake_front.retaining_clip.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_front_return_spring",
+      "partId": "bike.brake_front.return_spring.01",
+      "assemblyId": "brake_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_bleed_o_ring",
+      "partId": "bike.brake_rear.bleed_o_ring.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_bleed_screw",
+      "partId": "bike.brake_rear.bleed_screw.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_brake_pad_1",
+      "partId": "bike.brake_rear.brake_pad.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_brake_pad_2",
+      "partId": "bike.brake_rear.brake_pad.02",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_caliper_body_bolt_1",
+      "partId": "bike.brake_rear.caliper_body_bolt.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_caliper_body_bolt_2",
+      "partId": "bike.brake_rear.caliper_body_bolt.02",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_caliper_half_1",
+      "partId": "bike.brake_rear.caliper_half.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_caliper_half_2",
+      "partId": "bike.brake_rear.caliper_half.02",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_caliper_piston_1",
+      "partId": "bike.brake_rear.caliper_piston.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_caliper_piston_2",
+      "partId": "bike.brake_rear.caliper_piston.02",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_piston_seal_1",
+      "partId": "bike.brake_rear.caliper_piston_seal.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_piston_seal_2",
+      "partId": "bike.brake_rear.caliper_piston_seal.02",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_compression_nut",
+      "partId": "bike.brake_rear.compression_nut.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_connector_insert",
+      "partId": "bike.brake_rear.connector_insert.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_hose",
+      "partId": "bike.brake_rear.hose.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "CURVE"
+    },
+    {
+      "object": "MM_brake_rear_lever_blade",
+      "partId": "bike.brake_rear.lever_blade.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "CURVE"
+    },
+    {
+      "object": "MM_brake_rear_lever_body",
+      "partId": "bike.brake_rear.lever_body.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_lever_clamp",
+      "partId": "bike.brake_rear.lever_clamp.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_lever_clamp_bolt",
+      "partId": "bike.brake_rear.lever_clamp_bolt.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_lever_pivot",
+      "partId": "bike.brake_rear.lever_pivot.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_master_piston",
+      "partId": "bike.brake_rear.master_piston.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_master_seal_1",
+      "partId": "bike.brake_rear.master_seal.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_master_seal_2",
+      "partId": "bike.brake_rear.master_seal.02",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_mount_adapter",
+      "partId": "bike.brake_rear.mount_adapter.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_mount_bolt_1",
+      "partId": "bike.brake_rear.mount_bolt.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_mount_bolt_2",
+      "partId": "bike.brake_rear.mount_bolt.02",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_mount_snap_ring_1",
+      "partId": "bike.brake_rear.mount_snap_ring.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_mount_snap_ring_2",
+      "partId": "bike.brake_rear.mount_snap_ring.02",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_olive",
+      "partId": "bike.brake_rear.olive.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_pad_pin",
+      "partId": "bike.brake_rear.pad_pin.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_pad_spring",
+      "partId": "bike.brake_rear.pad_spring.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_reservoir_cap",
+      "partId": "bike.brake_rear.reservoir_cap.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_reservoir_cap_bolt_1",
+      "partId": "bike.brake_rear.reservoir_cap_bolt.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_reservoir_cap_bolt_2",
+      "partId": "bike.brake_rear.reservoir_cap_bolt.02",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_reservoir_diaphragm",
+      "partId": "bike.brake_rear.reservoir_diaphragm.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_retaining_clip",
+      "partId": "bike.brake_rear.retaining_clip.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_brake_rear_return_spring",
+      "partId": "bike.brake_rear.return_spring.01",
+      "assemblyId": "brake_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_001",
+      "partId": "bike.chain.chain_link.001",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_002",
+      "partId": "bike.chain.chain_link.002",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_003",
+      "partId": "bike.chain.chain_link.003",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_004",
+      "partId": "bike.chain.chain_link.004",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_005",
+      "partId": "bike.chain.chain_link.005",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_006",
+      "partId": "bike.chain.chain_link.006",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_007",
+      "partId": "bike.chain.chain_link.007",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_008",
+      "partId": "bike.chain.chain_link.008",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_009",
+      "partId": "bike.chain.chain_link.009",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_010",
+      "partId": "bike.chain.chain_link.010",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_011",
+      "partId": "bike.chain.chain_link.011",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_012",
+      "partId": "bike.chain.chain_link.012",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_013",
+      "partId": "bike.chain.chain_link.013",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_014",
+      "partId": "bike.chain.chain_link.014",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_015",
+      "partId": "bike.chain.chain_link.015",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_016",
+      "partId": "bike.chain.chain_link.016",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_017",
+      "partId": "bike.chain.chain_link.017",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_018",
+      "partId": "bike.chain.chain_link.018",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_019",
+      "partId": "bike.chain.chain_link.019",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_020",
+      "partId": "bike.chain.chain_link.020",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_021",
+      "partId": "bike.chain.chain_link.021",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_022",
+      "partId": "bike.chain.chain_link.022",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_023",
+      "partId": "bike.chain.chain_link.023",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_024",
+      "partId": "bike.chain.chain_link.024",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_025",
+      "partId": "bike.chain.chain_link.025",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_026",
+      "partId": "bike.chain.chain_link.026",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_027",
+      "partId": "bike.chain.chain_link.027",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_028",
+      "partId": "bike.chain.chain_link.028",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_029",
+      "partId": "bike.chain.chain_link.029",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_030",
+      "partId": "bike.chain.chain_link.030",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_031",
+      "partId": "bike.chain.chain_link.031",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_032",
+      "partId": "bike.chain.chain_link.032",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_033",
+      "partId": "bike.chain.chain_link.033",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_034",
+      "partId": "bike.chain.chain_link.034",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_035",
+      "partId": "bike.chain.chain_link.035",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_036",
+      "partId": "bike.chain.chain_link.036",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_037",
+      "partId": "bike.chain.chain_link.037",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_038",
+      "partId": "bike.chain.chain_link.038",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_039",
+      "partId": "bike.chain.chain_link.039",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_040",
+      "partId": "bike.chain.chain_link.040",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_041",
+      "partId": "bike.chain.chain_link.041",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_042",
+      "partId": "bike.chain.chain_link.042",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_043",
+      "partId": "bike.chain.chain_link.043",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_044",
+      "partId": "bike.chain.chain_link.044",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_045",
+      "partId": "bike.chain.chain_link.045",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_046",
+      "partId": "bike.chain.chain_link.046",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_047",
+      "partId": "bike.chain.chain_link.047",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_048",
+      "partId": "bike.chain.chain_link.048",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_049",
+      "partId": "bike.chain.chain_link.049",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_050",
+      "partId": "bike.chain.chain_link.050",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_051",
+      "partId": "bike.chain.chain_link.051",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_052",
+      "partId": "bike.chain.chain_link.052",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_053",
+      "partId": "bike.chain.chain_link.053",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_054",
+      "partId": "bike.chain.chain_link.054",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_055",
+      "partId": "bike.chain.chain_link.055",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_056",
+      "partId": "bike.chain.chain_link.056",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_057",
+      "partId": "bike.chain.chain_link.057",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_058",
+      "partId": "bike.chain.chain_link.058",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_059",
+      "partId": "bike.chain.chain_link.059",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_060",
+      "partId": "bike.chain.chain_link.060",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_061",
+      "partId": "bike.chain.chain_link.061",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_062",
+      "partId": "bike.chain.chain_link.062",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_063",
+      "partId": "bike.chain.chain_link.063",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_064",
+      "partId": "bike.chain.chain_link.064",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_065",
+      "partId": "bike.chain.chain_link.065",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_066",
+      "partId": "bike.chain.chain_link.066",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_067",
+      "partId": "bike.chain.chain_link.067",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_068",
+      "partId": "bike.chain.chain_link.068",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_069",
+      "partId": "bike.chain.chain_link.069",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_070",
+      "partId": "bike.chain.chain_link.070",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_071",
+      "partId": "bike.chain.chain_link.071",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_072",
+      "partId": "bike.chain.chain_link.072",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_073",
+      "partId": "bike.chain.chain_link.073",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_074",
+      "partId": "bike.chain.chain_link.074",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_075",
+      "partId": "bike.chain.chain_link.075",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_076",
+      "partId": "bike.chain.chain_link.076",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_077",
+      "partId": "bike.chain.chain_link.077",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_078",
+      "partId": "bike.chain.chain_link.078",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_079",
+      "partId": "bike.chain.chain_link.079",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_080",
+      "partId": "bike.chain.chain_link.080",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_081",
+      "partId": "bike.chain.chain_link.081",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_082",
+      "partId": "bike.chain.chain_link.082",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_083",
+      "partId": "bike.chain.chain_link.083",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_084",
+      "partId": "bike.chain.chain_link.084",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_085",
+      "partId": "bike.chain.chain_link.085",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_086",
+      "partId": "bike.chain.chain_link.086",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_087",
+      "partId": "bike.chain.chain_link.087",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_088",
+      "partId": "bike.chain.chain_link.088",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_089",
+      "partId": "bike.chain.chain_link.089",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_090",
+      "partId": "bike.chain.chain_link.090",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_091",
+      "partId": "bike.chain.chain_link.091",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_092",
+      "partId": "bike.chain.chain_link.092",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_093",
+      "partId": "bike.chain.chain_link.093",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_094",
+      "partId": "bike.chain.chain_link.094",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_095",
+      "partId": "bike.chain.chain_link.095",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_096",
+      "partId": "bike.chain.chain_link.096",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_097",
+      "partId": "bike.chain.chain_link.097",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_098",
+      "partId": "bike.chain.chain_link.098",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_099",
+      "partId": "bike.chain.chain_link.099",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_100",
+      "partId": "bike.chain.chain_link.100",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_101",
+      "partId": "bike.chain.chain_link.101",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_102",
+      "partId": "bike.chain.chain_link.102",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_103",
+      "partId": "bike.chain.chain_link.103",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_104",
+      "partId": "bike.chain.chain_link.104",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_105",
+      "partId": "bike.chain.chain_link.105",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_106",
+      "partId": "bike.chain.chain_link.106",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_107",
+      "partId": "bike.chain.chain_link.107",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_108",
+      "partId": "bike.chain.chain_link.108",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_109",
+      "partId": "bike.chain.chain_link.109",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_link_110",
+      "partId": "bike.chain.chain_link.110",
+      "assemblyId": "chain",
+      "serviceBoundary": "visual-repeat",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_quick_link_1",
+      "partId": "bike.chain.quick_link.01",
+      "assemblyId": "chain",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_chain_quick_link_2",
+      "partId": "bike.chain.quick_link.02",
+      "assemblyId": "chain",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_bar_end_plug_1",
+      "partId": "bike.cockpit_headset.bar_end_plug.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_bar_end_plug_2",
+      "partId": "bike.cockpit_headset.bar_end_plug.02",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_compression_ring",
+      "partId": "bike.cockpit_headset.compression_ring.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_crown_race",
+      "partId": "bike.cockpit_headset.crown_race.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_grip_1",
+      "partId": "bike.cockpit_headset.grip.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_grip_2",
+      "partId": "bike.cockpit_headset.grip.02",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_handlebar",
+      "partId": "bike.cockpit_headset.handlebar.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_headset_bearing_1",
+      "partId": "bike.cockpit_headset.headset_bearing.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_headset_bearing_2",
+      "partId": "bike.cockpit_headset.headset_bearing.02",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_headset_spacer_1",
+      "partId": "bike.cockpit_headset.headset_spacer.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_headset_spacer_2",
+      "partId": "bike.cockpit_headset.headset_spacer.02",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_headset_spacer_3",
+      "partId": "bike.cockpit_headset.headset_spacer.03",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_star_nut",
+      "partId": "bike.cockpit_headset.star_nut.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "installed",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_stem_body",
+      "partId": "bike.cockpit_headset.stem_body.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_clamp_bolt_1",
+      "partId": "bike.cockpit_headset.stem_clamp_bolt.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_clamp_bolt_2",
+      "partId": "bike.cockpit_headset.stem_clamp_bolt.02",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_stem_faceplate",
+      "partId": "bike.cockpit_headset.stem_faceplate.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_faceplate_bolt_1",
+      "partId": "bike.cockpit_headset.stem_faceplate_bolt.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_faceplate_bolt_2",
+      "partId": "bike.cockpit_headset.stem_faceplate_bolt.02",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_faceplate_bolt_3",
+      "partId": "bike.cockpit_headset.stem_faceplate_bolt.03",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_faceplate_bolt_4",
+      "partId": "bike.cockpit_headset.stem_faceplate_bolt.04",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_top_cap",
+      "partId": "bike.cockpit_headset.top_cap.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_top_cap_bolt",
+      "partId": "bike.cockpit_headset.top_cap_bolt.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_cockpit_upper_cover",
+      "partId": "bike.cockpit_headset.upper_cover.01",
+      "assemblyId": "cockpit_headset",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_controls_cable_end_cap_1",
+      "partId": "bike.controls_cables.cable_end_cap.01",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_controls_cable_end_cap_2",
+      "partId": "bike.controls_cables.cable_end_cap.02",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_controls_ferrule_1",
+      "partId": "bike.controls_cables.housing_ferrule.01",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_controls_ferrule_2",
+      "partId": "bike.controls_cables.housing_ferrule.02",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_controls_ferrule_3",
+      "partId": "bike.controls_cables.housing_ferrule.03",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_controls_ferrule_4",
+      "partId": "bike.controls_cables.housing_ferrule.04",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_controls_ferrule_5",
+      "partId": "bike.controls_cables.housing_ferrule.05",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_controls_ferrule_6",
+      "partId": "bike.controls_cables.housing_ferrule.06",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_controls_ferrule_7",
+      "partId": "bike.controls_cables.housing_ferrule.07",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_controls_ferrule_8",
+      "partId": "bike.controls_cables.housing_ferrule.08",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_controls_housing_1",
+      "partId": "bike.controls_cables.shift_housing.01",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "CURVE"
+    },
+    {
+      "object": "MM_controls_housing_2",
+      "partId": "bike.controls_cables.shift_housing.02",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "CURVE"
+    },
+    {
+      "object": "MM_controls_inner_cable_1",
+      "partId": "bike.controls_cables.shift_inner_cable.01",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "CURVE"
+    },
+    {
+      "object": "MM_controls_inner_cable_2",
+      "partId": "bike.controls_cables.shift_inner_cable.02",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "individual",
+      "type": "CURVE"
+    },
+    {
+      "object": "MM_controls_shifter_1",
+      "partId": "bike.controls_cables.shifter.01",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_controls_shifter_2",
+      "partId": "bike.controls_cables.shifter.02",
+      "assemblyId": "controls_cables",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_bb_bearing_1",
+      "partId": "bike.crank_bottom_bracket.bottom_bracket_bearing.01",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_bb_bearing_2",
+      "partId": "bike.crank_bottom_bracket.bottom_bracket_bearing.02",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_bb_cup_1",
+      "partId": "bike.crank_bottom_bracket.bottom_bracket_cup.01",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_bb_cup_2",
+      "partId": "bike.crank_bottom_bracket.bottom_bracket_cup.02",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_bb_seal_1",
+      "partId": "bike.crank_bottom_bracket.bottom_bracket_seal.01",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_bb_seal_2",
+      "partId": "bike.crank_bottom_bracket.bottom_bracket_seal.02",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_bb_sleeve",
+      "partId": "bike.crank_bottom_bracket.bottom_bracket_sleeve.01",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_bb_spacer_1",
+      "partId": "bike.crank_bottom_bracket.bottom_bracket_spacer.01",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_bb_spacer_2",
+      "partId": "bike.crank_bottom_bracket.bottom_bracket_spacer.02",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_chainring_1",
+      "partId": "bike.crank_bottom_bracket.chainring.01",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_chainring_2",
+      "partId": "bike.crank_bottom_bracket.chainring.02",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_chainring_bolt_1",
+      "partId": "bike.crank_bottom_bracket.chainring_bolt.01",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_chainring_bolt_2",
+      "partId": "bike.crank_bottom_bracket.chainring_bolt.02",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_chainring_bolt_3",
+      "partId": "bike.crank_bottom_bracket.chainring_bolt.03",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_chainring_bolt_4",
+      "partId": "bike.crank_bottom_bracket.chainring_bolt.04",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_chainring_nut_1",
+      "partId": "bike.crank_bottom_bracket.chainring_nut.01",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_chainring_nut_2",
+      "partId": "bike.crank_bottom_bracket.chainring_nut.02",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_chainring_nut_3",
+      "partId": "bike.crank_bottom_bracket.chainring_nut.03",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_chainring_nut_4",
+      "partId": "bike.crank_bottom_bracket.chainring_nut.04",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_arm_1",
+      "partId": "bike.crank_bottom_bracket.crank_arm.01",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_arm_2",
+      "partId": "bike.crank_bottom_bracket.crank_arm.02",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_spindle",
+      "partId": "bike.crank_bottom_bracket.crank_spindle.01",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "installed",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_pinch_bolt_1",
+      "partId": "bike.crank_bottom_bracket.pinch_bolt.01",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_pinch_bolt_2",
+      "partId": "bike.crank_bottom_bracket.pinch_bolt.02",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_crank_preload_cap",
+      "partId": "bike.crank_bottom_bracket.preload_cap.01",
+      "assemblyId": "crank_bottom_bracket",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_air_piston",
+      "partId": "bike.fork.air_piston.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_air_seal_head",
+      "partId": "bike.fork.air_seal_head.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_air_shaft",
+      "partId": "bike.fork.air_shaft.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_air_top_cap",
+      "partId": "bike.fork.air_top_cap.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_air_valve_core",
+      "partId": "bike.fork.air_valve_core.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_compression_adjuster",
+      "partId": "bike.fork.compression_adjuster.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_crown",
+      "partId": "bike.fork.crown.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "installed",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_crush_washer_1",
+      "partId": "bike.fork.crush_washer.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_crush_washer_2",
+      "partId": "bike.fork.crush_washer.02",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_damper_cartridge",
+      "partId": "bike.fork.damper_cartridge.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_damper_top_cap",
+      "partId": "bike.fork.damper_top_cap.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_dust_wiper_1",
+      "partId": "bike.fork.dust_wiper.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_dust_wiper_2",
+      "partId": "bike.fork.dust_wiper.02",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_foam_ring_1",
+      "partId": "bike.fork.foam_ring.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_foam_ring_2",
+      "partId": "bike.fork.foam_ring.02",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_foot_nut_1",
+      "partId": "bike.fork.foot_nut.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_foot_nut_2",
+      "partId": "bike.fork.foot_nut.02",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_guide_bushing_1_1",
+      "partId": "bike.fork.guide_bushing.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "installed",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_guide_bushing_1_2",
+      "partId": "bike.fork.guide_bushing.02",
+      "assemblyId": "fork",
+      "serviceBoundary": "installed",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_guide_bushing_2_1",
+      "partId": "bike.fork.guide_bushing.03",
+      "assemblyId": "fork",
+      "serviceBoundary": "installed",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_guide_bushing_2_2",
+      "partId": "bike.fork.guide_bushing.04",
+      "assemblyId": "fork",
+      "serviceBoundary": "installed",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_lower_casting",
+      "partId": "bike.fork.lower_casting.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_negative_spring",
+      "partId": "bike.fork.negative_spring.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_rebound_knob",
+      "partId": "bike.fork.rebound_knob.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_rebound_shaft",
+      "partId": "bike.fork.rebound_shaft.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_stanchion_1",
+      "partId": "bike.fork.stanchion.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "installed",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_stanchion_2",
+      "partId": "bike.fork.stanchion.02",
+      "assemblyId": "fork",
+      "serviceBoundary": "installed",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_fork_steerer",
+      "partId": "bike.fork.steerer.01",
+      "assemblyId": "fork",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_bottle_boss_bolt_01",
+      "partId": "bike.frame.bottle_boss_bolt.01",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_bottle_boss_bolt_02",
+      "partId": "bike.frame.bottle_boss_bolt.02",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_01",
+      "partId": "bike.frame.cable_guide.01",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_02",
+      "partId": "bike.frame.cable_guide.02",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_03",
+      "partId": "bike.frame.cable_guide.03",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_04",
+      "partId": "bike.frame.cable_guide.04",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_05",
+      "partId": "bike.frame.cable_guide.05",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_06",
+      "partId": "bike.frame.cable_guide.06",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_07",
+      "partId": "bike.frame.cable_guide.07",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_08",
+      "partId": "bike.frame.cable_guide.08",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_bolt_01",
+      "partId": "bike.frame.cable_guide_bolt.01",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_bolt_02",
+      "partId": "bike.frame.cable_guide_bolt.02",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_bolt_03",
+      "partId": "bike.frame.cable_guide_bolt.03",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_bolt_04",
+      "partId": "bike.frame.cable_guide_bolt.04",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_bolt_05",
+      "partId": "bike.frame.cable_guide_bolt.05",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_bolt_06",
+      "partId": "bike.frame.cable_guide_bolt.06",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_bolt_07",
+      "partId": "bike.frame.cable_guide_bolt.07",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_cable_guide_bolt_08",
+      "partId": "bike.frame.cable_guide_bolt.08",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_chainstay_protector",
+      "partId": "bike.frame.chainstay_protector.01",
+      "assemblyId": "frame",
+      "serviceBoundary": "non-separable",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_derailleur_hanger",
+      "partId": "bike.frame.derailleur_hanger.01",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_hanger_bolt",
+      "partId": "bike.frame.derailleur_hanger_bolt.01",
+      "assemblyId": "frame",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_frame_main_weldment",
+      "partId": "bike.frame.frame_weldment.01",
+      "assemblyId": "frame",
+      "serviceBoundary": "non-separable",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_body",
+      "partId": "bike.front_derailleur.body.01",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_cable_anchor",
+      "partId": "bike.front_derailleur.cable_anchor.01",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_cage_plate_1",
+      "partId": "bike.front_derailleur.cage_plate.01",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_cage_plate_2",
+      "partId": "bike.front_derailleur.cage_plate.02",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_clamp",
+      "partId": "bike.front_derailleur.clamp.01",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_clamp_bolt",
+      "partId": "bike.front_derailleur.clamp_bolt.01",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_limit_screw_1",
+      "partId": "bike.front_derailleur.limit_screw.01",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_limit_screw_2",
+      "partId": "bike.front_derailleur.limit_screw.02",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_link_plate_1",
+      "partId": "bike.front_derailleur.link_plate.01",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_link_plate_2",
+      "partId": "bike.front_derailleur.link_plate.02",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_pivot_pin_1",
+      "partId": "bike.front_derailleur.pivot_pin.01",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_pivot_pin_2",
+      "partId": "bike.front_derailleur.pivot_pin.02",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_return_spring_1",
+      "partId": "bike.front_derailleur.return_spring.01",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_front_derailleur_return_spring_2",
+      "partId": "bike.front_derailleur.return_spring.02",
+      "assemblyId": "front_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_axle_1",
+      "partId": "bike.pedals.pedal_axle.01",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_axle_2",
+      "partId": "bike.pedals.pedal_axle.02",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_bearing_1_1",
+      "partId": "bike.pedals.pedal_bearing.01",
+      "assemblyId": "pedals",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_bearing_1_2",
+      "partId": "bike.pedals.pedal_bearing.02",
+      "assemblyId": "pedals",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_bearing_2_1",
+      "partId": "bike.pedals.pedal_bearing.03",
+      "assemblyId": "pedals",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_bearing_2_2",
+      "partId": "bike.pedals.pedal_bearing.04",
+      "assemblyId": "pedals",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_body_1",
+      "partId": "bike.pedals.pedal_body.01",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_body_2",
+      "partId": "bike.pedals.pedal_body.02",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_end_cap_1",
+      "partId": "bike.pedals.pedal_end_cap.01",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_end_cap_2",
+      "partId": "bike.pedals.pedal_end_cap.02",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_nut_1",
+      "partId": "bike.pedals.pedal_nut.01",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_nut_2",
+      "partId": "bike.pedals.pedal_nut.02",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_seal_1",
+      "partId": "bike.pedals.pedal_seal.01",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_seal_2",
+      "partId": "bike.pedals.pedal_seal.02",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_washer_1",
+      "partId": "bike.pedals.pedal_washer.01",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_washer_2",
+      "partId": "bike.pedals.pedal_washer.02",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_1_1",
+      "partId": "bike.pedals.traction_pin.01",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_1_2",
+      "partId": "bike.pedals.traction_pin.02",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_1_3",
+      "partId": "bike.pedals.traction_pin.03",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_1_4",
+      "partId": "bike.pedals.traction_pin.04",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_1_5",
+      "partId": "bike.pedals.traction_pin.05",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_1_6",
+      "partId": "bike.pedals.traction_pin.06",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_1_7",
+      "partId": "bike.pedals.traction_pin.07",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_1_8",
+      "partId": "bike.pedals.traction_pin.08",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_2_1",
+      "partId": "bike.pedals.traction_pin.09",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_2_2",
+      "partId": "bike.pedals.traction_pin.10",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_2_3",
+      "partId": "bike.pedals.traction_pin.11",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_2_4",
+      "partId": "bike.pedals.traction_pin.12",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_2_5",
+      "partId": "bike.pedals.traction_pin.13",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_2_6",
+      "partId": "bike.pedals.traction_pin.14",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_2_7",
+      "partId": "bike.pedals.traction_pin.15",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_pedal_traction_pin_2_8",
+      "partId": "bike.pedals.traction_pin.16",
+      "assemblyId": "pedals",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_b_knuckle",
+      "partId": "bike.rear_derailleur.b_knuckle.01",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_b_tension_screw",
+      "partId": "bike.rear_derailleur.b_tension_screw.01",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_cable_anchor",
+      "partId": "bike.rear_derailleur.cable_anchor.01",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_cage_plate_1",
+      "partId": "bike.rear_derailleur.cage_plate.01",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_cage_plate_2",
+      "partId": "bike.rear_derailleur.cage_plate.02",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_jockey_bolt_1",
+      "partId": "bike.rear_derailleur.jockey_bolt.01",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_jockey_bolt_2",
+      "partId": "bike.rear_derailleur.jockey_bolt.02",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_jockey_bushing_1_1",
+      "partId": "bike.rear_derailleur.jockey_bushing.01",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_jockey_bushing_1_2",
+      "partId": "bike.rear_derailleur.jockey_bushing.02",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_jockey_bushing_2_1",
+      "partId": "bike.rear_derailleur.jockey_bushing.03",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_jockey_bushing_2_2",
+      "partId": "bike.rear_derailleur.jockey_bushing.04",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_jockey_wheel_1",
+      "partId": "bike.rear_derailleur.jockey_wheel.01",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_jockey_wheel_2",
+      "partId": "bike.rear_derailleur.jockey_wheel.02",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_limit_screw_1",
+      "partId": "bike.rear_derailleur.limit_screw.01",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_limit_screw_2",
+      "partId": "bike.rear_derailleur.limit_screw.02",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_link_plate_1",
+      "partId": "bike.rear_derailleur.link_plate.01",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_link_plate_2",
+      "partId": "bike.rear_derailleur.link_plate.02",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_link_plate_3",
+      "partId": "bike.rear_derailleur.link_plate.03",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_link_plate_4",
+      "partId": "bike.rear_derailleur.link_plate.04",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_p_knuckle",
+      "partId": "bike.rear_derailleur.p_knuckle.01",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_pivot_pin_1",
+      "partId": "bike.rear_derailleur.pivot_pin.01",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_pivot_pin_2",
+      "partId": "bike.rear_derailleur.pivot_pin.02",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_pivot_pin_3",
+      "partId": "bike.rear_derailleur.pivot_pin.03",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_pivot_pin_4",
+      "partId": "bike.rear_derailleur.pivot_pin.04",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_return_spring_1",
+      "partId": "bike.rear_derailleur.return_spring.01",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_rear_derailleur_return_spring_2",
+      "partId": "bike.rear_derailleur.return_spring.02",
+      "assemblyId": "rear_derailleur",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_saddle_clamp_bolt_1",
+      "partId": "bike.saddle_seatpost.saddle_clamp_bolt.01",
+      "assemblyId": "saddle_seatpost",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_saddle_clamp_bolt_2",
+      "partId": "bike.saddle_seatpost.saddle_clamp_bolt.02",
+      "assemblyId": "saddle_seatpost",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_saddle_clamp_plate_1",
+      "partId": "bike.saddle_seatpost.saddle_clamp_plate.01",
+      "assemblyId": "saddle_seatpost",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_saddle_clamp_plate_2",
+      "partId": "bike.saddle_seatpost.saddle_clamp_plate.02",
+      "assemblyId": "saddle_seatpost",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_saddle_cover",
+      "partId": "bike.saddle_seatpost.saddle_cover.01",
+      "assemblyId": "saddle_seatpost",
+      "serviceBoundary": "non-separable",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_saddle_padding",
+      "partId": "bike.saddle_seatpost.saddle_padding.01",
+      "assemblyId": "saddle_seatpost",
+      "serviceBoundary": "non-separable",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_saddle_rail_1",
+      "partId": "bike.saddle_seatpost.saddle_rail.01",
+      "assemblyId": "saddle_seatpost",
+      "serviceBoundary": "installed",
+      "type": "CURVE"
+    },
+    {
+      "object": "MM_saddle_rail_2",
+      "partId": "bike.saddle_seatpost.saddle_rail.02",
+      "assemblyId": "saddle_seatpost",
+      "serviceBoundary": "installed",
+      "type": "CURVE"
+    },
+    {
+      "object": "MM_saddle_shell",
+      "partId": "bike.saddle_seatpost.saddle_shell.01",
+      "assemblyId": "saddle_seatpost",
+      "serviceBoundary": "non-separable",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_saddle_seatpost",
+      "partId": "bike.saddle_seatpost.seatpost.01",
+      "assemblyId": "saddle_seatpost",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_saddle_seatpost_collar",
+      "partId": "bike.saddle_seatpost.seatpost_collar.01",
+      "assemblyId": "saddle_seatpost",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_saddle_seatpost_collar_bolt",
+      "partId": "bike.saddle_seatpost.seatpost_collar_bolt.01",
+      "assemblyId": "saddle_seatpost",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_hub_axle",
+      "partId": "bike.wheel_front.hub_axle.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_hub_bearing_1",
+      "partId": "bike.wheel_front.hub_bearing.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_hub_bearing_2",
+      "partId": "bike.wheel_front.hub_bearing.02",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_hub_end_cap_1",
+      "partId": "bike.wheel_front.hub_end_cap.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_hub_end_cap_2",
+      "partId": "bike.wheel_front.hub_end_cap.02",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_hub_shell",
+      "partId": "bike.wheel_front.hub_shell.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_inner_tube",
+      "partId": "bike.wheel_front.inner_tube.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_01",
+      "partId": "bike.wheel_front.nipple.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_02",
+      "partId": "bike.wheel_front.nipple.02",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_03",
+      "partId": "bike.wheel_front.nipple.03",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_04",
+      "partId": "bike.wheel_front.nipple.04",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_05",
+      "partId": "bike.wheel_front.nipple.05",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_06",
+      "partId": "bike.wheel_front.nipple.06",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_07",
+      "partId": "bike.wheel_front.nipple.07",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_08",
+      "partId": "bike.wheel_front.nipple.08",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_09",
+      "partId": "bike.wheel_front.nipple.09",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_10",
+      "partId": "bike.wheel_front.nipple.10",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_11",
+      "partId": "bike.wheel_front.nipple.11",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_12",
+      "partId": "bike.wheel_front.nipple.12",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_13",
+      "partId": "bike.wheel_front.nipple.13",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_14",
+      "partId": "bike.wheel_front.nipple.14",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_15",
+      "partId": "bike.wheel_front.nipple.15",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_16",
+      "partId": "bike.wheel_front.nipple.16",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_17",
+      "partId": "bike.wheel_front.nipple.17",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_18",
+      "partId": "bike.wheel_front.nipple.18",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_19",
+      "partId": "bike.wheel_front.nipple.19",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_20",
+      "partId": "bike.wheel_front.nipple.20",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_21",
+      "partId": "bike.wheel_front.nipple.21",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_22",
+      "partId": "bike.wheel_front.nipple.22",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_23",
+      "partId": "bike.wheel_front.nipple.23",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_24",
+      "partId": "bike.wheel_front.nipple.24",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_25",
+      "partId": "bike.wheel_front.nipple.25",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_26",
+      "partId": "bike.wheel_front.nipple.26",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_27",
+      "partId": "bike.wheel_front.nipple.27",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_28",
+      "partId": "bike.wheel_front.nipple.28",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_29",
+      "partId": "bike.wheel_front.nipple.29",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_30",
+      "partId": "bike.wheel_front.nipple.30",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_31",
+      "partId": "bike.wheel_front.nipple.31",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_nipple_32",
+      "partId": "bike.wheel_front.nipple.32",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rim",
+      "partId": "bike.wheel_front.rim.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rim_tape",
+      "partId": "bike.wheel_front.rim_tape.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor",
+      "partId": "bike.wheel_front.rotor.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor_bolt_01",
+      "partId": "bike.wheel_front.rotor_bolt.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor_bolt_02",
+      "partId": "bike.wheel_front.rotor_bolt.02",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor_bolt_03",
+      "partId": "bike.wheel_front.rotor_bolt.03",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor_bolt_04",
+      "partId": "bike.wheel_front.rotor_bolt.04",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor_bolt_05",
+      "partId": "bike.wheel_front.rotor_bolt.05",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor_bolt_06",
+      "partId": "bike.wheel_front.rotor_bolt.06",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor_washer_01",
+      "partId": "bike.wheel_front.rotor_lock_washer.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor_washer_02",
+      "partId": "bike.wheel_front.rotor_lock_washer.02",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor_washer_03",
+      "partId": "bike.wheel_front.rotor_lock_washer.03",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor_washer_04",
+      "partId": "bike.wheel_front.rotor_lock_washer.04",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor_washer_05",
+      "partId": "bike.wheel_front.rotor_lock_washer.05",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_rotor_washer_06",
+      "partId": "bike.wheel_front.rotor_lock_washer.06",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_01",
+      "partId": "bike.wheel_front.spoke.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_02",
+      "partId": "bike.wheel_front.spoke.02",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_03",
+      "partId": "bike.wheel_front.spoke.03",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_04",
+      "partId": "bike.wheel_front.spoke.04",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_05",
+      "partId": "bike.wheel_front.spoke.05",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_06",
+      "partId": "bike.wheel_front.spoke.06",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_07",
+      "partId": "bike.wheel_front.spoke.07",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_08",
+      "partId": "bike.wheel_front.spoke.08",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_09",
+      "partId": "bike.wheel_front.spoke.09",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_10",
+      "partId": "bike.wheel_front.spoke.10",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_11",
+      "partId": "bike.wheel_front.spoke.11",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_12",
+      "partId": "bike.wheel_front.spoke.12",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_13",
+      "partId": "bike.wheel_front.spoke.13",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_14",
+      "partId": "bike.wheel_front.spoke.14",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_15",
+      "partId": "bike.wheel_front.spoke.15",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_16",
+      "partId": "bike.wheel_front.spoke.16",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_17",
+      "partId": "bike.wheel_front.spoke.17",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_18",
+      "partId": "bike.wheel_front.spoke.18",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_19",
+      "partId": "bike.wheel_front.spoke.19",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_20",
+      "partId": "bike.wheel_front.spoke.20",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_21",
+      "partId": "bike.wheel_front.spoke.21",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_22",
+      "partId": "bike.wheel_front.spoke.22",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_23",
+      "partId": "bike.wheel_front.spoke.23",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_24",
+      "partId": "bike.wheel_front.spoke.24",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_25",
+      "partId": "bike.wheel_front.spoke.25",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_26",
+      "partId": "bike.wheel_front.spoke.26",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_27",
+      "partId": "bike.wheel_front.spoke.27",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_28",
+      "partId": "bike.wheel_front.spoke.28",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_29",
+      "partId": "bike.wheel_front.spoke.29",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_30",
+      "partId": "bike.wheel_front.spoke.30",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_31",
+      "partId": "bike.wheel_front.spoke.31",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_spoke_32",
+      "partId": "bike.wheel_front.spoke.32",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_thru_axle",
+      "partId": "bike.wheel_front.thru_axle.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_tire",
+      "partId": "bike.wheel_front.tire.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_valve_core",
+      "partId": "bike.wheel_front.valve_core.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_front_valve_nut",
+      "partId": "bike.wheel_front.valve_nut.01",
+      "assemblyId": "wheel_front",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_lockring",
+      "partId": "bike.wheel_rear.cassette_lockring.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_spacer_01",
+      "partId": "bike.wheel_rear.cassette_spacer.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_spacer_02",
+      "partId": "bike.wheel_rear.cassette_spacer.02",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_spacer_03",
+      "partId": "bike.wheel_rear.cassette_spacer.03",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_spacer_04",
+      "partId": "bike.wheel_rear.cassette_spacer.04",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_spacer_05",
+      "partId": "bike.wheel_rear.cassette_spacer.05",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_spacer_06",
+      "partId": "bike.wheel_rear.cassette_spacer.06",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_spacer_07",
+      "partId": "bike.wheel_rear.cassette_spacer.07",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_spacer_08",
+      "partId": "bike.wheel_rear.cassette_spacer.08",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_spacer_09",
+      "partId": "bike.wheel_rear.cassette_spacer.09",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_sprocket_01",
+      "partId": "bike.wheel_rear.cassette_sprocket.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_sprocket_02",
+      "partId": "bike.wheel_rear.cassette_sprocket.02",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_sprocket_03",
+      "partId": "bike.wheel_rear.cassette_sprocket.03",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_sprocket_04",
+      "partId": "bike.wheel_rear.cassette_sprocket.04",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_sprocket_05",
+      "partId": "bike.wheel_rear.cassette_sprocket.05",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_sprocket_06",
+      "partId": "bike.wheel_rear.cassette_sprocket.06",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_sprocket_07",
+      "partId": "bike.wheel_rear.cassette_sprocket.07",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_sprocket_08",
+      "partId": "bike.wheel_rear.cassette_sprocket.08",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_sprocket_09",
+      "partId": "bike.wheel_rear.cassette_sprocket.09",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_cassette_sprocket_10",
+      "partId": "bike.wheel_rear.cassette_sprocket.10",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_freehub_bearing_1",
+      "partId": "bike.wheel_rear.freehub_bearing.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_freehub_bearing_2",
+      "partId": "bike.wheel_rear.freehub_bearing.02",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_freehub_body",
+      "partId": "bike.wheel_rear.freehub_body.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_freehub_seal",
+      "partId": "bike.wheel_rear.freehub_seal.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_hub_axle",
+      "partId": "bike.wheel_rear.hub_axle.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_hub_bearing_1",
+      "partId": "bike.wheel_rear.hub_bearing.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_hub_bearing_2",
+      "partId": "bike.wheel_rear.hub_bearing.02",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "service-unit",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_hub_end_cap_1",
+      "partId": "bike.wheel_rear.hub_end_cap.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_hub_end_cap_2",
+      "partId": "bike.wheel_rear.hub_end_cap.02",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_hub_shell",
+      "partId": "bike.wheel_rear.hub_shell.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_inner_tube",
+      "partId": "bike.wheel_rear.inner_tube.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_01",
+      "partId": "bike.wheel_rear.nipple.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_02",
+      "partId": "bike.wheel_rear.nipple.02",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_03",
+      "partId": "bike.wheel_rear.nipple.03",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_04",
+      "partId": "bike.wheel_rear.nipple.04",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_05",
+      "partId": "bike.wheel_rear.nipple.05",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_06",
+      "partId": "bike.wheel_rear.nipple.06",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_07",
+      "partId": "bike.wheel_rear.nipple.07",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_08",
+      "partId": "bike.wheel_rear.nipple.08",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_09",
+      "partId": "bike.wheel_rear.nipple.09",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_10",
+      "partId": "bike.wheel_rear.nipple.10",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_11",
+      "partId": "bike.wheel_rear.nipple.11",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_12",
+      "partId": "bike.wheel_rear.nipple.12",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_13",
+      "partId": "bike.wheel_rear.nipple.13",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_14",
+      "partId": "bike.wheel_rear.nipple.14",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_15",
+      "partId": "bike.wheel_rear.nipple.15",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_16",
+      "partId": "bike.wheel_rear.nipple.16",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_17",
+      "partId": "bike.wheel_rear.nipple.17",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_18",
+      "partId": "bike.wheel_rear.nipple.18",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_19",
+      "partId": "bike.wheel_rear.nipple.19",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_20",
+      "partId": "bike.wheel_rear.nipple.20",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_21",
+      "partId": "bike.wheel_rear.nipple.21",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_22",
+      "partId": "bike.wheel_rear.nipple.22",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_23",
+      "partId": "bike.wheel_rear.nipple.23",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_24",
+      "partId": "bike.wheel_rear.nipple.24",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_25",
+      "partId": "bike.wheel_rear.nipple.25",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_26",
+      "partId": "bike.wheel_rear.nipple.26",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_27",
+      "partId": "bike.wheel_rear.nipple.27",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_28",
+      "partId": "bike.wheel_rear.nipple.28",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_29",
+      "partId": "bike.wheel_rear.nipple.29",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_30",
+      "partId": "bike.wheel_rear.nipple.30",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_31",
+      "partId": "bike.wheel_rear.nipple.31",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_nipple_32",
+      "partId": "bike.wheel_rear.nipple.32",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_pawl_1",
+      "partId": "bike.wheel_rear.pawl.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_pawl_2",
+      "partId": "bike.wheel_rear.pawl.02",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_pawl_3",
+      "partId": "bike.wheel_rear.pawl.03",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_pawl_spring_1",
+      "partId": "bike.wheel_rear.pawl_spring.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_pawl_spring_2",
+      "partId": "bike.wheel_rear.pawl_spring.02",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_pawl_spring_3",
+      "partId": "bike.wheel_rear.pawl_spring.03",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rim",
+      "partId": "bike.wheel_rear.rim.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rim_tape",
+      "partId": "bike.wheel_rear.rim_tape.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor",
+      "partId": "bike.wheel_rear.rotor.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor_bolt_01",
+      "partId": "bike.wheel_rear.rotor_bolt.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor_bolt_02",
+      "partId": "bike.wheel_rear.rotor_bolt.02",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor_bolt_03",
+      "partId": "bike.wheel_rear.rotor_bolt.03",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor_bolt_04",
+      "partId": "bike.wheel_rear.rotor_bolt.04",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor_bolt_05",
+      "partId": "bike.wheel_rear.rotor_bolt.05",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor_bolt_06",
+      "partId": "bike.wheel_rear.rotor_bolt.06",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor_washer_01",
+      "partId": "bike.wheel_rear.rotor_lock_washer.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor_washer_02",
+      "partId": "bike.wheel_rear.rotor_lock_washer.02",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor_washer_03",
+      "partId": "bike.wheel_rear.rotor_lock_washer.03",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor_washer_04",
+      "partId": "bike.wheel_rear.rotor_lock_washer.04",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor_washer_05",
+      "partId": "bike.wheel_rear.rotor_lock_washer.05",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_rotor_washer_06",
+      "partId": "bike.wheel_rear.rotor_lock_washer.06",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_01",
+      "partId": "bike.wheel_rear.spoke.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_02",
+      "partId": "bike.wheel_rear.spoke.02",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_03",
+      "partId": "bike.wheel_rear.spoke.03",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_04",
+      "partId": "bike.wheel_rear.spoke.04",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_05",
+      "partId": "bike.wheel_rear.spoke.05",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_06",
+      "partId": "bike.wheel_rear.spoke.06",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_07",
+      "partId": "bike.wheel_rear.spoke.07",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_08",
+      "partId": "bike.wheel_rear.spoke.08",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_09",
+      "partId": "bike.wheel_rear.spoke.09",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_10",
+      "partId": "bike.wheel_rear.spoke.10",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_11",
+      "partId": "bike.wheel_rear.spoke.11",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_12",
+      "partId": "bike.wheel_rear.spoke.12",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_13",
+      "partId": "bike.wheel_rear.spoke.13",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_14",
+      "partId": "bike.wheel_rear.spoke.14",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_15",
+      "partId": "bike.wheel_rear.spoke.15",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_16",
+      "partId": "bike.wheel_rear.spoke.16",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_17",
+      "partId": "bike.wheel_rear.spoke.17",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_18",
+      "partId": "bike.wheel_rear.spoke.18",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_19",
+      "partId": "bike.wheel_rear.spoke.19",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_20",
+      "partId": "bike.wheel_rear.spoke.20",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_21",
+      "partId": "bike.wheel_rear.spoke.21",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_22",
+      "partId": "bike.wheel_rear.spoke.22",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_23",
+      "partId": "bike.wheel_rear.spoke.23",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_24",
+      "partId": "bike.wheel_rear.spoke.24",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_25",
+      "partId": "bike.wheel_rear.spoke.25",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_26",
+      "partId": "bike.wheel_rear.spoke.26",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_27",
+      "partId": "bike.wheel_rear.spoke.27",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_28",
+      "partId": "bike.wheel_rear.spoke.28",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_29",
+      "partId": "bike.wheel_rear.spoke.29",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_30",
+      "partId": "bike.wheel_rear.spoke.30",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_31",
+      "partId": "bike.wheel_rear.spoke.31",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_spoke_32",
+      "partId": "bike.wheel_rear.spoke.32",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual-with-batch",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_thru_axle",
+      "partId": "bike.wheel_rear.thru_axle.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_tire",
+      "partId": "bike.wheel_rear.tire.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_valve_core",
+      "partId": "bike.wheel_rear.valve_core.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    },
+    {
+      "object": "MM_wheel_rear_valve_nut",
+      "partId": "bike.wheel_rear.valve_nut.01",
+      "assemblyId": "wheel_rear",
+      "serviceBoundary": "individual",
+      "type": "MESH"
+    }
+  ]
+}

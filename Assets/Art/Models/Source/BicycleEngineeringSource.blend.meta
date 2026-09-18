@@ -1,0 +1,4917 @@
+fileFormatVersion: 2
+guid: XH8dsiP4B3nM1YiyAdacDGoKIlVOTEmGqbJ4W4jgoAgG9oXoewGk8KY=
+ModelImporter:
+  serializedVersion: 22361
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    aCLCompressionLevel: 3
+    aCLCurvePrecision: 0.01
+    aCLFastSampleMode: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+    tuanjieGIEnable: 0
+    tuanjieGIGenSDFFactor: 1
+    tuanjieGIGenSDFBias: 0.25
+    tuanjieGIDoubleSidedMode: 0
+    tuanjieGIGenFacetNums: 12
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    totalVerticesCount: 143358
+    totalTrianglesCount: 214896
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  virtualGeometry:
+    virtualGeometry: 0
+    useTransparent: 0
+    setVGForeachMesh: 0
+    isFirstUse: 1
+    virtualGeometrySettings:
+      generateGeometryBuffer: 0
+      surfaceCompensation: 0
+      allMeshUse: 1
+      ignoreSimpleMesh: 0
+      transformScaleState: 0
+      isPossibleOverflow: 0
+      hasBoneData: 0
+      isBoneCountOverflow: 0
+    virtualGeometryPlatformSettings: []
+    selectedVGMeshes:
+    - index: 0
+      meshName: MM_brake_front_bleed_o_ring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 1
+      meshName: MM_brake_front_bleed_screw
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 2
+      meshName: MM_brake_front_brake_pad_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 3
+      meshName: MM_brake_front_brake_pad_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 4
+      meshName: MM_brake_front_caliper_body_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 5
+      meshName: MM_brake_front_caliper_body_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 6
+      meshName: MM_brake_front_caliper_half_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 7
+      meshName: MM_brake_front_caliper_half_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 8
+      meshName: MM_brake_front_caliper_piston_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 9
+      meshName: MM_brake_front_caliper_piston_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 10
+      meshName: MM_brake_front_compression_nut
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 11
+      meshName: MM_brake_front_connector_insert
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 12
+      meshName: MM_brake_front_hose
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 13
+      meshName: MM_brake_front_lever_blade
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 14
+      meshName: MM_brake_front_lever_body
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 15
+      meshName: MM_brake_front_lever_clamp
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 16
+      meshName: MM_brake_front_lever_clamp_bolt
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 17
+      meshName: MM_brake_front_lever_pivot
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 18
+      meshName: MM_brake_front_master_piston
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 19
+      meshName: MM_brake_front_master_seal_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 20
+      meshName: MM_brake_front_master_seal_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 21
+      meshName: MM_brake_front_mount_adapter
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 22
+      meshName: MM_brake_front_mount_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 23
+      meshName: MM_brake_front_mount_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 24
+      meshName: MM_brake_front_mount_snap_ring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 25
+      meshName: MM_brake_front_mount_snap_ring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 26
+      meshName: MM_brake_front_olive
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 27
+      meshName: MM_brake_front_pad_pin
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 28
+      meshName: MM_brake_front_pad_spring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 29
+      meshName: MM_brake_front_piston_seal_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 30
+      meshName: MM_brake_front_piston_seal_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 31
+      meshName: MM_brake_front_reservoir_cap
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 32
+      meshName: MM_brake_front_reservoir_cap_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 33
+      meshName: MM_brake_front_reservoir_cap_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 34
+      meshName: MM_brake_front_reservoir_diaphragm
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 35
+      meshName: MM_brake_front_retaining_clip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 36
+      meshName: MM_brake_front_return_spring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 37
+      meshName: MM_brake_rear_bleed_o_ring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 38
+      meshName: MM_brake_rear_bleed_screw
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 39
+      meshName: MM_brake_rear_brake_pad_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 40
+      meshName: MM_brake_rear_brake_pad_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 41
+      meshName: MM_brake_rear_caliper_body_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 42
+      meshName: MM_brake_rear_caliper_body_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 43
+      meshName: MM_brake_rear_caliper_half_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 44
+      meshName: MM_brake_rear_caliper_half_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 45
+      meshName: MM_brake_rear_caliper_piston_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 46
+      meshName: MM_brake_rear_caliper_piston_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 47
+      meshName: MM_brake_rear_compression_nut
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 48
+      meshName: MM_brake_rear_connector_insert
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 49
+      meshName: MM_brake_rear_hose
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 50
+      meshName: MM_brake_rear_lever_blade
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 51
+      meshName: MM_brake_rear_lever_body
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 52
+      meshName: MM_brake_rear_lever_clamp
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 53
+      meshName: MM_brake_rear_lever_clamp_bolt
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 54
+      meshName: MM_brake_rear_lever_pivot
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 55
+      meshName: MM_brake_rear_master_piston
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 56
+      meshName: MM_brake_rear_master_seal_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 57
+      meshName: MM_brake_rear_master_seal_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 58
+      meshName: MM_brake_rear_mount_adapter
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 59
+      meshName: MM_brake_rear_mount_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 60
+      meshName: MM_brake_rear_mount_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 61
+      meshName: MM_brake_rear_mount_snap_ring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 62
+      meshName: MM_brake_rear_mount_snap_ring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 63
+      meshName: MM_brake_rear_olive
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 64
+      meshName: MM_brake_rear_pad_pin
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 65
+      meshName: MM_brake_rear_pad_spring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 66
+      meshName: MM_brake_rear_piston_seal_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 67
+      meshName: MM_brake_rear_piston_seal_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 68
+      meshName: MM_brake_rear_reservoir_cap
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 69
+      meshName: MM_brake_rear_reservoir_cap_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 70
+      meshName: MM_brake_rear_reservoir_cap_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 71
+      meshName: MM_brake_rear_reservoir_diaphragm
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 72
+      meshName: MM_brake_rear_retaining_clip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 73
+      meshName: MM_brake_rear_return_spring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 74
+      meshName: MM_chain_link_001
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 75
+      meshName: MM_chain_link_002
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 76
+      meshName: MM_chain_link_003
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 77
+      meshName: MM_chain_link_004
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 78
+      meshName: MM_chain_link_005
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 79
+      meshName: MM_chain_link_006
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 80
+      meshName: MM_chain_link_007
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 81
+      meshName: MM_chain_link_008
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 82
+      meshName: MM_chain_link_009
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 83
+      meshName: MM_chain_link_010
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 84
+      meshName: MM_chain_link_011
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 85
+      meshName: MM_chain_link_012
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 86
+      meshName: MM_chain_link_013
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 87
+      meshName: MM_chain_link_014
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 88
+      meshName: MM_chain_link_015
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 89
+      meshName: MM_chain_link_016
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 90
+      meshName: MM_chain_link_017
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 91
+      meshName: MM_chain_link_018
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 92
+      meshName: MM_chain_link_019
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 93
+      meshName: MM_chain_link_020
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 94
+      meshName: MM_chain_link_021
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 95
+      meshName: MM_chain_link_022
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 96
+      meshName: MM_chain_link_023
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 97
+      meshName: MM_chain_link_024
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 98
+      meshName: MM_chain_link_025
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 99
+      meshName: MM_chain_link_026
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 100
+      meshName: MM_chain_link_027
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 101
+      meshName: MM_chain_link_028
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 102
+      meshName: MM_chain_link_029
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 103
+      meshName: MM_chain_link_030
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 104
+      meshName: MM_chain_link_031
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 105
+      meshName: MM_chain_link_032
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 106
+      meshName: MM_chain_link_033
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 107
+      meshName: MM_chain_link_034
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 108
+      meshName: MM_chain_link_035
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 109
+      meshName: MM_chain_link_036
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 110
+      meshName: MM_chain_link_037
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 111
+      meshName: MM_chain_link_038
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 112
+      meshName: MM_chain_link_039
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 113
+      meshName: MM_chain_link_040
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 114
+      meshName: MM_chain_link_041
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 115
+      meshName: MM_chain_link_042
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 116
+      meshName: MM_chain_link_043
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 117
+      meshName: MM_chain_link_044
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 118
+      meshName: MM_chain_link_045
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 119
+      meshName: MM_chain_link_046
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 120
+      meshName: MM_chain_link_047
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 121
+      meshName: MM_chain_link_048
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 122
+      meshName: MM_chain_link_049
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 123
+      meshName: MM_chain_link_050
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 124
+      meshName: MM_chain_link_051
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 125
+      meshName: MM_chain_link_052
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 126
+      meshName: MM_chain_link_053
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 127
+      meshName: MM_chain_link_054
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 128
+      meshName: MM_chain_link_055
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 129
+      meshName: MM_chain_link_056
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 130
+      meshName: MM_chain_link_057
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 131
+      meshName: MM_chain_link_058
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 132
+      meshName: MM_chain_link_059
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 133
+      meshName: MM_chain_link_060
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 134
+      meshName: MM_chain_link_061
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 135
+      meshName: MM_chain_link_062
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 136
+      meshName: MM_chain_link_063
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 137
+      meshName: MM_chain_link_064
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 138
+      meshName: MM_chain_link_065
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 139
+      meshName: MM_chain_link_066
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 140
+      meshName: MM_chain_link_067
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 141
+      meshName: MM_chain_link_068
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 142
+      meshName: MM_chain_link_069
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 143
+      meshName: MM_chain_link_070
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 144
+      meshName: MM_chain_link_071
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 145
+      meshName: MM_chain_link_072
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 146
+      meshName: MM_chain_link_073
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 147
+      meshName: MM_chain_link_074
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 148
+      meshName: MM_chain_link_075
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 149
+      meshName: MM_chain_link_076
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 150
+      meshName: MM_chain_link_077
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 151
+      meshName: MM_chain_link_078
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 152
+      meshName: MM_chain_link_079
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 153
+      meshName: MM_chain_link_080
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 154
+      meshName: MM_chain_link_081
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 155
+      meshName: MM_chain_link_082
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 156
+      meshName: MM_chain_link_083
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 157
+      meshName: MM_chain_link_084
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 158
+      meshName: MM_chain_link_085
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 159
+      meshName: MM_chain_link_086
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 160
+      meshName: MM_chain_link_087
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 161
+      meshName: MM_chain_link_088
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 162
+      meshName: MM_chain_link_089
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 163
+      meshName: MM_chain_link_090
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 164
+      meshName: MM_chain_link_091
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 165
+      meshName: MM_chain_link_092
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 166
+      meshName: MM_chain_link_093
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 167
+      meshName: MM_chain_link_094
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 168
+      meshName: MM_chain_link_095
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 169
+      meshName: MM_chain_link_096
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 170
+      meshName: MM_chain_link_097
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 171
+      meshName: MM_chain_link_098
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 172
+      meshName: MM_chain_link_099
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 173
+      meshName: MM_chain_link_100
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 174
+      meshName: MM_chain_link_101
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 175
+      meshName: MM_chain_link_102
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 176
+      meshName: MM_chain_link_103
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 177
+      meshName: MM_chain_link_104
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 178
+      meshName: MM_chain_link_105
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 179
+      meshName: MM_chain_link_106
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 180
+      meshName: MM_chain_link_107
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 181
+      meshName: MM_chain_link_108
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 182
+      meshName: MM_chain_link_109
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 183
+      meshName: MM_chain_link_110
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 184
+      meshName: MM_chain_quick_link_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 185
+      meshName: MM_chain_quick_link_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 186
+      meshName: MM_cockpit_bar_end_plug_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 187
+      meshName: MM_cockpit_bar_end_plug_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 188
+      meshName: MM_cockpit_clamp_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 189
+      meshName: MM_cockpit_clamp_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 190
+      meshName: MM_cockpit_compression_ring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 191
+      meshName: MM_cockpit_crown_race
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 192
+      meshName: MM_cockpit_faceplate_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 193
+      meshName: MM_cockpit_faceplate_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 194
+      meshName: MM_cockpit_faceplate_bolt_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 195
+      meshName: MM_cockpit_faceplate_bolt_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 196
+      meshName: MM_cockpit_grip_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 197
+      meshName: MM_cockpit_grip_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 198
+      meshName: MM_cockpit_handlebar
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 199
+      meshName: MM_cockpit_headset_bearing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 200
+      meshName: MM_cockpit_headset_bearing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 201
+      meshName: MM_cockpit_headset_spacer_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 202
+      meshName: MM_cockpit_headset_spacer_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 203
+      meshName: MM_cockpit_headset_spacer_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 204
+      meshName: MM_cockpit_star_nut
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 205
+      meshName: MM_cockpit_stem_body
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 206
+      meshName: MM_cockpit_stem_faceplate
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 207
+      meshName: MM_cockpit_top_cap
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 208
+      meshName: MM_cockpit_top_cap_bolt
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 209
+      meshName: MM_cockpit_upper_cover
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 210
+      meshName: MM_controls_cable_end_cap_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 211
+      meshName: MM_controls_cable_end_cap_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 212
+      meshName: MM_controls_ferrule_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 213
+      meshName: MM_controls_ferrule_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 214
+      meshName: MM_controls_ferrule_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 215
+      meshName: MM_controls_ferrule_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 216
+      meshName: MM_controls_ferrule_5
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 217
+      meshName: MM_controls_ferrule_6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 218
+      meshName: MM_controls_ferrule_7
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 219
+      meshName: MM_controls_ferrule_8
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 220
+      meshName: MM_controls_housing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 221
+      meshName: MM_controls_housing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 222
+      meshName: MM_controls_inner_cable_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 223
+      meshName: MM_controls_inner_cable_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 224
+      meshName: MM_controls_shifter_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 225
+      meshName: MM_controls_shifter_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 226
+      meshName: MM_crank_arm_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 227
+      meshName: MM_crank_arm_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 228
+      meshName: MM_crank_bb_bearing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 229
+      meshName: MM_crank_bb_bearing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 230
+      meshName: MM_crank_bb_cup_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 231
+      meshName: MM_crank_bb_cup_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 232
+      meshName: MM_crank_bb_seal_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 233
+      meshName: MM_crank_bb_seal_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 234
+      meshName: MM_crank_bb_sleeve
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 235
+      meshName: MM_crank_bb_spacer_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 236
+      meshName: MM_crank_bb_spacer_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 237
+      meshName: MM_crank_chainring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 238
+      meshName: MM_crank_chainring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 239
+      meshName: MM_crank_chainring_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 240
+      meshName: MM_crank_chainring_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 241
+      meshName: MM_crank_chainring_bolt_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 242
+      meshName: MM_crank_chainring_bolt_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 243
+      meshName: MM_crank_chainring_nut_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 244
+      meshName: MM_crank_chainring_nut_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 245
+      meshName: MM_crank_chainring_nut_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 246
+      meshName: MM_crank_chainring_nut_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 247
+      meshName: MM_crank_pinch_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 248
+      meshName: MM_crank_pinch_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 249
+      meshName: MM_crank_preload_cap
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 250
+      meshName: MM_crank_spindle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 251
+      meshName: MM_fork_air_piston
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 252
+      meshName: MM_fork_air_seal_head
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 253
+      meshName: MM_fork_air_shaft
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 254
+      meshName: MM_fork_air_top_cap
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 255
+      meshName: MM_fork_air_valve_core
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 256
+      meshName: MM_fork_arch
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 257
+      meshName: MM_fork_compression_adjuster
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 258
+      meshName: MM_fork_crown
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 259
+      meshName: MM_fork_crush_washer_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 260
+      meshName: MM_fork_crush_washer_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 261
+      meshName: MM_fork_damper_cartridge
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 262
+      meshName: MM_fork_damper_top_cap
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 263
+      meshName: MM_fork_dust_wiper_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 264
+      meshName: MM_fork_dust_wiper_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 265
+      meshName: MM_fork_foam_ring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 266
+      meshName: MM_fork_foam_ring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 267
+      meshName: MM_fork_foot_nut_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 268
+      meshName: MM_fork_foot_nut_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 269
+      meshName: MM_fork_guide_bushing_1_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 270
+      meshName: MM_fork_guide_bushing_1_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 271
+      meshName: MM_fork_guide_bushing_2_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 272
+      meshName: MM_fork_guide_bushing_2_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 273
+      meshName: MM_fork_lower_casting
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 274
+      meshName: MM_fork_negative_spring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 275
+      meshName: MM_fork_rebound_knob
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 276
+      meshName: MM_fork_rebound_shaft
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 277
+      meshName: MM_fork_stanchion_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 278
+      meshName: MM_fork_stanchion_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 279
+      meshName: MM_fork_steerer
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 280
+      meshName: MM_frame_bottle_boss_bolt_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 281
+      meshName: MM_frame_bottle_boss_bolt_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 282
+      meshName: MM_frame_cable_guide_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 283
+      meshName: MM_frame_cable_guide_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 284
+      meshName: MM_frame_cable_guide_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 285
+      meshName: MM_frame_cable_guide_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 286
+      meshName: MM_frame_cable_guide_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 287
+      meshName: MM_frame_cable_guide_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 288
+      meshName: MM_frame_cable_guide_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 289
+      meshName: MM_frame_cable_guide_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 290
+      meshName: MM_frame_cable_guide_bolt_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 291
+      meshName: MM_frame_cable_guide_bolt_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 292
+      meshName: MM_frame_cable_guide_bolt_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 293
+      meshName: MM_frame_cable_guide_bolt_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 294
+      meshName: MM_frame_cable_guide_bolt_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 295
+      meshName: MM_frame_cable_guide_bolt_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 296
+      meshName: MM_frame_cable_guide_bolt_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 297
+      meshName: MM_frame_cable_guide_bolt_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 298
+      meshName: MM_frame_chainstay_protector
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 299
+      meshName: MM_frame_derailleur_hanger
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 300
+      meshName: MM_frame_hanger_bolt
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 301
+      meshName: MM_frame_main_weldment
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 302
+      meshName: MM_front_derailleur_body
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 303
+      meshName: MM_front_derailleur_cable_anchor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 304
+      meshName: MM_front_derailleur_cage_plate_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 305
+      meshName: MM_front_derailleur_cage_plate_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 306
+      meshName: MM_front_derailleur_clamp
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 307
+      meshName: MM_front_derailleur_clamp_bolt
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 308
+      meshName: MM_front_derailleur_limit_screw_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 309
+      meshName: MM_front_derailleur_limit_screw_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 310
+      meshName: MM_front_derailleur_link_plate_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 311
+      meshName: MM_front_derailleur_link_plate_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 312
+      meshName: MM_front_derailleur_pivot_pin_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 313
+      meshName: MM_front_derailleur_pivot_pin_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 314
+      meshName: MM_front_derailleur_return_spring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 315
+      meshName: MM_front_derailleur_return_spring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 316
+      meshName: MM_pedal_axle_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 317
+      meshName: MM_pedal_axle_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 318
+      meshName: MM_pedal_bearing_1_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 319
+      meshName: MM_pedal_bearing_1_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 320
+      meshName: MM_pedal_bearing_2_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 321
+      meshName: MM_pedal_bearing_2_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 322
+      meshName: MM_pedal_body_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 323
+      meshName: MM_pedal_body_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 324
+      meshName: MM_pedal_end_cap_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 325
+      meshName: MM_pedal_end_cap_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 326
+      meshName: MM_pedal_nut_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 327
+      meshName: MM_pedal_nut_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 328
+      meshName: MM_pedal_seal_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 329
+      meshName: MM_pedal_seal_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 330
+      meshName: MM_pedal_traction_pin_1_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 331
+      meshName: MM_pedal_traction_pin_1_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 332
+      meshName: MM_pedal_traction_pin_1_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 333
+      meshName: MM_pedal_traction_pin_1_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 334
+      meshName: MM_pedal_traction_pin_1_5
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 335
+      meshName: MM_pedal_traction_pin_1_6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 336
+      meshName: MM_pedal_traction_pin_1_7
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 337
+      meshName: MM_pedal_traction_pin_1_8
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 338
+      meshName: MM_pedal_traction_pin_2_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 339
+      meshName: MM_pedal_traction_pin_2_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 340
+      meshName: MM_pedal_traction_pin_2_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 341
+      meshName: MM_pedal_traction_pin_2_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 342
+      meshName: MM_pedal_traction_pin_2_5
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 343
+      meshName: MM_pedal_traction_pin_2_6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 344
+      meshName: MM_pedal_traction_pin_2_7
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 345
+      meshName: MM_pedal_traction_pin_2_8
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 346
+      meshName: MM_pedal_washer_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 347
+      meshName: MM_pedal_washer_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 348
+      meshName: MM_presentation_floor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 349
+      meshName: MM_rear_derailleur_b_knuckle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 350
+      meshName: MM_rear_derailleur_b_tension_screw
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 351
+      meshName: MM_rear_derailleur_cable_anchor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 352
+      meshName: MM_rear_derailleur_cage_plate_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 353
+      meshName: MM_rear_derailleur_cage_plate_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 354
+      meshName: MM_rear_derailleur_jockey_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 355
+      meshName: MM_rear_derailleur_jockey_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 356
+      meshName: MM_rear_derailleur_jockey_bushing_1_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 357
+      meshName: MM_rear_derailleur_jockey_bushing_1_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 358
+      meshName: MM_rear_derailleur_jockey_bushing_2_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 359
+      meshName: MM_rear_derailleur_jockey_bushing_2_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 360
+      meshName: MM_rear_derailleur_jockey_wheel_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 361
+      meshName: MM_rear_derailleur_jockey_wheel_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 362
+      meshName: MM_rear_derailleur_limit_screw_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 363
+      meshName: MM_rear_derailleur_limit_screw_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 364
+      meshName: MM_rear_derailleur_link_plate_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 365
+      meshName: MM_rear_derailleur_link_plate_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 366
+      meshName: MM_rear_derailleur_link_plate_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 367
+      meshName: MM_rear_derailleur_link_plate_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 368
+      meshName: MM_rear_derailleur_p_knuckle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 369
+      meshName: MM_rear_derailleur_pivot_pin_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 370
+      meshName: MM_rear_derailleur_pivot_pin_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 371
+      meshName: MM_rear_derailleur_pivot_pin_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 372
+      meshName: MM_rear_derailleur_pivot_pin_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 373
+      meshName: MM_rear_derailleur_return_spring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 374
+      meshName: MM_rear_derailleur_return_spring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 375
+      meshName: MM_saddle_clamp_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 376
+      meshName: MM_saddle_clamp_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 377
+      meshName: MM_saddle_clamp_plate_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 378
+      meshName: MM_saddle_clamp_plate_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 379
+      meshName: MM_saddle_cover
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 380
+      meshName: MM_saddle_padding
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 381
+      meshName: MM_saddle_rail_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 382
+      meshName: MM_saddle_rail_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 383
+      meshName: MM_saddle_seatpost
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 384
+      meshName: MM_saddle_seatpost_collar
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 385
+      meshName: MM_saddle_seatpost_collar_bolt
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 386
+      meshName: MM_saddle_shell
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 387
+      meshName: MM_wheel_front_hub_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 388
+      meshName: MM_wheel_front_hub_bearing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 389
+      meshName: MM_wheel_front_hub_bearing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 390
+      meshName: MM_wheel_front_hub_end_cap_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 391
+      meshName: MM_wheel_front_hub_end_cap_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 392
+      meshName: MM_wheel_front_hub_shell
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 393
+      meshName: MM_wheel_front_inner_tube
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 394
+      meshName: MM_wheel_front_nipple_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 395
+      meshName: MM_wheel_front_nipple_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 396
+      meshName: MM_wheel_front_nipple_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 397
+      meshName: MM_wheel_front_nipple_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 398
+      meshName: MM_wheel_front_nipple_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 399
+      meshName: MM_wheel_front_nipple_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 400
+      meshName: MM_wheel_front_nipple_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 401
+      meshName: MM_wheel_front_nipple_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 402
+      meshName: MM_wheel_front_nipple_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 403
+      meshName: MM_wheel_front_nipple_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 404
+      meshName: MM_wheel_front_nipple_11
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 405
+      meshName: MM_wheel_front_nipple_12
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 406
+      meshName: MM_wheel_front_nipple_13
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 407
+      meshName: MM_wheel_front_nipple_14
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 408
+      meshName: MM_wheel_front_nipple_15
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 409
+      meshName: MM_wheel_front_nipple_16
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 410
+      meshName: MM_wheel_front_nipple_17
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 411
+      meshName: MM_wheel_front_nipple_18
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 412
+      meshName: MM_wheel_front_nipple_19
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 413
+      meshName: MM_wheel_front_nipple_20
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 414
+      meshName: MM_wheel_front_nipple_21
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 415
+      meshName: MM_wheel_front_nipple_22
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 416
+      meshName: MM_wheel_front_nipple_23
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 417
+      meshName: MM_wheel_front_nipple_24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 418
+      meshName: MM_wheel_front_nipple_25
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 419
+      meshName: MM_wheel_front_nipple_26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 420
+      meshName: MM_wheel_front_nipple_27
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 421
+      meshName: MM_wheel_front_nipple_28
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 422
+      meshName: MM_wheel_front_nipple_29
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 423
+      meshName: MM_wheel_front_nipple_30
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 424
+      meshName: MM_wheel_front_nipple_31
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 425
+      meshName: MM_wheel_front_nipple_32
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 426
+      meshName: MM_wheel_front_rim
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 427
+      meshName: MM_wheel_front_rim_tape
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 428
+      meshName: MM_wheel_front_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 429
+      meshName: MM_wheel_front_rotor_bolt_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 430
+      meshName: MM_wheel_front_rotor_bolt_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 431
+      meshName: MM_wheel_front_rotor_bolt_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 432
+      meshName: MM_wheel_front_rotor_bolt_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 433
+      meshName: MM_wheel_front_rotor_bolt_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 434
+      meshName: MM_wheel_front_rotor_bolt_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 435
+      meshName: MM_wheel_front_rotor_washer_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 436
+      meshName: MM_wheel_front_rotor_washer_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 437
+      meshName: MM_wheel_front_rotor_washer_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 438
+      meshName: MM_wheel_front_rotor_washer_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 439
+      meshName: MM_wheel_front_rotor_washer_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 440
+      meshName: MM_wheel_front_rotor_washer_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 441
+      meshName: MM_wheel_front_spoke_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 442
+      meshName: MM_wheel_front_spoke_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 443
+      meshName: MM_wheel_front_spoke_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 444
+      meshName: MM_wheel_front_spoke_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 445
+      meshName: MM_wheel_front_spoke_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 446
+      meshName: MM_wheel_front_spoke_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 447
+      meshName: MM_wheel_front_spoke_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 448
+      meshName: MM_wheel_front_spoke_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 449
+      meshName: MM_wheel_front_spoke_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 450
+      meshName: MM_wheel_front_spoke_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 451
+      meshName: MM_wheel_front_spoke_11
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 452
+      meshName: MM_wheel_front_spoke_12
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 453
+      meshName: MM_wheel_front_spoke_13
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 454
+      meshName: MM_wheel_front_spoke_14
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 455
+      meshName: MM_wheel_front_spoke_15
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 456
+      meshName: MM_wheel_front_spoke_16
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 457
+      meshName: MM_wheel_front_spoke_17
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 458
+      meshName: MM_wheel_front_spoke_18
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 459
+      meshName: MM_wheel_front_spoke_19
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 460
+      meshName: MM_wheel_front_spoke_20
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 461
+      meshName: MM_wheel_front_spoke_21
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 462
+      meshName: MM_wheel_front_spoke_22
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 463
+      meshName: MM_wheel_front_spoke_23
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 464
+      meshName: MM_wheel_front_spoke_24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 465
+      meshName: MM_wheel_front_spoke_25
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 466
+      meshName: MM_wheel_front_spoke_26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 467
+      meshName: MM_wheel_front_spoke_27
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 468
+      meshName: MM_wheel_front_spoke_28
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 469
+      meshName: MM_wheel_front_spoke_29
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 470
+      meshName: MM_wheel_front_spoke_30
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 471
+      meshName: MM_wheel_front_spoke_31
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 472
+      meshName: MM_wheel_front_spoke_32
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 473
+      meshName: MM_wheel_front_thru_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 474
+      meshName: MM_wheel_front_tire
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 475
+      meshName: MM_wheel_front_valve_core
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 476
+      meshName: MM_wheel_front_valve_nut
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 477
+      meshName: MM_wheel_rear_cassette_lockring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 478
+      meshName: MM_wheel_rear_cassette_spacer_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 479
+      meshName: MM_wheel_rear_cassette_spacer_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 480
+      meshName: MM_wheel_rear_cassette_spacer_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 481
+      meshName: MM_wheel_rear_cassette_spacer_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 482
+      meshName: MM_wheel_rear_cassette_spacer_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 483
+      meshName: MM_wheel_rear_cassette_spacer_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 484
+      meshName: MM_wheel_rear_cassette_spacer_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 485
+      meshName: MM_wheel_rear_cassette_spacer_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 486
+      meshName: MM_wheel_rear_cassette_spacer_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 487
+      meshName: MM_wheel_rear_cassette_sprocket_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 488
+      meshName: MM_wheel_rear_cassette_sprocket_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 489
+      meshName: MM_wheel_rear_cassette_sprocket_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 490
+      meshName: MM_wheel_rear_cassette_sprocket_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 491
+      meshName: MM_wheel_rear_cassette_sprocket_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 492
+      meshName: MM_wheel_rear_cassette_sprocket_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 493
+      meshName: MM_wheel_rear_cassette_sprocket_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 494
+      meshName: MM_wheel_rear_cassette_sprocket_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 495
+      meshName: MM_wheel_rear_cassette_sprocket_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 496
+      meshName: MM_wheel_rear_cassette_sprocket_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 497
+      meshName: MM_wheel_rear_freehub_bearing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 498
+      meshName: MM_wheel_rear_freehub_bearing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 499
+      meshName: MM_wheel_rear_freehub_body
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 500
+      meshName: MM_wheel_rear_freehub_seal
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 501
+      meshName: MM_wheel_rear_hub_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 502
+      meshName: MM_wheel_rear_hub_bearing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 503
+      meshName: MM_wheel_rear_hub_bearing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 504
+      meshName: MM_wheel_rear_hub_end_cap_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 505
+      meshName: MM_wheel_rear_hub_end_cap_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 506
+      meshName: MM_wheel_rear_hub_shell
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 507
+      meshName: MM_wheel_rear_inner_tube
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 508
+      meshName: MM_wheel_rear_nipple_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 509
+      meshName: MM_wheel_rear_nipple_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 510
+      meshName: MM_wheel_rear_nipple_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 511
+      meshName: MM_wheel_rear_nipple_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 512
+      meshName: MM_wheel_rear_nipple_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 513
+      meshName: MM_wheel_rear_nipple_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 514
+      meshName: MM_wheel_rear_nipple_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 515
+      meshName: MM_wheel_rear_nipple_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 516
+      meshName: MM_wheel_rear_nipple_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 517
+      meshName: MM_wheel_rear_nipple_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 518
+      meshName: MM_wheel_rear_nipple_11
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 519
+      meshName: MM_wheel_rear_nipple_12
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 520
+      meshName: MM_wheel_rear_nipple_13
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 521
+      meshName: MM_wheel_rear_nipple_14
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 522
+      meshName: MM_wheel_rear_nipple_15
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 523
+      meshName: MM_wheel_rear_nipple_16
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 524
+      meshName: MM_wheel_rear_nipple_17
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 525
+      meshName: MM_wheel_rear_nipple_18
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 526
+      meshName: MM_wheel_rear_nipple_19
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 527
+      meshName: MM_wheel_rear_nipple_20
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 528
+      meshName: MM_wheel_rear_nipple_21
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 529
+      meshName: MM_wheel_rear_nipple_22
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 530
+      meshName: MM_wheel_rear_nipple_23
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 531
+      meshName: MM_wheel_rear_nipple_24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 532
+      meshName: MM_wheel_rear_nipple_25
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 533
+      meshName: MM_wheel_rear_nipple_26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 534
+      meshName: MM_wheel_rear_nipple_27
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 535
+      meshName: MM_wheel_rear_nipple_28
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 536
+      meshName: MM_wheel_rear_nipple_29
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 537
+      meshName: MM_wheel_rear_nipple_30
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 538
+      meshName: MM_wheel_rear_nipple_31
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 539
+      meshName: MM_wheel_rear_nipple_32
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 540
+      meshName: MM_wheel_rear_pawl_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 541
+      meshName: MM_wheel_rear_pawl_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 542
+      meshName: MM_wheel_rear_pawl_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 543
+      meshName: MM_wheel_rear_pawl_spring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 544
+      meshName: MM_wheel_rear_pawl_spring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 545
+      meshName: MM_wheel_rear_pawl_spring_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 546
+      meshName: MM_wheel_rear_rim
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 547
+      meshName: MM_wheel_rear_rim_tape
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 548
+      meshName: MM_wheel_rear_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 549
+      meshName: MM_wheel_rear_rotor_bolt_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 550
+      meshName: MM_wheel_rear_rotor_bolt_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 551
+      meshName: MM_wheel_rear_rotor_bolt_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 552
+      meshName: MM_wheel_rear_rotor_bolt_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 553
+      meshName: MM_wheel_rear_rotor_bolt_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 554
+      meshName: MM_wheel_rear_rotor_bolt_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 555
+      meshName: MM_wheel_rear_rotor_washer_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 556
+      meshName: MM_wheel_rear_rotor_washer_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 557
+      meshName: MM_wheel_rear_rotor_washer_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 558
+      meshName: MM_wheel_rear_rotor_washer_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 559
+      meshName: MM_wheel_rear_rotor_washer_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 560
+      meshName: MM_wheel_rear_rotor_washer_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 561
+      meshName: MM_wheel_rear_spoke_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 562
+      meshName: MM_wheel_rear_spoke_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 563
+      meshName: MM_wheel_rear_spoke_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 564
+      meshName: MM_wheel_rear_spoke_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 565
+      meshName: MM_wheel_rear_spoke_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 566
+      meshName: MM_wheel_rear_spoke_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 567
+      meshName: MM_wheel_rear_spoke_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 568
+      meshName: MM_wheel_rear_spoke_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 569
+      meshName: MM_wheel_rear_spoke_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 570
+      meshName: MM_wheel_rear_spoke_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 571
+      meshName: MM_wheel_rear_spoke_11
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 572
+      meshName: MM_wheel_rear_spoke_12
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 573
+      meshName: MM_wheel_rear_spoke_13
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 574
+      meshName: MM_wheel_rear_spoke_14
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 575
+      meshName: MM_wheel_rear_spoke_15
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 576
+      meshName: MM_wheel_rear_spoke_16
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 577
+      meshName: MM_wheel_rear_spoke_17
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 578
+      meshName: MM_wheel_rear_spoke_18
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 579
+      meshName: MM_wheel_rear_spoke_19
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 580
+      meshName: MM_wheel_rear_spoke_20
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 581
+      meshName: MM_wheel_rear_spoke_21
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 582
+      meshName: MM_wheel_rear_spoke_22
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 583
+      meshName: MM_wheel_rear_spoke_23
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 584
+      meshName: MM_wheel_rear_spoke_24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 585
+      meshName: MM_wheel_rear_spoke_25
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 586
+      meshName: MM_wheel_rear_spoke_26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 587
+      meshName: MM_wheel_rear_spoke_27
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 588
+      meshName: MM_wheel_rear_spoke_28
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 589
+      meshName: MM_wheel_rear_spoke_29
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 590
+      meshName: MM_wheel_rear_spoke_30
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 591
+      meshName: MM_wheel_rear_spoke_31
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 592
+      meshName: MM_wheel_rear_spoke_32
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 593
+      meshName: MM_wheel_rear_thru_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 594
+      meshName: MM_wheel_rear_tire
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 595
+      meshName: MM_wheel_rear_valve_core
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 596
+      meshName: MM_wheel_rear_valve_nut
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    supportVGMeshes:
+    - index: 0
+      meshName: MM_brake_front_bleed_o_ring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 1
+      meshName: MM_brake_front_bleed_screw
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 2
+      meshName: MM_brake_front_brake_pad_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 3
+      meshName: MM_brake_front_brake_pad_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 4
+      meshName: MM_brake_front_caliper_body_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 5
+      meshName: MM_brake_front_caliper_body_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 6
+      meshName: MM_brake_front_caliper_half_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 7
+      meshName: MM_brake_front_caliper_half_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 8
+      meshName: MM_brake_front_caliper_piston_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 9
+      meshName: MM_brake_front_caliper_piston_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 10
+      meshName: MM_brake_front_compression_nut
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 11
+      meshName: MM_brake_front_connector_insert
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 12
+      meshName: MM_brake_front_hose
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 13
+      meshName: MM_brake_front_lever_blade
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 14
+      meshName: MM_brake_front_lever_body
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 15
+      meshName: MM_brake_front_lever_clamp
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 16
+      meshName: MM_brake_front_lever_clamp_bolt
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 17
+      meshName: MM_brake_front_lever_pivot
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 18
+      meshName: MM_brake_front_master_piston
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 19
+      meshName: MM_brake_front_master_seal_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 20
+      meshName: MM_brake_front_master_seal_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 21
+      meshName: MM_brake_front_mount_adapter
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 22
+      meshName: MM_brake_front_mount_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 23
+      meshName: MM_brake_front_mount_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 24
+      meshName: MM_brake_front_mount_snap_ring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 25
+      meshName: MM_brake_front_mount_snap_ring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 26
+      meshName: MM_brake_front_olive
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 27
+      meshName: MM_brake_front_pad_pin
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 28
+      meshName: MM_brake_front_pad_spring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 29
+      meshName: MM_brake_front_piston_seal_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 30
+      meshName: MM_brake_front_piston_seal_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 31
+      meshName: MM_brake_front_reservoir_cap
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 32
+      meshName: MM_brake_front_reservoir_cap_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 33
+      meshName: MM_brake_front_reservoir_cap_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 34
+      meshName: MM_brake_front_reservoir_diaphragm
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 35
+      meshName: MM_brake_front_retaining_clip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 36
+      meshName: MM_brake_front_return_spring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 37
+      meshName: MM_brake_rear_bleed_o_ring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 38
+      meshName: MM_brake_rear_bleed_screw
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 39
+      meshName: MM_brake_rear_brake_pad_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 40
+      meshName: MM_brake_rear_brake_pad_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 41
+      meshName: MM_brake_rear_caliper_body_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 42
+      meshName: MM_brake_rear_caliper_body_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 43
+      meshName: MM_brake_rear_caliper_half_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 44
+      meshName: MM_brake_rear_caliper_half_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 45
+      meshName: MM_brake_rear_caliper_piston_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 46
+      meshName: MM_brake_rear_caliper_piston_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 47
+      meshName: MM_brake_rear_compression_nut
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 48
+      meshName: MM_brake_rear_connector_insert
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 49
+      meshName: MM_brake_rear_hose
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 50
+      meshName: MM_brake_rear_lever_blade
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 51
+      meshName: MM_brake_rear_lever_body
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 52
+      meshName: MM_brake_rear_lever_clamp
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 53
+      meshName: MM_brake_rear_lever_clamp_bolt
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 54
+      meshName: MM_brake_rear_lever_pivot
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 55
+      meshName: MM_brake_rear_master_piston
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 56
+      meshName: MM_brake_rear_master_seal_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 57
+      meshName: MM_brake_rear_master_seal_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 58
+      meshName: MM_brake_rear_mount_adapter
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 59
+      meshName: MM_brake_rear_mount_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 60
+      meshName: MM_brake_rear_mount_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 61
+      meshName: MM_brake_rear_mount_snap_ring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 62
+      meshName: MM_brake_rear_mount_snap_ring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 63
+      meshName: MM_brake_rear_olive
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 64
+      meshName: MM_brake_rear_pad_pin
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 65
+      meshName: MM_brake_rear_pad_spring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 66
+      meshName: MM_brake_rear_piston_seal_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 67
+      meshName: MM_brake_rear_piston_seal_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 68
+      meshName: MM_brake_rear_reservoir_cap
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 69
+      meshName: MM_brake_rear_reservoir_cap_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 70
+      meshName: MM_brake_rear_reservoir_cap_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 71
+      meshName: MM_brake_rear_reservoir_diaphragm
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 72
+      meshName: MM_brake_rear_retaining_clip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 73
+      meshName: MM_brake_rear_return_spring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 74
+      meshName: MM_chain_link_001
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 75
+      meshName: MM_chain_link_002
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 76
+      meshName: MM_chain_link_003
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 77
+      meshName: MM_chain_link_004
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 78
+      meshName: MM_chain_link_005
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 79
+      meshName: MM_chain_link_006
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 80
+      meshName: MM_chain_link_007
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 81
+      meshName: MM_chain_link_008
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 82
+      meshName: MM_chain_link_009
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 83
+      meshName: MM_chain_link_010
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 84
+      meshName: MM_chain_link_011
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 85
+      meshName: MM_chain_link_012
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 86
+      meshName: MM_chain_link_013
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 87
+      meshName: MM_chain_link_014
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 88
+      meshName: MM_chain_link_015
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 89
+      meshName: MM_chain_link_016
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 90
+      meshName: MM_chain_link_017
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 91
+      meshName: MM_chain_link_018
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 92
+      meshName: MM_chain_link_019
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 93
+      meshName: MM_chain_link_020
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 94
+      meshName: MM_chain_link_021
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 95
+      meshName: MM_chain_link_022
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 96
+      meshName: MM_chain_link_023
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 97
+      meshName: MM_chain_link_024
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 98
+      meshName: MM_chain_link_025
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 99
+      meshName: MM_chain_link_026
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 100
+      meshName: MM_chain_link_027
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 101
+      meshName: MM_chain_link_028
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 102
+      meshName: MM_chain_link_029
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 103
+      meshName: MM_chain_link_030
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 104
+      meshName: MM_chain_link_031
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 105
+      meshName: MM_chain_link_032
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 106
+      meshName: MM_chain_link_033
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 107
+      meshName: MM_chain_link_034
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 108
+      meshName: MM_chain_link_035
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 109
+      meshName: MM_chain_link_036
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 110
+      meshName: MM_chain_link_037
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 111
+      meshName: MM_chain_link_038
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 112
+      meshName: MM_chain_link_039
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 113
+      meshName: MM_chain_link_040
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 114
+      meshName: MM_chain_link_041
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 115
+      meshName: MM_chain_link_042
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 116
+      meshName: MM_chain_link_043
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 117
+      meshName: MM_chain_link_044
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 118
+      meshName: MM_chain_link_045
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 119
+      meshName: MM_chain_link_046
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 120
+      meshName: MM_chain_link_047
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 121
+      meshName: MM_chain_link_048
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 122
+      meshName: MM_chain_link_049
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 123
+      meshName: MM_chain_link_050
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 124
+      meshName: MM_chain_link_051
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 125
+      meshName: MM_chain_link_052
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 126
+      meshName: MM_chain_link_053
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 127
+      meshName: MM_chain_link_054
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 128
+      meshName: MM_chain_link_055
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 129
+      meshName: MM_chain_link_056
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 130
+      meshName: MM_chain_link_057
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 131
+      meshName: MM_chain_link_058
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 132
+      meshName: MM_chain_link_059
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 133
+      meshName: MM_chain_link_060
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 134
+      meshName: MM_chain_link_061
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 135
+      meshName: MM_chain_link_062
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 136
+      meshName: MM_chain_link_063
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 137
+      meshName: MM_chain_link_064
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 138
+      meshName: MM_chain_link_065
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 139
+      meshName: MM_chain_link_066
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 140
+      meshName: MM_chain_link_067
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 141
+      meshName: MM_chain_link_068
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 142
+      meshName: MM_chain_link_069
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 143
+      meshName: MM_chain_link_070
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 144
+      meshName: MM_chain_link_071
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 145
+      meshName: MM_chain_link_072
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 146
+      meshName: MM_chain_link_073
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 147
+      meshName: MM_chain_link_074
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 148
+      meshName: MM_chain_link_075
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 149
+      meshName: MM_chain_link_076
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 150
+      meshName: MM_chain_link_077
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 151
+      meshName: MM_chain_link_078
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 152
+      meshName: MM_chain_link_079
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 153
+      meshName: MM_chain_link_080
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 154
+      meshName: MM_chain_link_081
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 155
+      meshName: MM_chain_link_082
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 156
+      meshName: MM_chain_link_083
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 157
+      meshName: MM_chain_link_084
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 158
+      meshName: MM_chain_link_085
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 159
+      meshName: MM_chain_link_086
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 160
+      meshName: MM_chain_link_087
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 161
+      meshName: MM_chain_link_088
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 162
+      meshName: MM_chain_link_089
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 163
+      meshName: MM_chain_link_090
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 164
+      meshName: MM_chain_link_091
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 165
+      meshName: MM_chain_link_092
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 166
+      meshName: MM_chain_link_093
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 167
+      meshName: MM_chain_link_094
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 168
+      meshName: MM_chain_link_095
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 169
+      meshName: MM_chain_link_096
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 170
+      meshName: MM_chain_link_097
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 171
+      meshName: MM_chain_link_098
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 172
+      meshName: MM_chain_link_099
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 173
+      meshName: MM_chain_link_100
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 174
+      meshName: MM_chain_link_101
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 175
+      meshName: MM_chain_link_102
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 176
+      meshName: MM_chain_link_103
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 177
+      meshName: MM_chain_link_104
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 178
+      meshName: MM_chain_link_105
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 179
+      meshName: MM_chain_link_106
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 180
+      meshName: MM_chain_link_107
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 181
+      meshName: MM_chain_link_108
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 182
+      meshName: MM_chain_link_109
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 183
+      meshName: MM_chain_link_110
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 184
+      meshName: MM_chain_quick_link_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 185
+      meshName: MM_chain_quick_link_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 186
+      meshName: MM_cockpit_bar_end_plug_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 187
+      meshName: MM_cockpit_bar_end_plug_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 188
+      meshName: MM_cockpit_clamp_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 189
+      meshName: MM_cockpit_clamp_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 190
+      meshName: MM_cockpit_compression_ring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 191
+      meshName: MM_cockpit_crown_race
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 192
+      meshName: MM_cockpit_faceplate_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 193
+      meshName: MM_cockpit_faceplate_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 194
+      meshName: MM_cockpit_faceplate_bolt_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 195
+      meshName: MM_cockpit_faceplate_bolt_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 196
+      meshName: MM_cockpit_grip_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 197
+      meshName: MM_cockpit_grip_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 198
+      meshName: MM_cockpit_handlebar
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 199
+      meshName: MM_cockpit_headset_bearing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 200
+      meshName: MM_cockpit_headset_bearing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 201
+      meshName: MM_cockpit_headset_spacer_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 202
+      meshName: MM_cockpit_headset_spacer_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 203
+      meshName: MM_cockpit_headset_spacer_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 204
+      meshName: MM_cockpit_star_nut
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 205
+      meshName: MM_cockpit_stem_body
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 206
+      meshName: MM_cockpit_stem_faceplate
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 207
+      meshName: MM_cockpit_top_cap
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 208
+      meshName: MM_cockpit_top_cap_bolt
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 209
+      meshName: MM_cockpit_upper_cover
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 210
+      meshName: MM_controls_cable_end_cap_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 211
+      meshName: MM_controls_cable_end_cap_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 212
+      meshName: MM_controls_ferrule_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 213
+      meshName: MM_controls_ferrule_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 214
+      meshName: MM_controls_ferrule_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 215
+      meshName: MM_controls_ferrule_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 216
+      meshName: MM_controls_ferrule_5
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 217
+      meshName: MM_controls_ferrule_6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 218
+      meshName: MM_controls_ferrule_7
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 219
+      meshName: MM_controls_ferrule_8
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 220
+      meshName: MM_controls_housing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 221
+      meshName: MM_controls_housing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 222
+      meshName: MM_controls_inner_cable_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 223
+      meshName: MM_controls_inner_cable_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 224
+      meshName: MM_controls_shifter_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 225
+      meshName: MM_controls_shifter_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 226
+      meshName: MM_crank_arm_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 227
+      meshName: MM_crank_arm_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 228
+      meshName: MM_crank_bb_bearing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 229
+      meshName: MM_crank_bb_bearing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 230
+      meshName: MM_crank_bb_cup_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 231
+      meshName: MM_crank_bb_cup_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 232
+      meshName: MM_crank_bb_seal_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 233
+      meshName: MM_crank_bb_seal_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 234
+      meshName: MM_crank_bb_sleeve
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 235
+      meshName: MM_crank_bb_spacer_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 236
+      meshName: MM_crank_bb_spacer_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 237
+      meshName: MM_crank_chainring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 238
+      meshName: MM_crank_chainring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 239
+      meshName: MM_crank_chainring_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 240
+      meshName: MM_crank_chainring_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 241
+      meshName: MM_crank_chainring_bolt_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 242
+      meshName: MM_crank_chainring_bolt_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 243
+      meshName: MM_crank_chainring_nut_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 244
+      meshName: MM_crank_chainring_nut_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 245
+      meshName: MM_crank_chainring_nut_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 246
+      meshName: MM_crank_chainring_nut_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 247
+      meshName: MM_crank_pinch_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 248
+      meshName: MM_crank_pinch_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 249
+      meshName: MM_crank_preload_cap
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 250
+      meshName: MM_crank_spindle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 251
+      meshName: MM_fork_air_piston
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 252
+      meshName: MM_fork_air_seal_head
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 253
+      meshName: MM_fork_air_shaft
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 254
+      meshName: MM_fork_air_top_cap
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 255
+      meshName: MM_fork_air_valve_core
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 256
+      meshName: MM_fork_arch
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 257
+      meshName: MM_fork_compression_adjuster
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 258
+      meshName: MM_fork_crown
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 259
+      meshName: MM_fork_crush_washer_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 260
+      meshName: MM_fork_crush_washer_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 261
+      meshName: MM_fork_damper_cartridge
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 262
+      meshName: MM_fork_damper_top_cap
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 263
+      meshName: MM_fork_dust_wiper_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 264
+      meshName: MM_fork_dust_wiper_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 265
+      meshName: MM_fork_foam_ring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 266
+      meshName: MM_fork_foam_ring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 267
+      meshName: MM_fork_foot_nut_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 268
+      meshName: MM_fork_foot_nut_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 269
+      meshName: MM_fork_guide_bushing_1_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 270
+      meshName: MM_fork_guide_bushing_1_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 271
+      meshName: MM_fork_guide_bushing_2_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 272
+      meshName: MM_fork_guide_bushing_2_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 273
+      meshName: MM_fork_lower_casting
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 274
+      meshName: MM_fork_negative_spring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 275
+      meshName: MM_fork_rebound_knob
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 276
+      meshName: MM_fork_rebound_shaft
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 277
+      meshName: MM_fork_stanchion_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 278
+      meshName: MM_fork_stanchion_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 279
+      meshName: MM_fork_steerer
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 280
+      meshName: MM_frame_bottle_boss_bolt_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 281
+      meshName: MM_frame_bottle_boss_bolt_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 282
+      meshName: MM_frame_cable_guide_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 283
+      meshName: MM_frame_cable_guide_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 284
+      meshName: MM_frame_cable_guide_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 285
+      meshName: MM_frame_cable_guide_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 286
+      meshName: MM_frame_cable_guide_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 287
+      meshName: MM_frame_cable_guide_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 288
+      meshName: MM_frame_cable_guide_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 289
+      meshName: MM_frame_cable_guide_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 290
+      meshName: MM_frame_cable_guide_bolt_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 291
+      meshName: MM_frame_cable_guide_bolt_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 292
+      meshName: MM_frame_cable_guide_bolt_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 293
+      meshName: MM_frame_cable_guide_bolt_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 294
+      meshName: MM_frame_cable_guide_bolt_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 295
+      meshName: MM_frame_cable_guide_bolt_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 296
+      meshName: MM_frame_cable_guide_bolt_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 297
+      meshName: MM_frame_cable_guide_bolt_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 298
+      meshName: MM_frame_chainstay_protector
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 299
+      meshName: MM_frame_derailleur_hanger
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 300
+      meshName: MM_frame_hanger_bolt
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 301
+      meshName: MM_frame_main_weldment
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 302
+      meshName: MM_front_derailleur_body
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 303
+      meshName: MM_front_derailleur_cable_anchor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 304
+      meshName: MM_front_derailleur_cage_plate_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 305
+      meshName: MM_front_derailleur_cage_plate_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 306
+      meshName: MM_front_derailleur_clamp
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 307
+      meshName: MM_front_derailleur_clamp_bolt
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 308
+      meshName: MM_front_derailleur_limit_screw_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 309
+      meshName: MM_front_derailleur_limit_screw_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 310
+      meshName: MM_front_derailleur_link_plate_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 311
+      meshName: MM_front_derailleur_link_plate_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 312
+      meshName: MM_front_derailleur_pivot_pin_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 313
+      meshName: MM_front_derailleur_pivot_pin_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 314
+      meshName: MM_front_derailleur_return_spring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 315
+      meshName: MM_front_derailleur_return_spring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 316
+      meshName: MM_pedal_axle_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 317
+      meshName: MM_pedal_axle_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 318
+      meshName: MM_pedal_bearing_1_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 319
+      meshName: MM_pedal_bearing_1_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 320
+      meshName: MM_pedal_bearing_2_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 321
+      meshName: MM_pedal_bearing_2_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 322
+      meshName: MM_pedal_body_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 323
+      meshName: MM_pedal_body_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 324
+      meshName: MM_pedal_end_cap_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 325
+      meshName: MM_pedal_end_cap_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 326
+      meshName: MM_pedal_nut_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 327
+      meshName: MM_pedal_nut_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 328
+      meshName: MM_pedal_seal_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 329
+      meshName: MM_pedal_seal_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 330
+      meshName: MM_pedal_traction_pin_1_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 331
+      meshName: MM_pedal_traction_pin_1_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 332
+      meshName: MM_pedal_traction_pin_1_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 333
+      meshName: MM_pedal_traction_pin_1_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 334
+      meshName: MM_pedal_traction_pin_1_5
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 335
+      meshName: MM_pedal_traction_pin_1_6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 336
+      meshName: MM_pedal_traction_pin_1_7
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 337
+      meshName: MM_pedal_traction_pin_1_8
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 338
+      meshName: MM_pedal_traction_pin_2_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 339
+      meshName: MM_pedal_traction_pin_2_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 340
+      meshName: MM_pedal_traction_pin_2_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 341
+      meshName: MM_pedal_traction_pin_2_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 342
+      meshName: MM_pedal_traction_pin_2_5
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 343
+      meshName: MM_pedal_traction_pin_2_6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 344
+      meshName: MM_pedal_traction_pin_2_7
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 345
+      meshName: MM_pedal_traction_pin_2_8
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 346
+      meshName: MM_pedal_washer_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 347
+      meshName: MM_pedal_washer_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 348
+      meshName: MM_presentation_floor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 349
+      meshName: MM_rear_derailleur_b_knuckle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 350
+      meshName: MM_rear_derailleur_b_tension_screw
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 351
+      meshName: MM_rear_derailleur_cable_anchor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 352
+      meshName: MM_rear_derailleur_cage_plate_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 353
+      meshName: MM_rear_derailleur_cage_plate_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 354
+      meshName: MM_rear_derailleur_jockey_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 355
+      meshName: MM_rear_derailleur_jockey_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 356
+      meshName: MM_rear_derailleur_jockey_bushing_1_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 357
+      meshName: MM_rear_derailleur_jockey_bushing_1_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 358
+      meshName: MM_rear_derailleur_jockey_bushing_2_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 359
+      meshName: MM_rear_derailleur_jockey_bushing_2_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 360
+      meshName: MM_rear_derailleur_jockey_wheel_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 361
+      meshName: MM_rear_derailleur_jockey_wheel_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 362
+      meshName: MM_rear_derailleur_limit_screw_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 363
+      meshName: MM_rear_derailleur_limit_screw_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 364
+      meshName: MM_rear_derailleur_link_plate_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 365
+      meshName: MM_rear_derailleur_link_plate_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 366
+      meshName: MM_rear_derailleur_link_plate_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 367
+      meshName: MM_rear_derailleur_link_plate_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 368
+      meshName: MM_rear_derailleur_p_knuckle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 369
+      meshName: MM_rear_derailleur_pivot_pin_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 370
+      meshName: MM_rear_derailleur_pivot_pin_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 371
+      meshName: MM_rear_derailleur_pivot_pin_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 372
+      meshName: MM_rear_derailleur_pivot_pin_4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 373
+      meshName: MM_rear_derailleur_return_spring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 374
+      meshName: MM_rear_derailleur_return_spring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 375
+      meshName: MM_saddle_clamp_bolt_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 376
+      meshName: MM_saddle_clamp_bolt_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 377
+      meshName: MM_saddle_clamp_plate_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 378
+      meshName: MM_saddle_clamp_plate_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 379
+      meshName: MM_saddle_cover
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 380
+      meshName: MM_saddle_padding
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 381
+      meshName: MM_saddle_rail_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 382
+      meshName: MM_saddle_rail_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 383
+      meshName: MM_saddle_seatpost
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 384
+      meshName: MM_saddle_seatpost_collar
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 385
+      meshName: MM_saddle_seatpost_collar_bolt
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 386
+      meshName: MM_saddle_shell
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 387
+      meshName: MM_wheel_front_hub_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 388
+      meshName: MM_wheel_front_hub_bearing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 389
+      meshName: MM_wheel_front_hub_bearing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 390
+      meshName: MM_wheel_front_hub_end_cap_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 391
+      meshName: MM_wheel_front_hub_end_cap_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 392
+      meshName: MM_wheel_front_hub_shell
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 393
+      meshName: MM_wheel_front_inner_tube
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 394
+      meshName: MM_wheel_front_nipple_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 395
+      meshName: MM_wheel_front_nipple_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 396
+      meshName: MM_wheel_front_nipple_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 397
+      meshName: MM_wheel_front_nipple_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 398
+      meshName: MM_wheel_front_nipple_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 399
+      meshName: MM_wheel_front_nipple_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 400
+      meshName: MM_wheel_front_nipple_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 401
+      meshName: MM_wheel_front_nipple_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 402
+      meshName: MM_wheel_front_nipple_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 403
+      meshName: MM_wheel_front_nipple_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 404
+      meshName: MM_wheel_front_nipple_11
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 405
+      meshName: MM_wheel_front_nipple_12
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 406
+      meshName: MM_wheel_front_nipple_13
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 407
+      meshName: MM_wheel_front_nipple_14
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 408
+      meshName: MM_wheel_front_nipple_15
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 409
+      meshName: MM_wheel_front_nipple_16
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 410
+      meshName: MM_wheel_front_nipple_17
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 411
+      meshName: MM_wheel_front_nipple_18
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 412
+      meshName: MM_wheel_front_nipple_19
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 413
+      meshName: MM_wheel_front_nipple_20
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 414
+      meshName: MM_wheel_front_nipple_21
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 415
+      meshName: MM_wheel_front_nipple_22
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 416
+      meshName: MM_wheel_front_nipple_23
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 417
+      meshName: MM_wheel_front_nipple_24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 418
+      meshName: MM_wheel_front_nipple_25
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 419
+      meshName: MM_wheel_front_nipple_26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 420
+      meshName: MM_wheel_front_nipple_27
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 421
+      meshName: MM_wheel_front_nipple_28
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 422
+      meshName: MM_wheel_front_nipple_29
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 423
+      meshName: MM_wheel_front_nipple_30
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 424
+      meshName: MM_wheel_front_nipple_31
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 425
+      meshName: MM_wheel_front_nipple_32
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 426
+      meshName: MM_wheel_front_rim
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 427
+      meshName: MM_wheel_front_rim_tape
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 428
+      meshName: MM_wheel_front_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 429
+      meshName: MM_wheel_front_rotor_bolt_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 430
+      meshName: MM_wheel_front_rotor_bolt_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 431
+      meshName: MM_wheel_front_rotor_bolt_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 432
+      meshName: MM_wheel_front_rotor_bolt_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 433
+      meshName: MM_wheel_front_rotor_bolt_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 434
+      meshName: MM_wheel_front_rotor_bolt_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 435
+      meshName: MM_wheel_front_rotor_washer_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 436
+      meshName: MM_wheel_front_rotor_washer_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 437
+      meshName: MM_wheel_front_rotor_washer_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 438
+      meshName: MM_wheel_front_rotor_washer_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 439
+      meshName: MM_wheel_front_rotor_washer_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 440
+      meshName: MM_wheel_front_rotor_washer_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 441
+      meshName: MM_wheel_front_spoke_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 442
+      meshName: MM_wheel_front_spoke_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 443
+      meshName: MM_wheel_front_spoke_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 444
+      meshName: MM_wheel_front_spoke_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 445
+      meshName: MM_wheel_front_spoke_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 446
+      meshName: MM_wheel_front_spoke_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 447
+      meshName: MM_wheel_front_spoke_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 448
+      meshName: MM_wheel_front_spoke_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 449
+      meshName: MM_wheel_front_spoke_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 450
+      meshName: MM_wheel_front_spoke_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 451
+      meshName: MM_wheel_front_spoke_11
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 452
+      meshName: MM_wheel_front_spoke_12
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 453
+      meshName: MM_wheel_front_spoke_13
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 454
+      meshName: MM_wheel_front_spoke_14
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 455
+      meshName: MM_wheel_front_spoke_15
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 456
+      meshName: MM_wheel_front_spoke_16
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 457
+      meshName: MM_wheel_front_spoke_17
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 458
+      meshName: MM_wheel_front_spoke_18
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 459
+      meshName: MM_wheel_front_spoke_19
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 460
+      meshName: MM_wheel_front_spoke_20
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 461
+      meshName: MM_wheel_front_spoke_21
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 462
+      meshName: MM_wheel_front_spoke_22
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 463
+      meshName: MM_wheel_front_spoke_23
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 464
+      meshName: MM_wheel_front_spoke_24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 465
+      meshName: MM_wheel_front_spoke_25
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 466
+      meshName: MM_wheel_front_spoke_26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 467
+      meshName: MM_wheel_front_spoke_27
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 468
+      meshName: MM_wheel_front_spoke_28
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 469
+      meshName: MM_wheel_front_spoke_29
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 470
+      meshName: MM_wheel_front_spoke_30
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 471
+      meshName: MM_wheel_front_spoke_31
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 472
+      meshName: MM_wheel_front_spoke_32
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 473
+      meshName: MM_wheel_front_thru_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 474
+      meshName: MM_wheel_front_tire
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 475
+      meshName: MM_wheel_front_valve_core
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 476
+      meshName: MM_wheel_front_valve_nut
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 477
+      meshName: MM_wheel_rear_cassette_lockring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 478
+      meshName: MM_wheel_rear_cassette_spacer_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 479
+      meshName: MM_wheel_rear_cassette_spacer_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 480
+      meshName: MM_wheel_rear_cassette_spacer_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 481
+      meshName: MM_wheel_rear_cassette_spacer_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 482
+      meshName: MM_wheel_rear_cassette_spacer_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 483
+      meshName: MM_wheel_rear_cassette_spacer_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 484
+      meshName: MM_wheel_rear_cassette_spacer_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 485
+      meshName: MM_wheel_rear_cassette_spacer_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 486
+      meshName: MM_wheel_rear_cassette_spacer_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 487
+      meshName: MM_wheel_rear_cassette_sprocket_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 488
+      meshName: MM_wheel_rear_cassette_sprocket_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 489
+      meshName: MM_wheel_rear_cassette_sprocket_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 490
+      meshName: MM_wheel_rear_cassette_sprocket_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 491
+      meshName: MM_wheel_rear_cassette_sprocket_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 492
+      meshName: MM_wheel_rear_cassette_sprocket_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 493
+      meshName: MM_wheel_rear_cassette_sprocket_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 494
+      meshName: MM_wheel_rear_cassette_sprocket_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 495
+      meshName: MM_wheel_rear_cassette_sprocket_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 496
+      meshName: MM_wheel_rear_cassette_sprocket_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 497
+      meshName: MM_wheel_rear_freehub_bearing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 498
+      meshName: MM_wheel_rear_freehub_bearing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 499
+      meshName: MM_wheel_rear_freehub_body
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 500
+      meshName: MM_wheel_rear_freehub_seal
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 501
+      meshName: MM_wheel_rear_hub_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 502
+      meshName: MM_wheel_rear_hub_bearing_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 503
+      meshName: MM_wheel_rear_hub_bearing_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 504
+      meshName: MM_wheel_rear_hub_end_cap_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 505
+      meshName: MM_wheel_rear_hub_end_cap_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 506
+      meshName: MM_wheel_rear_hub_shell
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 507
+      meshName: MM_wheel_rear_inner_tube
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 508
+      meshName: MM_wheel_rear_nipple_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 509
+      meshName: MM_wheel_rear_nipple_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 510
+      meshName: MM_wheel_rear_nipple_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 511
+      meshName: MM_wheel_rear_nipple_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 512
+      meshName: MM_wheel_rear_nipple_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 513
+      meshName: MM_wheel_rear_nipple_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 514
+      meshName: MM_wheel_rear_nipple_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 515
+      meshName: MM_wheel_rear_nipple_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 516
+      meshName: MM_wheel_rear_nipple_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 517
+      meshName: MM_wheel_rear_nipple_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 518
+      meshName: MM_wheel_rear_nipple_11
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 519
+      meshName: MM_wheel_rear_nipple_12
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 520
+      meshName: MM_wheel_rear_nipple_13
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 521
+      meshName: MM_wheel_rear_nipple_14
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 522
+      meshName: MM_wheel_rear_nipple_15
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 523
+      meshName: MM_wheel_rear_nipple_16
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 524
+      meshName: MM_wheel_rear_nipple_17
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 525
+      meshName: MM_wheel_rear_nipple_18
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 526
+      meshName: MM_wheel_rear_nipple_19
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 527
+      meshName: MM_wheel_rear_nipple_20
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 528
+      meshName: MM_wheel_rear_nipple_21
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 529
+      meshName: MM_wheel_rear_nipple_22
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 530
+      meshName: MM_wheel_rear_nipple_23
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 531
+      meshName: MM_wheel_rear_nipple_24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 532
+      meshName: MM_wheel_rear_nipple_25
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 533
+      meshName: MM_wheel_rear_nipple_26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 534
+      meshName: MM_wheel_rear_nipple_27
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 535
+      meshName: MM_wheel_rear_nipple_28
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 536
+      meshName: MM_wheel_rear_nipple_29
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 537
+      meshName: MM_wheel_rear_nipple_30
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 538
+      meshName: MM_wheel_rear_nipple_31
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 539
+      meshName: MM_wheel_rear_nipple_32
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 540
+      meshName: MM_wheel_rear_pawl_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 541
+      meshName: MM_wheel_rear_pawl_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 542
+      meshName: MM_wheel_rear_pawl_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 543
+      meshName: MM_wheel_rear_pawl_spring_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 544
+      meshName: MM_wheel_rear_pawl_spring_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 545
+      meshName: MM_wheel_rear_pawl_spring_3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 546
+      meshName: MM_wheel_rear_rim
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 547
+      meshName: MM_wheel_rear_rim_tape
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 548
+      meshName: MM_wheel_rear_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 549
+      meshName: MM_wheel_rear_rotor_bolt_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 550
+      meshName: MM_wheel_rear_rotor_bolt_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 551
+      meshName: MM_wheel_rear_rotor_bolt_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 552
+      meshName: MM_wheel_rear_rotor_bolt_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 553
+      meshName: MM_wheel_rear_rotor_bolt_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 554
+      meshName: MM_wheel_rear_rotor_bolt_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 555
+      meshName: MM_wheel_rear_rotor_washer_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 556
+      meshName: MM_wheel_rear_rotor_washer_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 557
+      meshName: MM_wheel_rear_rotor_washer_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 558
+      meshName: MM_wheel_rear_rotor_washer_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 559
+      meshName: MM_wheel_rear_rotor_washer_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 560
+      meshName: MM_wheel_rear_rotor_washer_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 561
+      meshName: MM_wheel_rear_spoke_01
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 562
+      meshName: MM_wheel_rear_spoke_02
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 563
+      meshName: MM_wheel_rear_spoke_03
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 564
+      meshName: MM_wheel_rear_spoke_04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 565
+      meshName: MM_wheel_rear_spoke_05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 566
+      meshName: MM_wheel_rear_spoke_06
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 567
+      meshName: MM_wheel_rear_spoke_07
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 568
+      meshName: MM_wheel_rear_spoke_08
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 569
+      meshName: MM_wheel_rear_spoke_09
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 570
+      meshName: MM_wheel_rear_spoke_10
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 571
+      meshName: MM_wheel_rear_spoke_11
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 572
+      meshName: MM_wheel_rear_spoke_12
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 573
+      meshName: MM_wheel_rear_spoke_13
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 574
+      meshName: MM_wheel_rear_spoke_14
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 575
+      meshName: MM_wheel_rear_spoke_15
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 576
+      meshName: MM_wheel_rear_spoke_16
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 577
+      meshName: MM_wheel_rear_spoke_17
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 578
+      meshName: MM_wheel_rear_spoke_18
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 579
+      meshName: MM_wheel_rear_spoke_19
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 580
+      meshName: MM_wheel_rear_spoke_20
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 581
+      meshName: MM_wheel_rear_spoke_21
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 582
+      meshName: MM_wheel_rear_spoke_22
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 583
+      meshName: MM_wheel_rear_spoke_23
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 584
+      meshName: MM_wheel_rear_spoke_24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 585
+      meshName: MM_wheel_rear_spoke_25
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 586
+      meshName: MM_wheel_rear_spoke_26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 587
+      meshName: MM_wheel_rear_spoke_27
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 588
+      meshName: MM_wheel_rear_spoke_28
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 589
+      meshName: MM_wheel_rear_spoke_29
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 590
+      meshName: MM_wheel_rear_spoke_30
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 591
+      meshName: MM_wheel_rear_spoke_31
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 592
+      meshName: MM_wheel_rear_spoke_32
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 593
+      meshName: MM_wheel_rear_thru_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 594
+      meshName: MM_wheel_rear_tire
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 595
+      meshName: MM_wheel_rear_valve_core
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 596
+      meshName: MM_wheel_rear_valve_nut
+      lodLevel: 0
+      meshGeometryBuffer: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  overrideDefaultPose: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    namedPoseList:
+    - name: Default
+      skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    defaultPoseIndex: -1
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
