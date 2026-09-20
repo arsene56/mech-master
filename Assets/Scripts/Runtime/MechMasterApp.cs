@@ -17,7 +17,6 @@ namespace MechMaster.Runtime
         public static MechMasterApp Instance { get; private set; }
 
         public DisassemblyPlan Plan { get; private set; }
-        public ToolKind SelectedTool { get; private set; }
         public PartDefinition SelectedPart { get; private set; }
         public string StatusMessage { get; private set; }
         public bool NarrationEnabled => narrator != null && narrator.Enabled;
@@ -56,8 +55,6 @@ namespace MechMaster.Runtime
             feedbackAudio = gameObject.AddComponent<FeedbackAudio>();
             narrator = gameObject.AddComponent<VoiceNarrator>();
             narrator.Enabled = LocalProgressStore.LoadNarrationEnabled();
-            SelectedTool = LocalProgressStore.LoadTool();
-
             Camera sceneCamera = EnsureSceneEnvironment();
             PartInteractionController interaction = gameObject.AddComponent<PartInteractionController>();
             interaction.Initialize(sceneCamera);
@@ -84,15 +81,6 @@ namespace MechMaster.Runtime
             CreatePlan(difficulty, true);
         }
 
-        public void SetTool(ToolKind tool)
-        {
-            PartInteractionController.Instance?.CancelGesture();
-            SelectedTool = tool;
-            StatusMessage = "已选择“" + DisassemblyPlan.ToolDisplayName(tool) + "”。";
-            feedbackAudio.PlayToolSelected(tool);
-            SaveAndNotify();
-        }
-
         public void SelectPart(string partId)
         {
             if (Plan == null)
@@ -108,11 +96,10 @@ namespace MechMaster.Runtime
                 }
 
                 SelectedPart = part;
-                StatusMessage = "已选中“" + part.DisplayName + "”；使用“"
-                    + DisassemblyPlan.ToolDisplayName(part.RequiredTool)
-                    + "”后，可按任意顺序进行拖放。";
+                StatusMessage = "已选中“" + part.DisplayName
+                    + "”；可直接拖动，并按任意顺序拆装。";
                 feedbackAudio.PlayPickup();
-                narrator.Speak(part.DisplayName + "。" + part.GetKnowledge(Plan.Difficulty));
+                SpeakPartNarration(part);
                 NotifyStateChanged();
                 return;
             }
@@ -121,7 +108,7 @@ namespace MechMaster.Runtime
         public void Operate(string partId)
         {
             AssemblyMode operationMode = Plan.Mode;
-            OperationResult result = Plan.TryOperate(partId, SelectedTool);
+            OperationResult result = Plan.TryOperate(partId);
             StatusMessage = result.Message;
             if (result.Part != null)
             {
@@ -146,7 +133,7 @@ namespace MechMaster.Runtime
                     feedbackAudio.PlayAssembled();
                 }
                 bikeModelView.Refresh(Plan, false);
-                narrator.Speak(StatusMessage);
+                SpeakNarration(StatusMessage);
             }
             else
             {
@@ -251,7 +238,7 @@ namespace MechMaster.Runtime
         public void ReplayNarration()
         {
             if (SelectedPart != null)
-                narrator.Speak(SelectedPart.DisplayName + "。" + SelectedPart.GetKnowledge(Plan.Difficulty));
+                SpeakPartNarration(SelectedPart);
         }
 
         public void FrameWholeBike()
@@ -295,7 +282,7 @@ namespace MechMaster.Runtime
 
             SelectedPart = Plan.ExpectedPart ?? Plan.Steps[0];
             StatusMessage = DifficultyDisplayName(difficulty)
-                + "已就绪：零件可自由选择；选择匹配工具后拖入分类托盘。";
+                + "已就绪：零件可自由选择，直接拖入分类托盘即可拆下。";
             LoadModel();
             SaveAndNotify();
         }
@@ -303,6 +290,7 @@ namespace MechMaster.Runtime
         private void RestoreProgress()
         {
             string[] savedPartIds = LocalProgressStore.LoadRemovedPartIds(Plan.Difficulty);
+            int restoredParts = 0;
             if (savedPartIds.Length > 0)
             {
                 foreach (string partId in savedPartIds)
@@ -310,8 +298,17 @@ namespace MechMaster.Runtime
                     PartDefinition part = FindPart(partId);
                     if (part != null)
                     {
-                        Plan.TryOperate(part.Id, part.RequiredTool);
+                        Plan.TryOperate(part.Id);
+                        restoredParts++;
                     }
+                }
+
+                // Plan IDs changed when the old 14/195/338 plans were regrouped.
+                // Ignore that stale progress instead of restoring assembly mode
+                // with an empty new plan.
+                if (restoredParts == 0)
+                {
+                    LocalProgressStore.ClearProgress(Plan.Difficulty);
                 }
             }
             else
@@ -319,7 +316,8 @@ namespace MechMaster.Runtime
                 RestoreLegacyProgressCount();
             }
 
-            if (LocalProgressStore.LoadMode(Plan.Difficulty) == AssemblyMode.Assemble)
+            if (Plan.RemovedCount > 0
+                && LocalProgressStore.LoadMode(Plan.Difficulty) == AssemblyMode.Assemble)
             {
                 Plan.SetMode(AssemblyMode.Assemble);
             }
@@ -335,7 +333,7 @@ namespace MechMaster.Runtime
             for (int index = 0; index < removedCount; index++)
             {
                 PartDefinition part = Plan.Steps[index];
-                Plan.TryOperate(part.Id, part.RequiredTool);
+                Plan.TryOperate(part.Id);
             }
         }
 
@@ -438,7 +436,7 @@ namespace MechMaster.Runtime
 
         private void SaveAndNotify()
         {
-            LocalProgressStore.Save(Plan, SelectedTool, NarrationEnabled);
+            LocalProgressStore.Save(Plan, NarrationEnabled);
             NotifyStateChanged();
         }
 
@@ -476,6 +474,31 @@ namespace MechMaster.Runtime
                 default:
                     return "探索模式";
             }
+        }
+
+        private void SpeakPartNarration(PartDefinition part)
+        {
+            SpeakNarration(part.DisplayName + "。" + part.GetKnowledge(Plan.Difficulty));
+        }
+
+        private void SpeakNarration(string text)
+        {
+            narrator.Speak(CompactNarration(text));
+        }
+
+        private static string CompactNarration(string text)
+        {
+            string value = (text ?? string.Empty)
+                .Replace("\r", " ")
+                .Replace("\n", " ")
+                .Trim();
+            const int maxCharacters = 50;
+            if (value.Length <= maxCharacters)
+            {
+                return value;
+            }
+
+            return value.Substring(0, maxCharacters - 1).TrimEnd() + "…";
         }
     }
 }

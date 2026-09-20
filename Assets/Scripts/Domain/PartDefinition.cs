@@ -51,15 +51,30 @@ namespace MechMaster.Domain
         {
             if (difficulty == DifficultyLevel.Simple || string.IsNullOrWhiteSpace(Mechanism))
             {
-                return SimpleSummary;
+                return LimitKnowledge(SimpleSummary);
             }
 
             if (difficulty == DifficultyLevel.Standard || string.IsNullOrWhiteSpace(AdvancedNote))
             {
-                return SimpleSummary + "\n\n原理：" + Mechanism;
+                return LimitKnowledge(Mechanism);
             }
 
-            return SimpleSummary + "\n\n原理：" + Mechanism + "\n\n进阶：" + AdvancedNote;
+            return LimitKnowledge(AdvancedNote);
+        }
+
+        private static string LimitKnowledge(string value)
+        {
+            string text = (value ?? string.Empty)
+                .Replace("\r", " ")
+                .Replace("\n", " ")
+                .Trim();
+            const int maxCharacters = 50;
+            if (text.Length <= maxCharacters)
+            {
+                return text;
+            }
+
+            return text.Substring(0, maxCharacters - 1).TrimEnd() + "…";
         }
     }
 }

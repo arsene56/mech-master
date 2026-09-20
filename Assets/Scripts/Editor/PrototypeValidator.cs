@@ -159,11 +159,11 @@ namespace MechMaster.Editor
                 DifficultyLevel.Standard);
             DisassemblyPlan advanced = EngineeringBicycleCatalogLoader.CreatePlan(
                 DifficultyLevel.Advanced);
-            if (simple.Steps.Count != 14
-                || standard.Steps.Count != 195
-                || advanced.Steps.Count != 338)
+            if (simple.Steps.Count != 15
+                || standard.Steps.Count != 30
+                || advanced.Steps.Count != 45)
             {
-                return "三档拆解等级步骤数不符合 14/195/338 约定。";
+                return "三档拆解等级步骤数不符合 15/30/45 约定。";
             }
 
             var importedNames = new HashSet<string>(StringComparer.Ordinal);

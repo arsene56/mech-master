@@ -26,7 +26,7 @@ flowchart LR
     LODScript --> RuntimeMap[bicycle_runtime_assets.json]
     BOM --> CatalogScript[Generate-BicycleInteractionCatalog.ps1]
     ModelMap --> CatalogScript
-    CatalogScript --> Plans[BicycleInteractionCatalog.json<br/>14 / 195 / 338 步]
+    CatalogScript --> Plans[BicycleInteractionCatalog.json<br/>15 / 30 / 45 步]
     Plans --> Runtime[Unity/Tuanjie 运行时]
     LOD0 --> Runtime
 ```
@@ -63,7 +63,7 @@ flowchart TB
 - 计划至少包含一个步骤，步骤 ID 在计划内唯一。
 - 拆解可处理任意尚未拆下的步骤。
 - 组装可处理任意仍处于拆下状态的步骤。
-- 重复操作和错误工具不改变状态。
+- 重复操作不改变状态；工具信息不参与操作校验。
 - `RemovedCount == Steps.Count` 表示完全拆开。
 - `RemovedCount == 0` 表示完整组装。
 
@@ -73,11 +73,11 @@ flowchart TB
 
 | 拆解等级 | 生成规则 | 步骤数 | 一个步骤绑定 |
 | --- | --- | ---: | --- |
-| Simple（简单） | 每个装配模块一步 | 14 | 模块内全部实体 |
-| Standard（进阶） | 每类零件一步 | 195 | 同类实体集合 |
-| Advanced（探索） | 普通实体逐件；高重复件按整体 | 338 | 普通件唯一对象，高重复件绑定实体集合 |
+| Simple（简单） | 主要机械模块 | 15 | 大型总成内全部实体 |
+| Standard（进阶） | 模块内按功能系统分组 | 30 | 多类关联实体集合 |
+| Advanced（探索） | 更细的机械子总成 | 45 | 小型关联实体集合 |
 
-探索计划将数量达到 10 件及以上的高重复组件（如辐条、辐条帽、链节、脚踏防滑钉和飞轮片）绑定为一个操作步骤；其余组件仍按单个实体生成步骤。这样探索等级仍覆盖全部 595 个模型对象，但不会要求儿童重复点击大量同类零件。
+三档计划都完整且无重复地绑定 595 个模型对象。生成器按 BOM 中相邻、相关的组件合并机械单元；即使在探索等级，辐条、链节、紧固件和内部小件也不会逐个操作。
 
 组装不维护第二份清单，而是直接操作同一个已拆零件集合。拆解与组装都不限制顺序，BOM 增减零件时也不会产生两份清单漂移。
 
@@ -85,7 +85,7 @@ flowchart TB
 
 `MechMasterApp` 是当前组合根：
 
-1. 读取本地拆解等级、工具、进度和讲解设置。
+1. 读取本地拆解等级、进度和讲解设置。
 2. 通过 `EngineeringBicycleCatalogLoader` 创建计划。
 3. 从 `Resources` 实例化 14 个模块 LOD0。
 4. 由 `BikeModelView` 将步骤绑定到 FBX 对象。
@@ -121,7 +121,7 @@ flowchart TB
 ```mermaid
 stateDiagram-v2
     [*] --> 完整整车
-    完整整车 --> 拆解中: 正确零件 + 正确工具
+    完整整车 --> 拆解中: 拖入正确分类槽位
     拆解中 --> 拆解中: 任选未拆零件
     拆解中 --> 完全拆开: 最后一步拆下
     完全拆开 --> 组装中: 切换模式
@@ -139,7 +139,7 @@ stateDiagram-v2
 
 - `BicycleEngineeringSource.blend`
 - 595 个有稳定 ID 的零件对象，其中 585 个网格对象。
-- 121,498 顶点，117,262 面。
+- 119,306 顶点，111,694 面。
 - 保留齿形、胎纹、紧固件、密封、活塞、轴承、弹簧和重复件。
 - 用于特写、教学渲染和派生运行资产，不直接在微信端整体加载。
 
@@ -182,7 +182,7 @@ FBX 使用 `-Z Forward / Y Up`，引擎中 `1 unit = 1 m`。自由缩放通过�
 
 - 展开后刹车继承前刹车的 37 个零件定义。
 - 按安全的整车拆解模块顺序生成三档计划。
-- 将工具归并为手、内六角、梅花三类，不涉及规格和扭矩。
+- BOM 可保留真实工具类别作为科普元数据，但运行时不要求选择或匹配工具。
 - 根据零件类型生成儿童可读的基础作用、进阶原理和探索边界。
 - 校验每个物理实体都存在模型对象。
 
@@ -190,7 +190,7 @@ FBX 使用 `-Z Forward / Y Up`，引擎中 `1 unit = 1 m`。自由缩放通过�
 
 ## 9. 本地存档
 
-`LocalProgressStore` 使用 `PlayerPrefs`，保存当前拆解等级、工具、讲解开关、每档的 `RemovedCount` 与模式。恢复时重建计划并重放前 N 个步骤。
+`LocalProgressStore` 使用 `PlayerPrefs`，保存当前拆解等级、讲解开关、每档的精确已拆步骤集合与模式。恢复时重建计划并重放仍然存在的步骤 ID。
 
 该压缩方式成立是因为状态机保证已拆集合始终是步骤前缀。正式微信版本应抽象 `IProgressStore`，加入 schema 版本、损坏回退和微信存储容量处理。
 

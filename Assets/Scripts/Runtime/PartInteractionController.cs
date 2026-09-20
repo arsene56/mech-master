@@ -305,8 +305,7 @@ namespace MechMaster.Runtime
                 hoveredAssemblyId,
                 StringComparison.Ordinal);
             bool ready = correctAssembly
-                && IsPartAvailableForCurrentMode(activePart)
-                && activePart.Definition.RequiredTool == MechMasterApp.Instance.SelectedTool;
+                && IsPartAvailableForCurrentMode(activePart);
             MechMasterApp.Instance.SetTrayHover(
                 hoveredAssemblyId,
                 correctAssembly,

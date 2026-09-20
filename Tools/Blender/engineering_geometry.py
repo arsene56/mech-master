@@ -77,6 +77,50 @@ def torus(name, location, major, minor, mat, collection=None, rotation=(math.pi 
     return finish(bpy.context.object, name, mat, collection)
 
 
+def oriented_torus(name, location, axis, major, minor, mat, collection=None,
+                   major_segments=96, minor_segments=16):
+    """Create a ring whose local normal follows an arbitrary mechanical axis."""
+    obj = torus(name, location, major, minor, mat, collection, rotation=(0, 0, 0),
+                major_segments=major_segments, minor_segments=minor_segments)
+    direction = Vector(axis).normalized()
+    obj.rotation_mode = "QUATERNION"
+    obj.rotation_quaternion = direction.to_track_quat("Z", "Y")
+    obj.rotation_mode = "XYZ"
+    return obj
+
+
+def capsule_prism(name, location, length, height, thickness, mat, collection=None, segments=12):
+    """Extrude a rounded chain-plate profile; local X is the plate direction."""
+    radius = height / 2
+    straight = max(0.0, length / 2 - radius)
+    outline = []
+    for i in range(segments + 1):
+        angle = math.pi / 2 - math.pi * i / segments
+        outline.append((straight + radius * math.cos(angle), radius * math.sin(angle)))
+    for i in range(segments + 1):
+        angle = -math.pi / 2 + math.pi * i / segments
+        outline.append((-straight + radius * math.cos(angle), radius * math.sin(angle)))
+
+    vertices, faces = [], []
+    half = thickness / 2
+    for y in (-half, half):
+        vertices.extend((x, y, z) for x, z in outline)
+    count = len(outline)
+    faces.append(tuple(reversed(range(count))))
+    faces.append(tuple(range(count, count * 2)))
+    for i in range(count):
+        nxt = (i + 1) % count
+        faces.append((i, nxt, count + nxt, count + i))
+
+    mesh = bpy.data.meshes.new(name + "Mesh")
+    mesh.from_pydata(vertices, [], faces)
+    mesh.update()
+    obj = bpy.data.objects.new(name, mesh)
+    (collection or bpy.context.collection).objects.link(obj)
+    obj.location = location
+    return finish(obj, name, mat)
+
+
 def sphere(name, location, scale, mat, collection=None, segments=28, rings=14):
     bpy.ops.mesh.primitive_uv_sphere_add(segments=segments, ring_count=rings, location=location)
     obj = bpy.context.object

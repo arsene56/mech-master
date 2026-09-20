@@ -65,7 +65,7 @@ namespace MechMaster.Domain
             return removedPartIds.Contains(partId);
         }
 
-        public OperationResult TryOperate(string partId, ToolKind selectedTool)
+        public OperationResult TryOperate(string partId)
         {
             PartDefinition part = steps.FirstOrDefault(
                 step => string.Equals(step.Id, partId, StringComparison.Ordinal));
@@ -92,14 +92,6 @@ namespace MechMaster.Domain
                 return OperationResult.Failed(
                     OperationFailure.AlreadyComplete,
                     "“" + part.DisplayName + "”已经安装在整车上。",
-                    part);
-            }
-
-            if (part.RequiredTool != selectedTool)
-            {
-                return OperationResult.Failed(
-                    OperationFailure.WrongTool,
-                    "这个工具不合适，请选择“" + ToolDisplayName(part.RequiredTool) + "”。",
                     part);
             }
 

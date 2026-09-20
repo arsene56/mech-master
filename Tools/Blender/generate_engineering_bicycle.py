@@ -10,7 +10,7 @@ from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from engineering_geometry import annulus, bolt, box, curve, cylinder, gear, join, material, point_at, saddle_layer, sphere, tag, torus  # noqa: E402
+from engineering_geometry import annulus, bolt, box, capsule_prism, curve, cylinder, gear, join, material, oriented_torus, point_at, saddle_layer, sphere, tag, torus  # noqa: E402
 
 BLEND_PATH = ROOT / "Assets/Art/Models/Source/BicycleEngineeringSource.blend"
 PREVIEW_PATH = ROOT / "Docs/Preview/BicycleEngineering.png"
@@ -204,18 +204,24 @@ class Bike:
         crown = Vector((.324, 0, .610))
         stanchions = []
         for i, side in enumerate((-1, 1), 1):
-            lower_top, dropout = crown+Vector((.015,side*.054,-.055)), self.front+Vector((0,side*.055,0))
+            leg_top = crown + Vector((0, side*.054, .010))
+            dropout = self.front+Vector((0,side*.055,0))
+            leg_axis = dropout - leg_top
+            # The lower casting, stanchion, seals and bushings share one fork
+            # axis; the previous hand-authored lower top bent the leg rearward.
+            lower_top = leg_top.lerp(dropout, .24)
             lower = cylinder(f"MM_fork_lower_leg_{i}", lower_top, dropout, .023, m["black"], c, 48)
             if i == 1:
                 lower_parts = [lower]
             else:
                 lower_parts.append(lower)
-            stanchion = cylinder(f"MM_fork_stanchion_{i}", crown+Vector((0,side*.054,.01)), lower_top+Vector((0,0,-.035)), .016, m["steel"], c, 48)
+            stanchion = cylinder(f"MM_fork_stanchion_{i}", leg_top, lower_top.lerp(dropout, .12), .016, m["steel"], c, 48)
             stanchions.append(stanchion)
-            self.tagged(torus(f"MM_fork_dust_wiper_{i}", lower_top, .018, .003, m["seal"], c, major_segments=48, minor_segments=10), f"bike.fork.dust_wiper.{i:02d}", a)
-            self.tagged(torus(f"MM_fork_foam_ring_{i}", lower_top+Vector((-.004,0,-.009)), .0155,.0025,m["oil"],c,major_segments=40,minor_segments=8), f"bike.fork.foam_ring.{i:02d}", a)
-            for bushing_i, offset in enumerate((-.035, -.145), 1):
-                self.tagged(torus(f"MM_fork_guide_bushing_{i}_{bushing_i}", lower_top+Vector((offset,0,offset*.35)), .0165,.0018,m["al"],c,major_segments=40,minor_segments=8), f"bike.fork.guide_bushing.{(i-1)*2+bushing_i:02d}", a, "installed")
+            self.tagged(oriented_torus(f"MM_fork_dust_wiper_{i}", lower_top, leg_axis, .018, .003, m["seal"], c, major_segments=48, minor_segments=10), f"bike.fork.dust_wiper.{i:02d}", a)
+            self.tagged(oriented_torus(f"MM_fork_foam_ring_{i}", lower_top.lerp(dropout, .035), leg_axis, .0155,.0025,m["oil"],c,major_segments=40,minor_segments=8), f"bike.fork.foam_ring.{i:02d}", a)
+            for bushing_i, position in enumerate((.09, .42), 1):
+                bushing_center = lower_top.lerp(dropout, position)
+                self.tagged(oriented_torus(f"MM_fork_guide_bushing_{i}_{bushing_i}", bushing_center, leg_axis, .0165,.0018,m["al"],c,major_segments=40,minor_segments=8), f"bike.fork.guide_bushing.{(i-1)*2+bushing_i:02d}", a, "installed")
             self.tagged(bolt(f"MM_fork_foot_nut_{i}", dropout+Vector((0,0,-.025)), dropout+Vector((.015,0,.005)), .003,.006,m["steel"],c), f"bike.fork.foot_nut.{i:02d}", a)
             self.tagged(annulus(f"MM_fork_crush_washer_{i}", dropout+Vector((-.003,0,-.010)), .006,.003,.001,m["seal"],c,24), f"bike.fork.crush_washer.{i:02d}", a)
         lower_parts.append(curve("MM_fork_arch", [(.44,-.055,.49),(.47,0,.53),(.44,.055,.49)], .014,m["black"],c))
@@ -224,17 +230,28 @@ class Bike:
             self.tagged(obj, f"bike.fork.stanchion.{i:02d}", a, "installed")
         self.tagged(cylinder("MM_fork_crown", crown+Vector((0,-.070,0)), crown+Vector((0,.070,0)), .025,m["black"],c,48), "bike.fork.crown.01", a, "installed")
         self.tagged(cylinder("MM_fork_steerer", crown, (.235,0,.950), .0175,m["al"],c,48), "bike.fork.steerer.01", a)
-        self.tagged(cylinder("MM_fork_air_shaft", (.33,-.054,.42),(.31,-.054,.63),.006,m["al"],c,24), "bike.fork.air_shaft.01", a)
-        self.tagged(cylinder("MM_fork_air_piston", (.318,-.054,.555),(.316,-.054,.575),.014,m["plastic"],c,32), "bike.fork.air_piston.01", a)
-        self.tagged(cylinder("MM_fork_air_seal_head", (.319,-.054,.49),(.317,-.054,.51),.014,m["seal"],c,32), "bike.fork.air_seal_head.01", a)
-        self.tagged(torus("MM_fork_negative_spring", (.318,-.054,.54),.010,.003,m["steel"],c,major_segments=32,minor_segments=8), "bike.fork.negative_spring.01", a)
-        self.tagged(cylinder("MM_fork_air_top_cap", (.307,-.054,.625),(.303,-.054,.650),.014,m["orange"],c,32), "bike.fork.air_top_cap.01", a)
-        self.tagged(cylinder("MM_fork_air_valve_core", (.302,-.054,.650),(.300,-.054,.662),.003,m["steel"],c,20), "bike.fork.air_valve_core.01", a)
-        self.tagged(cylinder("MM_fork_damper_cartridge", (.33,.054,.42),(.31,.054,.64),.012,m["grey"],c,32), "bike.fork.damper_cartridge.01", a, "service-unit")
-        self.tagged(cylinder("MM_fork_rebound_shaft", (.33,.054,.40),(.31,.054,.62),.005,m["steel"],c,24), "bike.fork.rebound_shaft.01", a)
-        self.tagged(cylinder("MM_fork_damper_top_cap", (.307,.054,.625),(.303,.054,.650),.014,m["black"],c,32), "bike.fork.damper_top_cap.01", a)
-        self.tagged(cylinder("MM_fork_compression_adjuster", (.302,.054,.650),(.300,.054,.665),.010,m["orange"],c,28), "bike.fork.compression_adjuster.01", a)
-        self.tagged(cylinder("MM_fork_rebound_knob", (.556,.054,.310),(.558,.054,.326),.009,m["orange"],c,28), "bike.fork.rebound_knob.01", a)
+        fork_axes = {}
+        for side in (-1, 1):
+            top = crown + Vector((0, side*.054, .010))
+            bottom = self.front + Vector((0, side*.055, 0))
+            fork_axes[side] = (top, bottom, bottom-top)
+
+        air_top, air_bottom, air_axis = fork_axes[-1]
+        air_point = lambda t: air_top.lerp(air_bottom, t)
+        self.tagged(cylinder("MM_fork_air_shaft", air_point(.12),air_point(.88),.006,m["al"],c,24), "bike.fork.air_shaft.01", a)
+        self.tagged(cylinder("MM_fork_air_piston", air_point(.34),air_point(.40),.014,m["plastic"],c,32), "bike.fork.air_piston.01", a)
+        self.tagged(cylinder("MM_fork_air_seal_head", air_point(.57),air_point(.63),.014,m["seal"],c,32), "bike.fork.air_seal_head.01", a)
+        self.tagged(oriented_torus("MM_fork_negative_spring", air_point(.49),air_axis,.010,.003,m["steel"],c,major_segments=32,minor_segments=8), "bike.fork.negative_spring.01", a)
+        self.tagged(cylinder("MM_fork_air_top_cap", air_point(-.04),air_point(.04),.014,m["orange"],c,32), "bike.fork.air_top_cap.01", a)
+        self.tagged(cylinder("MM_fork_air_valve_core", air_point(-.075),air_point(-.04),.003,m["steel"],c,20), "bike.fork.air_valve_core.01", a)
+
+        damper_top, damper_bottom, damper_axis = fork_axes[1]
+        damper_point = lambda t: damper_top.lerp(damper_bottom, t)
+        self.tagged(cylinder("MM_fork_damper_cartridge", damper_point(.07),damper_point(.78),.012,m["grey"],c,32), "bike.fork.damper_cartridge.01", a, "service-unit")
+        self.tagged(cylinder("MM_fork_rebound_shaft", damper_point(.32),damper_point(.92),.005,m["steel"],c,24), "bike.fork.rebound_shaft.01", a)
+        self.tagged(cylinder("MM_fork_damper_top_cap", damper_point(-.04),damper_point(.04),.014,m["black"],c,32), "bike.fork.damper_top_cap.01", a)
+        self.tagged(cylinder("MM_fork_compression_adjuster", damper_point(-.075),damper_point(-.04),.010,m["orange"],c,28), "bike.fork.compression_adjuster.01", a)
+        self.tagged(cylinder("MM_fork_rebound_knob", damper_point(.94),damper_point(1.02),.009,m["orange"],c,28), "bike.fork.rebound_knob.01", a)
 
     def build_cockpit(self):
         c, m, a = self.c["cockpit_headset"], self.m, "cockpit_headset"
@@ -267,7 +284,9 @@ class Bike:
         self.tagged(box(p+"_lever_body",(.29,y,.935),(.075,.034,.038),m["black"],c,.008,(0,-.10,0)), f"bike.{a}.lever_body.01", a)
         self.tagged(torus(p+"_lever_clamp",(.285,y,.955),.014,.004,m["black"],c,rotation=(math.pi/2,0,0)), f"bike.{a}.lever_clamp.01", a)
         self.tagged(bolt(p+"_lever_clamp_bolt",(.285,y-.020,.945),(.285,y+.020,.945),.002,.004,m["steel"],c), f"bike.{a}.lever_clamp_bolt.01", a)
-        self.tagged(curve(p+"_lever_blade",[(.31,y,.93),(.35,y*1.1,.91),(.39,y*1.12,.92)],.006,m["al"],c), f"bike.{a}.lever_blade.01", a)
+        inward = -1 if y > 0 else 1
+        lever_points = [(.310,y,.935),(.292,y+inward*.065,.916),(.266,y+inward*.125,.908)]
+        self.tagged(curve(p+"_lever_blade",lever_points,.006,m["al"],c), f"bike.{a}.lever_blade.01", a)
         self.tagged(cylinder(p+"_lever_pivot",(.315,y-.022,.935),(.315,y+.022,.935),.003,m["steel"],c,20), f"bike.{a}.lever_pivot.01", a)
         self.tagged(cylinder(p+"_master_piston",(.275,y,.925),(.302,y,.925),.006,m["al"],c,28), f"bike.{a}.master_piston.01", a)
         for i,x in enumerate((.283,.293),1):
@@ -325,8 +344,23 @@ class Bike:
         for i,z in enumerate((-.010,.010),1):
             self.tagged(bolt(f"MM_crank_pinch_bolt_{i}",self.bb+Vector((.010,.078,z)),self.bb+Vector((-.010,.060,z)),.0025,.005,m["steel"],c), f"bike.{a}.pinch_bolt.{i:02d}", a)
         self.tagged(annulus("MM_crank_preload_cap",self.bb+Vector((0,.076,0)),.017,.005,.005,m["orange"],c,48), f"bike.{a}.preload_cap.01", a)
-        for i,(teeth,radius,y) in enumerate(((36,.095,-.062),(22,.060,-.052)),1):
-            self.tagged(gear(f"MM_crank_chainring_{i}",self.bb+Vector((0,y,0)),teeth,radius,radius+.006,.0024,.029,m["black"],c), f"bike.{a}.chainring.{i:02d}", a)
+        chainrings = (
+            (36, .069, .076, .058, -.070, m["black"]),
+            (22, .041, .048, .031, -.054, m["steel"]),
+        )
+        for i,(teeth,root,tip,bore,y,chainring_material) in enumerate(chainrings,1):
+            center = self.bb+Vector((0,y,0))
+            parts = [gear(f"MM_crank_chainring_{i}_tooth_ring",center,teeth,root,tip,.0024,bore,chainring_material,c)]
+            arm_inner = .029
+            arm_outer = bore + .004
+            arm_length = arm_outer - arm_inner
+            arm_mid = (arm_outer + arm_inner) / 2
+            for arm in range(4):
+                angle = arm*math.pi/2
+                location = center+Vector((arm_mid*math.cos(angle),0,arm_mid*math.sin(angle)))
+                parts.append(box(f"MM_crank_chainring_{i}_spider_{arm+1}",location,
+                                 (arm_length,.0024,.008),chainring_material,c,.0015,(0,-angle,0)))
+            self.tagged(join(f"MM_crank_chainring_{i}",parts), f"bike.{a}.chainring.{i:02d}", a)
         for i in range(4):
             angle = i*math.pi/2
             p = self.bb+Vector((.040*math.cos(angle),-.066,.040*math.sin(angle)))
@@ -375,33 +409,88 @@ class Bike:
 
     def build_chain(self):
         c, m, a = self.c["chain"], self.m, "chain"
-        rear, front = Vector((self.rear.x,-.055,self.rear.z)), Vector((self.bb.x,-.064,self.bb.z))
-        points = [rear+Vector((0,0,.070)),front+Vector((0,0,.101)),front-Vector((0,0,.101)),rear-Vector((0,0,.070))]
-        lengths = [(points[(i+1)%4]-points[i]).length for i in range(4)]
-        perimeter = sum(lengths)
-        template = box("MM_chain_template",(0,0,0),(.0127,.008,.003),m["steel"],c,.0015)
+        rear = Vector((self.rear.x,-.043,self.rear.z))
+        front = Vector((self.bb.x,-.070,self.bb.z))
+        rear_radius, front_radius = .049, .073
+        dx, dz = front.x-rear.x, front.z-rear.z
+        center_distance = math.hypot(dx,dz)
+        ux, uz = dx/center_distance, dz/center_distance
+        normal_projection = (rear_radius-front_radius)/center_distance
+        normal_scale = math.sqrt(1-normal_projection*normal_projection)
+        px, pz = -uz, ux
+        top_normal = Vector((normal_projection*ux+normal_scale*px,0,
+                             normal_projection*uz+normal_scale*pz))
+        bottom_normal = Vector((normal_projection*ux-normal_scale*px,0,
+                                normal_projection*uz-normal_scale*pz))
+
+        rear_top = rear + top_normal*rear_radius
+        front_top = front + top_normal*front_radius
+        front_bottom = front + bottom_normal*front_radius
+        rear_bottom = rear + bottom_normal*rear_radius
+        top_angle = math.atan2(top_normal.z,top_normal.x)
+        bottom_angle = math.atan2(bottom_normal.z,bottom_normal.x)
+        route = [rear_top,front_top]
+        arc_segments = 32
+        for segment in range(1,arc_segments+1):
+            angle = top_angle+(bottom_angle-top_angle)*segment/arc_segments
+            route.append(front+Vector((front_radius*math.cos(angle),0,front_radius*math.sin(angle))))
+        route.append(rear_bottom)
+        rear_arc_end = top_angle-2*math.pi
+        for segment in range(1,arc_segments):
+            angle = bottom_angle+(rear_arc_end-bottom_angle)*segment/arc_segments
+            route.append(rear+Vector((rear_radius*math.cos(angle),0,rear_radius*math.sin(angle))))
+
+        segment_lengths = [(route[(i+1)%len(route)]-route[i]).length for i in range(len(route))]
+        perimeter = sum(segment_lengths)
+        samples = []
+        for i in range(110):
+            distance = perimeter*i/110
+            edge = 0
+            while distance > segment_lengths[edge]:
+                distance -= segment_lengths[edge]
+                edge += 1
+            direction = (route[(edge+1)%len(route)]-route[edge]).normalized()
+            samples.append((route[edge]+direction*distance,direction))
+
+        template = capsule_prism("MM_chain_template",(0,0,0),.0127,.007,.003,m["steel"],c,14)
         mesh = template.data
         bpy.data.objects.remove(template,do_unlink=True)
-        for i in range(110):
-            distance, edge = perimeter*i/110, 0
-            while distance > lengths[edge]:
-                distance -= lengths[edge]
-                edge += 1
-            direction = (points[(edge+1)%4]-points[edge]).normalized()
+        for i,(position,direction) in enumerate(samples):
             obj = bpy.data.objects.new(f"MM_chain_link_{i+1:03d}",mesh.copy())
             c.objects.link(obj)
-            obj.location = points[edge]+direction*distance
-            obj.location.y += .0025 if i%2 else -.0025
-            obj.rotation_euler[1] = math.atan2(direction.z,direction.x)
+            obj.location = position
+            obj.location.y += .0018 if i%2 else -.0018
+            obj.rotation_mode = "QUATERNION"
+            obj.rotation_quaternion = direction.to_track_quat("X","Y")
+            obj.rotation_mode = "XYZ"
             self.tagged(obj,f"bike.{a}.chain_link.{i+1:03d}",a,"visual-repeat")
-        for i,offset in enumerate((-.004,.004),1):
-            self.tagged(box(f"MM_chain_quick_link_{i}",points[0]+Vector((0,offset,0)),(.014,.004,.004),m["orange"],c,.0015), f"bike.{a}.quick_link.{i:02d}", a)
+        quick_position,quick_direction = samples[0]
+        for i,offset in enumerate((-.003,.003),1):
+            quick_link = capsule_prism(f"MM_chain_quick_link_{i}",quick_position+Vector((0,offset,0)),.014,.008,.0018,m["orange"],c,14)
+            quick_link.rotation_mode = "QUATERNION"
+            quick_link.rotation_quaternion = quick_direction.to_track_quat("X","Y")
+            quick_link.rotation_mode = "XYZ"
+            self.tagged(quick_link, f"bike.{a}.quick_link.{i:02d}", a)
 
     def build_pedals(self):
         c, m, a = self.c["pedals"], self.m, "pedals"
         locations = (self.bb+Vector((.025,.105,-.170)),self.bb+Vector((-.025,-.105,.170)))
         for side,center in enumerate(locations,1):
-            self.tagged(box(f"MM_pedal_body_{side}",center,(.095,.070,.018),m["black"],c,.006), f"bike.{a}.pedal_body.{side:02d}", a)
+            # Join a perimeter cage, diagonal braces and centre sleeve into one
+            # serviceable platform.  The openings are real geometry rather than
+            # a dark texture on the former solid slab.
+            body_parts = [
+                box(f"MM_pedal_body_{side}_front",center+Vector((.040,0,0)),(.015,.070,.018),m["black"],c,.004),
+                box(f"MM_pedal_body_{side}_rear",center+Vector((-.040,0,0)),(.015,.070,.018),m["black"],c,.004),
+                box(f"MM_pedal_body_{side}_outer",center+Vector((0,.029,0)),(.070,.012,.018),m["black"],c,.003),
+                box(f"MM_pedal_body_{side}_inner",center+Vector((0,-.029,0)),(.070,.012,.018),m["black"],c,.003),
+                box(f"MM_pedal_body_{side}_brace_a",center,(.075,.009,.012),m["black"],c,.003,rotation=(0,0,.46)),
+                box(f"MM_pedal_body_{side}_brace_b",center,(.075,.009,.012),m["black"],c,.003,rotation=(0,0,-.46)),
+                cylinder(f"MM_pedal_body_{side}_sleeve",center+Vector((0,-.026,0)),center+Vector((0,.026,0)),.010,m["black"],c,28),
+            ]
+            body = join(f"MM_pedal_body_{side}",body_parts)
+            body["mm_open_platform"] = True
+            self.tagged(body, f"bike.{a}.pedal_body.{side:02d}", a)
             self.tagged(cylinder(f"MM_pedal_axle_{side}",center+Vector((0,-.036,0)),center+Vector((0,.036,0)),.006,m["steel"],c,28), f"bike.{a}.pedal_axle.{side:02d}", a)
             for b,y in enumerate((-.018,.018),1):
                 self.tagged(torus(f"MM_pedal_bearing_{side}_{b}",center+Vector((0,y,0)),.007,.002,m["steel"],c,major_segments=28,minor_segments=8), f"bike.{a}.pedal_bearing.{(side-1)*2+b:02d}", a, "service-unit")

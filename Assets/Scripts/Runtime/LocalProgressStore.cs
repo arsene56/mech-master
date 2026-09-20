@@ -16,14 +16,6 @@ namespace MechMaster.Runtime
                 : DifficultyLevel.Simple;
         }
 
-        public static ToolKind LoadTool()
-        {
-            int value = PlayerPrefs.GetInt(Prefix + "tool", (int)ToolKind.Hand);
-            return value >= 0 && value <= (int)ToolKind.TorxKey
-                ? (ToolKind)value
-                : ToolKind.Hand;
-        }
-
         public static bool LoadNarrationEnabled()
         {
             return PlayerPrefs.GetInt(Prefix + "narration", 1) == 1;
@@ -56,11 +48,9 @@ namespace MechMaster.Runtime
 
         public static void Save(
             DisassemblyPlan plan,
-            ToolKind tool,
             bool narrationEnabled)
         {
             PlayerPrefs.SetInt(Prefix + "difficulty", (int)plan.Difficulty);
-            PlayerPrefs.SetInt(Prefix + "tool", (int)tool);
             PlayerPrefs.SetInt(Prefix + "narration", narrationEnabled ? 1 : 0);
             PlayerPrefs.SetInt(ProgressKey(plan.Difficulty, "removed"), plan.RemovedCount);
             var removedIds = new List<string>();

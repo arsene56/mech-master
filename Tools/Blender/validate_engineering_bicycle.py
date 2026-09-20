@@ -91,6 +91,7 @@ def validate_source():
         raise RuntimeError(f"Source detail unexpectedly low: {vertices} vertices, {polygons} polygons")
     print(f"PASS source detail: {vertices} vertices, {polygons} polygons")
     validate_mounts_routes_and_saddle()
+    validate_requested_mechanical_geometry()
     return vertices, polygons
 
 
@@ -149,6 +150,62 @@ def validate_mounts_routes_and_saddle():
     print("PASS saddle: 3 closed layers, tapered nose, wide rear, relief channel")
 
 
+def distance_to_axis(point, start, end):
+    axis = end - start
+    projection = max(0.0, min(1.0, (point-start).dot(axis) / axis.length_squared))
+    return (point - start.lerp(end, projection)).length
+
+
+def validate_requested_mechanical_geometry():
+    rear, front = Vector((-.560, -.043, .349)), Vector((-.105, -.070, .365))
+    chain_links = [by_name(f"MM_chain_link_{i:03d}") for i in range(1, 111)]
+    chain_low, chain_high = bounds(chain_links)
+    if chain_low.x > rear.x-.045 or chain_high.x < front.x+.068:
+        raise RuntimeError("Chain does not wrap around both sprocket ends")
+    if any(len(obj.data.polygons) < 28 for obj in chain_links):
+        raise RuntimeError("Chain links must use rounded capsule plates, not rectangular blocks")
+    print("PASS chain: rounded plates wrap both front and rear sprockets")
+
+    outer, inner = by_name("MM_crank_chainring_1"), by_name("MM_crank_chainring_2")
+    outer_low, outer_high = bounds([outer])
+    inner_low, inner_high = bounds([inner])
+    close("36T outer chainring diameter", max(outer_high.x-outer_low.x, outer_high.z-outer_low.z), .152, .004)
+    close("22T inner chainring diameter", max(inner_high.x-inner_low.x, inner_high.z-inner_low.z), .096, .004)
+    if abs(outer.matrix_world.translation.y-inner.matrix_world.translation.y) < .010:
+        raise RuntimeError("2x drivetrain chainrings are not laterally separated")
+    print("PASS front drivetrain: visibly separate 36T / 22T chainrings")
+
+    crown, dropout = Vector((.324, 0, .620)), Vector((.560, 0, .349))
+    for side_index, side in enumerate((-1, 1), 1):
+        axis_top = crown + Vector((0, side*.054, 0))
+        axis_bottom = dropout + Vector((0, side*.055, 0))
+        for bushing_index in (1, 2):
+            obj = by_name(f"MM_fork_guide_bushing_{side_index}_{bushing_index}")
+            radial = distance_to_axis(obj.matrix_world.translation, axis_top, axis_bottom)
+            if radial > .002:
+                raise RuntimeError(f"{obj.name} is not concentric with its fork leg: {radial}")
+    damper = by_name("MM_fork_damper_cartridge")
+    damper_radial = distance_to_axis(damper.matrix_world.translation,
+                                      crown+Vector((0,.054,0)), dropout+Vector((0,.055,0)))
+    if damper_radial > .002:
+        raise RuntimeError(f"Damper cartridge is suspended outside its fork leg: {damper_radial}")
+    print("PASS fork: guide bushings and damper are concentric with lower legs")
+
+    for which in ("front", "rear"):
+        blade = by_name(f"MM_brake_{which}_lever_blade")
+        points = blade.data.splines[0].bezier_points
+        root, tip = points[0].co, points[-1].co
+        if tip.x >= root.x or abs(tip.y) >= abs(root.y):
+            raise RuntimeError(f"{which} brake lever still points forward / away from the grip")
+    print("PASS brake levers: both blades sweep rearward and toward the grip area")
+
+    for side in (1, 2):
+        body = by_name(f"MM_pedal_body_{side}")
+        if not body.get("mm_open_platform") or len(body.data.polygons) < 80:
+            raise RuntimeError(f"Pedal {side} is not an open, braced platform")
+    print("PASS pedals: joined open cages replace solid slabs")
+
+
 def validate_manifests(source_polygons):
     model = json.loads(MODEL_MANIFEST.read_text(encoding="utf-8"))
     if model["partObjects"] != 595 or len(model["parts"]) != 595:
@@ -182,9 +239,9 @@ def validate_manifests(source_polygons):
 
     interaction = json.loads(INTERACTION.read_text(encoding="utf-8"))
     counts = {plan["difficulty"]: len(plan["steps"]) for plan in interaction["plans"]}
-    if counts != {"Simple": 14, "Standard": 195, "Advanced": 595}:
+    if counts != {"Simple": 15, "Standard": 30, "Advanced": 45}:
         raise RuntimeError(f"Interaction counts differ: {counts}")
-    print("PASS interaction plans: Simple=14, Standard=195, Advanced=595")
+    print("PASS interaction plans: Simple=15, Standard=30, Advanced=45")
 
 
 def main():

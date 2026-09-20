@@ -26,9 +26,7 @@ foreach ($assembly in $bom.assemblies) {
 
 $objectsByAssembly = @{}
 $objectsByComponent = @{}
-$objectByPartId = @{}
 foreach ($part in $model.parts) {
-    $objectByPartId[$part.partId] = $part.object
     if (-not $objectsByAssembly.ContainsKey($part.assemblyId)) {
         $objectsByAssembly[$part.assemblyId] = [System.Collections.Generic.List[string]]::new()
     }
@@ -39,12 +37,6 @@ foreach ($part in $model.parts) {
         $objectsByComponent[$componentKey] = [System.Collections.Generic.List[string]]::new()
     }
     $objectsByComponent[$componentKey].Add($part.object)
-}
-
-function Get-ToolKind([string]$tool) {
-    if ($tool -eq 'hex_key') { return 'HexKey' }
-    if ($tool -eq 'torx_key') { return 'TorxKey' }
-    return 'Hand'
 }
 
 function Get-FunctionText([string]$id, [string]$name, [string]$assemblyName) {
@@ -101,58 +93,88 @@ function New-Step(
     }
 }
 
-$simple = [System.Collections.Generic.List[object]]::new()
-$standard = [System.Collections.Generic.List[object]]::new()
-$advanced = [System.Collections.Generic.List[object]]::new()
-$explorationRepeatThreshold = 10
+function Limit-Text([string]$text, [int]$maxLength = 50) {
+    $value = if ($null -eq $text) { '' } else { $text }
+    $value = ($value -replace '\s+', ' ').Trim()
+    if ($value.Length -le $maxLength) {
+        return $value
+    }
 
-foreach ($assemblyId in $assemblyOrder) {
-    $assembly = $assemblyById[$assemblyId]
-    $sourceId = if ($assembly.inheritComponentsFrom) { $assembly.inheritComponentsFrom } else { $assemblyId }
-    $components = $componentsByAssembly[$sourceId]
-    $assemblyObjects = @($objectsByAssembly[$assemblyId] | Sort-Object)
-    $simple.Add((New-Step "plan.simple.$assemblyId" $assembly.name 'Hand' `
-        "$($assembly.name)是整车的一个主要机械模块。" `
-        '先观察它与车架及相邻模块的连接，再将整个模块作为一个单元拆下。' `
-        "该模块在进阶和探索等级中会继续展开为 $($components.Count) 类零件。" `
-        $assemblyId '' $assemblyObjects))
+    return $value.Substring(0, $maxLength - 1).TrimEnd() + '…'
+}
 
-    foreach ($component in $components) {
-        $componentKey = "bike.$assemblyId.$($component.id)"
-        $componentObjects = @($objectsByComponent[$componentKey] | Sort-Object)
-        $functionText = Get-FunctionText $component.id $component.name $assembly.name
-        $displayName = if ($component.quantity -gt 1) { "$($component.name)（$($component.quantity)件）" } else { $component.name }
-        $standard.Add((New-Step "plan.standard.$assemblyId.$($component.id)" $displayName (Get-ToolKind $component.tool) `
-            $functionText `
-            "这一组共有 $($component.quantity) 件；进阶等级按同类零件成组操作。" `
-            "维修边界：$($component.serviceBoundary)。探索等级会按模型中的实体逐件操作。" `
-            $assemblyId $component.id $componentObjects))
-
-        if ([int]$component.quantity -ge $explorationRepeatThreshold) {
-            $advanced.Add((New-Step "plan.advanced.$assemblyId.$($component.id)" $displayName (Get-ToolKind $component.tool) `
-                $functionText `
-                "这一组共有 $($component.quantity) 件；探索等级将高重复零件作为一个整体操作。" `
-                "该组绑定全部 $($component.quantity) 个模型实体，避免重复零件逐件操作。" `
-                $assemblyId $component.id $componentObjects))
-            continue
-        }
-
-        for ($index = 1; $index -le $component.quantity; $index++) {
-            $width = if ($component.quantity -ge 100) { 3 } else { 2 }
-            $suffix = $index.ToString(('0' * $width))
-            $partId = "$componentKey.$suffix"
-            if (-not $objectByPartId.ContainsKey($partId)) {
-                throw "模型清单缺少逻辑零件 $partId"
-            }
-            $individualName = if ($component.quantity -gt 1) { "$($component.name) $index" } else { $component.name }
-            $advanced.Add((New-Step $partId $individualName (Get-ToolKind $component.tool) `
-                $functionText `
-                "这是 $($assembly.name) 中第 $index/$($component.quantity) 个同类实体。" `
-                "稳定零件 ID：$partId；维修边界：$($component.serviceBoundary)。" `
-                $assemblyId $component.id @($objectByPartId[$partId])))
-        }
+$groupCounts = @{
+    Simple = @{
+        frame = 1; cockpit_headset = 1; fork = 1; wheel_front = 1; wheel_rear = 2
+        brake_front = 1; brake_rear = 1; crank_bottom_bracket = 1; front_derailleur = 1
+        rear_derailleur = 1; chain = 1; pedals = 1; saddle_seatpost = 1; controls_cables = 1
+    }
+    Standard = @{
+        frame = 2; cockpit_headset = 2; fork = 3; wheel_front = 2; wheel_rear = 3
+        brake_front = 3; brake_rear = 3; crank_bottom_bracket = 2; front_derailleur = 2
+        rear_derailleur = 2; chain = 1; pedals = 2; saddle_seatpost = 2; controls_cables = 1
+    }
+    Advanced = @{
+        frame = 2; cockpit_headset = 3; fork = 4; wheel_front = 4; wheel_rear = 5
+        brake_front = 4; brake_rear = 4; crank_bottom_bracket = 4; front_derailleur = 3
+        rear_derailleur = 3; chain = 2; pedals = 2; saddle_seatpost = 2; controls_cables = 3
     }
 }
+
+$plansByDifficulty = @{}
+foreach ($difficulty in @('Simple', 'Standard', 'Advanced')) {
+    $steps = [System.Collections.Generic.List[object]]::new()
+    $difficultyId = $difficulty.ToLowerInvariant()
+    foreach ($assemblyId in $assemblyOrder) {
+        $assembly = $assemblyById[$assemblyId]
+        $sourceId = if ($assembly.inheritComponentsFrom) { $assembly.inheritComponentsFrom } else { $assemblyId }
+        $components = @($componentsByAssembly[$sourceId])
+        $groupCount = [int]$groupCounts[$difficulty][$assemblyId]
+        if ($groupCount -lt 1 -or $groupCount -gt $components.Count) {
+            throw "$difficulty / $assemblyId 的分组数 $groupCount 无效（组件数 $($components.Count)）"
+        }
+
+        for ($groupIndex = 0; $groupIndex -lt $groupCount; $groupIndex++) {
+            $start = [int][Math]::Floor($groupIndex * $components.Count / $groupCount)
+            $end = [int][Math]::Floor(($groupIndex + 1) * $components.Count / $groupCount) - 1
+            $groupComponents = @($components[$start..$end])
+            $objectNames = [System.Collections.Generic.List[string]]::new()
+            foreach ($component in $groupComponents) {
+                $componentKey = "bike.$assemblyId.$($component.id)"
+                foreach ($objectName in @($objectsByComponent[$componentKey])) {
+                    $objectNames.Add($objectName)
+                }
+            }
+
+            $componentNames = @($groupComponents | ForEach-Object { $_.name })
+            $displayName = if ($groupCount -eq 1) {
+                $assembly.name
+            } elseif ($componentNames.Count -eq 1) {
+                "$($assembly.name) · $($componentNames[0])"
+            } else {
+                "$($assembly.name) · $($componentNames[0])等"
+            }
+            $functionTexts = @($groupComponents | ForEach-Object {
+                Get-FunctionText $_.id $_.name $assembly.name
+            } | Select-Object -Unique)
+            $componentIds = @($groupComponents | ForEach-Object { $_.id })
+            $suffix = ($groupIndex + 1).ToString('00')
+            $summary = Limit-Text "这是$($assembly.name)中的$($componentNames[0])相关部件。"
+            $mechanism = Limit-Text $(if ($functionTexts.Count -gt 0) { $functionTexts[0] } else { '它负责连接、支撑或传递机械力量。' })
+            $advanced = Limit-Text "本组含$($componentNames.Count)类、$($objectNames.Count)个实体，协同完成$($assembly.name)的功能。"
+            $steps.Add((New-Step "plan.$difficultyId.$assemblyId.group.$suffix" $displayName 'Hand' `
+                $summary `
+                $mechanism `
+                $advanced `
+                $assemblyId ($componentIds -join '+') @($objectNames | Sort-Object -Unique)))
+        }
+    }
+    $plansByDifficulty[$difficulty] = $steps
+}
+
+$simple = $plansByDifficulty['Simple']
+$standard = $plansByDifficulty['Standard']
+$advanced = $plansByDifficulty['Advanced']
 
 $payload = [ordered]@{
     schemaVersion = 1

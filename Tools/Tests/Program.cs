@@ -12,10 +12,10 @@ internal static class Program
     {
         Run("Difficulty step counts", DifficultyStepCounts);
         Run("Any part can be disassembled", AnyPartCanBeDisassembled);
-        Run("Wrong tool does not advance", WrongToolDoesNotAdvance);
+        Run("Direct operation needs no tool", DirectOperationNeedsNoTool);
         Run("Disassembly supports arbitrary order", DisassemblySupportsArbitraryOrder);
         Run("Assembly supports arbitrary order", AssemblySupportsArbitraryOrder);
-        Run("Knowledge is layered", KnowledgeIsLayered);
+        Run("Knowledge is concise", KnowledgeIsConcise);
         Run("Engineering catalog structure", EngineeringCatalogStructure);
         Run("Engineering catalog dimensions", EngineeringCatalogDimensions);
         Run("Engineering catalog quantities", EngineeringCatalogQuantities);
@@ -39,19 +39,19 @@ internal static class Program
     {
         DisassemblyPlan plan = FrontBrakeCatalog.CreatePlan(DifficultyLevel.Standard);
         PartDefinition part = plan.Steps[plan.Steps.Count - 1];
-        OperationResult result = plan.TryOperate(part.Id, part.RequiredTool);
+        OperationResult result = plan.TryOperate(part.Id);
         True(result.Succeeded);
         True(plan.IsRemoved(part.Id));
         Equal(1, plan.RemovedCount);
     }
 
-    private static void WrongToolDoesNotAdvance()
+    private static void DirectOperationNeedsNoTool()
     {
         DisassemblyPlan plan = FrontBrakeCatalog.CreatePlan(DifficultyLevel.Simple);
-        OperationResult result = plan.TryOperate(plan.ExpectedPart.Id, ToolKind.Hand);
-        False(result.Succeeded);
-        Equal(OperationFailure.WrongTool, result.Failure);
-        Equal(0, plan.RemovedCount);
+        OperationResult result = plan.TryOperate(plan.ExpectedPart.Id);
+        True(result.Succeeded);
+        Equal(OperationFailure.None, result.Failure);
+        Equal(1, plan.RemovedCount);
     }
 
     private static void DisassemblySupportsArbitraryOrder()
@@ -60,7 +60,7 @@ internal static class Program
         for (int index = plan.Steps.Count - 1; index >= 0; index--)
         {
             PartDefinition part = plan.Steps[index];
-            True(plan.TryOperate(part.Id, part.RequiredTool).Succeeded);
+            True(plan.TryOperate(part.Id).Succeeded);
         }
 
         True(plan.IsDisassemblyComplete);
@@ -72,27 +72,33 @@ internal static class Program
         DisassemblyPlan plan = FrontBrakeCatalog.CreatePlan(DifficultyLevel.Standard);
         foreach (PartDefinition step in plan.Steps)
         {
-            True(plan.TryOperate(step.Id, step.RequiredTool).Succeeded);
+            True(plan.TryOperate(step.Id).Succeeded);
         }
 
         plan.SetMode(AssemblyMode.Assemble);
         for (int index = 0; index < plan.Steps.Count; index++)
         {
             PartDefinition part = plan.Steps[index];
-            True(plan.TryOperate(part.Id, part.RequiredTool).Succeeded);
+            True(plan.TryOperate(part.Id).Succeeded);
         }
 
         True(plan.IsAssemblyComplete);
     }
 
-    private static void KnowledgeIsLayered()
+    private static void KnowledgeIsConcise()
     {
         PartDefinition part = FrontBrakeCatalog.CreatePlan(DifficultyLevel.Advanced).Steps[0];
         string simple = part.GetKnowledge(DifficultyLevel.Simple);
         string standard = part.GetKnowledge(DifficultyLevel.Standard);
         string advanced = part.GetKnowledge(DifficultyLevel.Advanced);
-        True(simple.Length < standard.Length);
-        True(standard.Length < advanced.Length);
+        True(simple.Length > 0);
+        True(standard.Length > 0);
+        True(advanced.Length > 0);
+        True(simple.Length <= 50);
+        True(standard.Length <= 50);
+        True(advanced.Length <= 50);
+        True(simple != standard);
+        True(standard != advanced);
     }
 
     private static void EngineeringCatalogStructure()
@@ -233,9 +239,9 @@ internal static class Program
         Equal(3, plans.GetArrayLength());
         var expected = new Dictionary<string, int>(StringComparer.Ordinal)
         {
-            { "Simple", 14 },
-            { "Standard", 195 },
-            { "Advanced", 338 }
+            { "Simple", 15 },
+            { "Standard", 30 },
+            { "Advanced", 45 }
         };
         foreach (JsonElement plan in plans.EnumerateArray())
         {
@@ -247,6 +253,9 @@ internal static class Program
                 True(ids.Add(step.GetProperty("id").GetString()));
                 True(step.GetProperty("objectNames").GetArrayLength() > 0);
                 True(!string.IsNullOrWhiteSpace(step.GetProperty("simpleSummary").GetString()));
+                True(step.GetProperty("simpleSummary").GetString().Length <= 50);
+                True(step.GetProperty("mechanism").GetString().Length <= 50);
+                True(step.GetProperty("advancedNote").GetString().Length <= 50);
             }
         }
     }
@@ -264,32 +273,25 @@ internal static class Program
 
         using JsonDocument interaction = LoadJson(
             "Assets", "Resources", "MechanicalCatalog", "BicycleInteractionCatalog.json");
-        JsonElement advanced = default(JsonElement);
         foreach (JsonElement plan in interaction.RootElement.GetProperty("plans").EnumerateArray())
         {
-            if (plan.GetProperty("difficulty").GetString() == "Advanced")
+            var boundObjects = new HashSet<string>(StringComparer.Ordinal);
+            bool hasGroupedParts = false;
+            foreach (JsonElement step in plan.GetProperty("steps").EnumerateArray())
             {
-                advanced = plan;
-                break;
+                JsonElement names = step.GetProperty("objectNames");
+                True(names.GetArrayLength() > 0);
+                hasGroupedParts |= names.GetArrayLength() > 1;
+                foreach (JsonElement name in names.EnumerateArray())
+                {
+                    string objectName = name.GetString();
+                    True(modelObjects.Contains(objectName));
+                    True(boundObjects.Add(objectName));
+                }
             }
+            True(hasGroupedParts);
+            Equal(modelObjects.Count, boundObjects.Count);
         }
-        True(advanced.ValueKind == JsonValueKind.Object);
-        var boundObjects = new HashSet<string>(StringComparer.Ordinal);
-        bool hasGroupedRepeatParts = false;
-        foreach (JsonElement step in advanced.GetProperty("steps").EnumerateArray())
-        {
-            JsonElement names = step.GetProperty("objectNames");
-            True(names.GetArrayLength() > 0);
-            hasGroupedRepeatParts |= names.GetArrayLength() > 1;
-            foreach (JsonElement name in names.EnumerateArray())
-            {
-                string objectName = name.GetString();
-                True(modelObjects.Contains(objectName));
-                True(boundObjects.Add(objectName));
-            }
-        }
-        True(hasGroupedRepeatParts);
-        Equal(modelObjects.Count, boundObjects.Count);
     }
 
     private static JsonDocument LoadJson(params string[] pathSegments)

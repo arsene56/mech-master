@@ -148,7 +148,7 @@ namespace MechMaster.Runtime.UI
                 MechMasterApp.Instance.FrameStorage();
             GUI.Label(PixelRect(1176, 20, 690, 44), view
                 ? "拖动旋转 · 点击听讲解 · 滚轮 / 双指缩放"
-                : "选工具拖零件 · 空白处旋转 · 滚轮 / 双指缩放", captionStyle);
+                : "直接拖动零件 · 空白处旋转 · 滚轮 / 双指缩放", captionStyle);
         }
 
         private void DrawPanControls()
@@ -191,19 +191,13 @@ namespace MechMaster.Runtime.UI
                 return;
             }
             GUILayout.BeginArea(CurrentLayout.ToPixels(WorkshopLayout.Tools), boxStyle);
-            if (GUILayout.Button("工具与拆解等级  ‹", buttonStyle, GUILayout.Height(Pixels(36))))
+            if (GUILayout.Button("拆解等级  ‹", buttonStyle, GUILayout.Height(Pixels(36))))
                 WorkshopLayout.ToolsCollapsed = true;
             GUILayout.Space(Pixels(8));
             GUILayout.Label("拆解等级", headingStyle);
             DifficultyButton("简单", DifficultyLevel.Simple);
             DifficultyButton("进阶", DifficultyLevel.Standard);
             DifficultyButton("探索", DifficultyLevel.Advanced);
-
-            GUILayout.Space(Pixels(12f));
-            GUILayout.Label("我的工具箱", headingStyle);
-            ToolButton("无需工具", ToolKind.Hand);
-            ToolButton("内六角扳手", ToolKind.HexKey);
-            ToolButton("梅花扳手", ToolKind.TorxKey);
 
             GUILayout.Space(Pixels(12f));
             GUILayout.Label("拆装工作台", headingStyle);
@@ -244,7 +238,7 @@ namespace MechMaster.Runtime.UI
             GUILayout.Label(app.NarrationStatus, captionStyle);
             bool wasEnabled = GUI.enabled;
             GUI.enabled = narration && app.NarrationAvailable;
-            if (GUILayout.Button("重听当前零件", buttonStyle, GUILayout.Height(Pixels(36)))) app.ReplayNarration();
+            if (GUILayout.Button("再次讲解", buttonStyle, GUILayout.Height(Pixels(36)))) app.ReplayNarration();
             GUI.enabled = wasEnabled;
 
             GUILayout.FlexibleSpace();
@@ -260,7 +254,7 @@ namespace MechMaster.Runtime.UI
                 "零件收纳站",
                 headingStyle);
             GUI.Label(PixelRect(1000, 908, 850, 26),
-                "绿色：可放入    橙色：检查工具    红色：换个分类", captionStyle);
+                "绿色：可放入    红色：换个分类", captionStyle);
 
             for (int index = 0; index < BicycleAssemblyInfo.OrderedIds.Length; index++)
             {
@@ -292,7 +286,7 @@ namespace MechMaster.Runtime.UI
                 {
                     label = BicycleAssemblyInfo.DisplayName(assemblyId) + "\n"
                         + (cellStyle == trayCellReadyStyle ? "松手放入"
-                            : cellStyle == trayCellWrongStyle ? "换个分类" : "检查工具 / 零件状态");
+                            : cellStyle == trayCellWrongStyle ? "换个分类" : "该零件已完成操作");
                 }
                 // Keep each cell to two lines even with three-digit counts or long part names.
                 string[] lines = label.Split('\n');
@@ -346,8 +340,7 @@ namespace MechMaster.Runtime.UI
                 && (app.Plan.Mode == AssemblyMode.Disassemble
                     ? !app.Plan.IsRemoved(draggedPart.Id)
                     : app.Plan.IsRemoved(draggedPart.Id));
-            bool ready = stateAllowsOperation
-                && draggedPart.RequiredTool == app.SelectedTool;
+            bool ready = stateAllowsOperation;
             return ready ? trayCellReadyStyle : trayCellBlockedStyle;
         }
 
@@ -384,7 +377,7 @@ namespace MechMaster.Runtime.UI
                 GUILayout.Label(part.DisplayName, titleStyle);
                 GUILayout.Space(Pixels(8f));
                 GUILayout.Label(
-                    "所需工具：" + DisassemblyPlan.ToolDisplayName(part.RequiredTool),
+                    "操作方式：直接拖动拆装",
                     hintStyle);
                 GUILayout.Space(Pixels(18f));
                 GUILayout.Label(part.GetKnowledge(app.Plan.Difficulty), bodyStyle);
@@ -414,16 +407,6 @@ namespace MechMaster.Runtime.UI
                 selected ? selectedButtonStyle : buttonStyle, GUILayout.Height(Pixels(44f))))
             {
                 MechMasterApp.Instance.SetDifficulty(value);
-            }
-        }
-
-        private void ToolButton(string label, ToolKind value)
-        {
-            bool selected = MechMasterApp.Instance.SelectedTool == value;
-            if (GUILayout.Button((selected ? "●  " : "○  ") + label,
-                selected ? selectedToolStyle : buttonStyle, GUILayout.Height(Pixels(40f))))
-            {
-                MechMasterApp.Instance.SetTool(value);
             }
         }
 
