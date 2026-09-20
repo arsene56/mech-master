@@ -10,11 +10,12 @@ from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from engineering_geometry import annulus, bolt, box, curve, cylinder, gear, join, material, point_at, sphere, tag, torus  # noqa: E402
+from engineering_geometry import annulus, bolt, box, curve, cylinder, gear, join, material, point_at, saddle_layer, sphere, tag, torus  # noqa: E402
 
 BLEND_PATH = ROOT / "Assets/Art/Models/Source/BicycleEngineeringSource.blend"
 PREVIEW_PATH = ROOT / "Docs/Preview/BicycleEngineering.png"
 DETAIL_PATH = ROOT / "Docs/Preview/BicycleEngineeringDrivetrain.png"
+SADDLE_PATH = ROOT / "Docs/Preview/BicycleEngineeringSaddle.png"
 MANIFEST_PATH = ROOT / "Assets/StreamingAssets/MechanicalCatalog/bicycle_model_manifest.json"
 
 
@@ -31,6 +32,16 @@ class Bike:
 
     def tagged(self, obj, part_id, assembly, boundary="individual"):
         return tag(obj, part_id, assembly, boundary)
+
+    def down_tube_route(self, height=0):
+        return [self.head_low.lerp(self.bb, t) + Vector((0, -.044, height))
+                for t in (.08, .12, .35, .58, .80, .94)]
+
+    def chainstay_route(self, side):
+        start = self.bb + Vector((0, side * .037, 0))
+        end = self.rear + Vector((0, side * .074, 0))
+        return [start.lerp(end, t) + Vector((0, side * .020, .008))
+                for t in (.16, .35, .65, .84)]
 
     def reset(self):
         bpy.ops.object.select_all(action="SELECT")
@@ -91,16 +102,25 @@ class Bike:
                 cylinder("frame_seatstay", self.rear + Vector((0, dropout_y, 0)), self.seat + Vector((0, bb_y * .72, -.055)), .012, m["frame"], c, 32),
                 box("frame_dropout", self.rear + Vector((0, dropout_y, 0)), (.060, .010, .085), m["frame"], c, .006),
             ]
+        tube_axis = (self.head_low - self.bb).normalized()
+        inward = Vector((-tube_axis.z, 0, tube_axis.x))
+        bosses = [self.bb.lerp(self.head_low, .52) + tube_axis * offset for offset in (-.032, .032)]
+        for point in bosses:
+            pieces.append(cylinder("frame_bottle_boss", point + inward * .029,
+                                   point + inward * .037, .006, m["frame"], c, 24))
         self.tagged(join("MM_frame_main_weldment", pieces), "bike.frame.frame_weldment.01", "frame", "non-separable")
         self.tagged(box("MM_frame_derailleur_hanger", (-.557, -.052, .318), (.058, .009, .085), m["al"], c, .004), "bike.frame.derailleur_hanger.01", "frame")
         self.tagged(bolt("MM_frame_hanger_bolt", (-.54, -.060, .34), (-.54, -.045, .34), .0025, .005, m["steel"], c), "bike.frame.derailleur_hanger_bolt.01", "frame")
-        for i in range(8):
-            point = self.head_low.lerp(self.bb, .10 + i * .105) + Vector((0, -.034, 0))
-            self.tagged(box(f"MM_frame_cable_guide_{i+1:02d}", point, (.022, .010, .013), m["plastic"], c, .002), f"bike.frame.cable_guide.{i+1:02d}", "frame")
-            self.tagged(bolt(f"MM_frame_cable_guide_bolt_{i+1:02d}", point+Vector((0,-.007,0)), point+Vector((0,.004,0)), .0015, .003, m["steel"], c), f"bike.frame.cable_guide_bolt.{i+1:02d}", "frame")
+        guides = [(self.head_low.lerp(self.bb, t) + Vector((0, -.037, 0)), -1) for t in (.12, .35, .58, .80)]
+        for side in (-1, 1):
+            guides += [(point - Vector((0, side * .006, 0)), side) for point in self.chainstay_route(side)[1:3]]
+        for i, (point, side) in enumerate(guides):
+            self.tagged(box(f"MM_frame_cable_guide_{i+1:02d}", point, (.022, .017, .026), m["plastic"], c, .002), f"bike.frame.cable_guide.{i+1:02d}", "frame")
+            screw = point + Vector((.007, 0, .010))
+            self.tagged(bolt(f"MM_frame_cable_guide_bolt_{i+1:02d}", screw+Vector((0,side*.010,0)), screw-Vector((0,side*.008,0)), .0015, .003, m["steel"], c), f"bike.frame.cable_guide_bolt.{i+1:02d}", "frame")
         self.tagged(box("MM_frame_chainstay_protector", (-.39, -.054, .39), (.265, .008, .032), m["rubber"], c, .006), "bike.frame.chainstay_protector.01", "frame", "non-separable")
-        for i, x in enumerate((-.02, .035), 1):
-            self.tagged(bolt(f"MM_frame_bottle_boss_bolt_{i:02d}", (x, -.010, .645), (x, .010, .645), .0025, .005, m["steel"], c), f"bike.frame.bottle_boss_bolt.{i:02d}", "frame")
+        for i, point in enumerate(bosses, 1):
+            self.tagged(bolt(f"MM_frame_bottle_boss_bolt_{i:02d}", point+inward*.037, point+inward*.024, .0025, .005, m["steel"], c), f"bike.frame.bottle_boss_bolt.{i:02d}", "frame")
 
     def tire(self, prefix, center, c):
         parts = [torus(prefix + "_carcass", center, .3175, .0285, self.m["rubber"], c, major_segments=144, minor_segments=24)]
@@ -274,7 +294,17 @@ class Bike:
         for i,z in enumerate((-.030,.030),1):
             self.tagged(bolt(p+f"_mount_bolt_{i}",cal+Vector((-.040,-.050,z)),cal+Vector((-.040,.045,z)),.003,.006,m["steel"],c), f"bike.{a}.mount_bolt.{i:02d}", a)
             self.tagged(torus(p+f"_mount_snap_ring_{i}",cal+Vector((-.040,.047,z)),.004,.001,m["steel"],c,major_segments=18,minor_segments=6), f"bike.{a}.mount_snap_ring.{i:02d}", a)
-        hose_pts = [(.265,y,.93),(.12,-.10 if front else .10,.87),tuple(cal+Vector((.02,-.03,.04)))]
+        if front:
+            # A steering/service loop, then the outside of the left fork leg.
+            hose_pts = [(.265,y,.93),(.23,-.26,.89),(.35,-.19,.78),
+                        (.37,-.09,.64),(.353,-.082,.55),(.40,-.082,.515),
+                        tuple(cal+Vector((0,-.034,.032)))]
+        else:
+            # Follow the down tube and non-drive chainstay, not the open triangle.
+            hose_pts = [(.265,y,.93),(.21,.24,.87),(.20,.12,.80),
+                        (.28,-.065,.72),(.315,-.065,.63)] + self.down_tube_route()
+            hose_pts += [(-.14,-.05,.325),(-.17,.015,.323)] + self.chainstay_route(1)
+            hose_pts += [(-.49,.10,.39),tuple(cal+Vector((0,.030,.032)))]
         self.tagged(curve(p+"_hose",hose_pts,.0027,m["rubber"],c), f"bike.{a}.hose.01", a)
         for part, loc, mat_name in (("compression_nut",hose_pts[0],"steel"),("olive",(.273,y,.93),"steel"),("connector_insert",(.280,y,.93),"al")):
             self.tagged(torus(p+"_"+part,loc,.004,.0013,m[mat_name],c,rotation=(0,math.pi/2,0),major_segments=24,minor_segments=6), f"bike.{a}.{part}.01", a)
@@ -387,25 +417,30 @@ class Bike:
     def build_saddle(self):
         c, m, a = self.c["saddle_seatpost"], self.m, "saddle_seatpost"
         self.tagged(cylinder("MM_saddle_seatpost",self.seat,(-.315,0,.995),.0155,m["black"],c,40), f"bike.{a}.seatpost.01", a)
-        self.tagged(box("MM_saddle_shell",(-.355,0,1.025),(.265,.135,.038),m["plastic"],c,.026,(0,-.055,0)), f"bike.{a}.saddle_shell.01", a, "non-separable")
-        self.tagged(box("MM_saddle_padding",(-.355,0,1.038),(.270,.140,.026),m["pad"],c,.028,(0,-.055,0)), f"bike.{a}.saddle_padding.01", a, "non-separable")
-        self.tagged(box("MM_saddle_cover",(-.355,0,1.050),(.274,.144,.016),m["rubber"],c,.030,(0,-.055,0)), f"bike.{a}.saddle_cover.01", a, "non-separable")
-        for i,y in enumerate((-.037,.037),1):
-            self.tagged(curve(f"MM_saddle_rail_{i}",[(-.44,y,1.00),(-.34,y,.995),(-.27,y,1.015)],.0035,m["steel"],c), f"bike.{a}.saddle_rail.{i:02d}", a, "installed")
-            self.tagged(box(f"MM_saddle_clamp_plate_{i}",(-.31,y,.998),(.045,.020,.018),m["black"],c,.004), f"bike.{a}.saddle_clamp_plate.{i:02d}", a)
-            self.tagged(bolt(f"MM_saddle_clamp_bolt_{i}",(-.31,y-.015,.998),(-.31,y+.015,.998),.0025,.005,m["steel"],c), f"bike.{a}.saddle_clamp_bolt.{i:02d}", a)
+        self.tagged(saddle_layer("MM_saddle_shell",(-.355,0,1.023),.270,.140,.004,m["plastic"],c), f"bike.{a}.saddle_shell.01", a, "non-separable")
+        self.tagged(saddle_layer("MM_saddle_padding",(-.355,0,1.027),.272,.142,.010,m["plastic"],c), f"bike.{a}.saddle_padding.01", a, "non-separable")
+        self.tagged(saddle_layer("MM_saddle_cover",(-.355,0,1.037),.274,.144,.002,m["rubber"],c), f"bike.{a}.saddle_cover.01", a, "non-separable")
+        for i,side in enumerate((-1,1),1):
+            y = side*.022
+            self.tagged(curve(f"MM_saddle_rail_{i}",[(-.45,side*.05,1.031),(-.41,y,1.010),(-.35,y,.995),(-.28,y,.995),(-.245,side*.013,1.027)],.0035,m["steel"],c), f"bike.{a}.saddle_rail.{i:02d}", a, "installed")
+            self.tagged(box(f"MM_saddle_clamp_plate_{i}",(-.315,0,.995+side*.007),(.052,.056,.008),m["black"],c,.003), f"bike.{a}.saddle_clamp_plate.{i:02d}", a)
+            x = -.315+side*.017
+            self.tagged(bolt(f"MM_saddle_clamp_bolt_{i}",(x,0,1.006),(x,0,.980),.0025,.005,m["steel"],c), f"bike.{a}.saddle_clamp_bolt.{i:02d}", a)
         self.tagged(torus("MM_saddle_seatpost_collar",self.seat,.032,.006,m["orange"],c,rotation=(0,math.pi/2,0),major_segments=48,minor_segments=10), f"bike.{a}.seatpost_collar.01", a)
         self.tagged(bolt("MM_saddle_seatpost_collar_bolt",(-.275,-.038,.837),(-.275,.038,.837),.003,.006,m["steel"],c), f"bike.{a}.seatpost_collar_bolt.01", a)
 
     def build_controls(self):
         c, m, a = self.c["controls_cables"], self.m, "controls_cables"
         routes = [
-            ("front",[(.285,-.18,.95),(.20,-.05,.83),(-.10,-.04,.62),(-.245,-.075,.51)]),
-            ("rear",[(.285,.18,.95),(.18,.06,.82),(-.10,.045,.62),(-.55,-.10,.31)]),
+            ("front",[(.285,-.18,.95),(.23,-.19,.86),(.285,-.080,.72),(.32,-.065,.636)] +
+             self.down_tube_route(.006) + [(-.14,-.046,.38),(-.18,-.048,.46),(-.220,-.095,.530)]),
+            ("rear",[(.285,.18,.95),(.24,.19,.86),(.29,.10,.75),(.325,-.065,.624)] +
+             self.down_tube_route(-.006) + self.chainstay_route(-1) +
+             [(-.62,-.10,.365),(-.66,-.11,.31),(-.61,-.11,.28),(-.580,-.105,.325)]),
         ]
         for route,(name,points) in enumerate(routes,1):
             self.tagged(box(f"MM_controls_shifter_{route}",points[0],(.055,.035,.035),m["black"],c,.006), f"bike.{a}.shifter.{route:02d}", a, "service-unit")
-            self.tagged(curve(f"MM_controls_inner_cable_{route}",[(x,y-.003,z) for x,y,z in points],.0007,m["steel"],c), f"bike.{a}.shift_inner_cable.{route:02d}", a)
+            self.tagged(curve(f"MM_controls_inner_cable_{route}",points,.0007,m["steel"],c), f"bike.{a}.shift_inner_cable.{route:02d}", a)
             self.tagged(curve(f"MM_controls_housing_{route}",points,.0024,m["rubber"],c), f"bike.{a}.shift_housing.{route:02d}", a)
             ferrule_points = (points[0],points[1],points[-2],points[-1])
             for local_i,point in enumerate(ferrule_points,1):
@@ -519,6 +554,10 @@ def save_and_render():
     camera.location, camera.data.lens = (.20,-1.48,.66),70
     point_at(camera,(-.31,-.04,.39))
     bpy.context.scene.render.filepath = str(DETAIL_PATH)
+    bpy.ops.render.render(write_still=True)
+    camera.location, camera.data.lens = (-.10,-.48,1.38),58
+    point_at(camera,(-.355,0,1.015))
+    bpy.context.scene.render.filepath = str(SADDLE_PATH)
     bpy.ops.render.render(write_still=True)
     bpy.ops.wm.save_as_mainfile(filepath=str(BLEND_PATH))
 

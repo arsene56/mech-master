@@ -104,6 +104,7 @@ function New-Step(
 $simple = [System.Collections.Generic.List[object]]::new()
 $standard = [System.Collections.Generic.List[object]]::new()
 $advanced = [System.Collections.Generic.List[object]]::new()
+$explorationRepeatThreshold = 10
 
 foreach ($assemblyId in $assemblyOrder) {
     $assembly = $assemblyById[$assemblyId]
@@ -113,7 +114,7 @@ foreach ($assemblyId in $assemblyOrder) {
     $simple.Add((New-Step "plan.simple.$assemblyId" $assembly.name 'Hand' `
         "$($assembly.name)是整车的一个主要机械模块。" `
         '先观察它与车架及相邻模块的连接，再将整个模块作为一个单元拆下。' `
-        "该模块在探索和进阶模式中会继续展开为 $($components.Count) 类零件。" `
+        "该模块在进阶和探索等级中会继续展开为 $($components.Count) 类零件。" `
         $assemblyId '' $assemblyObjects))
 
     foreach ($component in $components) {
@@ -123,9 +124,18 @@ foreach ($assemblyId in $assemblyOrder) {
         $displayName = if ($component.quantity -gt 1) { "$($component.name)（$($component.quantity)件）" } else { $component.name }
         $standard.Add((New-Step "plan.standard.$assemblyId.$($component.id)" $displayName (Get-ToolKind $component.tool) `
             $functionText `
-            "这一组共有 $($component.quantity) 件；探索模式按同类零件成组操作。" `
-            "维修边界：$($component.serviceBoundary)。进阶模式会按模型中的实体逐件操作。" `
+            "这一组共有 $($component.quantity) 件；进阶等级按同类零件成组操作。" `
+            "维修边界：$($component.serviceBoundary)。探索等级会按模型中的实体逐件操作。" `
             $assemblyId $component.id $componentObjects))
+
+        if ([int]$component.quantity -ge $explorationRepeatThreshold) {
+            $advanced.Add((New-Step "plan.advanced.$assemblyId.$($component.id)" $displayName (Get-ToolKind $component.tool) `
+                $functionText `
+                "这一组共有 $($component.quantity) 件；探索等级将高重复零件作为一个整体操作。" `
+                "该组绑定全部 $($component.quantity) 个模型实体，避免重复零件逐件操作。" `
+                $assemblyId $component.id $componentObjects))
+            continue
+        }
 
         for ($index = 1; $index -le $component.quantity; $index++) {
             $width = if ($component.quantity -ge 100) { 3 } else { 2 }

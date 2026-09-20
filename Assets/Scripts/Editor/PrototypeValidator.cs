@@ -161,9 +161,9 @@ namespace MechMaster.Editor
                 DifficultyLevel.Advanced);
             if (simple.Steps.Count != 14
                 || standard.Steps.Count != 195
-                || advanced.Steps.Count != 595)
+                || advanced.Steps.Count != 338)
             {
-                return "三档难度步骤数不符合 14/195/595 约定。";
+                return "三档拆解等级步骤数不符合 14/195/338 约定。";
             }
 
             var importedNames = new HashSet<string>(StringComparer.Ordinal);
@@ -200,7 +200,7 @@ namespace MechMaster.Editor
             int advancedBindings = advanced.Steps.Sum(step => step.ModelObjectNames.Count);
             if (advancedBindings != 595)
             {
-                return "进阶模式模型绑定数量不是 595。";
+                return "探索等级模型绑定数量不是 595。";
             }
 
             return string.Empty;

@@ -18,6 +18,8 @@
 
 - [Shimano Technical Documents](https://si.shimano.com/)
 - [Shimano BR-MT200 / SM-BH59 / SM-RT26 爆炸图](https://si.shimano.com/en/pdfs/ev/BR-MT200-4349/EV-BR-MT200-4349D.pdf)
+- [Shimano 液压碟刹经销商手册 DM-2VF0A](https://si.shimano.com/en/pdfs/dm/2VF0A/DM-2VF0A-01-ENG.pdf)：油管长度需保留车把转向余量；本样片外走线按自身车架几何布置，不声明复刻该手册某一车型。
+- [Selle Italia Novus Boost Evo Ti 316 Superflow](https://www.selleitalia.com/novus-boost-evo-ti-316-superflow/)：仅参考宽后部、窄鼻部和中央减压结构的形态。游戏坐垫为自建 274 × 144 mm 通用曲面，非该产品的尺寸复制，未使用其网格或贴图。
 - [SRAM Service](https://www.sram.com/en/service)
 - [SRAM Boost 110/148 花鼓尺寸图](https://www.sram.com/globalassets/document-hierarchy/frame-fit-specifications/mtb/gen.0000000005566-2018-rev-a-mtb-road-hubs-build-specifications.pdf)
 - [SRAM Guide RE 液压卡钳维修手册](https://www.sram.com/globalassets/document-hierarchy/service-manuals/sram-mtb/brakes/gen.0000000005128-rev-a-guide-re-service-manual-english)

@@ -155,6 +155,56 @@ def curve(name, points, radius, mat, collection=None):
     return finish(obj, name, mat)
 
 
+def saddle_layer(name, center, length, width, thickness, mat, collection=None):
+    """Closed, contoured saddle layer; +X is the nose, not a beveled cuboid."""
+    outline = ((0, .08), (.05, .65), (.16, .96), (.28, 1.0),
+               (.42, .79), (.58, .39), (.76, .26), (.93, .24), (1, .04))
+    rows, columns = 80, 32
+    vertices, faces = [], []
+    for layer in range(2):
+        for i in range(rows + 1):
+            t = i / rows
+            for k, ((a, wa), (b, wb)) in enumerate(zip(outline, outline[1:])):
+                if a <= t <= b:
+                    u = (t - a) / (b - a)
+                    previous = outline[max(0, k - 1)]
+                    following = outline[min(len(outline) - 1, k + 2)]
+                    ma = (wb - previous[1]) / (b - previous[0]) * (b - a)
+                    mb = (following[1] - wa) / (following[0] - a) * (b - a)
+                    profile = ((2*u**3-3*u*u+1)*wa + (u**3-2*u*u+u)*ma +
+                               (-2*u**3+3*u*u)*wb + (u**3-u*u)*mb)
+                    half_width = width * .5 * profile
+                    break
+            for j in range(columns + 1):
+                v = 2 * j / columns - 1
+                rear_rise = .009 * math.exp(-((t - .10) / .22) ** 2)
+                dome = .008 * (1 - v * v)
+                channel = .008 * math.exp(-(v / .22) ** 2) * math.sin(math.pi * t) ** .5
+                vertices.append(((t - .5) * length, v * half_width,
+                                 rear_rise + dome - channel + layer * thickness))
+    stride = columns + 1
+    offset = (rows + 1) * stride
+    for i in range(rows):
+        for j in range(columns):
+            a = i * stride + j
+            quad = (a, a + stride, a + stride + 1, a + 1)
+            faces.append(tuple(reversed(quad)))
+            faces.append(tuple(v + offset for v in quad))
+    perimeter = ([i * stride for i in range(rows + 1)] +
+                 [rows * stride + j for j in range(1, columns + 1)] +
+                 [i * stride + columns for i in range(rows - 1, -1, -1)] +
+                 [j for j in range(columns - 1, 0, -1)])
+    for a, b in zip(perimeter, perimeter[1:] + perimeter[:1]):
+        faces.append((a, b, b + offset, a + offset))
+    mesh = bpy.data.meshes.new(name + "Mesh")
+    mesh.from_pydata(vertices, [], faces)
+    mesh.update()
+    obj = bpy.data.objects.new(name, mesh)
+    (collection or bpy.context.collection).objects.link(obj)
+    obj.location = center
+    return finish(obj, name, mat)
+
+
 def join(name, objects):
     objects = [obj for obj in objects if obj is not None]
     bpy.ops.object.select_all(action="DESELECT")

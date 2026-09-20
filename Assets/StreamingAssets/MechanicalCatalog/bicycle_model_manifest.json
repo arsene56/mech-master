@@ -5,8 +5,8 @@
   "unit": "metre",
   "partObjects": 595,
   "meshObjects": 585,
-  "vertices": 105652,
-  "polygons": 101472,
+  "vertices": 121498,
+  "polygons": 117262,
   "parts": [
     {
       "object": "MM_brake_front_bleed_o_ring",

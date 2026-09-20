@@ -6,16 +6,12 @@ namespace MechMaster.Runtime.UI
 {
     public sealed class PrototypeUI : MonoBehaviour
     {
-        private const float TrayStartX = 375f;
-        private const float TrayStartY = 838f;
-        private const float TrayCellWidth = 151f;
-        private const float TrayCellHeight = 54f;
-        private const float TrayGapX = 7f;
-        private const float TrayGapY = 8f;
         private static string draggedPartId;
         private static string draggedAssemblyId;
         private static string hoveredAssemblyId;
         private GUIStyle titleStyle;
+        private GUIStyle brandStyle;
+        private GUIStyle sloganStyle;
         private GUIStyle headingStyle;
         private GUIStyle bodyStyle;
         private GUIStyle statusStyle;
@@ -42,6 +38,8 @@ namespace MechMaster.Runtime.UI
         private readonly List<Texture2D> ownedTextures = new List<Texture2D>();
         private readonly List<StyleMetrics> styleMetrics = new List<StyleMetrics>();
         private float appliedStyleScale = -1f;
+        private Vector2 knowledgeScroll;
+        private string knowledgePartId;
         private static PixelUILayout CurrentLayout => new PixelUILayout(Screen.width, Screen.height);
 
         private sealed class StyleMetrics
@@ -89,13 +87,15 @@ namespace MechMaster.Runtime.UI
         public static bool IsScreenPositionOverPanel(Vector2 screenPosition)
         {
             Vector2 guiPosition = new Vector2(screenPosition.x, Screen.height - screenPosition.y);
-            Rect left = PixelRect(20f, 96f, 330f, 870f);
-            Rect right = PixelRect(1490f, 96f, 410f, 870f);
-            Rect top = PixelRect(0f, 0f, PixelUILayout.ReferenceWidth, 92f);
-            Rect bottom = PixelRect(355f, 970f, 1130f, 90f);
+            Rect left = CurrentLayout.ToPixels(WorkshopLayout.ToolsCollapsed ? WorkshopLayout.ToolsTab : WorkshopLayout.Tools);
+            Rect right = CurrentLayout.ToPixels(WorkshopLayout.KnowledgeCollapsed ? WorkshopLayout.KnowledgeTab : WorkshopLayout.Knowledge);
+            Rect top = CurrentLayout.ToPixels(WorkshopLayout.Header);
+            Rect bottom = CurrentLayout.ToPixels(WorkshopLayout.Status);
             return left.Contains(guiPosition)
                 || right.Contains(guiPosition)
                 || top.Contains(guiPosition)
+                || CurrentLayout.ToPixels(WorkshopLayout.Tray).Contains(guiPosition)
+                || CurrentLayout.ToPixels(WorkshopLayout.PanControls).Contains(guiPosition)
                 || bottom.Contains(guiPosition);
         }
 
@@ -116,6 +116,7 @@ namespace MechMaster.Runtime.UI
                 DrawHeader();
                 DrawControls();
                 DrawKnowledgePanel();
+                DrawPanControls();
                 DrawPartsTray();
                 DrawStatus();
             }
@@ -132,40 +133,79 @@ namespace MechMaster.Runtime.UI
 
         private void DrawHeader()
         {
-            GUI.Box(PixelRect(20f, 8f, 1880f, 78f), GUIContent.none, boxStyle);
-            GUI.DrawTexture(PixelRect(36f, 20f, 52f, 52f), gearTexture);
-            GUI.Label(PixelRect(102f, 10f, 480f, 42f), "机械大师", titleStyle);
-            GUI.Label(PixelRect(105f, 51f, 480f, 28f), "拆解万物，解锁机秘", captionStyle);
-            GUI.Label(
-                PixelRect(660f, 25f, 750f, 40f),
-                "自行车工坊  /  27.5 英寸 · 2×10",
-                headingStyle);
-            GUI.Box(PixelRect(1585f, 27f, 285f, 38f), "动手探索 · 发现机械奥秘", chipStyle);
+            GUI.Box(CurrentLayout.ToPixels(WorkshopLayout.Header), GUIContent.none, boxStyle);
+            GUI.DrawTexture(PixelRect(28, 18, 46, 46), gearTexture);
+            GUI.Label(CurrentLayout.ToPixels(WorkshopLayout.BrandTitle), "机械大师", brandStyle);
+            GUI.Label(CurrentLayout.ToPixels(WorkshopLayout.BrandSlogan), "拆解万物，解锁机秘", sloganStyle);
+            bool view = PartInteractionController.ViewMode;
+            if (GUI.Button(PixelRect(440, 20, 176, 44), "旋转视角", view ? selectedButtonStyle : buttonStyle))
+                PartInteractionController.SetViewMode(true);
+            if (GUI.Button(PixelRect(626, 20, 176, 44), "拆装零件", view ? buttonStyle : selectedToolStyle))
+                PartInteractionController.SetViewMode(false);
+            if (GUI.Button(PixelRect(818, 20, 160, 44), "整车归位", buttonStyle))
+                MechMasterApp.Instance.FrameWholeBike();
+            if (GUI.Button(PixelRect(990, 20, 164, 44), "查看收纳", buttonStyle))
+                MechMasterApp.Instance.FrameStorage();
+            GUI.Label(PixelRect(1176, 20, 690, 44), view
+                ? "拖动旋转 · 点击听讲解 · 滚轮 / 双指缩放"
+                : "选工具拖零件 · 空白处旋转 · 滚轮 / 双指缩放", captionStyle);
+        }
+
+        private void DrawPanControls()
+        {
+            OrbitCameraController orbit = Camera.main?.GetComponent<OrbitCameraController>();
+            if (orbit == null) return;
+            Rect area = WorkshopLayout.PanControls;
+            GUI.Box(CurrentLayout.ToPixels(area), GUIContent.none, boxStyle);
+            GUI.Label(PixelRect(area.x + 10, area.y + 2, 140, 28), "画面平移", captionStyle);
+            DrawPanButton(area, 1, 0, "↑", Vector2.up, orbit);
+            DrawPanButton(area, 0, 1, "←", Vector2.left, orbit);
+            DrawPanButton(area, 2, 1, "→", Vector2.right, orbit);
+            DrawPanButton(area, 1, 2, "↓", Vector2.down, orbit);
+            if (GUI.Button(PixelRect(area.x + 56, area.y + 74, 44, 40), "中", buttonStyle))
+                orbit.ResetPan();
+        }
+
+        private void DrawPanButton(Rect area, int column, int row, string label, Vector2 direction, OrbitCameraController orbit)
+        {
+            if (GUI.Button(PixelRect(area.x + 8 + column * 48, area.y + 30 + row * 44, 44, 40), label, buttonStyle))
+                orbit.Pan(direction * 48f);
         }
 
         private void DrawPanelShadows()
         {
-            GUI.Box(PixelRect(20f, 101f, 330f, 870f), GUIContent.none, shadowStyle);
-            GUI.Box(PixelRect(1490f, 101f, 410f, 870f), GUIContent.none, shadowStyle);
-            GUI.Box(PixelRect(355f, 795f, 1130f, 176f), GUIContent.none, shadowStyle);
+            foreach (Rect rect in new[] {
+                WorkshopLayout.ToolsCollapsed ? WorkshopLayout.ToolsTab : WorkshopLayout.Tools,
+                WorkshopLayout.KnowledgeCollapsed ? WorkshopLayout.KnowledgeTab : WorkshopLayout.Knowledge,
+                WorkshopLayout.Tray })
+                GUI.Box(PixelRect(rect.x, rect.y + 4, rect.width, rect.height), GUIContent.none, shadowStyle);
         }
 
         private void DrawControls()
         {
             MechMasterApp app = MechMasterApp.Instance;
-            GUILayout.BeginArea(PixelRect(20f, 96f, 330f, 870f), boxStyle);
-            GUILayout.Label("选择探索难度", headingStyle);
-            DifficultyButton("启蒙 · 6–8 岁", DifficultyLevel.Simple);
-            DifficultyButton("探索 · 9–12 岁", DifficultyLevel.Standard);
-            DifficultyButton("进阶 · 9–12 岁", DifficultyLevel.Advanced);
+            if (WorkshopLayout.ToolsCollapsed)
+            {
+                if (GUI.Button(CurrentLayout.ToPixels(WorkshopLayout.ToolsTab), "工具", buttonStyle))
+                    WorkshopLayout.ToolsCollapsed = false;
+                return;
+            }
+            GUILayout.BeginArea(CurrentLayout.ToPixels(WorkshopLayout.Tools), boxStyle);
+            if (GUILayout.Button("工具与拆解等级  ‹", buttonStyle, GUILayout.Height(Pixels(36))))
+                WorkshopLayout.ToolsCollapsed = true;
+            GUILayout.Space(Pixels(8));
+            GUILayout.Label("拆解等级", headingStyle);
+            DifficultyButton("简单", DifficultyLevel.Simple);
+            DifficultyButton("进阶", DifficultyLevel.Standard);
+            DifficultyButton("探索", DifficultyLevel.Advanced);
 
-            GUILayout.Space(Pixels(22f));
+            GUILayout.Space(Pixels(12f));
             GUILayout.Label("我的工具箱", headingStyle);
-            ToolButton("手", ToolKind.Hand);
+            ToolButton("无需工具", ToolKind.Hand);
             ToolButton("内六角扳手", ToolKind.HexKey);
             ToolButton("梅花扳手", ToolKind.TorxKey);
 
-            GUILayout.Space(Pixels(22f));
+            GUILayout.Space(Pixels(12f));
             GUILayout.Label("拆装工作台", headingStyle);
             GUILayout.Label(
                 (app.Plan.Mode == AssemblyMode.Disassemble ? "拆解" : "组装")
@@ -182,40 +222,44 @@ namespace MechMaster.Runtime.UI
             }
             GUILayout.Space(Pixels(8f));
             if (GUILayout.Button(
-                app.Plan.Mode == AssemblyMode.Disassemble ? "完成后开始组装" : "完成后重新拆解",
+                app.Plan.Mode == AssemblyMode.Disassemble ? "开始组装" : "重新拆解",
                 actionStyle,
-                GUILayout.Height(Pixels(54f))))
+                GUILayout.Height(Pixels(44f))))
             {
                 app.ToggleMode();
             }
 
-            if (GUILayout.Button("重置整车进度", buttonStyle, GUILayout.Height(Pixels(48f))))
+            if (GUILayout.Button("重置进度", buttonStyle, GUILayout.Height(Pixels(40f))))
             {
                 app.ResetCurrentPlan();
             }
 
             GUILayout.Space(Pixels(16f));
             bool narration = app.NarrationEnabled;
-            if (GUILayout.Button(narration ? "讲解提示  ·  已开启" : "讲解提示  ·  已关闭",
+            if (GUILayout.Button(narration ? (app.NarrationAvailable ? "中文讲解 · 开" : "语音待就绪") : "中文讲解 · 关",
                 narration ? selectedButtonStyle : buttonStyle, GUILayout.Height(Pixels(44f))))
             {
                 app.SetNarrationEnabled(!narration);
             }
+            GUILayout.Label(app.NarrationStatus, captionStyle);
+            bool wasEnabled = GUI.enabled;
+            GUI.enabled = narration && app.NarrationAvailable;
+            if (GUILayout.Button("重听当前零件", buttonStyle, GUILayout.Height(Pixels(36)))) app.ReplayNarration();
+            GUI.enabled = wasEnabled;
 
             GUILayout.FlexibleSpace();
-            GUILayout.Label("试一试\n选好工具，把零件拖进同类收纳格。变绿后松手！", hintStyle);
             GUILayout.EndArea();
         }
 
         private void DrawPartsTray()
         {
             MechMasterApp app = MechMasterApp.Instance;
-            GUI.Box(PixelRect(355f, 790f, 1130f, 176f), GUIContent.none, trayPanelStyle);
+            GUI.Box(CurrentLayout.ToPixels(WorkshopLayout.Tray), GUIContent.none, trayPanelStyle);
             GUI.Label(
-                PixelRect(375f, 799f, 320f, 32f),
+                PixelRect(32, 902, 300, 34),
                 "零件收纳站",
                 headingStyle);
-            GUI.Label(PixelRect(720f, 805f, 745f, 27f),
+            GUI.Label(PixelRect(1000, 908, 850, 26),
                 "绿色：可放入    橙色：检查工具    红色：换个分类", captionStyle);
 
             for (int index = 0; index < BicycleAssemblyInfo.OrderedIds.Length; index++)
@@ -309,13 +353,7 @@ namespace MechMaster.Runtime.UI
 
         private static Rect TrayCellRect(int index)
         {
-            int column = index % 7;
-            int row = index / 7;
-            return new Rect(
-                TrayStartX + column * (TrayCellWidth + TrayGapX),
-                TrayStartY + row * (TrayCellHeight + TrayGapY),
-                TrayCellWidth,
-                TrayCellHeight);
+            return WorkshopLayout.TrayCell(index);
         }
 
         private void DrawKnowledgePanel()
@@ -323,9 +361,20 @@ namespace MechMaster.Runtime.UI
             MechMasterApp app = MechMasterApp.Instance;
             PartDefinition part = app.SelectedPart ?? app.Plan.ExpectedPart;
 
-            GUILayout.BeginArea(PixelRect(1490f, 96f, 410f, 870f), boxStyle);
+            if (WorkshopLayout.KnowledgeCollapsed)
+            {
+                if (GUI.Button(CurrentLayout.ToPixels(WorkshopLayout.KnowledgeTab), "百科", buttonStyle))
+                    WorkshopLayout.KnowledgeCollapsed = false;
+                return;
+            }
+            GUILayout.BeginArea(CurrentLayout.ToPixels(WorkshopLayout.Knowledge), boxStyle);
+            if (GUILayout.Button("零件百科  ›", buttonStyle, GUILayout.Height(Pixels(36))))
+                WorkshopLayout.KnowledgeCollapsed = true;
+            GUILayout.Space(Pixels(12));
             GUILayout.Label("零件小百科", headingStyle);
-            GUILayout.Space(Pixels(18f));
+            GUILayout.Space(Pixels(12f));
+            if (knowledgePartId != part?.Id) { knowledgePartId = part?.Id; knowledgeScroll = Vector2.zero; }
+            knowledgeScroll = GUILayout.BeginScrollView(knowledgeScroll, GUIStyle.none, GUI.skin.verticalScrollbar);
             if (part == null)
             {
                 GUILayout.Label("本轮已经完成。", bodyStyle);
@@ -340,8 +389,7 @@ namespace MechMaster.Runtime.UI
                 GUILayout.Space(Pixels(18f));
                 GUILayout.Label(part.GetKnowledge(app.Plan.Difficulty), bodyStyle);
             }
-
-            GUILayout.FlexibleSpace();
+            GUILayout.EndScrollView();
             GUILayout.Label(
                 app.Plan.Mode == AssemblyMode.Disassemble
                     ? "自由拆解：可选择任意尚未拆下的零件"
@@ -352,16 +400,18 @@ namespace MechMaster.Runtime.UI
 
         private void DrawStatus()
         {
-            GUI.Box(PixelRect(355f, 970f, 1130f, 90f), GUIContent.none, statusPanelStyle);
-            GUI.Label(PixelRect(376f, 996f, 120f, 34f), "工坊提示", headingStyle);
-            GUI.Label(PixelRect(505f, 981f, 955f, 68f), MechMasterApp.Instance.StatusMessage, statusStyle);
+            GUI.Box(CurrentLayout.ToPixels(WorkshopLayout.Status), GUIContent.none, statusPanelStyle);
+            GUI.Label(PixelRect(32, 1035, 120, 32), "工坊提示", headingStyle);
+            Rect messageRect = PixelRect(158, 1035, 1724, 34);
+            string message = MechMasterApp.Instance.StatusMessage;
+            GUI.Label(messageRect, new GUIContent(FitTrayLine(message, statusStyle, messageRect.width), message), statusStyle);
         }
 
         private void DifficultyButton(string label, DifficultyLevel value)
         {
             bool selected = MechMasterApp.Instance.Plan.Difficulty == value;
             if (GUILayout.Button((selected ? "●  " : "○  ") + label,
-                selected ? selectedButtonStyle : buttonStyle, GUILayout.Height(Pixels(54f))))
+                selected ? selectedButtonStyle : buttonStyle, GUILayout.Height(Pixels(44f))))
             {
                 MechMasterApp.Instance.SetDifficulty(value);
             }
@@ -371,7 +421,7 @@ namespace MechMaster.Runtime.UI
         {
             bool selected = MechMasterApp.Instance.SelectedTool == value;
             if (GUILayout.Button((selected ? "●  " : "○  ") + label,
-                selected ? selectedToolStyle : buttonStyle, GUILayout.Height(Pixels(50f))))
+                selected ? selectedToolStyle : buttonStyle, GUILayout.Height(Pixels(40f))))
             {
                 MechMasterApp.Instance.SetTool(value);
             }
@@ -388,11 +438,22 @@ namespace MechMaster.Runtime.UI
                 new[] { "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "Arial" },
                 26);
             titleStyle = CreateLabelStyle(chineseFont, 32, FontStyle.Bold, WorkshopTheme.Ink);
-            headingStyle = CreateLabelStyle(chineseFont, 24, FontStyle.Bold, WorkshopTheme.Teal);
+            brandStyle = CreateLabelStyle(chineseFont, 30, FontStyle.Bold, WorkshopTheme.Ink);
+            brandStyle.padding = new RectOffset();
+            brandStyle.margin = new RectOffset();
+            brandStyle.wordWrap = false;
+            brandStyle.alignment = TextAnchor.MiddleLeft;
+            sloganStyle = CreateLabelStyle(chineseFont, 16, FontStyle.Normal, WorkshopTheme.MutedInk);
+            sloganStyle.padding = new RectOffset();
+            sloganStyle.margin = new RectOffset();
+            sloganStyle.wordWrap = false;
+            sloganStyle.alignment = TextAnchor.MiddleLeft;
+            headingStyle = CreateLabelStyle(chineseFont, 22, FontStyle.Bold, WorkshopTheme.Teal);
             bodyStyle = CreateLabelStyle(chineseFont, 20, FontStyle.Normal, WorkshopTheme.Ink);
             bodyStyle.richText = true;
             captionStyle = CreateLabelStyle(chineseFont, 18, FontStyle.Normal, WorkshopTheme.MutedInk);
-            statusStyle = CreateLabelStyle(chineseFont, 21, FontStyle.Normal, WorkshopTheme.Ink);
+            statusStyle = CreateLabelStyle(chineseFont, 18, FontStyle.Normal, WorkshopTheme.Ink);
+            statusStyle.wordWrap = false;
             statusStyle.alignment = TextAnchor.MiddleLeft;
 
             buttonStyle = CreateButton(WorkshopTheme.Sky, WorkshopTheme.Ink, WorkshopTheme.Border);
@@ -401,7 +462,7 @@ namespace MechMaster.Runtime.UI
                 new Color32(223, 154, 67, 255));
             actionStyle = new GUIStyle(selectedToolStyle) { fontStyle = FontStyle.Bold };
             boxStyle = CreateSurface(WorkshopTheme.Surface, WorkshopTheme.Border, 20, WorkshopTheme.Ink);
-            boxStyle.padding = new RectOffset(22, 22, 24, 22);
+            boxStyle.padding = new RectOffset(12, 12, 12, 12);
             trayPanelStyle = CreateSurface(new Color(0.96f, 0.985f, 0.97f, 0.9f),
                 WorkshopTheme.Border, 20, WorkshopTheme.Ink);
             trayCellStyle = CreateSurface(WorkshopTheme.Sky, WorkshopTheme.Border, 16, WorkshopTheme.Ink);
@@ -419,7 +480,7 @@ namespace MechMaster.Runtime.UI
             chipStyle = CreateSurface(WorkshopTheme.Mint, Color.clear, 18, WorkshopTheme.Teal);
             hintStyle = CreateSurface(new Color32(239, 246, 243, 255), Color.clear, 19, WorkshopTheme.MutedInk);
             hintStyle.alignment = TextAnchor.MiddleLeft;
-            hintStyle.padding = new RectOffset(14, 14, 12, 12);
+            hintStyle.padding = new RectOffset(8, 8, 8, 8);
             shadowStyle = CreateSurface(new Color(0.22f, 0.38f, 0.42f, 0.09f), Color.clear, 16, WorkshopTheme.Ink);
             progressTrackStyle = CreateSurface(WorkshopTheme.Sky, Color.clear, 16, WorkshopTheme.Ink);
             progressFillStyle = CreateSurface(WorkshopTheme.Teal, Color.clear, 16, WorkshopTheme.Ink);
@@ -427,7 +488,7 @@ namespace MechMaster.Runtime.UI
             gearTexture = MakeGearTexture();
             foreach (GUIStyle style in new[]
             {
-                titleStyle, headingStyle, bodyStyle, captionStyle, statusStyle, buttonStyle,
+                titleStyle, brandStyle, sloganStyle, headingStyle, bodyStyle, captionStyle, statusStyle, buttonStyle,
                 selectedButtonStyle, selectedToolStyle, actionStyle, boxStyle, trayPanelStyle,
                 trayCellStyle, trayCellActiveStyle, trayCellReadyStyle, trayCellBlockedStyle,
                 trayCellWrongStyle, chipStyle, hintStyle, shadowStyle, progressTrackStyle,

@@ -130,7 +130,7 @@ namespace MechMaster.Domain
                 case ToolKind.TorxKey:
                     return "梅花扳手";
                 default:
-                    return "手";
+                    return "无需工具";
             }
         }
     }

@@ -235,7 +235,7 @@ internal static class Program
         {
             { "Simple", 14 },
             { "Standard", 195 },
-            { "Advanced", 595 }
+            { "Advanced", 338 }
         };
         foreach (JsonElement plan in plans.EnumerateArray())
         {
@@ -275,14 +275,20 @@ internal static class Program
         }
         True(advanced.ValueKind == JsonValueKind.Object);
         var boundObjects = new HashSet<string>(StringComparer.Ordinal);
+        bool hasGroupedRepeatParts = false;
         foreach (JsonElement step in advanced.GetProperty("steps").EnumerateArray())
         {
             JsonElement names = step.GetProperty("objectNames");
-            Equal(1, names.GetArrayLength());
-            string objectName = names[0].GetString();
-            True(modelObjects.Contains(objectName));
-            True(boundObjects.Add(objectName));
+            True(names.GetArrayLength() > 0);
+            hasGroupedRepeatParts |= names.GetArrayLength() > 1;
+            foreach (JsonElement name in names.EnumerateArray())
+            {
+                string objectName = name.GetString();
+                True(modelObjects.Contains(objectName));
+                True(boundObjects.Add(objectName));
+            }
         }
+        True(hasGroupedRepeatParts);
         Equal(modelObjects.Count, boundObjects.Count);
     }
 

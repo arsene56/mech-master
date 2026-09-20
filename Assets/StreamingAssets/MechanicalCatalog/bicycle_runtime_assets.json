@@ -7,15 +7,15 @@
       "assemblyId": "frame",
       "resourcePath": "Models/Bicycle/Modules/frame_LOD0",
       "partObjects": 22,
-      "sourcePolygons": 2684,
-      "bytes": 206236
+      "sourcePolygons": 2736,
+      "bytes": 207868
     },
     {
       "assemblyId": "cockpit_headset",
       "resourcePath": "Models/Bicycle/Modules/cockpit_headset_LOD0",
       "partObjects": 24,
       "sourcePolygons": 13456,
-      "bytes": 544828
+      "bytes": 544860
     },
     {
       "assemblyId": "fork",
@@ -29,42 +29,42 @@
       "resourcePath": "Models/Bicycle/Modules/wheel_front_LOD0",
       "partObjects": 90,
       "sourcePolygons": 18872,
-      "bytes": 991852
+      "bytes": 991916
     },
     {
       "assemblyId": "wheel_rear",
       "resourcePath": "Models/Bicycle/Modules/wheel_rear_LOD0",
       "partObjects": 120,
       "sourcePolygons": 25676,
-      "bytes": 1242348
+      "bytes": 1242284
     },
     {
       "assemblyId": "brake_front",
       "resourcePath": "Models/Bicycle/Modules/brake_front_LOD0",
       "partObjects": 37,
-      "sourcePolygons": 5928,
-      "bytes": 350684
+      "sourcePolygons": 6408,
+      "bytes": 371244
     },
     {
       "assemblyId": "brake_rear",
       "resourcePath": "Models/Bicycle/Modules/brake_rear_LOD0",
       "partObjects": 37,
-      "sourcePolygons": 5928,
-      "bytes": 350300
+      "sourcePolygons": 7848,
+      "bytes": 432252
     },
     {
       "assemblyId": "crank_bottom_bracket",
       "resourcePath": "Models/Bicycle/Modules/crank_bottom_bracket_LOD0",
       "partObjects": 25,
       "sourcePolygons": 4884,
-      "bytes": 234060
+      "bytes": 234044
     },
     {
       "assemblyId": "front_derailleur",
       "resourcePath": "Models/Bicycle/Modules/front_derailleur_LOD0",
       "partObjects": 14,
       "sourcePolygons": 2606,
-      "bytes": 151420
+      "bytes": 151404
     },
     {
       "assemblyId": "rear_derailleur",
@@ -78,7 +78,7 @@
       "resourcePath": "Models/Bicycle/Modules/chain_LOD0",
       "partObjects": 112,
       "sourcePolygons": 10976,
-      "bytes": 728524
+      "bytes": 728412
     },
     {
       "assemblyId": "pedals",
@@ -91,27 +91,27 @@
       "assemblyId": "saddle_seatpost",
       "resourcePath": "Models/Bicycle/Modules/saddle_seatpost_LOD0",
       "partObjects": 12,
-      "sourcePolygons": 1798,
-      "bytes": 123228
+      "sourcePolygons": 18016,
+      "bytes": 617580
     },
     {
       "assemblyId": "controls_cables",
       "resourcePath": "Models/Bicycle/Modules/controls_cables_LOD0",
       "partObjects": 16,
-      "sourcePolygons": 2632,
-      "bytes": 170012
+      "sourcePolygons": 8152,
+      "bytes": 398476
     }
   ],
   "wholeBikeLod1": {
     "resourcePath": "Models/Bicycle/BicycleEngineering_LOD1",
     "objects": 14,
-    "polygons": 59487,
-    "bytes": 2569708
+    "polygons": 76251,
+    "bytes": 3280764
   },
   "wholeBikeLod2": {
     "resourcePath": "Models/Bicycle/BicycleEngineering_LOD2",
     "objects": 1,
-    "polygons": 21657,
-    "bytes": 979708
+    "polygons": 26191,
+    "bytes": 1183228
   }
 }

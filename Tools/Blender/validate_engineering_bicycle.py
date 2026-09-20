@@ -4,7 +4,9 @@ import json
 from pathlib import Path
 
 import bpy
+import bmesh
 from mathutils import Vector
+from mathutils.geometry import interpolate_bezier
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -88,7 +90,63 @@ def validate_source():
     if vertices < 100000 or polygons < 90000:
         raise RuntimeError(f"Source detail unexpectedly low: {vertices} vertices, {polygons} polygons")
     print(f"PASS source detail: {vertices} vertices, {polygons} polygons")
+    validate_mounts_routes_and_saddle()
     return vertices, polygons
+
+
+def validate_mounts_routes_and_saddle():
+    bb, head = Vector((-.105, 0, .365)), Vector((.305, 0, .585))
+    axis = (head - bb).normalized()
+    bolts = [by_name(f"MM_frame_bottle_boss_bolt_{i:02d}") for i in (1, 2)]
+    for obj in bolts:
+        relative = obj.location - bb
+        radial = relative - axis * relative.dot(axis)
+        close(obj.name + " shaft / tube radius", radial.length, .0305, .0005)
+        if not 0 < relative.dot(axis) < (head-bb).length:
+            raise RuntimeError("Bottle bolt is beyond down tube")
+    close("bottle mounting pitch", abs((bolts[1].location - bolts[0].location).dot(axis)), .064, .0005)
+
+    # Sample the actual Bezier path, not just its endpoints: AUTO handles must not
+    # bow a nominally attached cable into the open frame triangle.
+    for name, first in (("MM_brake_rear_hose", 6),
+                        ("MM_controls_housing_1", 5), ("MM_controls_housing_2", 5)):
+        obj = by_name(name)
+        points = obj.data.splines[0].bezier_points
+        if len(points) < 13:
+            raise RuntimeError("Missing frame-following route: " + name)
+        for i in range(first, first + 3):
+            a, b = points[i], points[i+1]
+            for p in interpolate_bezier(a.co, a.handle_right, b.handle_left, b.co, 24):
+                relative = p - bb
+                distance = (relative - axis * relative.dot(axis)).length
+                if not .038 < distance < .052:
+                    raise RuntimeError(f"{name} floats away from / cuts into down tube: {distance}")
+    front = by_name("MM_brake_front_hose").data.splines[0].bezier_points
+    if len(front) < 7 or any(p.co.y > -.07 for p in front):
+        raise RuntimeError("Front hose must follow outside of left fork")
+    print("PASS brake / shift routes: sampled down-tube clearance and outside-fork route")
+
+    for name in ("shell", "padding", "cover"):
+        obj = by_name("MM_saddle_" + name)
+        mesh = bmesh.new()
+        mesh.from_mesh(obj.data)
+        closed = all(edge.is_manifold for edge in mesh.edges)
+        volume = mesh.calc_volume(signed=True)
+        mesh.free()
+        if not closed or volume <= 0:
+            raise RuntimeError("Saddle layer must be a closed outward-facing volume: " + name)
+    cover = by_name("MM_saddle_cover")
+    vertices = [v.co for v in cover.data.vertices]
+    rear_width = max(abs(v.y) for v in vertices if v.x < -.035) * 2
+    nose_width = max(abs(v.y) for v in vertices if v.x > .065) * 2
+    if rear_width < nose_width * 2.5:
+        raise RuntimeError("Saddle must have wide rear support and a narrow nose")
+    stride, top = 33, 81 * 33
+    center = vertices[top + 40 * stride + 16]
+    shoulder = vertices[top + 40 * stride + 8]
+    if shoulder.z - center.z < .003:
+        raise RuntimeError("Saddle pressure-relief channel is missing")
+    print("PASS saddle: 3 closed layers, tapered nose, wide rear, relief channel")
 
 
 def validate_manifests(source_polygons):

@@ -64,7 +64,7 @@ namespace MechMaster.Runtime
                 plan => string.Equals(plan.difficulty, difficulty.ToString(), StringComparison.Ordinal));
             if (selected == null || selected.steps == null || selected.steps.Length == 0)
             {
-                throw new InvalidOperationException("工程自行车目录缺少难度：" + difficulty);
+                throw new InvalidOperationException("工程自行车目录缺少拆解等级：" + difficulty);
             }
 
             IEnumerable<PartDefinition> steps = selected.steps.Select(step =>

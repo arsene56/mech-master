@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using MechMaster.Domain;
 using MechMaster.Runtime.UI;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace MechMaster.Runtime
         public PartDefinition SelectedPart { get; private set; }
         public string StatusMessage { get; private set; }
         public bool NarrationEnabled => narrator != null && narrator.Enabled;
+        public bool NarrationAvailable => narrator != null && narrator.Available;
+        public string NarrationStatus => narrator == null ? "语音初始化中" : narrator.Status;
 
         public event Action StateChanged;
 
@@ -76,11 +79,14 @@ namespace MechMaster.Runtime
                 return;
             }
 
+            PartInteractionController.Instance?.CancelGesture();
+            narrator.Stop();
             CreatePlan(difficulty, true);
         }
 
         public void SetTool(ToolKind tool)
         {
+            PartInteractionController.Instance?.CancelGesture();
             SelectedTool = tool;
             StatusMessage = "已选择“" + DisassemblyPlan.ToolDisplayName(tool) + "”。";
             feedbackAudio.PlayToolSelected(tool);
@@ -207,6 +213,7 @@ namespace MechMaster.Runtime
 
                 Plan.SetMode(AssemblyMode.Assemble);
                 StatusMessage = "进入组装模式，可从托盘中任选零件装回。";
+                FrameStorage();
             }
             else
             {
@@ -220,6 +227,7 @@ namespace MechMaster.Runtime
 
                 Plan.SetMode(AssemblyMode.Disassemble);
                 StatusMessage = "进入拆解模式。";
+                FrameWholeBike();
             }
 
             feedbackAudio.PlayModeSwitch();
@@ -235,8 +243,36 @@ namespace MechMaster.Runtime
         public void SetNarrationEnabled(bool enabled)
         {
             narrator.Enabled = enabled;
-            StatusMessage = enabled ? "讲解提示已开启。" : "讲解提示已关闭。";
+            StatusMessage = enabled ? (narrator.Available ? "中文讲解已开启。" : narrator.Status) : "中文讲解已关闭。";
+            if (enabled) ReplayNarration();
             SaveAndNotify();
+        }
+
+        public void ReplayNarration()
+        {
+            if (SelectedPart != null)
+                narrator.Speak(SelectedPart.DisplayName + "。" + SelectedPart.GetKnowledge(Plan.Difficulty));
+        }
+
+        public void FrameWholeBike()
+        {
+            PartInteractionController.Instance?.CancelGesture();
+            Camera.main?.GetComponent<OrbitCameraController>()?.FrameWholeBike();
+        }
+
+        public void FrameStorage()
+        {
+            PartInteractionController.Instance?.CancelGesture();
+            if (modelInstance == null) return;
+            var points = new List<Vector3>();
+            foreach (Renderer renderer in modelInstance.GetComponentsInChildren<Renderer>())
+            {
+                Bounds bounds = renderer.bounds;
+                for (int i = 0; i < 8; i++)
+                    points.Add(bounds.center + Vector3.Scale(bounds.extents,
+                        new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1)));
+            }
+            Camera.main?.GetComponent<OrbitCameraController>()?.FrameContents(points.ToArray());
         }
 
         public string GetProgressText()
@@ -328,6 +364,19 @@ namespace MechMaster.Runtime
             }
             modelInstance.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
             modelInstance.transform.localScale = Vector3.one;
+            Renderer[] modelRenderers = modelInstance.GetComponentsInChildren<Renderer>();
+            Bounds modelBounds = modelRenderers.Length == 0
+                ? new Bounds(new Vector3(0, 0.55f, 0), new Vector3(2f, 1.1f, 0.7f))
+                : modelRenderers[0].bounds;
+            var framingPoints = new List<Vector3>(modelRenderers.Length * 8);
+            foreach (Renderer renderer in modelRenderers)
+            {
+                Bounds bounds = renderer.bounds;
+                modelBounds.Encapsulate(bounds);
+                for (int i = 0; i < 8; i++)
+                    framingPoints.Add(bounds.center + Vector3.Scale(bounds.extents,
+                        new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1)));
+            }
             bikeModelView = modelInstance.AddComponent<BikeModelView>();
             bikeModelView.Bind(Plan);
             bikeModelView.Refresh(Plan, true);
@@ -337,8 +386,9 @@ namespace MechMaster.Runtime
             {
                 Transform target = new GameObject("CameraTarget").transform;
                 target.SetParent(modelInstance.transform, false);
-                target.localPosition = new Vector3(0f, 0.52f, 0f);
-                orbit.Initialize(target);
+                target.position = modelBounds.center;
+                orbit.Initialize(target, modelBounds, framingPoints.ToArray());
+                if (Plan.Mode == AssemblyMode.Assemble) FrameStorage();
             }
         }
 
@@ -420,11 +470,11 @@ namespace MechMaster.Runtime
             switch (difficulty)
             {
                 case DifficultyLevel.Simple:
-                    return "启蒙模式";
+                    return "简单模式";
                 case DifficultyLevel.Standard:
-                    return "探索模式";
-                default:
                     return "进阶模式";
+                default:
+                    return "探索模式";
             }
         }
     }

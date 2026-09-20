@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using MechMaster.Runtime;
 using MechMaster.Runtime.UI;
 using UnityEditor;
@@ -27,8 +28,7 @@ namespace MechMaster.Editor
                     && viewport.xMax <= size.x + 1 && viewport.yMax <= size.y + 1, "letterbox bounds");
                 for (int index = 0; index < 14; index++)
                 {
-                    Rect cell = layout.ToPixels(new Rect(375 + index % 7 * 158,
-                        838 + index / 7 * 62, 151, 54));
+                    Rect cell = layout.ToPixels(WorkshopLayout.TrayCell(index));
                     Require(cell.xMin == Mathf.Round(cell.xMin)
                         && cell.yMin == Mathf.Round(cell.yMin)
                         && cell.xMax == Mathf.Round(cell.xMax)
@@ -40,11 +40,28 @@ namespace MechMaster.Editor
 
             if (EditorApplication.isPlaying)
             {
+                var ui = UnityEngine.Object.FindObjectOfType<PrototypeUI>();
+                var brand = (GUIStyle)typeof(PrototypeUI).GetField("brandStyle", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(ui);
+                Require(brand != null, "brand style initialized");
+                var slogan = (GUIStyle)typeof(PrototypeUI).GetField("sloganStyle", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(ui);
+                Require(slogan != null, "slogan style initialized");
+                foreach (Vector2Int size in sizes)
+                {
+                    var layout = new PixelUILayout(size.x, size.y);
+                    var scaled = new GUIStyle(brand) { fontSize = layout.FontSize(30) };
+                    Vector2 text = scaled.CalcSize(new GUIContent("机械大师"));
+                    Rect rect = layout.ToPixels(WorkshopLayout.BrandTitle);
+                    Require(text.x <= rect.width && text.y <= rect.height, "brand title must fit at " + size);
+                    var scaledSlogan = new GUIStyle(slogan) { fontSize = layout.FontSize(16) };
+                    Vector2 sloganSize = scaledSlogan.CalcSize(new GUIContent("拆解万物，解锁机秘"));
+                    Rect sloganRect = layout.ToPixels(WorkshopLayout.BrandSlogan);
+                    Require(sloganSize.x <= sloganRect.width && sloganSize.y <= sloganRect.height,
+                        "brand slogan must fit at " + size);
+                }
                 var live = new PixelUILayout(Screen.width, Screen.height);
                 for (int index = 0; index < BicycleAssemblyInfo.OrderedIds.Length; index++)
                 {
-                    Rect cell = live.ToPixels(new Rect(375 + index % 7 * 158,
-                        838 + index / 7 * 62, 151, 54));
+                    Rect cell = live.ToPixels(WorkshopLayout.TrayCell(index));
                     Vector2 input = new Vector2(cell.center.x, Screen.height - cell.center.y);
                     Require(PrototypeUI.TrayAssemblyAtScreenPosition(input)
                         == BicycleAssemblyInfo.OrderedIds[index], "live tray hit " + index);
