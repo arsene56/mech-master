@@ -83,6 +83,7 @@ namespace MechMaster.Runtime
         {
             SelectedTool = tool;
             StatusMessage = "已选择“" + DisassemblyPlan.ToolDisplayName(tool) + "”。";
+            feedbackAudio.PlayToolSelected(tool);
             SaveAndNotify();
         }
 
@@ -104,6 +105,7 @@ namespace MechMaster.Runtime
                 StatusMessage = "已选中“" + part.DisplayName + "”；使用“"
                     + DisassemblyPlan.ToolDisplayName(part.RequiredTool)
                     + "”后，可按任意顺序进行拖放。";
+                feedbackAudio.PlayPickup();
                 narrator.Speak(part.DisplayName + "。" + part.GetKnowledge(Plan.Difficulty));
                 NotifyStateChanged();
                 return;
@@ -112,6 +114,7 @@ namespace MechMaster.Runtime
 
         public void Operate(string partId)
         {
+            AssemblyMode operationMode = Plan.Mode;
             OperationResult result = Plan.TryOperate(partId, SelectedTool);
             StatusMessage = result.Message;
             if (result.Part != null)
@@ -128,13 +131,20 @@ namespace MechMaster.Runtime
                         + "”分类托盘。";
                 }
 
-                feedbackAudio.PlaySuccess();
+                if (operationMode == AssemblyMode.Disassemble)
+                {
+                    feedbackAudio.PlayDisassembled();
+                }
+                else
+                {
+                    feedbackAudio.PlayAssembled();
+                }
                 bikeModelView.Refresh(Plan, false);
                 narrator.Speak(StatusMessage);
             }
             else
             {
-                feedbackAudio.PlayError();
+                feedbackAudio.PlayBlocked();
             }
 
             SaveAndNotify();
@@ -165,7 +175,7 @@ namespace MechMaster.Runtime
                 : "这里是“" + BicycleAssemblyInfo.DisplayName(hoveredAssemblyId)
                   + "”槽位；“" + part.DisplayName + "”应放入“"
                   + BicycleAssemblyInfo.DisplayName(part.AssemblyId) + "”槽位。";
-            feedbackAudio.PlayError();
+            feedbackAudio.PlayBlocked();
             NotifyStateChanged();
         }
 
@@ -179,7 +189,7 @@ namespace MechMaster.Runtime
 
             StatusMessage = "组装时请把“" + part.DisplayName
                 + "”从分类托盘拖回上方整车区域后再松手。";
-            feedbackAudio.PlayError();
+            feedbackAudio.PlayBlocked();
             NotifyStateChanged();
         }
 
@@ -190,7 +200,7 @@ namespace MechMaster.Runtime
                 if (!Plan.IsDisassemblyComplete)
                 {
                     StatusMessage = "请先完成拆解，再开始组装。";
-                    feedbackAudio.PlayError();
+                    feedbackAudio.PlayBlocked();
                     NotifyStateChanged();
                     return;
                 }
@@ -203,7 +213,7 @@ namespace MechMaster.Runtime
                 if (!Plan.IsAssemblyComplete)
                 {
                     StatusMessage = "请先完成本轮组装。";
-                    feedbackAudio.PlayError();
+                    feedbackAudio.PlayBlocked();
                     NotifyStateChanged();
                     return;
                 }
@@ -212,6 +222,7 @@ namespace MechMaster.Runtime
                 StatusMessage = "进入拆解模式。";
             }
 
+            feedbackAudio.PlayModeSwitch();
             SaveAndNotify();
         }
 
@@ -343,7 +354,7 @@ namespace MechMaster.Runtime
             }
 
             sceneCamera.clearFlags = CameraClearFlags.SolidColor;
-            sceneCamera.backgroundColor = new Color(0.018f, 0.027f, 0.043f, 1f);
+            sceneCamera.backgroundColor = WorkshopTheme.Background;
             sceneCamera.nearClipPlane = 0.03f;
             sceneCamera.farClipPlane = 100f;
             sceneCamera.fieldOfView = 42f;

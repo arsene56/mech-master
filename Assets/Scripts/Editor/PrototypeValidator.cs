@@ -10,15 +10,22 @@ using UnityEngine;
 
 namespace MechMaster.Editor
 {
+    [InitializeOnLoad]
     public static class PrototypeValidator
     {
+        private const BindingFlags InstanceMembers =
+            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
+        static PrototypeValidator()
+        {
+            EditorApplication.playModeStateChanged += HandlePlayModeStateChanged;
+        }
+
         [MenuItem("机械大师/运行工程自行车")]
         public static void OpenAndPlay()
         {
             EditorSceneManager.OpenScene("Assets/Scenes/Main.unity", OpenSceneMode.Single);
             PrepareHighResolutionGameView();
-            EditorApplication.playModeStateChanged -= HandlePlayModeStateChanged;
-            EditorApplication.playModeStateChanged += HandlePlayModeStateChanged;
             EditorApplication.isPlaying = true;
         }
 
@@ -29,10 +36,12 @@ namespace MechMaster.Editor
                 return;
             }
 
-            EditorApplication.playModeStateChanged -= HandlePlayModeStateChanged;
-            EditorApplication.delayCall += PrepareHighResolutionGameView;
+            // Run after GameView has applied its own play-mode layout and zoom.
+            if (!Application.isBatchMode)
+                EditorApplication.delayCall += RestoreNativePreview;
         }
 
+        [MenuItem("机械大师/修复 Game 预览清晰度")]
         private static void PrepareHighResolutionGameView()
         {
             System.Type gameViewType = typeof(EditorWindow).Assembly.GetType("UnityEditor.GameView");
@@ -42,16 +51,6 @@ namespace MechMaster.Editor
             }
 
             EditorWindow gameView = EditorWindow.GetWindow(gameViewType);
-            var serializedView = new SerializedObject(gameView);
-            SerializedProperty lowResolution =
-                serializedView.FindProperty("m_LowResolutionForAspectRatios")
-                ?? serializedView.FindProperty("m_lowResolutionForAspectRatios");
-            if (lowResolution != null)
-            {
-                lowResolution.boolValue = false;
-                serializedView.ApplyModifiedPropertiesWithoutUndo();
-            }
-
             PropertyInfo maximizedProperty = typeof(EditorWindow).GetProperty(
                 "maximized",
                 BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
@@ -59,6 +58,32 @@ namespace MechMaster.Editor
             {
                 maximizedProperty.SetValue(gameView, true, null);
             }
+
+            EditorApplication.delayCall += RestoreNativePreview;
+        }
+
+        private static void RestoreNativePreview()
+        {
+            Type gameViewType = typeof(EditorWindow).Assembly.GetType("UnityEditor.GameView");
+            if (gameViewType == null) return;
+            EditorWindow gameView = EditorWindow.GetWindow(gameViewType);
+
+            // In 2022 LTS the serialized field is bool[] (one entry per build-target group),
+            // not a bool. Use the property so the engine also updates its zoom constraints.
+            PropertyInfo lowResolution = gameViewType.GetProperty(
+                "lowResolutionForAspectRatios", InstanceMembers);
+            if (lowResolution == null || !lowResolution.CanWrite)
+            {
+                Debug.LogWarning("无法自动关闭低分辨率预览；请在 Game 菜单取消 Low Resolution Aspect Ratios。");
+                return;
+            }
+            lowResolution.SetValue(gameView, false, null);
+
+            MethodInfo snapZoom = gameViewType.GetMethod("SnapZoom", InstanceMembers,
+                null, new[] { typeof(float) }, null);
+            // GameView zoom already accounts for display DPI: native pixels mean 1x,
+            // not 1 / pixelsPerPoint (which would downsample the finished frame).
+            if (snapZoom != null) snapZoom.Invoke(gameView, new object[] { 1f });
 
             FieldInfo zoomAreaField = gameViewType.GetField(
                 "m_ZoomArea",
@@ -71,9 +96,7 @@ namespace MechMaster.Editor
                     BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                 if (scaleProperty != null && scaleProperty.CanWrite)
                 {
-                    Vector2 nativeScale = Vector2.one
-                        / Mathf.Max(1f, EditorGUIUtility.pixelsPerPoint);
-                    scaleProperty.SetValue(zoomArea, nativeScale, null);
+                    if (snapZoom == null) scaleProperty.SetValue(zoomArea, Vector2.one, null);
                 }
                 else
                 {
@@ -82,15 +105,20 @@ namespace MechMaster.Editor
                         BindingFlags.Instance | BindingFlags.NonPublic);
                     if (scaleField != null)
                     {
-                        Vector2 nativeScale = Vector2.one
-                            / Mathf.Max(1f, EditorGUIUtility.pixelsPerPoint);
-                        scaleField.SetValue(zoomArea, nativeScale);
+                        if (snapZoom == null) scaleField.SetValue(zoomArea, Vector2.one);
                     }
                 }
             }
 
             gameView.Focus();
             gameView.Repaint();
+            object renderSize = gameViewType.GetProperty("targetRenderSize", InstanceMembers)
+                ?.GetValue(gameView, null);
+            object zoom = zoomArea?.GetType().GetProperty("scale", InstanceMembers)
+                ?.GetValue(zoomArea, null);
+            Debug.Log("MECH_MASTER_GAME_VIEW lowResolution=" + lowResolution.GetValue(gameView, null)
+                + ", zoom=" + zoom + ", renderSize=" + renderSize
+                + ", displayPixelsPerPoint=" + EditorGUIUtility.pixelsPerPoint);
         }
 
         [MenuItem("机械大师/验证工程自行车")]

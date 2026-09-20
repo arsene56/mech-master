@@ -87,6 +87,16 @@ ALL ENGINEERING BICYCLE VALIDATIONS PASSED
 
 当前仓库保留 `PrototypeValidator` 作为旧样片检查器；它尚未替代新的工程目录验证。完整 Editor 就绪后应将其升级为读取运行清单，而不是继续检查 4/8/12 旧步骤。
 
+## 界面文字清晰度
+
+- 原型 UI 使用 `PixelUILayout` 将 1920×1080 设计坐标转换为整数像素坐标，字号按当前渲染分辨率重新生成；不要再用 `GUI.matrix` 整体缩放文字位图。
+- 例如正文在 1920×1080 使用 20 px，在 3840×2160 使用 40 px。绘制位置和分类托盘命中区域使用同一套像素映射。
+- 普通 Play 会关闭 Game View 的 `Low Resolution Aspect Ratios`，并恢复 `Scale = 1x`。也可使用菜单“机械大师 → 修复 Game 预览清晰度”。无需修改 Windows DPI 设置。
+- 注意 Unity 2022 LTS 的 `m_LowResolutionForAspectRatios` 是按构建平台分组的数组，不可直接对它设置 `SerializedProperty.boolValue`；开发工具通过对应属性设置当前平台。
+- 使用“机械大师 → 验证文字像素布局”检查 8 种分辨率、字号与像素对齐；Play 中额外验证 14 个分类托盘的实际命中坐标。
+- 3D 的 MSAA 不能替代正确的文字像素密度。验证清晰度时使用原生分辨率和 1x 预览，不要把放大的低分辨率画面当成最终效果。
+- 当前仍使用本机动态中文字体；微信发布前需另外接入具有明确再分发许可的中文字体，并做真机清晰度和字体缺字检查。
+
 ## 代码边界
 
 - `Domain` 不引用 Unity 或平台 API。

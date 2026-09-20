@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MechMaster.Domain;
+using MechMaster.Runtime.UI;
 using UnityEngine;
 
 namespace MechMaster.Runtime
@@ -197,10 +198,10 @@ namespace MechMaster.Runtime
             }
 
             Color color = !correctAssembly
-                ? new Color(0.72f, 0.08f, 0.08f, 1f)
+                ? WorkshopTheme.Wrong
                 : ready
-                    ? new Color(0.06f, 0.8f, 0.28f, 1f)
-                    : new Color(0.9f, 0.46f, 0.04f, 1f);
+                    ? WorkshopTheme.Ready
+                    : WorkshopTheme.Blocked;
             ApplyTrayColor(assemblyId, color);
         }
 
@@ -222,7 +223,7 @@ namespace MechMaster.Runtime
             Material trayMaterial = trayShader == null ? null : new Material(trayShader);
             if (trayMaterial != null)
             {
-                trayMaterial.color = new Color(0.055f, 0.085f, 0.11f, 1f);
+                trayMaterial.color = WorkshopTheme.TrayColor(0);
             }
 
             for (int index = 0; index < BicycleAssemblyInfo.OrderedIds.Length; index++)
@@ -270,9 +271,7 @@ namespace MechMaster.Runtime
         private static Color DefaultTrayColor(string assemblyId)
         {
             int index = BicycleAssemblyInfo.IndexOf(assemblyId);
-            return index % 2 == 0
-                ? new Color(0.07f, 0.12f, 0.16f, 1f)
-                : new Color(0.055f, 0.095f, 0.13f, 1f);
+            return WorkshopTheme.TrayColor(index);
         }
 
         private static string[] ResolveObjectNames(
