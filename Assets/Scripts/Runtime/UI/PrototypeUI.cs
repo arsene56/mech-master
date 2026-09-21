@@ -18,6 +18,8 @@ namespace MechMaster.Runtime.UI
         private GUIStyle buttonStyle;
         private GUIStyle selectedButtonStyle;
         private GUIStyle boxStyle;
+        private GUIStyle panPanelStyle;
+        private GUIStyle panButtonStyle;
         private GUIStyle trayPanelStyle;
         private GUIStyle trayCellStyle;
         private GUIStyle trayCellActiveStyle;
@@ -133,22 +135,28 @@ namespace MechMaster.Runtime.UI
 
         private void DrawHeader()
         {
+            MechMasterApp app = MechMasterApp.Instance;
             GUI.Box(CurrentLayout.ToPixels(WorkshopLayout.Header), GUIContent.none, boxStyle);
             GUI.DrawTexture(PixelRect(28, 18, 46, 46), gearTexture);
             GUI.Label(CurrentLayout.ToPixels(WorkshopLayout.BrandTitle), "机械大师", brandStyle);
             GUI.Label(CurrentLayout.ToPixels(WorkshopLayout.BrandSlogan), "拆解万物，解锁机秘", sloganStyle);
             bool view = PartInteractionController.ViewMode;
             if (GUI.Button(PixelRect(440, 20, 176, 44), "旋转视角", view ? selectedButtonStyle : buttonStyle))
-                PartInteractionController.SetViewMode(true);
+                app.SetInteractionViewMode(true);
             if (GUI.Button(PixelRect(626, 20, 176, 44), "拆装零件", view ? buttonStyle : selectedToolStyle))
-                PartInteractionController.SetViewMode(false);
+                app.SetInteractionViewMode(false);
             if (GUI.Button(PixelRect(818, 20, 160, 44), "整车归位", buttonStyle))
-                MechMasterApp.Instance.FrameWholeBike();
+                app.FrameWholeBike();
             if (GUI.Button(PixelRect(990, 20, 164, 44), "查看收纳", buttonStyle))
-                MechMasterApp.Instance.FrameStorage();
-            GUI.Label(PixelRect(1176, 20, 690, 44), view
-                ? "拖动旋转 · 点击听讲解 · 滚轮 / 双指缩放"
-                : "直接拖动零件 · 空白处旋转 · 滚轮 / 双指缩放", captionStyle);
+                app.FrameStorage();
+            string guide = app.IsGlobalExplosionActive
+                ? "全局爆炸 · 拖动旋转 · 滚轮 / 双指缩放"
+                : app.IsLocalExplosionMode
+                    ? "轻点零件爆炸 / 收回 · 拖动旋转"
+                    : view
+                        ? "拖动旋转 · 点击听讲解 · 滚轮 / 双指缩放"
+                        : "直接拖动零件 · 空白处旋转 · 滚轮 / 双指缩放";
+            GUI.Label(PixelRect(1176, 20, 690, 44), guide, captionStyle);
         }
 
         private void DrawPanControls()
@@ -156,19 +164,19 @@ namespace MechMaster.Runtime.UI
             OrbitCameraController orbit = Camera.main?.GetComponent<OrbitCameraController>();
             if (orbit == null) return;
             Rect area = WorkshopLayout.PanControls;
-            GUI.Box(CurrentLayout.ToPixels(area), GUIContent.none, boxStyle);
+            GUI.Box(CurrentLayout.ToPixels(area), GUIContent.none, panPanelStyle);
             GUI.Label(PixelRect(area.x + 10, area.y + 2, 140, 28), "画面平移", captionStyle);
             DrawPanButton(area, 1, 0, "↑", Vector2.up, orbit);
             DrawPanButton(area, 0, 1, "←", Vector2.left, orbit);
             DrawPanButton(area, 2, 1, "→", Vector2.right, orbit);
             DrawPanButton(area, 1, 2, "↓", Vector2.down, orbit);
-            if (GUI.Button(PixelRect(area.x + 56, area.y + 74, 44, 40), "中", buttonStyle))
+            if (GUI.Button(PixelRect(area.x + 56, area.y + 74, 44, 40), "中", panButtonStyle))
                 orbit.ResetPan();
         }
 
         private void DrawPanButton(Rect area, int column, int row, string label, Vector2 direction, OrbitCameraController orbit)
         {
-            if (GUI.Button(PixelRect(area.x + 8 + column * 48, area.y + 30 + row * 44, 44, 40), label, buttonStyle))
+            if (GUI.Button(PixelRect(area.x + 8 + column * 48, area.y + 30 + row * 44, 44, 40), label, panButtonStyle))
                 orbit.Pan(direction * 48f);
         }
 
@@ -198,6 +206,26 @@ namespace MechMaster.Runtime.UI
             DifficultyButton("简单", DifficultyLevel.Simple);
             DifficultyButton("进阶", DifficultyLevel.Standard);
             DifficultyButton("探索", DifficultyLevel.Advanced);
+
+            GUILayout.Space(Pixels(12f));
+            GUILayout.Label("三维爆炸视图", headingStyle);
+            bool globalExplosion = app.IsGlobalExplosionActive;
+            if (GUILayout.Button(
+                (globalExplosion ? "●  " : "○  ") + "全局一键爆炸",
+                globalExplosion ? selectedButtonStyle : buttonStyle,
+                GUILayout.Height(Pixels(40f))))
+            {
+                app.ToggleGlobalExplosion();
+            }
+            bool localExplosion = app.IsLocalExplosionMode;
+            if (GUILayout.Button(
+                (localExplosion ? "●  " : "○  ") + "点击单件爆炸",
+                localExplosion ? selectedButtonStyle : buttonStyle,
+                GUILayout.Height(Pixels(40f))))
+            {
+                app.ToggleLocalExplosionMode();
+            }
+            GUILayout.Label("仅用于观察，不改变拆解进度", captionStyle);
 
             GUILayout.Space(Pixels(12f));
             GUILayout.Label("拆装工作台", headingStyle);
@@ -446,6 +474,15 @@ namespace MechMaster.Runtime.UI
             actionStyle = new GUIStyle(selectedToolStyle) { fontStyle = FontStyle.Bold };
             boxStyle = CreateSurface(WorkshopTheme.Surface, WorkshopTheme.Border, 20, WorkshopTheme.Ink);
             boxStyle.padding = new RectOffset(12, 12, 12, 12);
+            panPanelStyle = CreateSurface(
+                new Color(WorkshopTheme.Surface.r, WorkshopTheme.Surface.g, WorkshopTheme.Surface.b, 0.42f),
+                new Color(WorkshopTheme.Border.r, WorkshopTheme.Border.g, WorkshopTheme.Border.b, 0.55f),
+                20,
+                WorkshopTheme.Ink);
+            panButtonStyle = CreateButton(
+                new Color(WorkshopTheme.Sky.r, WorkshopTheme.Sky.g, WorkshopTheme.Sky.b, 0.62f),
+                WorkshopTheme.Ink,
+                new Color(WorkshopTheme.Border.r, WorkshopTheme.Border.g, WorkshopTheme.Border.b, 0.72f));
             trayPanelStyle = CreateSurface(new Color(0.96f, 0.985f, 0.97f, 0.9f),
                 WorkshopTheme.Border, 20, WorkshopTheme.Ink);
             trayCellStyle = CreateSurface(WorkshopTheme.Sky, WorkshopTheme.Border, 16, WorkshopTheme.Ink);
@@ -472,7 +509,7 @@ namespace MechMaster.Runtime.UI
             foreach (GUIStyle style in new[]
             {
                 titleStyle, brandStyle, sloganStyle, headingStyle, bodyStyle, captionStyle, statusStyle, buttonStyle,
-                selectedButtonStyle, selectedToolStyle, actionStyle, boxStyle, trayPanelStyle,
+                selectedButtonStyle, selectedToolStyle, actionStyle, boxStyle, panPanelStyle, panButtonStyle, trayPanelStyle,
                 trayCellStyle, trayCellActiveStyle, trayCellReadyStyle, trayCellBlockedStyle,
                 trayCellWrongStyle, chipStyle, hintStyle, shadowStyle, progressTrackStyle,
                 progressFillStyle, statusPanelStyle

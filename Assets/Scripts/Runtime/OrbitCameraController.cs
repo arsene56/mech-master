@@ -94,6 +94,19 @@ namespace MechMaster.Runtime
             ApplyTransform();
         }
 
+        public void FrameContentsPreservingView(Vector3[] points)
+        {
+            if (points == null || points.Length == 0 || target == null) return;
+            Bounds bounds = new Bounds(points[0], Vector3.zero);
+            foreach (Vector3 point in points) bounds.Encapsulate(point);
+            target.position = bounds.center;
+            activeFramingPoints = points;
+            zoom = 1f;
+            panOffset = Vector2.zero;
+            dirty = true;
+            ApplyTransform();
+        }
+
         private void LateUpdate() => ApplyTransform();
 
         private void ApplyTransform()

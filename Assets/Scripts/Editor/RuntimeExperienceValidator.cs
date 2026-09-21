@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using MechMaster.Domain;
 using MechMaster.Runtime;
 using MechMaster.Runtime.UI;
 using UnityEditor;
@@ -17,6 +18,7 @@ namespace MechMaster.Editor
             var app = MechMasterApp.Instance;
             var input = app.GetComponent<PartInteractionController>();
             var voice = app.GetComponent<VoiceNarrator>();
+            var model = UnityEngine.Object.FindObjectOfType<BikeModelView>();
             var camera = Camera.main;
             var orbit = camera.GetComponent<OrbitCameraController>();
             bool oldMode = PartInteractionController.ViewMode;
@@ -32,6 +34,35 @@ namespace MechMaster.Editor
                 orbit.FrameWholeBike();
                 VerifyFraming(camera);
                 VerifyPan(camera, orbit);
+
+                int availableParts = app.Plan.Steps.Count - app.Plan.RemovedCount;
+                app.ToggleGlobalExplosion();
+                Require(app.IsGlobalExplosionActive, "Global explosion mode must activate.");
+                Require(model.ExplosionTargetCount == availableParts,
+                    "Global explosion must target every assembled interaction unit.");
+                Require(app.Plan.RemovedCount == removed,
+                    "Explosion view must not change disassembly progress.");
+                app.FrameWholeBike();
+                Require(model.ExplosionTargetCount == 0,
+                    "Whole-bike reset must clear explosion targets.");
+
+                PartDefinition localPart = app.Plan.Steps.FirstOrDefault(
+                    step => !app.Plan.IsRemoved(step.Id));
+                if (localPart != null)
+                {
+                    app.ToggleLocalExplosionMode();
+                    app.SelectPart(localPart.Id);
+                    Require(app.IsLocalExplosionMode,
+                        "Local explosion mode must remain active after selection.");
+                    Require(model.ExplosionTargetCount == 1
+                        && model.LocalExplosionPartId == localPart.Id,
+                        "Local explosion must target only the selected interaction unit.");
+                    app.SelectPart(localPart.Id);
+                    Require(model.ExplosionTargetCount == 0,
+                        "Selecting the same local part again must retract it.");
+                    app.ToggleLocalExplosionMode();
+                }
+
                 app.FrameStorage();
                 VerifyFraming(camera, true);
                 WorkshopLayout.ToolsCollapsed = WorkshopLayout.KnowledgeCollapsed = true;
@@ -104,6 +135,7 @@ namespace MechMaster.Editor
             finally
             {
                 input.CancelGesture();
+                app.FrameWholeBike();
                 WorkshopLayout.ToolsCollapsed = oldTools;
                 WorkshopLayout.KnowledgeCollapsed = oldKnowledge;
                 PartInteractionController.SetViewMode(oldMode);

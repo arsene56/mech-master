@@ -16,16 +16,24 @@ namespace MechMaster.Runtime
         private readonly List<TransformState> transformStates = new List<TransformState>();
         private readonly List<Renderer> renderers = new List<Renderer>();
         private MaterialPropertyBlock propertyBlock;
-        private Vector3 explodedWorldOffset;
+        private Vector3 removedWorldOffset;
+        private Vector3 inspectionWorldOffset;
         private Vector3 dragPreviewWorldOffset;
         private float displayedFactor;
+        private float inspectionFactor;
+        private float inspectionTargetFactor;
         private Coroutine animationRoutine;
+        private Coroutine inspectionAnimationRoutine;
         private bool selected;
         private bool expected;
 
         public PartDefinition Definition { get; private set; }
         public string PartId => Definition == null ? string.Empty : Definition.Id;
         public bool IsRemoved { get; private set; }
+        public bool IsInspectionExplosionTarget => inspectionTargetFactor > 0.5f;
+        public Vector3 InspectionWorldOffset => inspectionWorldOffset;
+        public Vector3 PendingInspectionWorldOffset =>
+            inspectionWorldOffset * (inspectionTargetFactor - inspectionFactor);
 
         public void Initialize(
             PartDefinition definition,
@@ -34,9 +42,12 @@ namespace MechMaster.Runtime
             Vector3 worldOffset)
         {
             Definition = definition;
-            explodedWorldOffset = worldOffset;
+            removedWorldOffset = worldOffset;
+            inspectionWorldOffset = Vector3.zero;
             dragPreviewWorldOffset = Vector3.zero;
             displayedFactor = 0f;
+            inspectionFactor = 0f;
+            inspectionTargetFactor = 0f;
             transformStates.Clear();
             renderers.Clear();
 
@@ -120,6 +131,55 @@ namespace MechMaster.Runtime
             ApplyHighlight();
         }
 
+        public void SetInspectionExplosion(
+            Vector3 worldOffset,
+            bool exploded,
+            bool immediate)
+        {
+            if (inspectionAnimationRoutine != null)
+            {
+                StopCoroutine(inspectionAnimationRoutine);
+                inspectionAnimationRoutine = null;
+            }
+
+            inspectionWorldOffset = worldOffset;
+            inspectionTargetFactor = exploded ? 1f : 0f;
+            if (immediate || !gameObject.activeInHierarchy)
+            {
+                inspectionFactor = inspectionTargetFactor;
+                ApplyCurrentPosition();
+                return;
+            }
+
+            inspectionAnimationRoutine = StartCoroutine(
+                AnimateInspectionTo(inspectionTargetFactor));
+        }
+
+        public Bounds GetWorldBounds()
+        {
+            bool hasBounds = false;
+            Bounds bounds = new Bounds(transform.position, Vector3.zero);
+            foreach (Renderer targetRenderer in renderers)
+            {
+                if (targetRenderer == null || !targetRenderer.enabled)
+                {
+                    continue;
+                }
+
+                if (!hasBounds)
+                {
+                    bounds = targetRenderer.bounds;
+                    hasBounds = true;
+                }
+                else
+                {
+                    bounds.Encapsulate(targetRenderer.bounds);
+                }
+            }
+
+            return bounds;
+        }
+
         private IEnumerator AnimateTo(float target)
         {
             float start = CurrentFactor();
@@ -138,6 +198,26 @@ namespace MechMaster.Runtime
             animationRoutine = null;
         }
 
+        private IEnumerator AnimateInspectionTo(float target)
+        {
+            float start = inspectionFactor;
+            const float duration = 0.38f;
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / duration));
+                inspectionFactor = Mathf.Lerp(start, target, t);
+                ApplyCurrentPosition();
+                yield return null;
+            }
+
+            inspectionFactor = target;
+            ApplyCurrentPosition();
+            inspectionAnimationRoutine = null;
+        }
+
         private float CurrentFactor()
         {
             return displayedFactor;
@@ -146,14 +226,23 @@ namespace MechMaster.Runtime
         private void ApplyPosition(float factor)
         {
             displayedFactor = Mathf.Clamp01(factor);
+            ApplyCurrentPosition();
+        }
+
+        private void ApplyCurrentPosition()
+        {
             foreach (TransformState state in transformStates)
             {
                 if (state.Transform != null)
                 {
                     Vector3 localPreviewOffset = state.Transform.parent == null
-                        ? explodedWorldOffset * displayedFactor + dragPreviewWorldOffset
+                        ? removedWorldOffset * displayedFactor
+                          + inspectionWorldOffset * inspectionFactor
+                          + dragPreviewWorldOffset
                         : state.Transform.parent.InverseTransformVector(
-                            explodedWorldOffset * displayedFactor + dragPreviewWorldOffset);
+                            removedWorldOffset * displayedFactor
+                            + inspectionWorldOffset * inspectionFactor
+                            + dragPreviewWorldOffset);
                     state.Transform.localPosition =
                         state.LocalPosition + localPreviewOffset;
                 }

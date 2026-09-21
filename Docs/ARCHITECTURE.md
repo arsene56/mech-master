@@ -114,6 +114,8 @@ flowchart TB
 
 `WorkshopLayout` 统一提供面板绘制、命中排除、底部分类槽和相机可用区域。`OrbitCameraController` 根据模型包围盒角点与可用区域调整取景中心和距离，保持 1:1 模型尺度不变；整车视图和收纳视图分开，左右面板可折叠。
 
+爆炸视图复用当前拆解等级的 `MechanicalPartView` 逻辑单元，不直接操作 595 个原始实体。`BikeModelView` 为全局模式按 14 个总成计算径向、切向和高度偏移，为局部模式只设置一个逻辑单元的观察偏移；`OrbitCameraController` 根据偏移后的包围盒重新构图，同时保留当前观察角度。爆炸偏移与拆装托盘偏移在 `MechanicalPartView` 中独立叠加，动画使用未缩放时间，因此观察状态不会污染拆装状态。
+
 中文讲解在 Windows Editor 中由 `VoiceNarrator` 调用本地 `WindowsSpeechHost`，使用已安装的系统中文语音。`LocalSpeechBuilder` 从仓库源码编译辅助程序到 `Library`。切换零件会取消旧播报；正常取消不能当成音频故障。此适配不进入微信构建，微信语音与音频资源仍需单独接入。
 
 ## 5. 拆装状态与表现
@@ -130,6 +132,8 @@ stateDiagram-v2
 ```
 
 `MechanicalPartView` 保存每个目标 Transform 的初始局部位置，并用确定性插值移动到所属模块的分类托盘。没有启用刚体自由掉落，因为儿童科普需要稳定、可恢复的关系展示，微信端也能避免额外物理开销。
+
+`ExplosionViewMode` 仅存在于运行时应用协调层，取值为 `None / Global / Local`。它不进入 `LocalProgressStore`；执行拆装、整车归位、查看收纳、重建计划或切换等级时都会显式清除，保证存档仍只描述真实拆装进度。
 
 托盘按 14 个模块分区，同一模块内部使用稳定槽位索引，避免 595 个零件无序堆叠。正式美术阶段仍应在源模型中增加模块级拆装轴与停靠点。
 

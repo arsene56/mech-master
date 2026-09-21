@@ -6,6 +6,13 @@ using UnityEngine;
 
 namespace MechMaster.Runtime
 {
+    public enum ExplosionViewMode
+    {
+        None,
+        Global,
+        Local
+    }
+
     [DefaultExecutionOrder(-100)]
     public sealed class MechMasterApp : MonoBehaviour
     {
@@ -22,6 +29,12 @@ namespace MechMaster.Runtime
         public bool NarrationEnabled => narrator != null && narrator.Enabled;
         public bool NarrationAvailable => narrator != null && narrator.Available;
         public string NarrationStatus => narrator == null ? "语音初始化中" : narrator.Status;
+        public ExplosionViewMode ExplosionMode { get; private set; }
+        public bool IsGlobalExplosionActive =>
+            ExplosionMode == ExplosionViewMode.Global
+            && bikeModelView != null
+            && bikeModelView.GlobalExplosionActive;
+        public bool IsLocalExplosionMode => ExplosionMode == ExplosionViewMode.Local;
 
         public event Action StateChanged;
 
@@ -96,8 +109,30 @@ namespace MechMaster.Runtime
                 }
 
                 SelectedPart = part;
-                StatusMessage = "已选中“" + part.DisplayName
-                    + "”；可直接拖动，并按任意顺序拆装。";
+                if (ExplosionMode == ExplosionViewMode.Local && bikeModelView != null)
+                {
+                    MechanicalPartView partView = bikeModelView.FindPart(part.Id);
+                    if (partView != null && partView.IsRemoved)
+                    {
+                        StatusMessage = "“" + part.DisplayName
+                            + "”已在收纳区，需装回后才能使用局部爆炸。";
+                    }
+                    else
+                    {
+                        bool exploded = bikeModelView.ToggleLocalExplosion(part.Id, false);
+                        StatusMessage = exploded
+                            ? "已将“" + part.DisplayName + "”向外展开；再次点击可收回。"
+                            : "已收回“" + part.DisplayName + "”。";
+                        Camera.main?.GetComponent<OrbitCameraController>()
+                            ?.FrameContentsPreservingView(
+                                bikeModelView.GetExplosionFramingPoints());
+                    }
+                }
+                else
+                {
+                    StatusMessage = "已选中“" + part.DisplayName
+                        + "”；可直接拖动，并按任意顺序拆装。";
+                }
                 feedbackAudio.PlayPickup();
                 SpeakPartNarration(part);
                 NotifyStateChanged();
@@ -107,6 +142,7 @@ namespace MechMaster.Runtime
 
         public void Operate(string partId)
         {
+            ClearExplosionInternal(true);
             AssemblyMode operationMode = Plan.Mode;
             OperationResult result = Plan.TryOperate(partId);
             StatusMessage = result.Message;
@@ -227,6 +263,82 @@ namespace MechMaster.Runtime
             CreatePlan(Plan.Difficulty, false);
         }
 
+        public void SetInteractionViewMode(bool viewMode)
+        {
+            if (!viewMode)
+            {
+                ClearExplosionInternal(true);
+            }
+
+            PartInteractionController.SetViewMode(viewMode);
+            StatusMessage = viewMode
+                ? "旋转视角：拖动观察，轻点零件查看讲解。"
+                : "拆装零件：直接把机械单元拖入对应分类区。";
+            NotifyStateChanged();
+        }
+
+        public void ToggleGlobalExplosion()
+        {
+            if (bikeModelView == null)
+            {
+                return;
+            }
+
+            PartInteractionController.Instance?.CancelGesture();
+            if (IsGlobalExplosionActive)
+            {
+                ClearExplosionInternal(false);
+                Camera.main?.GetComponent<OrbitCameraController>()?.FrameWholeBike();
+                StatusMessage = "全局爆炸视图已收回。";
+            }
+            else
+            {
+                ClearExplosionInternal(true);
+                ExplosionMode = ExplosionViewMode.Global;
+                PartInteractionController.SetViewMode(true);
+                bikeModelView.SetGlobalExplosion(true, false);
+                if (bikeModelView.ExplosionTargetCount == 0)
+                {
+                    ExplosionMode = ExplosionViewMode.None;
+                    StatusMessage = "当前没有留在整车上的机械单元可供爆炸查看。";
+                }
+                else
+                {
+                    Camera.main?.GetComponent<OrbitCameraController>()?.FrameContents(
+                        bikeModelView.GetExplosionFramingPoints());
+                    StatusMessage = "全局爆炸视图：全部机械单元已向外展开。";
+                }
+            }
+
+            feedbackAudio.PlayModeSwitch();
+            NotifyStateChanged();
+        }
+
+        public void ToggleLocalExplosionMode()
+        {
+            if (bikeModelView == null)
+            {
+                return;
+            }
+
+            PartInteractionController.Instance?.CancelGesture();
+            if (ExplosionMode == ExplosionViewMode.Local)
+            {
+                ClearExplosionInternal(false);
+                StatusMessage = "局部爆炸模式已关闭。";
+            }
+            else
+            {
+                ClearExplosionInternal(true);
+                ExplosionMode = ExplosionViewMode.Local;
+                PartInteractionController.SetViewMode(true);
+                StatusMessage = "局部爆炸模式：轻点零件展开，再次点击收回；拖动可旋转视角。";
+            }
+
+            feedbackAudio.PlayModeSwitch();
+            NotifyStateChanged();
+        }
+
         public void SetNarrationEnabled(bool enabled)
         {
             narrator.Enabled = enabled;
@@ -244,12 +356,21 @@ namespace MechMaster.Runtime
         public void FrameWholeBike()
         {
             PartInteractionController.Instance?.CancelGesture();
+            bool hadExplosion = ExplosionMode != ExplosionViewMode.None;
+            ClearExplosionInternal(true);
             Camera.main?.GetComponent<OrbitCameraController>()?.FrameWholeBike();
+            if (hadExplosion)
+            {
+                StatusMessage = "爆炸视图已收回，整车已归位。";
+                NotifyStateChanged();
+            }
         }
 
         public void FrameStorage()
         {
             PartInteractionController.Instance?.CancelGesture();
+            bool hadExplosion = ExplosionMode != ExplosionViewMode.None;
+            ClearExplosionInternal(true);
             if (modelInstance == null) return;
             var points = new List<Vector3>();
             foreach (Renderer renderer in modelInstance.GetComponentsInChildren<Renderer>())
@@ -260,6 +381,11 @@ namespace MechMaster.Runtime
                         new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1)));
             }
             Camera.main?.GetComponent<OrbitCameraController>()?.FrameContents(points.ToArray());
+            if (hadExplosion)
+            {
+                StatusMessage = "爆炸视图已收回，正在查看零件收纳区。";
+                NotifyStateChanged();
+            }
         }
 
         public string GetProgressText()
@@ -274,6 +400,7 @@ namespace MechMaster.Runtime
 
         private void CreatePlan(DifficultyLevel difficulty, bool restoreProgress)
         {
+            ExplosionMode = ExplosionViewMode.None;
             Plan = EngineeringBicycleCatalogLoader.CreatePlan(difficulty);
             if (restoreProgress)
             {
@@ -443,6 +570,12 @@ namespace MechMaster.Runtime
         private void NotifyStateChanged()
         {
             StateChanged?.Invoke();
+        }
+
+        private void ClearExplosionInternal(bool immediate)
+        {
+            bikeModelView?.ClearInspectionExplosion(immediate);
+            ExplosionMode = ExplosionViewMode.None;
         }
 
         private PartDefinition FindPart(string partId)
