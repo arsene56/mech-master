@@ -149,6 +149,7 @@ dotnet run --project Tools/Tests/MechMaster.Domain.Tests.csproj -c Release
 
 ## 文档
 
+- [项目交接摘要](Docs/PROJECT_SUMMARY.md)：对话决策、当前状态、关键参数与下一步优先级。
 - [系统架构](Docs/ARCHITECTURE.md)
 - [整车工程 BOM](Docs/ENGINEERING_BOM.md)
 - [产品规格](Docs/PRODUCT_SPEC.md)
