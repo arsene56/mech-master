@@ -9,6 +9,9 @@ namespace MechMaster.Runtime.UI
         private static string draggedPartId;
         private static string draggedAssemblyId;
         private static string hoveredAssemblyId;
+        private static int trayPage;
+        private static bool modelMenuOpen;
+        private const int TrayCellsPerPage = 14;
         private GUIStyle titleStyle;
         private GUIStyle brandStyle;
         private GUIStyle sloganStyle;
@@ -17,6 +20,9 @@ namespace MechMaster.Runtime.UI
         private GUIStyle statusStyle;
         private GUIStyle buttonStyle;
         private GUIStyle selectedButtonStyle;
+        private GUIStyle modelButtonStyle;
+        private GUIStyle selectedModelButtonStyle;
+        private GUIStyle headerGuideStyle;
         private GUIStyle boxStyle;
         private GUIStyle panPanelStyle;
         private GUIStyle panButtonStyle;
@@ -41,6 +47,7 @@ namespace MechMaster.Runtime.UI
         private readonly List<StyleMetrics> styleMetrics = new List<StyleMetrics>();
         private float appliedStyleScale = -1f;
         private Vector2 knowledgeScroll;
+        private Vector2 modelMenuScroll;
         private string knowledgePartId;
         private static PixelUILayout CurrentLayout => new PixelUILayout(Screen.width, Screen.height);
 
@@ -54,6 +61,13 @@ namespace MechMaster.Runtime.UI
 
         public static string HoveredTrayAssemblyId => hoveredAssemblyId;
 
+        public static void ResetTrayPage()
+        {
+            trayPage = 0;
+            modelMenuOpen = false;
+            ClearTrayDragFeedback();
+        }
+
         public static void SetTrayDragFeedback(
             string partId,
             string partAssemblyId,
@@ -61,6 +75,18 @@ namespace MechMaster.Runtime.UI
         {
             draggedPartId = partId;
             draggedAssemblyId = partAssemblyId;
+            MechanicalModelDefinition model = MechMasterApp.Instance?.Model;
+            if (model != null)
+            {
+                for (int index = 0; index < model.assemblies.Length; index++)
+                {
+                    if (model.assemblies[index].id == partAssemblyId)
+                    {
+                        trayPage = index / TrayCellsPerPage;
+                        break;
+                    }
+                }
+            }
             hoveredAssemblyId = TrayAssemblyAtScreenPosition(screenPosition);
         }
 
@@ -75,11 +101,15 @@ namespace MechMaster.Runtime.UI
         {
             Vector2 guiPosition = new Vector2(screenPosition.x, Screen.height - screenPosition.y);
 
-            for (int index = 0; index < BicycleAssemblyInfo.OrderedIds.Length; index++)
+            MechanicalModelDefinition model = MechMasterApp.Instance?.Model;
+            if (model == null) return null;
+            int start = trayPage * TrayCellsPerPage;
+            int end = Mathf.Min(start + TrayCellsPerPage, model.assemblies.Length);
+            for (int index = start; index < end; index++)
             {
-                if (CurrentLayout.ToPixels(TrayCellRect(index)).Contains(guiPosition))
+                if (CurrentLayout.ToPixels(TrayCellRect(index - start)).Contains(guiPosition))
                 {
-                    return BicycleAssemblyInfo.OrderedIds[index];
+                    return model.assemblies[index].id;
                 }
             }
 
@@ -93,7 +123,8 @@ namespace MechMaster.Runtime.UI
             Rect right = CurrentLayout.ToPixels(WorkshopLayout.KnowledgeCollapsed ? WorkshopLayout.KnowledgeTab : WorkshopLayout.Knowledge);
             Rect top = CurrentLayout.ToPixels(WorkshopLayout.Header);
             Rect bottom = CurrentLayout.ToPixels(WorkshopLayout.Status);
-            return left.Contains(guiPosition)
+            return modelMenuOpen
+                || left.Contains(guiPosition)
                 || right.Contains(guiPosition)
                 || top.Contains(guiPosition)
                 || CurrentLayout.ToPixels(WorkshopLayout.Tray).Contains(guiPosition)
@@ -121,6 +152,7 @@ namespace MechMaster.Runtime.UI
                 DrawPanControls();
                 DrawPartsTray();
                 DrawStatus();
+                DrawModelMenu();
             }
             finally
             {
@@ -140,23 +172,69 @@ namespace MechMaster.Runtime.UI
             GUI.DrawTexture(PixelRect(28, 18, 46, 46), gearTexture);
             GUI.Label(CurrentLayout.ToPixels(WorkshopLayout.BrandTitle), "机械大师", brandStyle);
             GUI.Label(CurrentLayout.ToPixels(WorkshopLayout.BrandSlogan), "拆解万物，解锁机秘", sloganStyle);
+            Rect modelButton = CurrentLayout.ToPixels(WorkshopLayout.ModelSelector);
+            GUIStyle modelStyle = modelMenuOpen ? selectedModelButtonStyle : modelButtonStyle;
+            string modelLabel = FitTrayLine("模型 ▾  " + app.Model.displayName,
+                modelStyle, modelButton.width - Pixels(8));
+            if (GUI.Button(modelButton, new GUIContent(modelLabel, app.Model.displayName), modelStyle))
+                modelMenuOpen = !modelMenuOpen;
             bool view = PartInteractionController.ViewMode;
-            if (GUI.Button(PixelRect(440, 20, 176, 44), "旋转视角", view ? selectedButtonStyle : buttonStyle))
+            if (GUI.Button(CurrentLayout.ToPixels(WorkshopLayout.ViewButton), "旋转视角", view ? selectedButtonStyle : buttonStyle))
                 app.SetInteractionViewMode(true);
-            if (GUI.Button(PixelRect(626, 20, 176, 44), "拆装零件", view ? buttonStyle : selectedToolStyle))
+            if (GUI.Button(CurrentLayout.ToPixels(WorkshopLayout.PartButton), "拆装零件", view ? buttonStyle : selectedToolStyle))
                 app.SetInteractionViewMode(false);
-            if (GUI.Button(PixelRect(818, 20, 160, 44), "整车归位", buttonStyle))
-                app.FrameWholeBike();
-            if (GUI.Button(PixelRect(990, 20, 164, 44), "查看收纳", buttonStyle))
+            if (GUI.Button(CurrentLayout.ToPixels(WorkshopLayout.WholeButton), "整机归位", buttonStyle))
+                app.FrameWholeModel();
+            if (GUI.Button(CurrentLayout.ToPixels(WorkshopLayout.StorageButton), "查看收纳", buttonStyle))
                 app.FrameStorage();
             string guide = app.IsGlobalExplosionActive
-                ? "全局爆炸 · 拖动旋转 · 滚轮 / 双指缩放"
+                ? "全局爆炸 · 拖动旋转 · 双指缩放"
                 : app.IsLocalExplosionMode
                     ? "轻点零件爆炸 / 收回 · 拖动旋转"
                     : view
-                        ? "拖动旋转 · 点击听讲解 · 滚轮 / 双指缩放"
-                        : "直接拖动零件 · 空白处旋转 · 滚轮 / 双指缩放";
-            GUI.Label(PixelRect(1176, 20, 690, 44), guide, captionStyle);
+                        ? "拖动旋转 · 点击听讲解 · 双指缩放"
+                        : "拖动零件 · 空白处旋转 · 双指缩放";
+            Rect guideRect = CurrentLayout.ToPixels(WorkshopLayout.HeaderGuide);
+            GUI.Label(guideRect,
+                FitTrayLine(guide, headerGuideStyle, guideRect.width), headerGuideStyle);
+        }
+
+        private void DrawModelMenu()
+        {
+            if (!modelMenuOpen) return;
+            IReadOnlyList<MechanicalModelDefinition> models = MechanicalModelRegistry.Models;
+            Rect popup = CurrentLayout.ToPixels(WorkshopLayout.ModelMenu(models.Count));
+            GUI.Box(popup, GUIContent.none, boxStyle);
+            float padding = Pixels(6);
+            float rowHeight = Pixels(44);
+            Rect viewport = new Rect(popup.x + padding, popup.y + padding,
+                popup.width - padding * 2, popup.height - padding * 2);
+            float contentWidth = viewport.width - (models.Count > 6 ? Pixels(18) : 0);
+            modelMenuScroll = GUI.BeginScrollView(viewport, modelMenuScroll,
+                new Rect(0, 0, contentWidth, models.Count * rowHeight), false, models.Count > 6);
+            for (int index = 0; index < models.Count; index++)
+            {
+                MechanicalModelDefinition model = models[index];
+                bool selected = MechMasterApp.Instance.Model == model;
+                GUIStyle style = selected ? selectedModelButtonStyle : modelButtonStyle;
+                string label = FitTrayLine((selected ? "●  " : "○  ") + model.displayName,
+                    style, contentWidth - Pixels(8));
+                if (GUI.Button(new Rect(0, index * rowHeight, contentWidth, Pixels(40)), label, style))
+                {
+                    modelMenuOpen = false;
+                    MechMasterApp.Instance.SetModel(model.id);
+                }
+            }
+            GUI.EndScrollView();
+
+            if (Event.current.type == EventType.MouseDown
+                && !popup.Contains(Event.current.mousePosition)
+                && !CurrentLayout.ToPixels(WorkshopLayout.ModelSelector)
+                    .Contains(Event.current.mousePosition))
+            {
+                modelMenuOpen = false;
+                Event.current.Use();
+            }
         }
 
         private void DrawPanControls()
@@ -194,15 +272,19 @@ namespace MechMaster.Runtime.UI
             MechMasterApp app = MechMasterApp.Instance;
             if (WorkshopLayout.ToolsCollapsed)
             {
-                if (GUI.Button(CurrentLayout.ToPixels(WorkshopLayout.ToolsTab), "工具", buttonStyle))
+                if (GUI.Button(CurrentLayout.ToPixels(WorkshopLayout.ToolsTab), "菜单", buttonStyle))
                     WorkshopLayout.ToolsCollapsed = false;
                 return;
             }
             GUILayout.BeginArea(CurrentLayout.ToPixels(WorkshopLayout.Tools), boxStyle);
-            if (GUILayout.Button("拆解等级  ‹", buttonStyle, GUILayout.Height(Pixels(36))))
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("拆解等级", headingStyle, GUILayout.ExpandWidth(false));
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button("‹", buttonStyle,
+                GUILayout.Width(Pixels(36)), GUILayout.Height(Pixels(32))))
                 WorkshopLayout.ToolsCollapsed = true;
+            GUILayout.EndHorizontal();
             GUILayout.Space(Pixels(8));
-            GUILayout.Label("拆解等级", headingStyle);
             DifficultyButton("简单", DifficultyLevel.Simple);
             DifficultyButton("进阶", DifficultyLevel.Standard);
             DifficultyButton("探索", DifficultyLevel.Advanced);
@@ -284,9 +366,23 @@ namespace MechMaster.Runtime.UI
             GUI.Label(PixelRect(1000, 908, 850, 26),
                 "绿色：可放入    红色：换个分类", captionStyle);
 
-            for (int index = 0; index < BicycleAssemblyInfo.OrderedIds.Length; index++)
+            int pageCount = Mathf.CeilToInt(app.Model.assemblies.Length / (float)TrayCellsPerPage);
+            trayPage = Mathf.Clamp(trayPage, 0, pageCount - 1);
+            if (pageCount > 1)
             {
-                string assemblyId = BicycleAssemblyInfo.OrderedIds[index];
+                if (GUI.Button(PixelRect(740, 906, 52, 26), "‹", buttonStyle))
+                    trayPage = (trayPage + pageCount - 1) % pageCount;
+                GUI.Label(PixelRect(798, 907, 78, 26),
+                    (trayPage + 1) + " / " + pageCount, captionStyle);
+                if (GUI.Button(PixelRect(880, 906, 52, 26), "›", buttonStyle))
+                    trayPage = (trayPage + 1) % pageCount;
+            }
+
+            int start = trayPage * TrayCellsPerPage;
+            int end = Mathf.Min(start + TrayCellsPerPage, app.Model.assemblies.Length);
+            for (int index = start; index < end; index++)
+            {
+                string assemblyId = app.Model.assemblies[index].id;
                 int removed = 0;
                 int total = 0;
                 string latestPartName = string.Empty;
@@ -305,14 +401,14 @@ namespace MechMaster.Runtime.UI
                     }
                 }
 
-                Rect cell = CurrentLayout.ToPixels(TrayCellRect(index));
-                string label = BicycleAssemblyInfo.DisplayName(assemblyId)
+                Rect cell = CurrentLayout.ToPixels(TrayCellRect(index - start));
+                string label = app.AssemblyDisplayName(assemblyId)
                     + "  " + removed + "/" + total
                     + "\n" + (string.IsNullOrEmpty(latestPartName) ? "空" : latestPartName);
                 GUIStyle cellStyle = ResolveTrayCellStyle(app, assemblyId, removed > 0);
                 if (hoveredAssemblyId == assemblyId && !string.IsNullOrEmpty(draggedPartId))
                 {
-                    label = BicycleAssemblyInfo.DisplayName(assemblyId) + "\n"
+                    label = app.AssemblyDisplayName(assemblyId) + "\n"
                         + (cellStyle == trayCellReadyStyle ? "松手放入"
                             : cellStyle == trayCellWrongStyle ? "换个分类" : "该零件已完成操作");
                 }
@@ -389,10 +485,13 @@ namespace MechMaster.Runtime.UI
                 return;
             }
             GUILayout.BeginArea(CurrentLayout.ToPixels(WorkshopLayout.Knowledge), boxStyle);
-            if (GUILayout.Button("零件百科  ›", buttonStyle, GUILayout.Height(Pixels(36))))
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("零件小百科", headingStyle, GUILayout.ExpandWidth(false));
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button("›", buttonStyle,
+                GUILayout.Width(Pixels(36)), GUILayout.Height(Pixels(32))))
                 WorkshopLayout.KnowledgeCollapsed = true;
-            GUILayout.Space(Pixels(12));
-            GUILayout.Label("零件小百科", headingStyle);
+            GUILayout.EndHorizontal();
             GUILayout.Space(Pixels(12f));
             if (knowledgePartId != part?.Id) { knowledgePartId = part?.Id; knowledgeScroll = Vector2.zero; }
             knowledgeScroll = GUILayout.BeginScrollView(knowledgeScroll, GUIStyle.none, GUI.skin.verticalScrollbar);
@@ -463,12 +562,32 @@ namespace MechMaster.Runtime.UI
             bodyStyle = CreateLabelStyle(chineseFont, 20, FontStyle.Normal, WorkshopTheme.Ink);
             bodyStyle.richText = true;
             captionStyle = CreateLabelStyle(chineseFont, 18, FontStyle.Normal, WorkshopTheme.MutedInk);
+            headerGuideStyle = new GUIStyle(captionStyle)
+            {
+                alignment = TextAnchor.MiddleLeft,
+                wordWrap = false,
+                padding = new RectOffset()
+            };
             statusStyle = CreateLabelStyle(chineseFont, 18, FontStyle.Normal, WorkshopTheme.Ink);
             statusStyle.wordWrap = false;
             statusStyle.alignment = TextAnchor.MiddleLeft;
 
             buttonStyle = CreateButton(WorkshopTheme.Sky, WorkshopTheme.Ink, WorkshopTheme.Border);
             selectedButtonStyle = CreateButton(WorkshopTheme.Teal, Color.white, WorkshopTheme.Teal);
+            modelButtonStyle = new GUIStyle(buttonStyle)
+            {
+                fontSize = 18,
+                wordWrap = false,
+                alignment = TextAnchor.MiddleCenter,
+                padding = new RectOffset(5, 5, 4, 4)
+            };
+            selectedModelButtonStyle = new GUIStyle(selectedButtonStyle)
+            {
+                fontSize = 18,
+                wordWrap = false,
+                alignment = TextAnchor.MiddleCenter,
+                padding = new RectOffset(5, 5, 4, 4)
+            };
             selectedToolStyle = CreateButton(WorkshopTheme.Orange, WorkshopTheme.OrangeInk,
                 new Color32(223, 154, 67, 255));
             actionStyle = new GUIStyle(selectedToolStyle) { fontStyle = FontStyle.Bold };
@@ -508,8 +627,9 @@ namespace MechMaster.Runtime.UI
             gearTexture = MakeGearTexture();
             foreach (GUIStyle style in new[]
             {
-                titleStyle, brandStyle, sloganStyle, headingStyle, bodyStyle, captionStyle, statusStyle, buttonStyle,
-                selectedButtonStyle, selectedToolStyle, actionStyle, boxStyle, panPanelStyle, panButtonStyle, trayPanelStyle,
+                titleStyle, brandStyle, sloganStyle, headingStyle, bodyStyle, captionStyle, headerGuideStyle,
+                statusStyle, buttonStyle, selectedButtonStyle, modelButtonStyle, selectedModelButtonStyle,
+                selectedToolStyle, actionStyle, boxStyle, panPanelStyle, panButtonStyle, trayPanelStyle,
                 trayCellStyle, trayCellActiveStyle, trayCellReadyStyle, trayCellBlockedStyle,
                 trayCellWrongStyle, chipStyle, hintStyle, shadowStyle, progressTrackStyle,
                 progressFillStyle, statusPanelStyle

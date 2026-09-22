@@ -244,7 +244,9 @@ namespace MechMaster.Runtime
                     continue;
                 }
 
-                if (hit.distance > nearestDistance + 0.04f)
+                float nearbyDistance = Mathf.Max(
+                    0.0001f, MechMasterApp.Instance.ModelWorldSize * 0.02f);
+                if (hit.distance > nearestDistance + nearbyDistance)
                 {
                     break;
                 }
@@ -323,7 +325,7 @@ namespace MechMaster.Runtime
         private static float BoundsVolume(Bounds bounds)
         {
             Vector3 size = bounds.size;
-            return Mathf.Max(0.0000001f, size.x * size.y * size.z);
+            return Mathf.Max(1e-20f, size.x * size.y * size.z);
         }
 
         private void EndPointer(Vector2 screenPosition)

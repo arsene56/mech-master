@@ -21,6 +21,7 @@ internal static class Program
         Run("Engineering catalog quantities", EngineeringCatalogQuantities);
         Run("Engineering interaction plan counts", EngineeringInteractionPlanCounts);
         Run("Engineering model bindings", EngineeringModelBindings);
+        Run("Discoverable mechanical model manifests", DiscoverableModelManifests);
 
         Console.WriteLine(failures == 0
             ? "All MechMaster domain tests passed."
@@ -291,6 +292,66 @@ internal static class Program
             }
             True(hasGroupedParts);
             Equal(modelObjects.Count, boundObjects.Count);
+        }
+    }
+
+    private static void DiscoverableModelManifests()
+    {
+        string root = Directory.GetCurrentDirectory();
+        string manifestDirectory = Path.Combine(root, "Assets", "Resources",
+            "MechanicalCatalog", "Models");
+        string[] manifests = Directory.GetFiles(manifestDirectory, "*.json");
+        True(manifests.Length > 0);
+        var modelIds = new HashSet<string>(StringComparer.Ordinal);
+        foreach (string path in manifests)
+        {
+            using JsonDocument document = JsonDocument.Parse(File.ReadAllText(path));
+            JsonElement model = document.RootElement;
+            Equal(1, model.GetProperty("schemaVersion").GetInt32());
+            string modelId = model.GetProperty("id").GetString();
+            True(!string.IsNullOrWhiteSpace(modelId));
+            True(modelIds.Add(modelId));
+            True(!string.IsNullOrWhiteSpace(model.GetProperty("displayName").GetString()));
+            string catalogPath = model.GetProperty("catalogResourcePath").GetString();
+            string catalogFile = Path.Combine(root, "Assets", "Resources",
+                catalogPath.Replace('/', Path.DirectorySeparatorChar) + ".json");
+            True(File.Exists(catalogFile));
+
+            var modules = new HashSet<string>(StringComparer.Ordinal);
+            foreach (JsonElement module in model.GetProperty("moduleResourcePaths").EnumerateArray())
+            {
+                string resourcePath = module.GetString();
+                True(modules.Add(resourcePath));
+                string assetPath = Path.Combine(root, "Assets", "Resources",
+                    resourcePath.Replace('/', Path.DirectorySeparatorChar));
+                True(File.Exists(assetPath + ".fbx") || File.Exists(assetPath + ".prefab"));
+            }
+            True(modules.Count > 0);
+
+            var assemblies = new HashSet<string>(StringComparer.Ordinal);
+            foreach (JsonElement assembly in model.GetProperty("assemblies").EnumerateArray())
+            {
+                True(assemblies.Add(assembly.GetProperty("id").GetString()));
+                True(!string.IsNullOrWhiteSpace(assembly.GetProperty("displayName").GetString()));
+            }
+            True(assemblies.Count > 0);
+
+            using JsonDocument catalog = JsonDocument.Parse(File.ReadAllText(catalogFile));
+            Equal(modelId, catalog.RootElement.GetProperty("moduleId").GetString());
+            var difficulties = new HashSet<string>(StringComparer.Ordinal);
+            foreach (JsonElement plan in catalog.RootElement.GetProperty("plans").EnumerateArray())
+            {
+                True(difficulties.Add(plan.GetProperty("difficulty").GetString()));
+                var stepIds = new HashSet<string>(StringComparer.Ordinal);
+                foreach (JsonElement step in plan.GetProperty("steps").EnumerateArray())
+                {
+                    True(stepIds.Add(step.GetProperty("id").GetString()));
+                    True(assemblies.Contains(step.GetProperty("assemblyId").GetString()));
+                    True(step.GetProperty("objectNames").GetArrayLength() > 0);
+                }
+                True(stepIds.Count > 0);
+            }
+            True(difficulties.SetEquals(new[] { "Simple", "Standard", "Advanced" }));
         }
     }
 

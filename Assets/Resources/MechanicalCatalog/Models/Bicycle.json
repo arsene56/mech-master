@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "bike.hardtail.27_5.2x10.v1",
+  "displayName": "2×10 山地自行车",
+  "displayOrder": 0,
+  "catalogResourcePath": "MechanicalCatalog/BicycleInteractionCatalog",
+  "moduleResourcePaths": [
+    "Models/Bicycle/Modules/frame_LOD0",
+    "Models/Bicycle/Modules/cockpit_headset_LOD0",
+    "Models/Bicycle/Modules/fork_LOD0",
+    "Models/Bicycle/Modules/wheel_front_LOD0",
+    "Models/Bicycle/Modules/wheel_rear_LOD0",
+    "Models/Bicycle/Modules/brake_front_LOD0",
+    "Models/Bicycle/Modules/brake_rear_LOD0",
+    "Models/Bicycle/Modules/crank_bottom_bracket_LOD0",
+    "Models/Bicycle/Modules/front_derailleur_LOD0",
+    "Models/Bicycle/Modules/rear_derailleur_LOD0",
+    "Models/Bicycle/Modules/chain_LOD0",
+    "Models/Bicycle/Modules/pedals_LOD0",
+    "Models/Bicycle/Modules/saddle_seatpost_LOD0",
+    "Models/Bicycle/Modules/controls_cables_LOD0"
+  ],
+  "assemblies": [
+    { "id": "controls_cables", "displayName": "操控与线管" },
+    { "id": "saddle_seatpost", "displayName": "鞍座与座管" },
+    { "id": "pedals", "displayName": "脚踏" },
+    { "id": "brake_front", "displayName": "前刹车" },
+    { "id": "brake_rear", "displayName": "后刹车" },
+    { "id": "chain", "displayName": "链条" },
+    { "id": "front_derailleur", "displayName": "前拨" },
+    { "id": "rear_derailleur", "displayName": "后拨" },
+    { "id": "wheel_front", "displayName": "前轮" },
+    { "id": "wheel_rear", "displayName": "后轮" },
+    { "id": "crank_bottom_bracket", "displayName": "曲柄与中轴" },
+    { "id": "cockpit_headset", "displayName": "把组与碗组" },
+    { "id": "fork", "displayName": "避震前叉" },
+    { "id": "frame", "displayName": "车架" }
+  ]
+}

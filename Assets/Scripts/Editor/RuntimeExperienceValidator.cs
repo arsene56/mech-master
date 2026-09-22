@@ -18,7 +18,7 @@ namespace MechMaster.Editor
             var app = MechMasterApp.Instance;
             var input = app.GetComponent<PartInteractionController>();
             var voice = app.GetComponent<VoiceNarrator>();
-            var model = UnityEngine.Object.FindObjectOfType<BikeModelView>();
+            var model = UnityEngine.Object.FindObjectOfType<MechanicalModelView>();
             var camera = Camera.main;
             var orbit = camera.GetComponent<OrbitCameraController>();
             bool oldMode = PartInteractionController.ViewMode;
@@ -31,7 +31,7 @@ namespace MechMaster.Editor
                 voice.Enabled = false;
                 input.CancelGesture();
                 WorkshopLayout.ToolsCollapsed = WorkshopLayout.KnowledgeCollapsed = false;
-                orbit.FrameWholeBike();
+                orbit.FrameWholeModel();
                 VerifyFraming(camera);
                 VerifyPan(camera, orbit);
 
@@ -42,9 +42,9 @@ namespace MechMaster.Editor
                     "Global explosion must target every assembled interaction unit.");
                 Require(app.Plan.RemovedCount == removed,
                     "Explosion view must not change disassembly progress.");
-                app.FrameWholeBike();
+                app.FrameWholeModel();
                 Require(model.ExplosionTargetCount == 0,
-                    "Whole-bike reset must clear explosion targets.");
+                    "Whole-model reset must clear explosion targets.");
 
                 PartDefinition localPart = app.Plan.Steps.FirstOrDefault(
                     step => !app.Plan.IsRemoved(step.Id));
@@ -66,10 +66,10 @@ namespace MechMaster.Editor
                 app.FrameStorage();
                 VerifyFraming(camera, true);
                 WorkshopLayout.ToolsCollapsed = WorkshopLayout.KnowledgeCollapsed = true;
-                orbit.FrameWholeBike();
+                orbit.FrameWholeModel();
                 VerifyFraming(camera);
                 WorkshopLayout.ToolsCollapsed = WorkshopLayout.KnowledgeCollapsed = false;
-                orbit.FrameWholeBike();
+                orbit.FrameWholeModel();
                 PartInteractionController.SetViewMode(true);
                 Vector2 point = FindPartPoint(camera);
                 Vector2 before = orbit.Angles;
@@ -78,7 +78,7 @@ namespace MechMaster.Editor
                 Require(Vector2.Distance(before, orbit.Angles) > 1, "View drag must rotate over a part.");
                 Require(!PartInteractionController.IsDraggingPart, "View drag must not grab a part.");
                 input.CancelGesture();
-                orbit.FrameWholeBike();
+                orbit.FrameWholeModel();
 
                 // Mouse down and up may be delivered within one rendered frame.
                 // Their own event coordinates must still produce a real drag.
@@ -89,7 +89,7 @@ namespace MechMaster.Editor
                 Invoke(input, "HandleMouseEvent", new Event {
                     type = EventType.MouseUp, button = 0, mousePosition = guiPoint + Vector2.right * 120 });
                 Require(before != orbit.Angles, "A short mouse drag must retain its press position.");
-                orbit.FrameWholeBike();
+                orbit.FrameWholeModel();
 
                 Vector2 header = new PixelUILayout(Screen.width, Screen.height).ToPixels(WorkshopLayout.Header).center;
                 header.y = Screen.height - header.y;
@@ -135,18 +135,18 @@ namespace MechMaster.Editor
             finally
             {
                 input.CancelGesture();
-                app.FrameWholeBike();
+                app.FrameWholeModel();
                 WorkshopLayout.ToolsCollapsed = oldTools;
                 WorkshopLayout.KnowledgeCollapsed = oldKnowledge;
                 PartInteractionController.SetViewMode(oldMode);
                 voice.Enabled = oldVoice;
-                orbit.FrameWholeBike();
+                orbit.FrameWholeModel();
             }
         }
 
         private static void VerifyPan(Camera camera, OrbitCameraController orbit)
         {
-            Vector3 world = GameObject.Find("BicycleEngineering_Runtime").transform.position;
+            Vector3 world = CurrentModelRoot().transform.position;
             foreach (Vector2 direction in new[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right })
             {
                 Vector2 angles = orbit.Angles;
@@ -169,14 +169,14 @@ namespace MechMaster.Editor
             Require(Mathf.Abs(orbit.PanOffset.x) <= maxX + .01f &&
                 Mathf.Abs(orbit.PanOffset.y) <= maxY + .01f,
                 "Pan must be bounded (actual=" + orbit.PanOffset + ", max=" + maxX + "," + maxY + ").");
-            orbit.FrameWholeBike();
-            Require(orbit.PanOffset == Vector2.zero, "Whole bike reset must clear pan.");
+            orbit.FrameWholeModel();
+            Require(orbit.PanOffset == Vector2.zero, "Whole model reset must clear pan.");
         }
 
         private static void VerifyFraming(Camera camera, bool includeTray = false)
         {
             Rect area = new PixelUILayout(Screen.width, Screen.height).ToPixels(WorkshopLayout.ModelArea);
-            foreach (var renderer in GameObject.Find("BicycleEngineering_Runtime").GetComponentsInChildren<Renderer>())
+            foreach (var renderer in CurrentModelRoot().GetComponentsInChildren<Renderer>())
             {
                 if (!includeTray && renderer.name.StartsWith("TrayCell_", StringComparison.Ordinal)) continue;
                 if (!includeTray && renderer.GetComponent<MechanicalPartHitProxy>()?.Owner?.IsRemoved == true) continue;
@@ -189,6 +189,13 @@ namespace MechMaster.Editor
                     Require(p.z > 0 && area.Contains(new Vector2(p.x, Screen.height - p.y)), "Model clipped: " + renderer.name);
                 }
             }
+        }
+
+        private static GameObject CurrentModelRoot()
+        {
+            GameObject root = GameObject.Find("MechanicalModel_" + MechMasterApp.Instance.Model.id);
+            Require(root != null, "Current model root must exist.");
+            return root;
         }
 
         private static Vector2 FindPartPoint(Camera camera)

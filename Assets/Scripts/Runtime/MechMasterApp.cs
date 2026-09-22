@@ -17,13 +17,15 @@ namespace MechMaster.Runtime
     public sealed class MechMasterApp : MonoBehaviour
     {
         private GameObject modelInstance;
-        private BikeModelView bikeModelView;
+        private MechanicalModelView modelView;
         private FeedbackAudio feedbackAudio;
         private VoiceNarrator narrator;
 
         public static MechMasterApp Instance { get; private set; }
 
         public DisassemblyPlan Plan { get; private set; }
+        public MechanicalModelDefinition Model { get; private set; }
+        public float ModelWorldSize { get; private set; } = 2f;
         public PartDefinition SelectedPart { get; private set; }
         public string StatusMessage { get; private set; }
         public bool NarrationEnabled => narrator != null && narrator.Enabled;
@@ -32,8 +34,8 @@ namespace MechMaster.Runtime
         public ExplosionViewMode ExplosionMode { get; private set; }
         public bool IsGlobalExplosionActive =>
             ExplosionMode == ExplosionViewMode.Global
-            && bikeModelView != null
-            && bikeModelView.GlobalExplosionActive;
+            && modelView != null
+            && modelView.GlobalExplosionActive;
         public bool IsLocalExplosionMode => ExplosionMode == ExplosionViewMode.Local;
 
         public event Action StateChanged;
@@ -72,6 +74,7 @@ namespace MechMaster.Runtime
             PartInteractionController interaction = gameObject.AddComponent<PartInteractionController>();
             interaction.Initialize(sceneCamera);
             gameObject.AddComponent<PrototypeUI>();
+            Model = MechanicalModelRegistry.FindOrDefault(LocalProgressStore.LoadModelId());
             CreatePlan(LocalProgressStore.LoadDifficulty(), true);
             Debug.Log(
                 "MECH_MASTER_RENDER_INFO screen=" + Screen.width + "x" + Screen.height
@@ -94,6 +97,24 @@ namespace MechMaster.Runtime
             CreatePlan(difficulty, true);
         }
 
+        public void SetModel(string modelId)
+        {
+            MechanicalModelDefinition next = MechanicalModelRegistry.Find(modelId);
+            if (next == null || next == Model)
+                return;
+
+            PartInteractionController.Instance?.CancelGesture();
+            narrator.Stop();
+            Model = next;
+            PrototypeUI.ResetTrayPage();
+            CreatePlan(Plan.Difficulty, true);
+        }
+
+        public string AssemblyDisplayName(string assemblyId)
+        {
+            return Model.AssemblyDisplayName(assemblyId);
+        }
+
         public void SelectPart(string partId)
         {
             if (Plan == null)
@@ -109,9 +130,9 @@ namespace MechMaster.Runtime
                 }
 
                 SelectedPart = part;
-                if (ExplosionMode == ExplosionViewMode.Local && bikeModelView != null)
+                if (ExplosionMode == ExplosionViewMode.Local && modelView != null)
                 {
-                    MechanicalPartView partView = bikeModelView.FindPart(part.Id);
+                    MechanicalPartView partView = modelView.FindPart(part.Id);
                     if (partView != null && partView.IsRemoved)
                     {
                         StatusMessage = "“" + part.DisplayName
@@ -119,13 +140,13 @@ namespace MechMaster.Runtime
                     }
                     else
                     {
-                        bool exploded = bikeModelView.ToggleLocalExplosion(part.Id, false);
+                        bool exploded = modelView.ToggleLocalExplosion(part.Id, false);
                         StatusMessage = exploded
                             ? "已将“" + part.DisplayName + "”向外展开；再次点击可收回。"
                             : "已收回“" + part.DisplayName + "”。";
                         Camera.main?.GetComponent<OrbitCameraController>()
                             ?.FrameContentsPreservingView(
-                                bikeModelView.GetExplosionFramingPoints());
+                                modelView.GetExplosionFramingPoints());
                     }
                 }
                 else
@@ -156,7 +177,7 @@ namespace MechMaster.Runtime
                 if (Plan.Mode == AssemblyMode.Disassemble)
                 {
                     StatusMessage = result.Message + " 已放入“"
-                        + BicycleAssemblyInfo.DisplayName(result.Part.AssemblyId)
+                        + AssemblyDisplayName(result.Part.AssemblyId)
                         + "”分类托盘。";
                 }
 
@@ -168,7 +189,7 @@ namespace MechMaster.Runtime
                 {
                     feedbackAudio.PlayAssembled();
                 }
-                bikeModelView.Refresh(Plan, false);
+                modelView?.Refresh(Plan, false);
                 SpeakNarration(StatusMessage);
             }
             else
@@ -184,9 +205,9 @@ namespace MechMaster.Runtime
             bool correctAssembly,
             bool ready)
         {
-            if (bikeModelView != null)
+            if (modelView != null)
             {
-                bikeModelView.SetTrayHighlight(assemblyId, correctAssembly, ready);
+                modelView.SetTrayHighlight(assemblyId, correctAssembly, ready);
             }
         }
 
@@ -200,10 +221,10 @@ namespace MechMaster.Runtime
 
             StatusMessage = string.IsNullOrEmpty(hoveredAssemblyId)
                 ? "请把“" + part.DisplayName + "”拖到下方“"
-                  + BicycleAssemblyInfo.DisplayName(part.AssemblyId) + "”分类槽位，变色后再松手。"
-                : "这里是“" + BicycleAssemblyInfo.DisplayName(hoveredAssemblyId)
+                  + AssemblyDisplayName(part.AssemblyId) + "”分类槽位，变色后再松手。"
+                : "这里是“" + AssemblyDisplayName(hoveredAssemblyId)
                   + "”槽位；“" + part.DisplayName + "”应放入“"
-                  + BicycleAssemblyInfo.DisplayName(part.AssemblyId) + "”槽位。";
+                  + AssemblyDisplayName(part.AssemblyId) + "”槽位。";
             feedbackAudio.PlayBlocked();
             NotifyStateChanged();
         }
@@ -217,7 +238,7 @@ namespace MechMaster.Runtime
             }
 
             StatusMessage = "组装时请把“" + part.DisplayName
-                + "”从分类托盘拖回上方整车区域后再松手。";
+                + "”从分类托盘拖回上方整机区域后再松手。";
             feedbackAudio.PlayBlocked();
             NotifyStateChanged();
         }
@@ -250,7 +271,7 @@ namespace MechMaster.Runtime
 
                 Plan.SetMode(AssemblyMode.Disassemble);
                 StatusMessage = "进入拆解模式。";
-                FrameWholeBike();
+                FrameWholeModel();
             }
 
             feedbackAudio.PlayModeSwitch();
@@ -259,7 +280,7 @@ namespace MechMaster.Runtime
 
         public void ResetCurrentPlan()
         {
-            LocalProgressStore.ClearProgress(Plan.Difficulty);
+            LocalProgressStore.ClearProgress(Model.id, Plan.Difficulty);
             CreatePlan(Plan.Difficulty, false);
         }
 
@@ -279,7 +300,7 @@ namespace MechMaster.Runtime
 
         public void ToggleGlobalExplosion()
         {
-            if (bikeModelView == null)
+            if (modelView == null)
             {
                 return;
             }
@@ -288,7 +309,7 @@ namespace MechMaster.Runtime
             if (IsGlobalExplosionActive)
             {
                 ClearExplosionInternal(false);
-                Camera.main?.GetComponent<OrbitCameraController>()?.FrameWholeBike();
+                Camera.main?.GetComponent<OrbitCameraController>()?.FrameWholeModel();
                 StatusMessage = "全局爆炸视图已收回。";
             }
             else
@@ -296,16 +317,16 @@ namespace MechMaster.Runtime
                 ClearExplosionInternal(true);
                 ExplosionMode = ExplosionViewMode.Global;
                 PartInteractionController.SetViewMode(true);
-                bikeModelView.SetGlobalExplosion(true, false);
-                if (bikeModelView.ExplosionTargetCount == 0)
+                modelView.SetGlobalExplosion(true, false);
+                if (modelView.ExplosionTargetCount == 0)
                 {
                     ExplosionMode = ExplosionViewMode.None;
-                    StatusMessage = "当前没有留在整车上的机械单元可供爆炸查看。";
+                    StatusMessage = "当前没有留在整机上的机械单元可供爆炸查看。";
                 }
                 else
                 {
                     Camera.main?.GetComponent<OrbitCameraController>()?.FrameContents(
-                        bikeModelView.GetExplosionFramingPoints());
+                        modelView.GetExplosionFramingPoints());
                     StatusMessage = "全局爆炸视图：全部机械单元已向外展开。";
                 }
             }
@@ -316,7 +337,7 @@ namespace MechMaster.Runtime
 
         public void ToggleLocalExplosionMode()
         {
-            if (bikeModelView == null)
+            if (modelView == null)
             {
                 return;
             }
@@ -353,15 +374,15 @@ namespace MechMaster.Runtime
                 SpeakPartNarration(SelectedPart);
         }
 
-        public void FrameWholeBike()
+        public void FrameWholeModel()
         {
             PartInteractionController.Instance?.CancelGesture();
             bool hadExplosion = ExplosionMode != ExplosionViewMode.None;
             ClearExplosionInternal(true);
-            Camera.main?.GetComponent<OrbitCameraController>()?.FrameWholeBike();
+            Camera.main?.GetComponent<OrbitCameraController>()?.FrameWholeModel();
             if (hadExplosion)
             {
-                StatusMessage = "爆炸视图已收回，整车已归位。";
+                StatusMessage = "爆炸视图已收回，整机已归位。";
                 NotifyStateChanged();
             }
         }
@@ -401,14 +422,14 @@ namespace MechMaster.Runtime
         private void CreatePlan(DifficultyLevel difficulty, bool restoreProgress)
         {
             ExplosionMode = ExplosionViewMode.None;
-            Plan = EngineeringBicycleCatalogLoader.CreatePlan(difficulty);
+            Plan = MechanicalCatalogLoader.CreatePlan(Model, difficulty);
             if (restoreProgress)
             {
                 RestoreProgress();
             }
 
             SelectedPart = Plan.ExpectedPart ?? Plan.Steps[0];
-            StatusMessage = DifficultyDisplayName(difficulty)
+            StatusMessage = Model.displayName + " · " + DifficultyDisplayName(difficulty)
                 + "已就绪：零件可自由选择，直接拖入分类托盘即可拆下。";
             LoadModel();
             SaveAndNotify();
@@ -416,7 +437,7 @@ namespace MechMaster.Runtime
 
         private void RestoreProgress()
         {
-            string[] savedPartIds = LocalProgressStore.LoadRemovedPartIds(Plan.Difficulty);
+            string[] savedPartIds = LocalProgressStore.LoadRemovedPartIds(Model.id, Plan.Difficulty);
             int restoredParts = 0;
             if (savedPartIds.Length > 0)
             {
@@ -435,7 +456,7 @@ namespace MechMaster.Runtime
                 // with an empty new plan.
                 if (restoredParts == 0)
                 {
-                    LocalProgressStore.ClearProgress(Plan.Difficulty);
+                    LocalProgressStore.ClearProgress(Model.id, Plan.Difficulty);
                 }
             }
             else
@@ -444,7 +465,7 @@ namespace MechMaster.Runtime
             }
 
             if (Plan.RemovedCount > 0
-                && LocalProgressStore.LoadMode(Plan.Difficulty) == AssemblyMode.Assemble)
+                && LocalProgressStore.LoadMode(Model.id, Plan.Difficulty) == AssemblyMode.Assemble)
             {
                 Plan.SetMode(AssemblyMode.Assemble);
             }
@@ -453,7 +474,7 @@ namespace MechMaster.Runtime
         private void RestoreLegacyProgressCount()
         {
             int removedCount = Mathf.Clamp(
-                LocalProgressStore.LoadRemovedCount(Plan.Difficulty),
+                LocalProgressStore.LoadRemovedCount(Model.id, Plan.Difficulty),
                 0,
                 Plan.Steps.Count);
 
@@ -471,13 +492,14 @@ namespace MechMaster.Runtime
                 Destroy(modelInstance);
             }
 
-            modelInstance = new GameObject("BicycleEngineering_Runtime");
-            foreach (string resourcePath in EngineeringBicycleCatalogLoader.ModuleResourcePaths)
+            modelView = null;
+            modelInstance = new GameObject("MechanicalModel_" + Model.id);
+            foreach (string resourcePath in Model.moduleResourcePaths)
             {
                 GameObject prefab = Resources.Load<GameObject>(resourcePath);
                 if (prefab == null)
                 {
-                    StatusMessage = "未找到工程自行车模块：" + resourcePath;
+                    StatusMessage = "未找到“" + Model.displayName + "”模型模块：" + resourcePath;
                     Debug.LogError(StatusMessage);
                     Destroy(modelInstance);
                     modelInstance = null;
@@ -502,9 +524,11 @@ namespace MechMaster.Runtime
                     framingPoints.Add(bounds.center + Vector3.Scale(bounds.extents,
                         new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1)));
             }
-            bikeModelView = modelInstance.AddComponent<BikeModelView>();
-            bikeModelView.Bind(Plan);
-            bikeModelView.Refresh(Plan, true);
+            ModelWorldSize = Mathf.Max(modelBounds.size.x, modelBounds.size.y, modelBounds.size.z);
+            var layout = new AssemblyLayout(Model, modelBounds);
+            modelView = modelInstance.AddComponent<MechanicalModelView>();
+            modelView.Bind(Plan, layout);
+            modelView.Refresh(Plan, true);
 
             OrbitCameraController orbit = Camera.main.GetComponent<OrbitCameraController>();
             if (orbit != null)
@@ -563,7 +587,7 @@ namespace MechMaster.Runtime
 
         private void SaveAndNotify()
         {
-            LocalProgressStore.Save(Plan, NarrationEnabled);
+            LocalProgressStore.Save(Model.id, Plan, NarrationEnabled);
             NotifyStateChanged();
         }
 
@@ -574,7 +598,7 @@ namespace MechMaster.Runtime
 
         private void ClearExplosionInternal(bool immediate)
         {
-            bikeModelView?.ClearInspectionExplosion(immediate);
+            modelView?.ClearInspectionExplosion(immediate);
             ExplosionMode = ExplosionViewMode.None;
         }
 

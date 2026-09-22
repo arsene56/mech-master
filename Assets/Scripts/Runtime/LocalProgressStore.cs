@@ -7,6 +7,12 @@ namespace MechMaster.Runtime
     public static class LocalProgressStore
     {
         private const string Prefix = "mech_master.v1.";
+        private const string BicycleModelId = "bike.hardtail.27_5.2x10.v1";
+
+        public static string LoadModelId()
+        {
+            return PlayerPrefs.GetString(Prefix + "modelId", BicycleModelId);
+        }
 
         public static DifficultyLevel LoadDifficulty()
         {
@@ -21,38 +27,44 @@ namespace MechMaster.Runtime
             return PlayerPrefs.GetInt(Prefix + "narration", 1) == 1;
         }
 
-        public static int LoadRemovedCount(DifficultyLevel difficulty)
+        public static int LoadRemovedCount(string modelId, DifficultyLevel difficulty)
         {
-            return Mathf.Max(0, PlayerPrefs.GetInt(ProgressKey(difficulty, "removed"), 0));
+            return Mathf.Max(0, PlayerPrefs.GetInt(
+                ProgressKey(modelId, difficulty, "removed"),
+                LegacyInt(modelId, difficulty, "removed", 0)));
         }
 
-        public static string[] LoadRemovedPartIds(DifficultyLevel difficulty)
+        public static string[] LoadRemovedPartIds(string modelId, DifficultyLevel difficulty)
         {
             string value = PlayerPrefs.GetString(
-                ProgressKey(difficulty, "removedIds"),
-                string.Empty);
+                ProgressKey(modelId, difficulty, "removedIds"),
+                modelId == BicycleModelId
+                    ? PlayerPrefs.GetString(LegacyProgressKey(difficulty, "removedIds"), string.Empty)
+                    : string.Empty);
             return string.IsNullOrEmpty(value)
                 ? new string[0]
                 : value.Split('|');
         }
 
-        public static AssemblyMode LoadMode(DifficultyLevel difficulty)
+        public static AssemblyMode LoadMode(string modelId, DifficultyLevel difficulty)
         {
             int value = PlayerPrefs.GetInt(
-                ProgressKey(difficulty, "mode"),
-                (int)AssemblyMode.Disassemble);
+                ProgressKey(modelId, difficulty, "mode"),
+                LegacyInt(modelId, difficulty, "mode", (int)AssemblyMode.Disassemble));
             return value == (int)AssemblyMode.Assemble
                 ? AssemblyMode.Assemble
                 : AssemblyMode.Disassemble;
         }
 
         public static void Save(
+            string modelId,
             DisassemblyPlan plan,
             bool narrationEnabled)
         {
+            PlayerPrefs.SetString(Prefix + "modelId", modelId);
             PlayerPrefs.SetInt(Prefix + "difficulty", (int)plan.Difficulty);
             PlayerPrefs.SetInt(Prefix + "narration", narrationEnabled ? 1 : 0);
-            PlayerPrefs.SetInt(ProgressKey(plan.Difficulty, "removed"), plan.RemovedCount);
+            PlayerPrefs.SetInt(ProgressKey(modelId, plan.Difficulty, "removed"), plan.RemovedCount);
             var removedIds = new List<string>();
             foreach (PartDefinition part in plan.Steps)
             {
@@ -62,23 +74,38 @@ namespace MechMaster.Runtime
                 }
             }
             PlayerPrefs.SetString(
-                ProgressKey(plan.Difficulty, "removedIds"),
+                ProgressKey(modelId, plan.Difficulty, "removedIds"),
                 string.Join("|", removedIds));
-            PlayerPrefs.SetInt(ProgressKey(plan.Difficulty, "mode"), (int)plan.Mode);
+            PlayerPrefs.SetInt(ProgressKey(modelId, plan.Difficulty, "mode"), (int)plan.Mode);
             PlayerPrefs.Save();
         }
 
-        public static void ClearProgress(DifficultyLevel difficulty)
+        public static void ClearProgress(string modelId, DifficultyLevel difficulty)
         {
-            PlayerPrefs.DeleteKey(ProgressKey(difficulty, "removed"));
-            PlayerPrefs.DeleteKey(ProgressKey(difficulty, "removedIds"));
-            PlayerPrefs.DeleteKey(ProgressKey(difficulty, "mode"));
+            foreach (string field in new[] { "removed", "removedIds", "mode" })
+            {
+                PlayerPrefs.DeleteKey(ProgressKey(modelId, difficulty, field));
+                if (modelId == BicycleModelId)
+                    PlayerPrefs.DeleteKey(LegacyProgressKey(difficulty, field));
+            }
             PlayerPrefs.Save();
         }
 
-        private static string ProgressKey(DifficultyLevel difficulty, string field)
+        private static int LegacyInt(string modelId, DifficultyLevel difficulty, string field, int fallback)
+        {
+            return modelId == BicycleModelId
+                ? PlayerPrefs.GetInt(LegacyProgressKey(difficulty, field), fallback)
+                : fallback;
+        }
+
+        private static string LegacyProgressKey(DifficultyLevel difficulty, string field)
         {
             return Prefix + "progress." + difficulty + "." + field;
+        }
+
+        private static string ProgressKey(string modelId, DifficultyLevel difficulty, string field)
+        {
+            return Prefix + "progress." + modelId + "." + difficulty + "." + field;
         }
     }
 }

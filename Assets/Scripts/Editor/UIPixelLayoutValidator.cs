@@ -12,6 +12,16 @@ namespace MechMaster.Editor
         [MenuItem("机械大师/验证文字像素布局")]
         public static void Validate()
         {
+            Require(WorkshopLayout.BrandTitle.xMax < WorkshopLayout.ModelSelector.xMin,
+                "model selector must not overlap brand");
+            Require(WorkshopLayout.ModelSelector.xMax < WorkshopLayout.ViewButton.xMin,
+                "model selector must be left of view button");
+            Require(WorkshopLayout.ViewButton.xMax < WorkshopLayout.PartButton.xMin
+                && WorkshopLayout.PartButton.xMax < WorkshopLayout.WholeButton.xMin
+                && WorkshopLayout.WholeButton.xMax < WorkshopLayout.StorageButton.xMin
+                && WorkshopLayout.StorageButton.xMax < WorkshopLayout.HeaderGuide.xMin
+                && WorkshopLayout.HeaderGuide.xMax <= WorkshopLayout.Header.xMax,
+                "header controls must fit without overlap");
             Vector2Int[] sizes =
             {
                 new Vector2Int(1280, 720), new Vector2Int(1920, 1080),
@@ -59,12 +69,13 @@ namespace MechMaster.Editor
                         "brand slogan must fit at " + size);
                 }
                 var live = new PixelUILayout(Screen.width, Screen.height);
-                for (int index = 0; index < BicycleAssemblyInfo.OrderedIds.Length; index++)
+                MechanicalModelDefinition model = MechMasterApp.Instance.Model;
+                for (int index = 0; index < model.assemblies.Length && index < 14; index++)
                 {
                     Rect cell = live.ToPixels(WorkshopLayout.TrayCell(index));
                     Vector2 input = new Vector2(cell.center.x, Screen.height - cell.center.y);
                     Require(PrototypeUI.TrayAssemblyAtScreenPosition(input)
-                        == BicycleAssemblyInfo.OrderedIds[index], "live tray hit " + index);
+                        == model.assemblies[index].id, "live tray hit " + index);
                 }
             }
             Debug.Log("MECH_MASTER_UI_PIXEL_VALIDATION_OK resolutions=8, nativeFonts=20/40"

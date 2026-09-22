@@ -47,7 +47,10 @@ namespace MechMaster.Runtime
             assembledBounds = modelBounds;
             framingPoints = points;
             sceneCamera = GetComponent<Camera>();
-            FrameWholeBike();
+            float modelSize = Mathf.Max(modelBounds.size.x, modelBounds.size.y, modelBounds.size.z);
+            sceneCamera.nearClipPlane = Mathf.Clamp(modelSize * 0.001f, 0.0001f, 0.1f);
+            sceneCamera.farClipPlane = Mathf.Max(10f, modelSize * 100f);
+            FrameWholeModel();
         }
 
         public void Rotate(Vector2 pixelDelta)
@@ -67,7 +70,7 @@ namespace MechMaster.Runtime
             ApplyTransform();
         }
 
-        public void FrameWholeBike()
+        public void FrameWholeModel()
         {
             activeFramingPoints = framingPoints;
             if (target != null) target.position = assembledBounds.center;
@@ -123,7 +126,9 @@ namespace MechMaster.Runtime
             float tanHorizontal = tanVertical * sceneCamera.aspect;
             float usableX = tanHorizontal * area.width / Screen.width * 0.94f;
             float usableY = tanVertical * area.height / Screen.height * 0.94f;
-            float fitDistance = 0.8f;
+            float fitDistance = Mathf.Max(
+                assembledBounds.size.magnitude * 0.25f,
+                sceneCamera.nearClipPlane * 4f);
             Quaternion inverse = Quaternion.Inverse(rotation);
             int count = activeFramingPoints == null ? 8 : activeFramingPoints.Length;
             for (int i = 0; i < count; i++)

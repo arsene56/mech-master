@@ -7,8 +7,9 @@ using UnityEngine;
 
 namespace MechMaster.Runtime
 {
-    public sealed class BikeModelView : MonoBehaviour
+    public sealed class MechanicalModelView : MonoBehaviour
     {
+        private AssemblyLayout assemblyLayout;
         private readonly Dictionary<string, MechanicalPartView> parts =
             new Dictionary<string, MechanicalPartView>(StringComparer.Ordinal);
         private readonly List<MechanicalPartView> orderedParts =
@@ -29,8 +30,9 @@ namespace MechMaster.Runtime
         public int ExplosionTargetCount =>
             orderedParts.Count(view => view.IsInspectionExplosionTarget);
 
-        public void Bind(DisassemblyPlan plan)
+        public void Bind(DisassemblyPlan plan, AssemblyLayout layout)
         {
+            assemblyLayout = layout;
             parts.Clear();
             orderedParts.Clear();
             globalExplosionActive = false;
@@ -44,7 +46,7 @@ namespace MechMaster.Runtime
             for (int index = 0; index < plan.Steps.Count; index++)
             {
                 PartDefinition definition = plan.Steps[index];
-                string[] objectNames = ResolveObjectNames(definition, plan.Difficulty);
+                string[] objectNames = definition.ModelObjectNames.ToArray();
                 if (objectNames.Length == 0)
                 {
                     Debug.LogWarning("没有为零件配置模型映射：" + definition.Id);
@@ -70,7 +72,7 @@ namespace MechMaster.Runtime
                     slotIndex = 0;
                 }
                 assemblySlotIndices[definition.AssemblyId] = slotIndex + 1;
-                Vector3 trayPosition = BicycleAssemblyInfo.PartPosition(
+                Vector3 trayPosition = assemblyLayout.PartPosition(
                     definition.AssemblyId,
                     slotIndex);
                 Vector3 worldOffset = trayPosition - anchor.position;
@@ -205,8 +207,8 @@ namespace MechMaster.Runtime
             Bounds activeBounds = CombinedBounds(available);
             float baseDistance = Mathf.Clamp(
                 activeBounds.size.magnitude * 0.22f,
-                0.32f,
-                0.62f);
+                0.32f * assemblyLayout.Scale,
+                0.62f * assemblyLayout.Scale);
             foreach (IGrouping<string, MechanicalPartView> assemblyGroup in available
                 .GroupBy(view => view.Definition.AssemblyId, StringComparer.Ordinal))
             {
@@ -229,11 +231,11 @@ namespace MechMaster.Runtime
                     float sizeBias = Mathf.Clamp(
                         view.GetWorldBounds().extents.magnitude * 0.16f,
                         0f,
-                        0.12f);
+                        0.12f * assemblyLayout.Scale);
                     Vector3 offset = direction
-                        * (baseDistance + sizeBias + Mathf.Abs(centeredIndex) * 0.025f)
-                        + tangent * centeredIndex * 0.095f
-                        + Vector3.up * ((index % 2 == 0 ? 1f : -1f) * 0.035f);
+                        * (baseDistance + sizeBias + Mathf.Abs(centeredIndex) * 0.025f * assemblyLayout.Scale)
+                        + tangent * centeredIndex * 0.095f * assemblyLayout.Scale
+                        + Vector3.up * ((index % 2 == 0 ? 1f : -1f) * 0.035f * assemblyLayout.Scale);
                     view.SetInspectionExplosion(offset, true, immediate);
                 }
             }
@@ -284,8 +286,8 @@ namespace MechMaster.Runtime
             float distance = Mathf.Clamp(
                 assembledPartBounds.size.magnitude * 0.09f
                 + selected.GetWorldBounds().extents.magnitude * 0.08f,
-                0.17f,
-                0.29f);
+                0.17f * assemblyLayout.Scale,
+                0.29f * assemblyLayout.Scale);
             selected.SetInspectionExplosion(direction * distance, true, immediate);
             localExplosionPartId = partId;
             globalExplosionActive = false;
@@ -348,18 +350,19 @@ namespace MechMaster.Runtime
             return bounds;
         }
 
-        private static Vector3 ResolveExplosionDirection(
+        private Vector3 ResolveExplosionDirection(
             string assemblyId,
             Vector3 radialDirection)
         {
-            if (radialDirection.sqrMagnitude >= 0.012f)
+            if (radialDirection.sqrMagnitude >= 0.012f
+                * assemblyLayout.Scale * assemblyLayout.Scale)
             {
                 return radialDirection.normalized;
             }
 
-            int assemblyIndex = Mathf.Max(0, BicycleAssemblyInfo.IndexOf(assemblyId));
+            int assemblyIndex = Mathf.Max(0, assemblyLayout.IndexOf(assemblyId));
             float angle = assemblyIndex * Mathf.PI * 2f
-                / BicycleAssemblyInfo.OrderedIds.Length;
+                / assemblyLayout.Count;
             float vertical = (assemblyIndex % 3 - 1) * 0.32f;
             return new Vector3(Mathf.Cos(angle), vertical, Mathf.Sin(angle)).normalized;
         }
@@ -421,15 +424,15 @@ namespace MechMaster.Runtime
                 trayMaterial.color = WorkshopTheme.TrayColor(0);
             }
 
-            for (int index = 0; index < BicycleAssemblyInfo.OrderedIds.Length; index++)
+            for (int index = 0; index < assemblyLayout.Count; index++)
             {
-                string assemblyId = BicycleAssemblyInfo.OrderedIds[index];
+                string assemblyId = assemblyLayout.IdAt(index);
                 GameObject cell = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 cell.name = "TrayCell_" + assemblyId;
                 cell.transform.SetParent(trayRoot.transform, false);
-                cell.transform.localPosition =
-                    BicycleAssemblyInfo.TrayCellPosition(assemblyId) + new Vector3(0f, -0.02f, 0f);
-                cell.transform.localScale = new Vector3(0.34f, 0.025f, 0.25f);
+                cell.transform.localPosition = assemblyLayout.TrayCellPosition(assemblyId)
+                    + new Vector3(0f, assemblyLayout.CellVerticalOffset, 0f);
+                cell.transform.localScale = assemblyLayout.CellSize;
 
                 Collider collider = cell.GetComponent<Collider>();
                 if (collider != null)
@@ -463,63 +466,10 @@ namespace MechMaster.Runtime
             targetRenderer.SetPropertyBlock(block);
         }
 
-        private static Color DefaultTrayColor(string assemblyId)
+        private Color DefaultTrayColor(string assemblyId)
         {
-            int index = BicycleAssemblyInfo.IndexOf(assemblyId);
+            int index = assemblyLayout.IndexOf(assemblyId);
             return WorkshopTheme.TrayColor(index);
-        }
-
-        private static string[] ResolveObjectNames(
-            PartDefinition definition,
-            DifficultyLevel difficulty)
-        {
-            if (definition.ModelObjectNames.Count > 0)
-            {
-                return definition.ModelObjectNames.ToArray();
-            }
-
-            string partId = definition.Id;
-            switch (partId)
-            {
-                case "front_thru_axle":
-                    return new[] { "Front_ThruAxle" };
-                case "front_wheel":
-                    return difficulty == DifficultyLevel.Advanced
-                        ? new[] { "Front_Tire", "Front_Rim", "Front_Spokes", "Front_Hub" }
-                        : new[] { "Front_Tire", "Front_Rim", "Front_Spokes", "Front_Hub", "Front_EndCaps" };
-                case "front_brake_assembly":
-                    return new[]
-                    {
-                        "Front_Caliper", "LeftPad", "RightPad", "PadSpring", "PadPin",
-                        "RetainingClip", "CaliperMountBolts", "BrakeHose"
-                    };
-                case "front_rotor_assembly":
-                    return new[] { "Front_Rotor", "RotorBolts" };
-                case "pad_retaining_clip":
-                    return new[] { "RetainingClip" };
-                case "pad_retaining_pin":
-                    return new[] { "PadPin" };
-                case "brake_pads_group":
-                    return new[] { "LeftPad", "RightPad", "PadSpring" };
-                case "pad_spring":
-                    return new[] { "PadSpring" };
-                case "left_brake_pad":
-                    return new[] { "LeftPad" };
-                case "right_brake_pad":
-                    return new[] { "RightPad" };
-                case "caliper_mount_bolts":
-                    return new[] { "CaliperMountBolts" };
-                case "front_caliper":
-                    return new[] { "Front_Caliper", "BrakeHose" };
-                case "rotor_bolts_group":
-                    return new[] { "RotorBolts" };
-                case "front_rotor":
-                    return new[] { "Front_Rotor" };
-                case "hub_end_caps":
-                    return new[] { "Front_EndCaps" };
-                default:
-                    return Array.Empty<string>();
-            }
         }
     }
 }
