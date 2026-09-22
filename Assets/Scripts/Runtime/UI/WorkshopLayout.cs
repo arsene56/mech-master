@@ -16,6 +16,9 @@ namespace MechMaster.Runtime.UI
         public static Rect WholeButton => new Rect(1032, 20, 144, 44);
         public static Rect StorageButton => new Rect(1186, 20, 144, 44);
         public static Rect HeaderGuide => new Rect(1340, 20, 526, 44);
+        public static Rect MotionButton => new Rect(1340, 20, 154, 44);
+        public static Rect MotionStopButton => new Rect(1504, 20, 90, 44);
+        public static Rect MotionGuide => new Rect(1604, 20, 262, 44);
         public static Rect ModelMenu(int modelCount) => new Rect(
             ModelSelector.x, 72, ModelSelector.width,
             12 + Mathf.Min(6, Mathf.Max(1, modelCount)) * 44);

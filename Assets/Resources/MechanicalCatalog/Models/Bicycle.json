@@ -20,6 +20,12 @@
     "Models/Bicycle/Modules/saddle_seatpost_LOD0",
     "Models/Bicycle/Modules/controls_cables_LOD0"
   ],
+  "motion": {
+    "kind": "bicycle-pedaling-v1",
+    "frontTeeth": 36,
+    "rearTeeth": 24,
+    "chainLinks": 110
+  },
   "assemblies": [
     { "id": "controls_cables", "displayName": "操控与线管" },
     { "id": "saddle_seatpost", "displayName": "鞍座与座管" },

@@ -26,6 +26,7 @@ namespace MechMaster.Runtime.UI
         private GUIStyle boxStyle;
         private GUIStyle panPanelStyle;
         private GUIStyle panButtonStyle;
+        private GUIStyle cadenceButtonStyle;
         private GUIStyle trayPanelStyle;
         private GUIStyle trayCellStyle;
         private GUIStyle trayCellActiveStyle;
@@ -187,14 +188,31 @@ namespace MechMaster.Runtime.UI
                 app.FrameWholeModel();
             if (GUI.Button(CurrentLayout.ToPixels(WorkshopLayout.StorageButton), "查看收纳", buttonStyle))
                 app.FrameStorage();
-            string guide = app.IsGlobalExplosionActive
+            if (app.MotionAvailable)
+            {
+                string motionButton = app.IsMotionPlaying ? "Ⅱ  暂停演示"
+                    : app.IsMotionActive ? "▶  继续演示" : "▶  运转演示";
+                if (GUI.Button(CurrentLayout.ToPixels(WorkshopLayout.MotionButton),
+                    motionButton, app.IsMotionActive ? selectedButtonStyle : buttonStyle))
+                    app.ToggleMotion();
+                bool enabled = GUI.enabled;
+                GUI.enabled = app.IsMotionActive;
+                if (GUI.Button(CurrentLayout.ToPixels(WorkshopLayout.MotionStopButton),
+                    "结束", buttonStyle))
+                    app.StopMotion();
+                GUI.enabled = enabled;
+            }
+            string guide = app.IsMotionActive
+                ? "原地踩踏 · 旋转缩放"
+                : app.IsGlobalExplosionActive
                 ? "全局爆炸 · 拖动旋转 · 双指缩放"
                 : app.IsLocalExplosionMode
                     ? "轻点零件爆炸 / 收回 · 拖动旋转"
                     : view
                         ? "拖动旋转 · 点击听讲解 · 双指缩放"
                         : "拖动零件 · 空白处旋转 · 双指缩放";
-            Rect guideRect = CurrentLayout.ToPixels(WorkshopLayout.HeaderGuide);
+            Rect guideRect = CurrentLayout.ToPixels(
+                app.MotionAvailable ? WorkshopLayout.MotionGuide : WorkshopLayout.HeaderGuide);
             GUI.Label(guideRect,
                 FitTrayLine(guide, headerGuideStyle, guideRect.width), headerGuideStyle);
         }
@@ -309,7 +327,24 @@ namespace MechMaster.Runtime.UI
             }
             GUILayout.Label("仅用于观察，不改变拆解进度", captionStyle);
 
-            GUILayout.Space(Pixels(12f));
+            if (app.MotionAvailable)
+            {
+                GUILayout.Space(Pixels(8f));
+                GUILayout.Label("演示调速：" + app.MotionCadenceRpm + " 转/分", captionStyle);
+                bool cadenceEnabled = GUI.enabled;
+                GUI.enabled = cadenceEnabled && app.IsMotionActive;
+                GUILayout.BeginHorizontal();
+                if (GUILayout.Button("慢 −15", cadenceButtonStyle,
+                    GUILayout.Height(Pixels(36f))))
+                    app.ChangeMotionCadence(-15);
+                if (GUILayout.Button("快 +15", cadenceButtonStyle,
+                    GUILayout.Height(Pixels(36f))))
+                    app.ChangeMotionCadence(15);
+                GUILayout.EndHorizontal();
+                GUI.enabled = cadenceEnabled;
+            }
+
+            GUILayout.Space(Pixels(8f));
             GUILayout.Label("拆装工作台", headingStyle);
             GUILayout.Label(
                 (app.Plan.Mode == AssemblyMode.Disassemble ? "拆解" : "组装")
@@ -338,7 +373,7 @@ namespace MechMaster.Runtime.UI
                 app.ResetCurrentPlan();
             }
 
-            GUILayout.Space(Pixels(16f));
+            GUILayout.Space(Pixels(8f));
             bool narration = app.NarrationEnabled;
             if (GUILayout.Button(narration ? (app.NarrationAvailable ? "中文讲解 · 开" : "语音待就绪") : "中文讲解 · 关",
                 narration ? selectedButtonStyle : buttonStyle, GUILayout.Height(Pixels(44f))))
@@ -511,7 +546,9 @@ namespace MechMaster.Runtime.UI
             }
             GUILayout.EndScrollView();
             GUILayout.Label(
-                app.Plan.Mode == AssemblyMode.Disassemble
+                app.IsMotionActive
+                    ? "动态演示中：停止后可继续拆装"
+                    : app.Plan.Mode == AssemblyMode.Disassemble
                     ? "自由拆解：可选择任意尚未拆下的零件"
                     : "自由组装：可选择任意托盘中的零件",
                 hintStyle);
@@ -602,6 +639,12 @@ namespace MechMaster.Runtime.UI
                 new Color(WorkshopTheme.Sky.r, WorkshopTheme.Sky.g, WorkshopTheme.Sky.b, 0.62f),
                 WorkshopTheme.Ink,
                 new Color(WorkshopTheme.Border.r, WorkshopTheme.Border.g, WorkshopTheme.Border.b, 0.72f));
+            cadenceButtonStyle = new GUIStyle(buttonStyle)
+            {
+                fontSize = 17,
+                wordWrap = false,
+                padding = new RectOffset(2, 2, 2, 2)
+            };
             trayPanelStyle = CreateSurface(new Color(0.96f, 0.985f, 0.97f, 0.9f),
                 WorkshopTheme.Border, 20, WorkshopTheme.Ink);
             trayCellStyle = CreateSurface(WorkshopTheme.Sky, WorkshopTheme.Border, 16, WorkshopTheme.Ink);
@@ -629,6 +672,7 @@ namespace MechMaster.Runtime.UI
             {
                 titleStyle, brandStyle, sloganStyle, headingStyle, bodyStyle, captionStyle, headerGuideStyle,
                 statusStyle, buttonStyle, selectedButtonStyle, modelButtonStyle, selectedModelButtonStyle,
+                cadenceButtonStyle,
                 selectedToolStyle, actionStyle, boxStyle, panPanelStyle, panButtonStyle, trayPanelStyle,
                 trayCellStyle, trayCellActiveStyle, trayCellReadyStyle, trayCellBlockedStyle,
                 trayCellWrongStyle, chipStyle, hintStyle, shadowStyle, progressTrackStyle,

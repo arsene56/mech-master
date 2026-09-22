@@ -21,6 +21,7 @@ internal static class Program
         Run("Engineering catalog quantities", EngineeringCatalogQuantities);
         Run("Engineering interaction plan counts", EngineeringInteractionPlanCounts);
         Run("Engineering model bindings", EngineeringModelBindings);
+        Run("Bicycle motion configuration", BicycleMotionConfiguration);
         Run("Discoverable mechanical model manifests", DiscoverableModelManifests);
 
         Console.WriteLine(failures == 0
@@ -353,6 +354,34 @@ internal static class Program
             }
             True(difficulties.SetEquals(new[] { "Simple", "Standard", "Advanced" }));
         }
+    }
+
+    private static void BicycleMotionConfiguration()
+    {
+        using JsonDocument model = LoadJson("Assets", "Resources", "MechanicalCatalog",
+            "Models", "Bicycle.json");
+        JsonElement motion = model.RootElement.GetProperty("motion");
+        Equal("bicycle-pedaling-v1", motion.GetProperty("kind").GetString());
+        using JsonDocument engineering = LoadEngineeringCatalog();
+        JsonElement dimensions = engineering.RootElement.GetProperty("dimensions");
+        Equal(dimensions.GetProperty("frontChainringTeeth")[0].GetInt32(),
+            motion.GetProperty("frontTeeth").GetInt32());
+        Equal(dimensions.GetProperty("cassetteTeeth")[6].GetInt32(),
+            motion.GetProperty("rearTeeth").GetInt32());
+        Equal(110, motion.GetProperty("chainLinks").GetInt32());
+
+        using JsonDocument parts = LoadJson("Assets", "StreamingAssets", "MechanicalCatalog",
+            "bicycle_model_manifest.json");
+        var names = new HashSet<string>(StringComparer.Ordinal);
+        foreach (JsonElement part in parts.RootElement.GetProperty("parts").EnumerateArray())
+            names.Add(part.GetProperty("object").GetString());
+        foreach (string required in new[] {
+            "MM_crank_spindle", "MM_crank_chainring_1", "MM_wheel_rear_hub_shell",
+            "MM_wheel_rear_cassette_sprocket_07", "MM_pedal_axle_1", "MM_pedal_axle_2",
+            "MM_rear_derailleur_jockey_wheel_1", "MM_rear_derailleur_jockey_wheel_2",
+            "MM_chain_link_001", "MM_chain_link_110", "MM_chain_quick_link_1"
+        })
+            True(names.Contains(required));
     }
 
     private static JsonDocument LoadJson(params string[] pathSegments)

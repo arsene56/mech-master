@@ -119,6 +119,8 @@ flowchart TB
 
 爆炸视图复用当前拆解等级的 `MechanicalPartView` 逻辑单元，不直接操作 595 个原始实体。`MechanicalModelView` 按清单中的总成计算径向、切向和高度偏移，并按模型尺寸缩放；局部模式只设置一个逻辑单元的观察偏移。`OrbitCameraController` 根据偏移后的包围盒重新构图，同时保留当前观察角度。爆炸偏移与拆装托盘偏移在 `MechanicalPartView` 中独立叠加，因此观察状态不会污染拆装状态。
 
+自行车清单可选的 `motion` 字段声明固定 36T / 24T 踩踏演示。`BicycleMotionController` 在完整整车上按统一相位驱动曲柄、脚踏、飞轮、后轮和后拨导轮；后轮角速度为曲柄的 1.5 倍。运转链条通过牙盘、飞轮和两只后拨导轮的切线路径生成独立显示层，按链路长度配置约 126 个可见链片。退出演示后恢复 110 个具有稳定 ID 的静态可拆链节。运转属于观察状态，不修改 `DisassemblyPlan`、`LocalProgressStore` 或模型实体基线；拆装、爆炸、查看收纳、切换模型和等级都会停止并复位演示。
+
 中文讲解在 Windows Editor 中由 `VoiceNarrator` 调用本地 `WindowsSpeechHost`，使用已安装的系统中文语音。`LocalSpeechBuilder` 从仓库源码编译辅助程序到 `Library`。切换零件会取消旧播报；正常取消不能当成音频故障。此适配不进入微信构建，微信语音与音频资源仍需单独接入。
 
 ## 5. 拆装状态与表现
@@ -231,6 +233,7 @@ FBX 使用 `-Z Forward / Y Up`，引擎中 `1 unit = 1 m`。自由缩放通过�
 - 自动生成知识文本需专家和教育编辑审核。
 - UI 仍是 IMGUI 样片，应迁移到 UGUI 或 UI Toolkit。
 - 当前运行时全量加载 LOD0；按需模块加载接口是微信接入前的高优先级工作。
+- 自行车动态演示目前是固定挡位的运动学样片；真实换挡、链条张紧和微信端运转资源合批仍待实现并验收。
 - 本次通用化改造已通过本机团结引擎 Editor 编译、模型绑定和批处理 Play Mode 启动校验；手势与画面复核、微信导出和真机验证仍待执行。
 
 ## 13. 新增机械模型
@@ -242,6 +245,7 @@ FBX 使用 `-Z Forward / Y Up`，引擎中 `1 unit = 1 m`。自由缩放通过�
 - `catalogResourcePath`：不带扩展名的 `Resources` JSON 路径，目录必须提供 `Simple / Standard / Advanced` 三档。
 - `moduleResourcePaths`：每个分件 FBX/Prefab 的 `Resources` 路径，不带扩展名。
 - `assemblies`：分类槽 ID 与中文显示名，交互目录中的每个 `assemblyId` 必须在此定义。
+- 可选 `motion`：仅已制作运转演示的模型填写；当前自行车使用 `bicycle-pedaling-v1`、前后齿数和原静态链节数。没有该字段的模型不显示“运转演示”。新运动种类需实现对应运行时控制器。
 
 可复制 [`Bicycle.json`](../Assets/Resources/MechanicalCatalog/Models/Bicycle.json) 作为字段示例，但不要复用自行车 ID。正式入库还必须提供机器可读 BOM、稳定对象名、1:1 尺寸基准、来源许可、Source 与移动端 LOD、三级科普文本以及微信真机预算测试。[候选模型状态](References/MODEL_CANDIDATES.md)记录了 OM10 与 V8 尚未通过的环节。
 

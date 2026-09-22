@@ -13,6 +13,15 @@ namespace MechMaster.Runtime
     }
 
     [Serializable]
+    public sealed class MechanicalMotionDefinition
+    {
+        public string kind;
+        public int frontTeeth;
+        public int rearTeeth;
+        public int chainLinks;
+    }
+
+    [Serializable]
     public sealed class MechanicalModelDefinition
     {
         public int schemaVersion;
@@ -22,6 +31,7 @@ namespace MechMaster.Runtime
         public string catalogResourcePath;
         public string[] moduleResourcePaths;
         public MechanicalAssemblyDefinition[] assemblies;
+        public MechanicalMotionDefinition motion;
 
         public string AssemblyDisplayName(string assemblyId)
         {
@@ -104,7 +114,11 @@ namespace MechMaster.Runtime
                     || string.IsNullOrWhiteSpace(assembly.id)
                     || string.IsNullOrWhiteSpace(assembly.displayName))
                 || model.assemblies.Select(assembly => assembly.id)
-                    .Distinct(StringComparer.Ordinal).Count() != model.assemblies.Length)
+                    .Distinct(StringComparer.Ordinal).Count() != model.assemblies.Length
+                || model.motion != null && (string.IsNullOrWhiteSpace(model.motion.kind)
+                    || model.motion.kind == "bicycle-pedaling-v1"
+                    && (model.motion.frontTeeth <= 0 || model.motion.rearTeeth <= 0
+                        || model.motion.chainLinks <= 0)))
             {
                 throw new InvalidOperationException("机械模型清单包含空值或重复项：" + assetName);
             }

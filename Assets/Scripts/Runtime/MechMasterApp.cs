@@ -18,6 +18,7 @@ namespace MechMaster.Runtime
     {
         private GameObject modelInstance;
         private MechanicalModelView modelView;
+        private BicycleMotionController motion;
         private FeedbackAudio feedbackAudio;
         private VoiceNarrator narrator;
 
@@ -37,6 +38,10 @@ namespace MechMaster.Runtime
             && modelView != null
             && modelView.GlobalExplosionActive;
         public bool IsLocalExplosionMode => ExplosionMode == ExplosionViewMode.Local;
+        public bool MotionAvailable => motion != null && motion.IsReady;
+        public bool IsMotionActive => motion != null && motion.IsActive;
+        public bool IsMotionPlaying => motion != null && motion.IsPlaying;
+        public int MotionCadenceRpm => motion == null ? 60 : motion.CadenceRpm;
 
         public event Action StateChanged;
 
@@ -93,6 +98,7 @@ namespace MechMaster.Runtime
             }
 
             PartInteractionController.Instance?.CancelGesture();
+            StopMotionInternal();
             narrator.Stop();
             CreatePlan(difficulty, true);
         }
@@ -104,6 +110,7 @@ namespace MechMaster.Runtime
                 return;
 
             PartInteractionController.Instance?.CancelGesture();
+            StopMotionInternal();
             narrator.Stop();
             Model = next;
             PrototypeUI.ResetTrayPage();
@@ -163,6 +170,7 @@ namespace MechMaster.Runtime
 
         public void Operate(string partId)
         {
+            StopMotionInternal();
             ClearExplosionInternal(true);
             AssemblyMode operationMode = Plan.Mode;
             OperationResult result = Plan.TryOperate(partId);
@@ -245,6 +253,7 @@ namespace MechMaster.Runtime
 
         public void ToggleMode()
         {
+            StopMotionInternal();
             if (Plan.Mode == AssemblyMode.Disassemble)
             {
                 if (!Plan.IsDisassemblyComplete)
@@ -280,6 +289,7 @@ namespace MechMaster.Runtime
 
         public void ResetCurrentPlan()
         {
+            StopMotionInternal();
             LocalProgressStore.ClearProgress(Model.id, Plan.Difficulty);
             CreatePlan(Plan.Difficulty, false);
         }
@@ -288,6 +298,7 @@ namespace MechMaster.Runtime
         {
             if (!viewMode)
             {
+                StopMotionInternal();
                 ClearExplosionInternal(true);
             }
 
@@ -306,6 +317,7 @@ namespace MechMaster.Runtime
             }
 
             PartInteractionController.Instance?.CancelGesture();
+            StopMotionInternal();
             if (IsGlobalExplosionActive)
             {
                 ClearExplosionInternal(false);
@@ -343,6 +355,7 @@ namespace MechMaster.Runtime
             }
 
             PartInteractionController.Instance?.CancelGesture();
+            StopMotionInternal();
             if (ExplosionMode == ExplosionViewMode.Local)
             {
                 ClearExplosionInternal(false);
@@ -390,6 +403,7 @@ namespace MechMaster.Runtime
         public void FrameStorage()
         {
             PartInteractionController.Instance?.CancelGesture();
+            StopMotionInternal();
             bool hadExplosion = ExplosionMode != ExplosionViewMode.None;
             ClearExplosionInternal(true);
             if (modelInstance == null) return;
@@ -421,6 +435,7 @@ namespace MechMaster.Runtime
 
         private void CreatePlan(DifficultyLevel difficulty, bool restoreProgress)
         {
+            StopMotionInternal();
             ExplosionMode = ExplosionViewMode.None;
             Plan = MechanicalCatalogLoader.CreatePlan(Model, difficulty);
             if (restoreProgress)
@@ -487,6 +502,7 @@ namespace MechMaster.Runtime
 
         private void LoadModel()
         {
+            motion = null;
             if (modelInstance != null)
             {
                 Destroy(modelInstance);
@@ -529,6 +545,20 @@ namespace MechMaster.Runtime
             modelView = modelInstance.AddComponent<MechanicalModelView>();
             modelView.Bind(Plan, layout);
             modelView.Refresh(Plan, true);
+
+            if (Model.motion != null && Model.motion.kind == "bicycle-pedaling-v1")
+            {
+                BicycleMotionController candidate =
+                    modelInstance.AddComponent<BicycleMotionController>();
+                if (candidate.Initialize(Model.motion.frontTeeth,
+                    Model.motion.rearTeeth, Model.motion.chainLinks))
+                    motion = candidate;
+                else
+                {
+                    Debug.LogWarning("动态演示绑定失败：" + Model.displayName);
+                    Destroy(candidate);
+                }
+            }
 
             OrbitCameraController orbit = Camera.main.GetComponent<OrbitCameraController>();
             if (orbit != null)
@@ -600,6 +630,61 @@ namespace MechMaster.Runtime
         {
             modelView?.ClearInspectionExplosion(immediate);
             ExplosionMode = ExplosionViewMode.None;
+        }
+
+        public void ToggleMotion()
+        {
+            if (!MotionAvailable) return;
+            if (motion.IsPlaying)
+            {
+                motion.Pause();
+                StatusMessage = "原地踩踏演示已暂停，可继续观察或恢复播放。";
+            }
+            else if (motion.IsActive)
+            {
+                motion.Play();
+                StatusMessage = "原地踩踏演示继续播放。";
+            }
+            else
+            {
+                if (!Plan.IsAssemblyComplete)
+                {
+                    StatusMessage = "请先装回所有机械单元，再观看运转演示。";
+                    feedbackAudio.PlayBlocked();
+                    NotifyStateChanged();
+                    return;
+                }
+                PartInteractionController.Instance?.CancelGesture();
+                ClearExplosionInternal(true);
+                PartInteractionController.SetViewMode(true);
+                motion.Play();
+                StatusMessage = "原地踩踏：曲柄、链条、飞轮和后轮按齿比联动。";
+                SpeakNarration("脚踏带动牙盘，链条驱动飞轮和后轮旋转。");
+            }
+            feedbackAudio.PlayModeSwitch();
+            NotifyStateChanged();
+        }
+
+        public void StopMotion()
+        {
+            if (!IsMotionActive) return;
+            StopMotionInternal();
+            StatusMessage = "原地踩踏演示已结束，整车恢复静止姿态。";
+            feedbackAudio.PlayModeSwitch();
+            NotifyStateChanged();
+        }
+
+        public void ChangeMotionCadence(int change)
+        {
+            if (!MotionAvailable) return;
+            motion.SetCadence(motion.CadenceRpm + change);
+            StatusMessage = "原地踩踏速度：每分钟 " + motion.CadenceRpm + " 圈。";
+            NotifyStateChanged();
+        }
+
+        private void StopMotionInternal()
+        {
+            motion?.Stop();
         }
 
         private PartDefinition FindPart(string partId)

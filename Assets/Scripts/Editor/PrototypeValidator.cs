@@ -36,7 +36,7 @@ namespace MechMaster.Editor
             if (SessionState.GetBool(RuntimeSmokeKey, false))
             {
                 if (state == PlayModeStateChange.EnteredPlayMode)
-                    EditorApplication.delayCall += ValidateRuntimeBootstrap;
+                    EditorApplication.delayCall += ValidateRuntimeBootstrapAfterFrame;
                 else if (state == PlayModeStateChange.EnteredEditMode)
                 {
                     int code = SessionState.GetInt(RuntimeSmokeExitCodeKey, 1);
@@ -67,6 +67,12 @@ namespace MechMaster.Editor
             EditorApplication.isPlaying = true;
         }
 
+        private static void ValidateRuntimeBootstrapAfterFrame()
+        {
+            // Let the tray's Destroy(collider) requests finish before playback.
+            EditorApplication.delayCall += ValidateRuntimeBootstrap;
+        }
+
         private static void ValidateRuntimeBootstrap()
         {
             try
@@ -79,6 +85,22 @@ namespace MechMaster.Editor
                     throw new InvalidOperationException("运行时零件绑定数量与拆装计划不一致。");
                 if (GameObject.Find("MechanicalModel_" + app.Model.id) == null)
                     throw new InvalidOperationException("运行时模型根节点未创建。");
+                if (app.MotionAvailable && app.Plan.IsAssemblyComplete)
+                {
+                    app.ToggleMotion();
+                    if (!app.IsMotionPlaying)
+                        throw new InvalidOperationException("运行时运转演示未能启动。");
+                    app.ChangeMotionCadence(15);
+                    if (app.MotionCadenceRpm != 75)
+                        throw new InvalidOperationException("运行时演示调速未生效。");
+                    app.ToggleMotion();
+                    if (!app.IsMotionActive || app.IsMotionPlaying)
+                        throw new InvalidOperationException("运行时演示未能暂停。");
+                    app.StopMotion();
+                    if (app.IsMotionActive)
+                        throw new InvalidOperationException("运行时演示未能结束。");
+                    Debug.Log("MECH_MASTER_RUNTIME_MOTION_SMOKE_OK");
+                }
                 Debug.Log("MECH_MASTER_RUNTIME_MODEL_SMOKE_OK model=" + app.Model.id
                     + " parts=" + view.Parts.Count);
                 SessionState.SetInt(RuntimeSmokeExitCodeKey, 0);
@@ -201,6 +223,117 @@ namespace MechMaster.Editor
 
             Debug.LogError(error);
             EditorApplication.Exit(1);
+        }
+
+        [MenuItem("机械大师/验证自行车动态演示")]
+        public static void ValidateMotionFromMenu()
+        {
+            string error = ValidateMotion();
+            if (string.IsNullOrEmpty(error))
+                Debug.Log("MECH_MASTER_BICYCLE_MOTION_VALIDATION_OK");
+            else Debug.LogError(error);
+        }
+
+        public static void ValidateMotionFromCommandLine()
+        {
+            string error = ValidateMotion();
+            if (string.IsNullOrEmpty(error))
+            {
+                Debug.Log("MECH_MASTER_BICYCLE_MOTION_VALIDATION_OK");
+                EditorApplication.Exit(0);
+            }
+            else
+            {
+                Debug.LogError(error);
+                EditorApplication.Exit(1);
+            }
+        }
+
+        private static string ValidateMotion()
+        {
+            MechanicalModelDefinition bicycle = MechanicalModelRegistry.Find(
+                "bike.hardtail.27_5.2x10.v1");
+            if (bicycle == null || bicycle.motion == null)
+                return "工程自行车缺少动态演示配置。";
+
+            GameObject root = new GameObject("BicycleMotionValidation");
+            try
+            {
+                foreach (string resourcePath in bicycle.moduleResourcePaths)
+                {
+                    GameObject prefab = Resources.Load<GameObject>(resourcePath);
+                    if (prefab == null) return "动态演示缺少模型模块：" + resourcePath;
+                    UnityEngine.Object.Instantiate(prefab, root.transform, false);
+                }
+
+                BicycleMotionController controller =
+                    root.AddComponent<BicycleMotionController>();
+                if (!controller.Initialize(bicycle.motion.frontTeeth,
+                    bicycle.motion.rearTeeth, bicycle.motion.chainLinks))
+                    return "动态演示的转轴、链条或导轮绑定失败。";
+                if (Mathf.Abs(controller.RearWheelRatio - 1.5f) > 0.0001f)
+                    return "36T/24T 的后轮传动比不正确。";
+
+                Transform[] transforms = root.GetComponentsInChildren<Transform>(true);
+                Transform crank = transforms.First(item => item.name == "MM_crank_arm_1");
+                Transform valve = transforms.First(item => item.name == "MM_wheel_rear_valve_core");
+                Transform upperJockey = transforms.First(item =>
+                    item.name == "MM_rear_derailleur_jockey_wheel_1");
+                Transform lowerJockey = transforms.First(item =>
+                    item.name == "MM_rear_derailleur_jockey_wheel_2");
+                Renderer staticChain = transforms.First(item => item.name == "MM_chain_link_001")
+                    .GetComponentInChildren<Renderer>();
+                Vector3 crankStart = crank.position;
+                Vector3 valveStart = valve.position;
+                controller.Play();
+                Transform visualChain = root.transform.Find("MotionChainVisual");
+                if (!controller.IsPlaying || visualChain == null || !visualChain.gameObject.activeSelf
+                    || root.transform.Find("RearWheelServiceStand") != null
+                    || visualChain.childCount < 120 || visualChain.childCount > 132
+                    || staticChain.enabled)
+                    return "动态链条或播放状态不正确。";
+
+                typeof(BicycleMotionController).GetField("crankTurns", InstanceMembers)
+                    .SetValue(controller, 0.25d);
+                typeof(BicycleMotionController).GetMethod("Update", InstanceMembers)
+                    .Invoke(controller, null);
+                Vector3 upperCenter = upperJockey.GetComponentInChildren<Renderer>().bounds.center;
+                Vector3 lowerCenter = lowerJockey.GetComponentInChildren<Renderer>().bounds.center;
+                float upperContact = float.MaxValue, lowerContact = float.MaxValue;
+                for (int index = 0; index < visualChain.childCount; index++)
+                {
+                    Vector3 position = visualChain.GetChild(index).position;
+                    upperContact = Mathf.Min(upperContact,
+                        Mathf.Abs(Vector3.Distance(position, upperCenter) - 0.025f));
+                    lowerContact = Mathf.Min(lowerContact,
+                        Mathf.Abs(Vector3.Distance(position, lowerCenter) - 0.025f));
+                }
+                if (upperContact > 0.006f || lowerContact > 0.006f)
+                    return "运转链条未经过两只后拨导轮。";
+                if (Vector3.Distance(crank.position, crankStart) < 0.05f
+                    || Vector3.Distance(valve.position, valveStart) < 0.05f)
+                    return "曲柄或后轮未按传动关系转动。";
+
+                controller.Pause();
+                if (!controller.IsActive || controller.IsPlaying)
+                    return "动态演示暂停状态不正确。";
+                controller.Play();
+                controller.Stop();
+                if (controller.IsActive || controller.IsPlaying || !staticChain.enabled
+                    || visualChain.gameObject.activeSelf
+                    || Vector3.Distance(crank.position, crankStart) > 0.0001f
+                    || Vector3.Distance(valve.position, valveStart) > 0.0001f)
+                    return "动态演示结束后未恢复静态模型。";
+                return string.Empty;
+            }
+            catch (Exception exception)
+            {
+                return "动态演示验证异常：" + exception;
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(root);
+            }
         }
 
         private static string Validate()
