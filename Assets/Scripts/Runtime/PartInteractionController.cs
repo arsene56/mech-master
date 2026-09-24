@@ -11,6 +11,7 @@ namespace MechMaster.Runtime
         private Camera interactionCamera;
         private OrbitCameraController orbit;
         private MechanicalPartView activePart;
+        private BicycleBrakeHitTarget activeBrake;
         private Vector2 pressPosition;
         private Vector2 currentPosition;
         private Plane dragPlane;
@@ -22,6 +23,7 @@ namespace MechMaster.Runtime
         private bool suppressTap;
         private int mouseButton;
         private int fingerId = -1;
+        private int brakePressedFrame;
         private bool pinching;
         private bool waitForAllTouchesUp;
         private float previousPinchDistance;
@@ -60,6 +62,11 @@ namespace MechMaster.Runtime
             {
                 return;
             }
+
+            // MouseUp can be lost when the pointer leaves the Game view.
+            if (pointerActive && activeBrake != null && fingerId == -1
+                && Time.frameCount > brakePressedFrame && !Input.GetMouseButton(mouseButton))
+                CancelGesture();
 
             if (Input.touchCount >= 2)
             {
@@ -171,6 +178,7 @@ namespace MechMaster.Runtime
         {
             CancelGesture();
             if (IsOverUI(screenPosition, pointerId)) return;
+            fingerId = pointerId;
             pointerActive = true;
             moved = false;
             suppressTap = pointerId == -1 && mouseButton == 1;
@@ -189,6 +197,20 @@ namespace MechMaster.Runtime
                 return;
             }
             Array.Sort(hits, (left, right) => left.distance.CompareTo(right.distance));
+
+            if (MechMasterApp.Instance.IsMotionActive && !suppressTap)
+            {
+                foreach (RaycastHit hit in hits)
+                {
+                    activeBrake = hit.collider.GetComponent<BicycleBrakeHitTarget>();
+                    if (activeBrake != null)
+                    {
+                        brakePressedFrame = Time.frameCount;
+                        MechMasterApp.Instance.SetBrakeHeld(activeBrake.IsFront, true);
+                        return;
+                    }
+                }
+            }
 
             RaycastHit selectedHit;
             MechanicalPartView part = ResolveBestPart(hits, out selectedHit);
@@ -268,6 +290,7 @@ namespace MechMaster.Runtime
         private void MovePointer(Vector2 screenPosition)
         {
             if (!pointerActive) return;
+            if (activeBrake != null) return;
             float threshold = DragThreshold * new PixelUILayout(Screen.width, Screen.height).Scale;
             if (!moved && Vector2.Distance(pressPosition, screenPosition) < threshold) return;
             bool justStarted = !moved;
@@ -332,6 +355,7 @@ namespace MechMaster.Runtime
         {
             if (!pointerActive) return;
             MovePointer(screenPosition);
+            if (activeBrake != null) { CancelGesture(); return; }
             if (orbitGesture)
             {
                 string tappedPartId = !moved && !suppressTap && activePart != null ? activePart.PartId : null;
@@ -352,6 +376,7 @@ namespace MechMaster.Runtime
                 hoveredAssemblyId,
                 StringComparison.Ordinal);
             activePart = null;
+            activeBrake = null;
             pointerActive = false;
             IsDraggingPart = false;
             hasDragPlane = false;
@@ -393,6 +418,7 @@ namespace MechMaster.Runtime
 
         public void CancelGesture()
         {
+            BicycleBrakeHitTarget releasedBrake = activeBrake;
             if (activePart != null)
             {
                 activePart.EndDragPreview();
@@ -400,6 +426,8 @@ namespace MechMaster.Runtime
             }
 
             activePart = null;
+            activeBrake = null;
+            fingerId = -1;
             pointerActive = false;
             moved = false;
             IsDraggingPart = false;
@@ -407,6 +435,8 @@ namespace MechMaster.Runtime
             PrototypeUI.ClearTrayDragFeedback();
             if (MechMasterApp.Instance != null)
             {
+                if (releasedBrake != null)
+                    MechMasterApp.Instance.SetBrakeHeld(releasedBrake.IsFront, false);
                 MechMasterApp.Instance.SetTrayHover(null, false, false);
             }
         }

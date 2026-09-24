@@ -203,7 +203,7 @@ namespace MechMaster.Runtime.UI
                 GUI.enabled = enabled;
             }
             string guide = app.IsMotionActive
-                ? "原地踩踏 · 旋转缩放"
+                ? "按住刹把制动 · 空白处拖动旋转"
                 : app.IsGlobalExplosionActive
                 ? "全局爆炸 · 拖动旋转 · 双指缩放"
                 : app.IsLocalExplosionMode
@@ -547,7 +547,9 @@ namespace MechMaster.Runtime.UI
             GUILayout.EndScrollView();
             GUILayout.Label(
                 app.IsMotionActive
-                    ? "动态演示中：停止后可继续拆装"
+                    ? app.FrontBrakeEngaged || app.RearBrakeEngaged
+                        ? "制动中：松开刹把后对应车轮加速"
+                        : "左刹控后轮，右刹控前轮；按住制动"
                     : app.Plan.Mode == AssemblyMode.Disassemble
                     ? "自由拆解：可选择任意尚未拆下的零件"
                     : "自由组装：可选择任意托盘中的零件",

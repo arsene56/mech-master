@@ -5,6 +5,14 @@ using UnityEngine;
 
 namespace MechMaster.Runtime
 {
+    // A dedicated hit area stays usable while the disassembly colliders are disabled.
+    public sealed class BicycleBrakeHitTarget : MonoBehaviour
+    {
+        public bool IsFront { get; private set; }
+
+        public void Initialize(bool isFront) => IsFront = isFront;
+    }
+
     // A kinematic teaching view. The disassembly model and its saved state stay intact.
     public sealed class BicycleMotionController : MonoBehaviour
     {
@@ -29,8 +37,10 @@ namespace MechMaster.Runtime
         }
 
         private readonly List<Pose> crankParts = new List<Pose>();
+        private readonly List<Pose> frontWheelParts = new List<Pose>();
         private readonly List<Pose> rearWheelParts = new List<Pose>();
         private readonly List<Pose>[] pedalParts = { new List<Pose>(), new List<Pose>() };
+        private readonly List<Pose>[] brakePads = { new List<Pose>(), new List<Pose>() };
         private readonly List<Pose> jockeyWheels = new List<Pose>();
         private readonly List<Pose> quickLinks = new List<Pose>();
         private Pose[] chainLinks;
@@ -45,17 +55,32 @@ namespace MechMaster.Runtime
         private Collider[] colliders;
         private bool[] colliderEnabled;
         private Vector3 crankPivot;
+        private Vector3 frontPivot;
         private Vector3 rearPivot;
         private Vector3 axleAxis;
         private readonly Vector3[] pedalPivots = new Vector3[2];
+        private readonly Vector3[] brakePivots = new Vector3[2];
+        private readonly Vector3[] brakeRotorCenters = new Vector3[2];
+        private readonly Pose[] brakeLevers = new Pose[2];
+        private readonly Transform[] brakeHitTargets = new Transform[2];
+        private readonly float[] brakePullAngles = new float[2];
+        private readonly bool[] brakeEngaged = new bool[2];
         private int frontTeeth;
         private int rearTeeth;
         private double crankTurns;
+        private double frontWheelTurns;
+        private float effectiveCadenceRpm;
+        private float frontWheelRpm;
 
         public bool IsReady { get; private set; }
         public bool IsActive { get; private set; }
         public bool IsPlaying { get; private set; }
         public int CadenceRpm { get; private set; } = 60;
+        public float EffectiveCadenceRpm => effectiveCadenceRpm;
+        public float FrontWheelRpm => frontWheelRpm;
+        public float RearWheelRpm => effectiveCadenceRpm * RearWheelRatio;
+        public bool FrontBrakeEngaged => brakeEngaged[0];
+        public bool RearBrakeEngaged => brakeEngaged[1];
         public float RearWheelRatio => frontTeeth / (float)rearTeeth;
 
         public bool Initialize(int chainringTeeth, int sprocketTeeth, int linkCount)
@@ -71,26 +96,51 @@ namespace MechMaster.Runtime
             foreach (Transform part in GetComponentsInChildren<Transform>(true))
                 if (!named.ContainsKey(part.name)) named.Add(part.name, part);
 
-            Transform spindle, chainring, hub, sprocket, firstPedal, secondPedal;
+            Transform spindle, chainring, frontHub, rearHub, sprocket, firstPedal, secondPedal;
             Transform upperJockey, lowerJockey;
+            Transform frontLever, rearLever, frontLeverBody, rearLeverBody;
+            Transform frontLeverPivot, rearLeverPivot, frontRotor, rearRotor;
             if (!named.TryGetValue("MM_crank_spindle", out spindle)
                 || !named.TryGetValue("MM_crank_chainring_1", out chainring)
-                || !named.TryGetValue("MM_wheel_rear_hub_shell", out hub)
+                || !named.TryGetValue("MM_wheel_front_hub_shell", out frontHub)
+                || !named.TryGetValue("MM_wheel_rear_hub_shell", out rearHub)
                 || !named.TryGetValue("MM_wheel_rear_cassette_sprocket_07", out sprocket)
                 || !named.TryGetValue("MM_pedal_axle_1", out firstPedal)
                 || !named.TryGetValue("MM_pedal_axle_2", out secondPedal)
                 || !named.TryGetValue("MM_rear_derailleur_jockey_wheel_1", out upperJockey)
-                || !named.TryGetValue("MM_rear_derailleur_jockey_wheel_2", out lowerJockey))
+                || !named.TryGetValue("MM_rear_derailleur_jockey_wheel_2", out lowerJockey)
+                || !named.TryGetValue("MM_brake_front_lever_blade", out frontLever)
+                || !named.TryGetValue("MM_brake_rear_lever_blade", out rearLever)
+                || !named.TryGetValue("MM_brake_front_lever_body", out frontLeverBody)
+                || !named.TryGetValue("MM_brake_rear_lever_body", out rearLeverBody)
+                || !named.TryGetValue("MM_brake_front_lever_pivot", out frontLeverPivot)
+                || !named.TryGetValue("MM_brake_rear_lever_pivot", out rearLeverPivot)
+                || !named.TryGetValue("MM_wheel_front_rotor", out frontRotor)
+                || !named.TryGetValue("MM_wheel_rear_rotor", out rearRotor))
                 return false;
 
             crankPivot = Center(spindle);
-            rearPivot = Center(hub);
+            frontPivot = Center(frontHub);
+            rearPivot = Center(rearHub);
             axleAxis = (Center(chainring) - crankPivot).normalized;
             if (axleAxis.sqrMagnitude < 0.9f
                 || Vector3.Dot(axleAxis, (Center(sprocket) - rearPivot).normalized) < 0.9f)
                 return false;
             pedalPivots[0] = Center(firstPedal);
             pedalPivots[1] = Center(secondPedal);
+            Transform[] levers = { frontLever, rearLever };
+            Transform[] leverBodies = { frontLeverBody, rearLeverBody };
+            Transform[] leverPivots = { frontLeverPivot, rearLeverPivot };
+            Transform[] rotors = { frontRotor, rearRotor };
+            for (int side = 0; side < 2; side++)
+            {
+                brakeLevers[side] = Capture(levers[side]);
+                brakePivots[side] = Center(leverPivots[side]);
+                brakeRotorCenters[side] = Center(rotors[side]);
+                brakePullAngles[side] = PullAngle(
+                    brakePivots[side], Center(levers[side]), Center(leverBodies[side]));
+                brakeHitTargets[side] = CreateBrakeHitTarget(levers[side], side == 0);
+            }
 
             chainLinks = new Pose[linkCount];
             for (int index = 0; index < linkCount; index++)
@@ -126,6 +176,18 @@ namespace MechMaster.Runtime
                     && !name.Contains("freehub_bearing"))
                     rearWheelParts.Add(Capture(item.Value));
 
+                if (name.StartsWith("MM_wheel_front_", StringComparison.Ordinal)
+                    && !name.Contains("hub_axle") && !name.Contains("thru_axle")
+                    && !name.Contains("hub_bearing") && !name.Contains("hub_end_cap"))
+                    frontWheelParts.Add(Capture(item.Value));
+
+                if (name == "MM_brake_front_brake_pad_1"
+                    || name == "MM_brake_front_brake_pad_2")
+                    brakePads[0].Add(Capture(item.Value));
+                if (name == "MM_brake_rear_brake_pad_1"
+                    || name == "MM_brake_rear_brake_pad_2")
+                    brakePads[1].Add(Capture(item.Value));
+
                 Match pedalMatch = Regex.Match(name,
                     @"^MM_pedal_(?:body|axle|bearing|seal|end_cap|washer|nut|traction_pin)_(1|2)(?:_|$)");
                 if (pedalMatch.Success)
@@ -135,8 +197,9 @@ namespace MechMaster.Runtime
                     jockeyWheels.Add(Capture(item.Value));
             }
 
-            IsReady = crankParts.Count > 0 && rearWheelParts.Count > 0
+            IsReady = crankParts.Count > 0 && frontWheelParts.Count > 0 && rearWheelParts.Count > 0
                 && pedalParts[0].Count > 0 && pedalParts[1].Count > 0
+                && brakePads[0].Count == 2 && brakePads[1].Count == 2
                 && jockeyWheels.Count == 2 && motionChainLinks.Length > 0;
             return IsReady;
         }
@@ -155,6 +218,11 @@ namespace MechMaster.Runtime
                 return;
             }
             crankTurns = 0;
+            frontWheelTurns = 0;
+            effectiveCadenceRpm = CadenceRpm;
+            frontWheelRpm = CadenceRpm * RearWheelRatio;
+            brakeEngaged[0] = brakeEngaged[1] = false;
+            ApplyBrakeVisuals();
             // The tray creates temporary primitive colliders and destroys them at
             // the end of the frame. Query live colliders when playback begins.
             colliders = GetComponentsInChildren<Collider>(true);
@@ -163,7 +231,7 @@ namespace MechMaster.Runtime
             {
                 if (colliders[index] == null) continue;
                 colliderEnabled[index] = colliders[index].enabled;
-                colliders[index].enabled = false;
+                colliders[index].enabled = colliders[index].GetComponent<BicycleBrakeHitTarget>() != null;
             }
             for (int index = 0; index < staticChainRenderers.Length; index++)
             {
@@ -181,17 +249,35 @@ namespace MechMaster.Runtime
             if (IsActive) IsPlaying = false;
         }
 
+        public bool SetBrakeHeld(bool isFront, bool held)
+        {
+            if (!IsActive) return false;
+            int side = isFront ? 0 : 1;
+            if (brakeEngaged[side] == held) return false;
+            brakeEngaged[side] = held;
+            ApplyBrakeVisuals();
+            return true;
+        }
+
         public void Stop()
         {
             if (!IsActive) return;
             IsPlaying = false;
             IsActive = false;
             Restore(crankParts);
+            Restore(frontWheelParts);
             Restore(rearWheelParts);
             Restore(pedalParts[0]);
             Restore(pedalParts[1]);
             Restore(jockeyWheels);
             Restore(quickLinks);
+            for (int side = 0; side < 2; side++)
+            {
+                Restore(new[] { brakeLevers[side] });
+                Restore(brakePads[side]);
+                brakeEngaged[side] = false;
+                brakeHitTargets[side].position = Center(brakeLevers[side].Transform);
+            }
             motionChainRoot.SetActive(false);
             for (int index = 0; index < staticChainRenderers.Length; index++)
                 if (staticChainRenderers[index] != null)
@@ -199,6 +285,9 @@ namespace MechMaster.Runtime
             for (int index = 0; index < colliders.Length; index++)
                 if (colliders[index] != null) colliders[index].enabled = colliderEnabled[index];
             crankTurns = 0;
+            frontWheelTurns = 0;
+            effectiveCadenceRpm = 0f;
+            frontWheelRpm = 0f;
         }
 
         private void OnDisable() => Stop();
@@ -206,11 +295,29 @@ namespace MechMaster.Runtime
         private void Update()
         {
             if (!IsPlaying) return;
-            crankTurns = (crankTurns + CadenceRpm * Time.deltaTime / 60.0) % 1100.0;
+            Advance(Time.deltaTime);
+        }
+
+        private void Advance(float deltaTime)
+        {
+            // The left lever brakes the rear wheel and its coupled drivetrain.
+            // The right lever brakes the front wheel independently.
+            effectiveCadenceRpm = Mathf.MoveTowards(
+                effectiveCadenceRpm, brakeEngaged[1] ? 0f : CadenceRpm,
+                (brakeEngaged[1] ? 65f : 40f) * deltaTime);
+            frontWheelRpm = Mathf.MoveTowards(
+                frontWheelRpm, brakeEngaged[0] ? 0f : CadenceRpm * RearWheelRatio,
+                (brakeEngaged[0] ? 100f : 60f) * deltaTime);
+            crankTurns = (crankTurns + effectiveCadenceRpm * deltaTime / 60.0) % 1100.0;
+            frontWheelTurns = (frontWheelTurns
+                + frontWheelRpm * deltaTime / 60.0) % 1100.0;
             float crankDegrees = (float)((crankTurns * 360.0) % 360.0);
             Quaternion crankRotation = Quaternion.AngleAxis(crankDegrees, axleAxis);
             RotateAround(crankParts, crankPivot, crankRotation);
 
+            float frontDegrees = (float)((frontWheelTurns * 360.0) % 360.0);
+            RotateAround(frontWheelParts, frontPivot,
+                Quaternion.AngleAxis(frontDegrees, axleAxis));
             float rearDegrees = (float)((crankTurns * RearWheelRatio * 360.0) % 360.0);
             RotateAround(rearWheelParts, rearPivot,
                 Quaternion.AngleAxis(rearDegrees, axleAxis));
@@ -242,6 +349,51 @@ namespace MechMaster.Runtime
             foreach (Pose part in jockeyWheels)
                 part.Transform.SetPositionAndRotation(part.Position,
                     jockeyRotation * part.Rotation);
+        }
+
+        private Transform CreateBrakeHitTarget(Transform lever, bool isFront)
+        {
+            GameObject target = new GameObject(isFront ? "FrontBrakeHitTarget" : "RearBrakeHitTarget");
+            target.transform.SetParent(transform, false);
+            target.transform.position = Center(lever);
+            target.AddComponent<BicycleBrakeHitTarget>().Initialize(isFront);
+            SphereCollider collider = target.AddComponent<SphereCollider>();
+            collider.radius = 0.07f;
+            collider.enabled = false;
+            return target.transform;
+        }
+
+        private static float PullAngle(
+            Vector3 pivot, Vector3 leverCenter, Vector3 bodyCenter)
+        {
+            Vector3 offset = leverCenter - pivot;
+            float positiveDistance = Vector3.Distance(
+                pivot + Quaternion.AngleAxis(16f, Vector3.up) * offset, bodyCenter);
+            float negativeDistance = Vector3.Distance(
+                pivot + Quaternion.AngleAxis(-16f, Vector3.up) * offset, bodyCenter);
+            return positiveDistance < negativeDistance ? 16f : -16f;
+        }
+
+        private void ApplyBrakeVisuals()
+        {
+            for (int side = 0; side < 2; side++)
+            {
+                Pose lever = brakeLevers[side];
+                Quaternion pull = Quaternion.AngleAxis(
+                    brakeEngaged[side] ? brakePullAngles[side] : 0f, Vector3.up);
+                lever.Transform.SetPositionAndRotation(
+                    brakePivots[side] + pull * (lever.Position - brakePivots[side]),
+                    pull * lever.Rotation);
+                brakeHitTargets[side].position = Center(lever.Transform);
+                foreach (Pose pad in brakePads[side])
+                {
+                    float direction = Mathf.Sign(Vector3.Dot(
+                        brakeRotorCenters[side] - pad.Position, axleAxis));
+                    pad.Transform.SetPositionAndRotation(
+                        pad.Position + axleAxis * (brakeEngaged[side] ? direction * 0.0015f : 0f),
+                        pad.Rotation);
+                }
+            }
         }
 
         private void PositionVisualChain()

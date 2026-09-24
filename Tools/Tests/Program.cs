@@ -376,9 +376,15 @@ internal static class Program
         foreach (JsonElement part in parts.RootElement.GetProperty("parts").EnumerateArray())
             names.Add(part.GetProperty("object").GetString());
         foreach (string required in new[] {
-            "MM_crank_spindle", "MM_crank_chainring_1", "MM_wheel_rear_hub_shell",
+            "MM_crank_spindle", "MM_crank_chainring_1", "MM_wheel_front_hub_shell",
+            "MM_wheel_rear_hub_shell", "MM_wheel_front_rotor", "MM_wheel_rear_rotor",
             "MM_wheel_rear_cassette_sprocket_07", "MM_pedal_axle_1", "MM_pedal_axle_2",
             "MM_rear_derailleur_jockey_wheel_1", "MM_rear_derailleur_jockey_wheel_2",
+            "MM_brake_front_lever_blade", "MM_brake_rear_lever_blade",
+            "MM_brake_front_lever_body", "MM_brake_rear_lever_body",
+            "MM_brake_front_lever_pivot", "MM_brake_rear_lever_pivot",
+            "MM_brake_front_brake_pad_1", "MM_brake_front_brake_pad_2",
+            "MM_brake_rear_brake_pad_1", "MM_brake_rear_brake_pad_2",
             "MM_chain_link_001", "MM_chain_link_110", "MM_chain_quick_link_1"
         })
             True(names.Contains(required));

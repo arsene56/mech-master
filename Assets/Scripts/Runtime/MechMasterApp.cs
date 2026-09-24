@@ -42,6 +42,8 @@ namespace MechMaster.Runtime
         public bool IsMotionActive => motion != null && motion.IsActive;
         public bool IsMotionPlaying => motion != null && motion.IsPlaying;
         public int MotionCadenceRpm => motion == null ? 60 : motion.CadenceRpm;
+        public bool FrontBrakeEngaged => motion != null && motion.FrontBrakeEngaged;
+        public bool RearBrakeEngaged => motion != null && motion.RearBrakeEngaged;
 
         public event Action StateChanged;
 
@@ -658,7 +660,7 @@ namespace MechMaster.Runtime
                 ClearExplosionInternal(true);
                 PartInteractionController.SetViewMode(true);
                 motion.Play();
-                StatusMessage = "原地踩踏：曲柄、链条、飞轮和后轮按齿比联动。";
+                StatusMessage = "原地踩踏：左刹控制后轮，右刹控制前轮；按住刹把可制动。";
                 SpeakNarration("脚踏带动牙盘，链条驱动飞轮和后轮旋转。");
             }
             feedbackAudio.PlayModeSwitch();
@@ -682,9 +684,23 @@ namespace MechMaster.Runtime
             NotifyStateChanged();
         }
 
+        public void SetBrakeHeld(bool isFront, bool held)
+        {
+            if (!IsMotionActive) return;
+            if (!motion.SetBrakeHeld(isFront, held)) return;
+            string brakeName = isFront ? "右刹（前轮）" : "左刹（后轮）";
+            StatusMessage = held
+                ? brakeName + "已按住：对应车轮正在减速。"
+                : brakeName + "已松开：对应车轮逐渐恢复设定速度。";
+            feedbackAudio.PlayModeSwitch();
+            NotifyStateChanged();
+        }
+
         private void StopMotionInternal()
         {
-            motion?.Stop();
+            if (!IsMotionActive) return;
+            motion.Stop();
+            PartInteractionController.Instance?.CancelGesture();
         }
 
         private PartDefinition FindPart(string partId)

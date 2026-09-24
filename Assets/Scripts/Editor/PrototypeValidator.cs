@@ -93,6 +93,19 @@ namespace MechMaster.Editor
                     app.ChangeMotionCadence(15);
                     if (app.MotionCadenceRpm != 75)
                         throw new InvalidOperationException("运行时演示调速未生效。");
+                    BicycleBrakeHitTarget[] brakeTargets =
+                        UnityEngine.Object.FindObjectsOfType<BicycleBrakeHitTarget>();
+                    if (brakeTargets.Length != 2
+                        || brakeTargets.Any(target => !target.GetComponent<Collider>().enabled))
+                        throw new InvalidOperationException("运行时刹把点击区域未启用。");
+                    app.SetBrakeHeld(true, true);
+                    if (!app.FrontBrakeEngaged)
+                        throw new InvalidOperationException("运行时右刹未能按住。");
+                    app.SetBrakeHeld(true, false);
+                    app.SetBrakeHeld(false, true);
+                    if (app.FrontBrakeEngaged || !app.RearBrakeEngaged)
+                        throw new InvalidOperationException("运行时左刹未能按住。");
+                    app.SetBrakeHeld(false, false);
                     app.ToggleMotion();
                     if (!app.IsMotionActive || app.IsMotionPlaying)
                         throw new InvalidOperationException("运行时演示未能暂停。");
@@ -276,7 +289,10 @@ namespace MechMaster.Editor
 
                 Transform[] transforms = root.GetComponentsInChildren<Transform>(true);
                 Transform crank = transforms.First(item => item.name == "MM_crank_arm_1");
-                Transform valve = transforms.First(item => item.name == "MM_wheel_rear_valve_core");
+                Transform frontValve = transforms.First(item => item.name == "MM_wheel_front_valve_core");
+                Transform rearValve = transforms.First(item => item.name == "MM_wheel_rear_valve_core");
+                Transform frontLever = transforms.First(item => item.name == "MM_brake_front_lever_blade");
+                Transform rearLever = transforms.First(item => item.name == "MM_brake_rear_lever_blade");
                 Transform upperJockey = transforms.First(item =>
                     item.name == "MM_rear_derailleur_jockey_wheel_1");
                 Transform lowerJockey = transforms.First(item =>
@@ -284,19 +300,27 @@ namespace MechMaster.Editor
                 Renderer staticChain = transforms.First(item => item.name == "MM_chain_link_001")
                     .GetComponentInChildren<Renderer>();
                 Vector3 crankStart = crank.position;
-                Vector3 valveStart = valve.position;
+                Vector3 frontValveStart = frontValve.position;
+                Vector3 rearValveStart = rearValve.position;
+                Vector3 frontLeverStart = frontLever.GetComponentInChildren<Renderer>().bounds.center;
+                Vector3 rearLeverStart = rearLever.GetComponentInChildren<Renderer>().bounds.center;
+                BicycleBrakeHitTarget[] brakeTargets =
+                    root.GetComponentsInChildren<BicycleBrakeHitTarget>(true);
+                if (brakeTargets.Length != 2
+                    || brakeTargets.Any(target => target.GetComponent<Collider>().enabled))
+                    return "前后刹把点击区域未正确初始化。";
                 controller.Play();
                 Transform visualChain = root.transform.Find("MotionChainVisual");
                 if (!controller.IsPlaying || visualChain == null || !visualChain.gameObject.activeSelf
                     || root.transform.Find("RearWheelServiceStand") != null
                     || visualChain.childCount < 120 || visualChain.childCount > 132
-                    || staticChain.enabled)
+                    || staticChain.enabled
+                    || brakeTargets.Any(target => !target.GetComponent<Collider>().enabled))
                     return "动态链条或播放状态不正确。";
 
-                typeof(BicycleMotionController).GetField("crankTurns", InstanceMembers)
-                    .SetValue(controller, 0.25d);
-                typeof(BicycleMotionController).GetMethod("Update", InstanceMembers)
-                    .Invoke(controller, null);
+                MethodInfo advance = typeof(BicycleMotionController)
+                    .GetMethod("Advance", InstanceMembers);
+                advance.Invoke(controller, new object[] { 0.25f });
                 Vector3 upperCenter = upperJockey.GetComponentInChildren<Renderer>().bounds.center;
                 Vector3 lowerCenter = lowerJockey.GetComponentInChildren<Renderer>().bounds.center;
                 float upperContact = float.MaxValue, lowerContact = float.MaxValue;
@@ -311,8 +335,63 @@ namespace MechMaster.Editor
                 if (upperContact > 0.006f || lowerContact > 0.006f)
                     return "运转链条未经过两只后拨导轮。";
                 if (Vector3.Distance(crank.position, crankStart) < 0.05f
-                    || Vector3.Distance(valve.position, valveStart) < 0.05f)
-                    return "曲柄或后轮未按传动关系转动。";
+                    || Vector3.Distance(frontValve.position, frontValveStart) < 0.05f
+                    || Vector3.Distance(rearValve.position, rearValveStart) < 0.05f)
+                    return "曲柄或前后轮未按传动关系转动。";
+
+                if (!controller.SetBrakeHeld(true, true) || !controller.FrontBrakeEngaged
+                    || Vector3.Distance(frontLever.GetComponentInChildren<Renderer>().bounds.center,
+                        frontLeverStart) < 0.003f)
+                    return "右刹把未能按住。";
+                advance.Invoke(controller, new object[] { 0.25f });
+                if (controller.FrontWheelRpm <= 0f
+                    || controller.FrontWheelRpm >= controller.RearWheelRpm
+                    || Mathf.Abs(controller.RearWheelRpm - 90f) > 0.01f)
+                    return "右刹未单独让前轮逐渐减速。";
+                advance.Invoke(controller, new object[] { 1f });
+                if (controller.FrontWheelRpm > 0.01f
+                    || controller.RearWheelRpm < 89.99f)
+                    return "右刹未让前轮停止，或错误制动后轮。";
+                Vector3 frontStopped = frontValve.position;
+                Vector3 rearMoving = rearValve.position;
+                advance.Invoke(controller, new object[] { 0.25f });
+                if (Vector3.Distance(frontValve.position, frontStopped) > 0.0001f
+                    || Vector3.Distance(rearValve.position, rearMoving) < 0.01f)
+                    return "右刹按住时前轮应停止、后轮应继续转动。";
+                if (!controller.SetBrakeHeld(true, false) || controller.FrontBrakeEngaged)
+                    return "右刹松开失败。";
+                advance.Invoke(controller, new object[] { 0.25f });
+                if (controller.FrontWheelRpm < 1f || controller.FrontWheelRpm >= 90f
+                    || Vector3.Distance(frontValve.position, frontStopped) < 0.01f)
+                    return "松开右刹后前轮未逐渐恢复转动。";
+                advance.Invoke(controller, new object[] { 1.25f });
+
+                if (!controller.SetBrakeHeld(false, true) || !controller.RearBrakeEngaged
+                    || Vector3.Distance(rearLever.GetComponentInChildren<Renderer>().bounds.center,
+                        rearLeverStart) < 0.003f)
+                    return "左刹把未能按住。";
+                advance.Invoke(controller, new object[] { 0.25f });
+                if (controller.RearWheelRpm <= 0f
+                    || controller.RearWheelRpm >= controller.FrontWheelRpm
+                    || Mathf.Abs(controller.FrontWheelRpm - 90f) > 0.01f)
+                    return "左刹未单独让后轮逐渐减速。";
+                advance.Invoke(controller, new object[] { 1f });
+                if (controller.RearWheelRpm > 0.01f
+                    || controller.EffectiveCadenceRpm > 0.01f
+                    || controller.FrontWheelRpm < 89.99f)
+                    return "左刹未让后轮和传动停止，或错误制动前轮。";
+                Vector3 rearStopped = rearValve.position;
+                Vector3 frontMoving = frontValve.position;
+                advance.Invoke(controller, new object[] { 0.25f });
+                if (Vector3.Distance(rearValve.position, rearStopped) > 0.0001f
+                    || Vector3.Distance(frontValve.position, frontMoving) < 0.01f)
+                    return "左刹按住时后轮应停止、前轮应继续转动。";
+                if (!controller.SetBrakeHeld(false, false) || controller.RearBrakeEngaged)
+                    return "左刹松开失败。";
+                advance.Invoke(controller, new object[] { 0.25f });
+                if (controller.RearWheelRpm < 1f || controller.RearWheelRpm >= 90f
+                    || Vector3.Distance(rearValve.position, rearStopped) < 0.01f)
+                    return "松开左刹后后轮未逐渐恢复转动。";
 
                 controller.Pause();
                 if (!controller.IsActive || controller.IsPlaying)
@@ -322,7 +401,13 @@ namespace MechMaster.Editor
                 if (controller.IsActive || controller.IsPlaying || !staticChain.enabled
                     || visualChain.gameObject.activeSelf
                     || Vector3.Distance(crank.position, crankStart) > 0.0001f
-                    || Vector3.Distance(valve.position, valveStart) > 0.0001f)
+                    || Vector3.Distance(frontValve.position, frontValveStart) > 0.0001f
+                    || Vector3.Distance(rearValve.position, rearValveStart) > 0.0001f
+                    || Vector3.Distance(frontLever.GetComponentInChildren<Renderer>().bounds.center,
+                        frontLeverStart) > 0.0001f
+                    || Vector3.Distance(rearLever.GetComponentInChildren<Renderer>().bounds.center,
+                        rearLeverStart) > 0.0001f
+                    || brakeTargets.Any(target => target.GetComponent<Collider>().enabled))
                     return "动态演示结束后未恢复静态模型。";
                 return string.Empty;
             }
