@@ -273,7 +273,7 @@ namespace MechMaster.Runtime.UI
         private void DrawPanButton(Rect area, int column, int row, string label, Vector2 direction, OrbitCameraController orbit)
         {
             if (GUI.Button(PixelRect(area.x + 8 + column * 48, area.y + 30 + row * 44, 44, 40), label, panButtonStyle))
-                orbit.Pan(direction * 48f);
+                orbit.Pan(direction * OrbitCameraController.PanStep);
         }
 
         private void DrawPanelShadows()

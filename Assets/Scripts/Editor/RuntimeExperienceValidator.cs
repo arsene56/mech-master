@@ -32,6 +32,7 @@ namespace MechMaster.Editor
                 input.CancelGesture();
                 WorkshopLayout.ToolsCollapsed = WorkshopLayout.KnowledgeCollapsed = false;
                 orbit.FrameWholeModel();
+                VerifyInitialPosition(camera, orbit);
                 VerifyFraming(camera);
                 VerifyPan(camera, orbit);
 
@@ -67,6 +68,7 @@ namespace MechMaster.Editor
                 VerifyFraming(camera, true);
                 WorkshopLayout.ToolsCollapsed = WorkshopLayout.KnowledgeCollapsed = true;
                 orbit.FrameWholeModel();
+                VerifyInitialPosition(camera, orbit);
                 VerifyFraming(camera);
                 WorkshopLayout.ToolsCollapsed = WorkshopLayout.KnowledgeCollapsed = false;
                 orbit.FrameWholeModel();
@@ -152,9 +154,10 @@ namespace MechMaster.Editor
                 Vector2 angles = orbit.Angles;
                 float zoom = orbit.ZoomFactor;
                 Vector3 position = camera.WorldToScreenPoint(world);
-                orbit.Pan(direction * 48);
+                orbit.Pan(direction * OrbitCameraController.PanStep);
                 Vector2 movement = (Vector2)(camera.WorldToScreenPoint(world) - position);
-                Vector2 expected = direction * 48 * new PixelUILayout(Screen.width, Screen.height).Scale;
+                Vector2 expected = direction * OrbitCameraController.PanStep
+                    * new PixelUILayout(Screen.width, Screen.height).Scale;
                 Require(Vector2.Distance(movement, expected) < .1f, "Pan direction / screen distance mismatch.");
                 Require(angles == orbit.Angles && zoom == orbit.ZoomFactor, "Pan must preserve orbit and zoom.");
                 Ray ray = camera.ScreenPointToRay(camera.WorldToScreenPoint(world));
@@ -171,6 +174,20 @@ namespace MechMaster.Editor
                 "Pan must be bounded (actual=" + orbit.PanOffset + ", max=" + maxX + "," + maxY + ").");
             orbit.FrameWholeModel();
             Require(orbit.PanOffset == Vector2.zero, "Whole model reset must clear pan.");
+            VerifyInitialPosition(camera, orbit);
+        }
+
+        private static void VerifyInitialPosition(Camera camera, OrbitCameraController orbit)
+        {
+            Transform cameraTarget = CurrentModelRoot().transform.Find("CameraTarget");
+            Require(cameraTarget != null, "Camera target must exist.");
+            Rect area = new PixelUILayout(Screen.width, Screen.height).ToPixels(WorkshopLayout.ModelArea);
+            Vector3 actual = camera.WorldToScreenPoint(cameraTarget.position);
+            float expectedX = area.center.x - 2f * OrbitCameraController.PanStep
+                * new PixelUILayout(Screen.width, Screen.height).Scale;
+            Require(Mathf.Abs(actual.x - expectedX) < .1f
+                && Mathf.Abs(actual.y - (Screen.height - area.center.y)) < .1f,
+                "Whole model must start two left-pan steps from the centered position.");
         }
 
         private static void VerifyFraming(Camera camera, bool includeTray = false)

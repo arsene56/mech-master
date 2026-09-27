@@ -5,6 +5,8 @@ namespace MechMaster.Runtime
 {
     public sealed class OrbitCameraController : MonoBehaviour
     {
+        public const float PanStep = 48f;
+
         private Transform target;
         private Camera sceneCamera;
         private Bounds assembledBounds;
@@ -16,6 +18,7 @@ namespace MechMaster.Runtime
         private float yaw = -22f;
         private float pitch = 14f;
         private float zoom = 1f;
+        private Vector2 framingOffset;
         private Vector2 panOffset;
         public Vector2 Angles => new Vector2(yaw, pitch);
         public float ZoomFactor => zoom;
@@ -77,6 +80,7 @@ namespace MechMaster.Runtime
             yaw = -22f;
             pitch = 14f;
             zoom = 1f;
+            framingOffset = Vector2.left * (2f * PanStep);
             panOffset = Vector2.zero;
             dirty = true;
             ApplyTransform();
@@ -92,6 +96,7 @@ namespace MechMaster.Runtime
             yaw = -22f;
             pitch = 24f;
             zoom = 1f;
+            framingOffset = Vector2.zero;
             panOffset = Vector2.zero;
             dirty = true;
             ApplyTransform();
@@ -105,6 +110,7 @@ namespace MechMaster.Runtime
             target.position = bounds.center;
             activeFramingPoints = points;
             zoom = 1f;
+            framingOffset = Vector2.zero;
             panOffset = Vector2.zero;
             dirty = true;
             ApplyTransform();
@@ -148,8 +154,9 @@ namespace MechMaster.Runtime
             projection.m02 = 1f - 2f * area.center.x / Screen.width;
             projection.m12 = 2f * area.center.y / Screen.height - 1f;
             float scale = new PixelUILayout(Screen.width, Screen.height).Scale;
-            projection.m02 -= 2f * panOffset.x * scale / Screen.width;
-            projection.m12 -= 2f * panOffset.y * scale / Screen.height;
+            Vector2 offset = framingOffset + panOffset;
+            projection.m02 -= 2f * offset.x * scale / Screen.width;
+            projection.m12 -= 2f * offset.y * scale / Screen.height;
             sceneCamera.projectionMatrix = projection;
         }
 
