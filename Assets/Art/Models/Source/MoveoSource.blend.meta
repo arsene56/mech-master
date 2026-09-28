@@ -1,0 +1,837 @@
+fileFormatVersion: 2
+guid: DXkdtiuoUilkM8gDk2qeW28gOb9+9Yn0U6f+zjrbb2xuihU/6DjhMpk=
+ModelImporter:
+  serializedVersion: 22361
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    aCLCompressionLevel: 3
+    aCLCurvePrecision: 0.01
+    aCLFastSampleMode: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+    tuanjieGIEnable: 0
+    tuanjieGIGenSDFFactor: 1
+    tuanjieGIGenSDFBias: 0.25
+    tuanjieGIDoubleSidedMode: 0
+    tuanjieGIGenFacetNums: 12
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    totalVerticesCount: 356368
+    totalTrianglesCount: 531974
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  virtualGeometry:
+    virtualGeometry: 0
+    useTransparent: 0
+    setVGForeachMesh: 0
+    isFirstUse: 1
+    virtualGeometrySettings:
+      generateGeometryBuffer: 0
+      surfaceCompensation: 0
+      allMeshUse: 1
+      ignoreSimpleMesh: 0
+      transformScaleState: 0
+      isPossibleOverflow: 0
+      hasBoneData: 0
+      isBoneCountOverflow: 0
+    virtualGeometryPlatformSettings: []
+    selectedVGMeshes:
+    - index: 0
+      meshName: MM_moveo_1m1b_24149e46ff
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 1
+      meshName: MM_moveo_1m2a_8d0764d7ee
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 2
+      meshName: MM_moveo_1m3a_de6043b10f
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 3
+      meshName: MM_moveo_2m1d_9ab6d4de88
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 4
+      meshName: MM_moveo_2m2ha_ff356c135b
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 5
+      meshName: MM_moveo_2m2ma_7036002665
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 6
+      meshName: MM_moveo_3m1d_69fade4855
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 7
+      meshName: MM_moveo_3m2c_b6db0b8c40
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 8
+      meshName: MM_moveo_3m2cc_b6f65144bf
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 9
+      meshName: MM_moveo_4m1d_44ef42247d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 10
+      meshName: MM_moveo_4m2b_4e934c6d4e
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 11
+      meshName: MM_moveo_4m2cb_c253864565
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 12
+      meshName: MM_moveo_8mm_bearing_03b6b1c04a
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 13
+      meshName: MM_moveo_arandela_354db976d5
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 14
+      meshName: MM_moveo_barra_llisa_8mm_x_80mm_10d95daf05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 15
+      meshName: MM_moveo_base_fusta_930b474ffb
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 16
+      meshName: MM_moveo_bearing_3bore_10ext_4height_22022e89f7
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 17
+      meshName: MM_moveo_bearing_4bore_13ext_5_38a0e47256
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 18
+      meshName: MM_moveo_bearing_5mm_0211c7ef3f
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 19
+      meshName: MM_moveo_bottom_plate_c_4851a3331d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 20
+      meshName: MM_moveo_box_c_0a0ea85998
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 21
+      meshName: MM_moveo_brass_insert_m3_240a09095a
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 22
+      meshName: MM_moveo_brass_insert_m4_88a408ea7b
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 23
+      meshName: MM_moveo_capacitor_1_4013fd7545
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 24
+      meshName: MM_moveo_capacitor_2_01a9af31b7
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 25
+      meshName: MM_moveo_chip_252e13d5a0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 26
+      meshName: MM_moveo_cilinder_b9d114e28d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 27
+      meshName: MM_moveo_coupling_5_to_8_mm_936485e8c0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 28
+      meshName: MM_moveo_fan_21907032aa
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 29
+      meshName: MM_moveo_fan_module_aee2a55970
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 30
+      meshName: MM_moveo_gripper_left_b_bc190cbb1d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 31
+      meshName: MM_moveo_gripper_right_b_221edfd3cb
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 32
+      meshName: MM_moveo_idol_gear_b_b445b8329f
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 33
+      meshName: MM_moveo_m3_nut_02734a2b54
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 34
+      meshName: MM_moveo_m3x10_17af66a675
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 35
+      meshName: MM_moveo_m3x12_04326c9555
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 36
+      meshName: MM_moveo_m3x16_248923620e
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 37
+      meshName: MM_moveo_m3x20_a02bfea2c4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 38
+      meshName: MM_moveo_m3x25_01e7d1d0a9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 39
+      meshName: MM_moveo_m3x35_045c7197ce
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 40
+      meshName: MM_moveo_m3x40_37c185ad79
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 41
+      meshName: MM_moveo_m3x8_230664f4f0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 42
+      meshName: MM_moveo_m4_locknut_081b3bac1d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 43
+      meshName: MM_moveo_m4_nut_41f6503db6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 44
+      meshName: MM_moveo_m4x16_0ffc26337c
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 45
+      meshName: MM_moveo_m4x20_035765dce3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 46
+      meshName: MM_moveo_m4x30_3b3da3f60d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 47
+      meshName: MM_moveo_m4x40_4e3d3de2d3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 48
+      meshName: MM_moveo_m4x45_86f1a36fae
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 49
+      meshName: MM_moveo_m5_lock_120bb55a6c
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 50
+      meshName: MM_moveo_m5x15_27d4f4f904
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 51
+      meshName: MM_moveo_m5x20_08378ece00
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 52
+      meshName: MM_moveo_m5x30_1be1e472d9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 53
+      meshName: MM_moveo_m8_autoblocant_158e04f14f
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 54
+      meshName: MM_moveo_m8x65_af011daf64
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 55
+      meshName: MM_moveo_nema_14_5b52ebed0c
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 56
+      meshName: MM_moveo_nema_17_curt_cbd1a6bd24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 57
+      meshName: MM_moveo_nema_17_llarg_e19a1550cd
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 58
+      meshName: MM_moveo_nema_17_reductor_2f8b3f61b1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 59
+      meshName: MM_moveo_nema_23_26ba15beb1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 60
+      meshName: MM_moveo_pcb_tb6560_50a99f7dcf
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 61
+      meshName: MM_moveo_pivot_arm_b_1e5d9d2fdc
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 62
+      meshName: MM_moveo_potes_base_b_000b205ac5
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 63
+      meshName: MM_moveo_pulley_8mm_ignis_7fd385043b
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 64
+      meshName: MM_moveo_pulley_m5_09daa6b3b0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 65
+      meshName: MM_moveo_servo_futaba_s3003_ca1c8814b5
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 66
+      meshName: MM_moveo_servo_gear_b_4135fb36dd
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 67
+      meshName: MM_moveo_sink_3ffe898fdc
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 68
+      meshName: MM_moveo_smooth_bar_8mm_x_121mm_d1fd489fe9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 69
+      meshName: MM_moveo_smooth_bar_8mm_x_140mm_6e6b0a6c04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 70
+      meshName: MM_moveo_smooth_bar_8mm_x_50mm_5c63b88db9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 71
+      meshName: MM_moveo_spacer_m5x10_61f74fe5ee
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 72
+      meshName: MM_moveo_spacer_m8x20_68deb1435a
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 73
+      meshName: MM_moveo_suport_drivers_e_5260d430d3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 74
+      meshName: MM_moveo_t2m1bd_9f7a6940e4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 75
+      meshName: MM_moveo_t2m1bi_b0bbcdda6c
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 76
+      meshName: MM_moveo_t3m1c_e4ca2d49f0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 77
+      meshName: MM_moveo_t4m1e_0ff3a334ae
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 78
+      meshName: MM_moveo_tapa_2m1c_6dbd8f4ca9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 79
+      meshName: MM_moveo_tapa_3m1c_d0b123f179
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 80
+      meshName: MM_moveo_tapa_4m1d_0befacd0a2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 81
+      meshName: MM_moveo_tbc_26357320af
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 82
+      meshName: MM_moveo_terminal_0934d501e6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 83
+      meshName: MM_moveo_top_plate_c_4c902ccc3b
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 84
+      meshName: MM_moveo_volandera_m3_4808cd1fab
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 85
+      meshName: MM_moveo_volandera_m4_6755b0f2e6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 86
+      meshName: MM_moveo_volandera_m5_3032df5033
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    supportVGMeshes:
+    - index: 0
+      meshName: MM_moveo_1m1b_24149e46ff
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 1
+      meshName: MM_moveo_1m2a_8d0764d7ee
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 2
+      meshName: MM_moveo_1m3a_de6043b10f
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 3
+      meshName: MM_moveo_2m1d_9ab6d4de88
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 4
+      meshName: MM_moveo_2m2ha_ff356c135b
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 5
+      meshName: MM_moveo_2m2ma_7036002665
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 6
+      meshName: MM_moveo_3m1d_69fade4855
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 7
+      meshName: MM_moveo_3m2c_b6db0b8c40
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 8
+      meshName: MM_moveo_3m2cc_b6f65144bf
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 9
+      meshName: MM_moveo_4m1d_44ef42247d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 10
+      meshName: MM_moveo_4m2b_4e934c6d4e
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 11
+      meshName: MM_moveo_4m2cb_c253864565
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 12
+      meshName: MM_moveo_8mm_bearing_03b6b1c04a
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 13
+      meshName: MM_moveo_arandela_354db976d5
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 14
+      meshName: MM_moveo_barra_llisa_8mm_x_80mm_10d95daf05
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 15
+      meshName: MM_moveo_base_fusta_930b474ffb
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 16
+      meshName: MM_moveo_bearing_3bore_10ext_4height_22022e89f7
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 17
+      meshName: MM_moveo_bearing_4bore_13ext_5_38a0e47256
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 18
+      meshName: MM_moveo_bearing_5mm_0211c7ef3f
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 19
+      meshName: MM_moveo_bottom_plate_c_4851a3331d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 20
+      meshName: MM_moveo_box_c_0a0ea85998
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 21
+      meshName: MM_moveo_brass_insert_m3_240a09095a
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 22
+      meshName: MM_moveo_brass_insert_m4_88a408ea7b
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 23
+      meshName: MM_moveo_capacitor_1_4013fd7545
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 24
+      meshName: MM_moveo_capacitor_2_01a9af31b7
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 25
+      meshName: MM_moveo_chip_252e13d5a0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 26
+      meshName: MM_moveo_cilinder_b9d114e28d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 27
+      meshName: MM_moveo_coupling_5_to_8_mm_936485e8c0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 28
+      meshName: MM_moveo_fan_21907032aa
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 29
+      meshName: MM_moveo_fan_module_aee2a55970
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 30
+      meshName: MM_moveo_gripper_left_b_bc190cbb1d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 31
+      meshName: MM_moveo_gripper_right_b_221edfd3cb
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 32
+      meshName: MM_moveo_idol_gear_b_b445b8329f
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 33
+      meshName: MM_moveo_m3_nut_02734a2b54
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 34
+      meshName: MM_moveo_m3x10_17af66a675
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 35
+      meshName: MM_moveo_m3x12_04326c9555
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 36
+      meshName: MM_moveo_m3x16_248923620e
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 37
+      meshName: MM_moveo_m3x20_a02bfea2c4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 38
+      meshName: MM_moveo_m3x25_01e7d1d0a9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 39
+      meshName: MM_moveo_m3x35_045c7197ce
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 40
+      meshName: MM_moveo_m3x40_37c185ad79
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 41
+      meshName: MM_moveo_m3x8_230664f4f0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 42
+      meshName: MM_moveo_m4_locknut_081b3bac1d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 43
+      meshName: MM_moveo_m4_nut_41f6503db6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 44
+      meshName: MM_moveo_m4x16_0ffc26337c
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 45
+      meshName: MM_moveo_m4x20_035765dce3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 46
+      meshName: MM_moveo_m4x30_3b3da3f60d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 47
+      meshName: MM_moveo_m4x40_4e3d3de2d3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 48
+      meshName: MM_moveo_m4x45_86f1a36fae
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 49
+      meshName: MM_moveo_m5_lock_120bb55a6c
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 50
+      meshName: MM_moveo_m5x15_27d4f4f904
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 51
+      meshName: MM_moveo_m5x20_08378ece00
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 52
+      meshName: MM_moveo_m5x30_1be1e472d9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 53
+      meshName: MM_moveo_m8_autoblocant_158e04f14f
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 54
+      meshName: MM_moveo_m8x65_af011daf64
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 55
+      meshName: MM_moveo_nema_14_5b52ebed0c
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 56
+      meshName: MM_moveo_nema_17_curt_cbd1a6bd24
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 57
+      meshName: MM_moveo_nema_17_llarg_e19a1550cd
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 58
+      meshName: MM_moveo_nema_17_reductor_2f8b3f61b1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 59
+      meshName: MM_moveo_nema_23_26ba15beb1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 60
+      meshName: MM_moveo_pcb_tb6560_50a99f7dcf
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 61
+      meshName: MM_moveo_pivot_arm_b_1e5d9d2fdc
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 62
+      meshName: MM_moveo_potes_base_b_000b205ac5
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 63
+      meshName: MM_moveo_pulley_8mm_ignis_7fd385043b
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 64
+      meshName: MM_moveo_pulley_m5_09daa6b3b0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 65
+      meshName: MM_moveo_servo_futaba_s3003_ca1c8814b5
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 66
+      meshName: MM_moveo_servo_gear_b_4135fb36dd
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 67
+      meshName: MM_moveo_sink_3ffe898fdc
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 68
+      meshName: MM_moveo_smooth_bar_8mm_x_121mm_d1fd489fe9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 69
+      meshName: MM_moveo_smooth_bar_8mm_x_140mm_6e6b0a6c04
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 70
+      meshName: MM_moveo_smooth_bar_8mm_x_50mm_5c63b88db9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 71
+      meshName: MM_moveo_spacer_m5x10_61f74fe5ee
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 72
+      meshName: MM_moveo_spacer_m8x20_68deb1435a
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 73
+      meshName: MM_moveo_suport_drivers_e_5260d430d3
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 74
+      meshName: MM_moveo_t2m1bd_9f7a6940e4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 75
+      meshName: MM_moveo_t2m1bi_b0bbcdda6c
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 76
+      meshName: MM_moveo_t3m1c_e4ca2d49f0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 77
+      meshName: MM_moveo_t4m1e_0ff3a334ae
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 78
+      meshName: MM_moveo_tapa_2m1c_6dbd8f4ca9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 79
+      meshName: MM_moveo_tapa_3m1c_d0b123f179
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 80
+      meshName: MM_moveo_tapa_4m1d_0befacd0a2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 81
+      meshName: MM_moveo_tbc_26357320af
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 82
+      meshName: MM_moveo_terminal_0934d501e6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 83
+      meshName: MM_moveo_top_plate_c_4c902ccc3b
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 84
+      meshName: MM_moveo_volandera_m3_4808cd1fab
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 85
+      meshName: MM_moveo_volandera_m4_6755b0f2e6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 86
+      meshName: MM_moveo_volandera_m5_3032df5033
+      lodLevel: 0
+      meshGeometryBuffer: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  overrideDefaultPose: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    namedPoseList:
+    - name: Default
+      skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    defaultPoseIndex: -1
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

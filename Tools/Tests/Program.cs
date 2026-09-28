@@ -23,6 +23,8 @@ internal static class Program
         Run("Engineering model bindings", EngineeringModelBindings);
         Run("Bicycle motion configuration", BicycleMotionConfiguration);
         Run("Discoverable mechanical model manifests", DiscoverableModelManifests);
+        Run("Moveo source and complete tier coverage", MoveoSourceAndTierCoverage);
+        Run("Moveo articulation rig and closed teaching cycle", MoveoArticulationRig);
 
         Console.WriteLine(failures == 0
             ? "All MechMaster domain tests passed."
@@ -354,6 +356,140 @@ internal static class Program
             }
             True(difficulties.SetEquals(new[] { "Simple", "Standard", "Advanced" }));
         }
+    }
+
+    private static void MoveoSourceAndTierCoverage()
+    {
+        using JsonDocument manifest = LoadJson("Assets", "StreamingAssets", "MechanicalCatalog",
+            "moveo_model_manifest.json");
+        JsonElement source = manifest.RootElement;
+        Equal("0866a92501277636f76000a195d8a16d44b5b476", source.GetProperty("sourceCommit").GetString());
+        Equal("m", source.GetProperty("units").GetString());
+        Equal(87, source.GetProperty("partTypeCount").GetInt32());
+        Equal(366, source.GetProperty("partObjectCount").GetInt32());
+        var names = new HashSet<string>(StringComparer.Ordinal);
+        var ids = new HashSet<string>(StringComparer.Ordinal);
+        int servos = 0;
+        var electronics = new HashSet<string>(StringComparer.Ordinal);
+        foreach (JsonElement part in source.GetProperty("parts").EnumerateArray())
+        {
+            True(names.Add(part.GetProperty("object").GetString()));
+            True(ids.Add(part.GetProperty("id").GetString()));
+            True(part.GetProperty("runtimeTriangles").GetInt32() > 0);
+            if (part.GetProperty("sourceName").GetString() == "Servo Futaba S3003") servos++;
+            if (part.GetProperty("role").GetString() == "boards")
+                electronics.Add(part.GetProperty("object").GetString());
+        }
+        Equal(366, names.Count);
+        Equal(1, servos);
+        using JsonDocument catalog = LoadJson("Assets", "Resources", "MechanicalCatalog",
+            "MoveoInteractionCatalog.json");
+        int[] counts = { 9, 20, 42 };
+        int level = 0;
+        foreach (JsonElement plan in catalog.RootElement.GetProperty("plans").EnumerateArray())
+        {
+            Equal(counts[level++], plan.GetProperty("steps").GetArrayLength());
+            var bound = new HashSet<string>(StringComparer.Ordinal);
+            int boardGroups = 0;
+            foreach (JsonElement step in plan.GetProperty("steps").EnumerateArray())
+            {
+                foreach (string field in new[] { "simpleSummary", "mechanism", "advancedNote" })
+                    True(step.GetProperty(field).GetString().Length <= 50);
+                var group = new HashSet<string>(StringComparer.Ordinal);
+                foreach (JsonElement name in step.GetProperty("objectNames").EnumerateArray())
+                {
+                    True(bound.Add(name.GetString()));
+                    group.Add(name.GetString());
+                }
+                if (group.Overlaps(electronics))
+                {
+                    // Soldered parts must move with the boards in every tier.
+                    True(electronics.IsSubsetOf(group));
+                    boardGroups++;
+                }
+            }
+            True(bound.SetEquals(names));
+            Equal(1, boardGroups);
+        }
+        Equal(3, level);
+    }
+
+    private static void MoveoArticulationRig()
+    {
+        using JsonDocument model = LoadJson("Assets", "Resources", "MechanicalCatalog", "Models", "Moveo.json");
+        Equal("moveo-articulation-v1", model.RootElement.GetProperty("motion").GetProperty("kind").GetString());
+        Equal("MechanicalCatalog/MoveoMotionRig", model.RootElement.GetProperty("motion").GetProperty("rigResourcePath").GetString());
+        using JsonDocument document = LoadJson("Assets", "Resources", "MechanicalCatalog", "MoveoMotionRig.json");
+        JsonElement rig = document.RootElement;
+        Equal("arm.bcn3d.moveo.v1", rig.GetProperty("modelId").GetString());
+        True(rig.GetProperty("cycleSeconds").GetSingle() >= 10);
+        using JsonDocument manifest = LoadJson("Assets", "StreamingAssets", "MechanicalCatalog", "moveo_model_manifest.json");
+        var source = new Dictionary<string, JsonElement>(StringComparer.Ordinal);
+        foreach (JsonElement part in manifest.RootElement.GetProperty("parts").EnumerateArray())
+            source.Add(part.GetProperty("object").GetString(), part);
+        var joints = new Dictionary<string, JsonElement>(StringComparer.Ordinal);
+        foreach (JsonElement joint in rig.GetProperty("joints").EnumerateArray())
+        {
+            string parent = joint.GetProperty("parentId").GetString();
+            True(parent == "" || joints.ContainsKey(parent));
+            joints.Add(joint.GetProperty("id").GetString(), joint);
+            foreach (string anchor in new[] { "pivotObject", "axisStartObject", "axisEndObject" })
+                True(source.ContainsKey(joint.GetProperty(anchor).GetString()));
+            True(joint.GetProperty("axisStartObject").GetString() != joint.GetProperty("axisEndObject").GetString());
+        }
+        Equal(5, joints.Count);
+        var names = new HashSet<string>(StringComparer.Ordinal);
+        var jawGroups = new HashSet<string>(StringComparer.Ordinal);
+        foreach (JsonElement binding in rig.GetProperty("bindings").EnumerateArray())
+        {
+            string name = binding.GetProperty("objectName").GetString();
+            True(names.Add(name));
+            string joint = binding.GetProperty("jointId").GetString();
+            True(joint == "fixed" || joints.ContainsKey(joint));
+            if (binding.GetProperty("gripperGroup").GetString() != "")
+            {
+                Equal("wrist_pitch", joint);
+                jawGroups.Add(binding.GetProperty("gripperGroup").GetString());
+            }
+            string sourceName = source[name].GetProperty("sourceName").GetString();
+            if (sourceName == "1M2A" || sourceName == "Nema 17 Llarg" || sourceName == "Base fusta")
+                Equal("fixed", joint);
+            if (sourceName == "Smooth bar 8mm x 140mm") Equal("shoulder", joint);
+            if (sourceName == "Smooth bar 8mm x 121mm") Equal("elbow", joint);
+            if (sourceName == "Barra llisa 8mm x 80mm") Equal("wrist_pitch", joint);
+        }
+        True(names.SetEquals(source.Keys));
+        Equal(6, jawGroups.Count);
+        JsonElement gripper = rig.GetProperty("gripper");
+        Equal(-gripper.GetProperty("left").GetProperty("direction").GetInt32(),
+            gripper.GetProperty("right").GetProperty("direction").GetInt32());
+        foreach (string side in new[] { "left", "right" })
+            foreach (string anchor in new[] { "driverPivotObject", "driverTipObject", "followerPivotObject", "followerTipObject" })
+                True(names.Contains(gripper.GetProperty(side).GetProperty(anchor).GetString()));
+        JsonElement frames = rig.GetProperty("keyframes");
+        Equal(0f, frames[0].GetProperty("phase").GetSingle());
+        Equal(1f, frames[frames.GetArrayLength() - 1].GetProperty("phase").GetSingle());
+        float previous = -1;
+        bool closes = false;
+        foreach (JsonElement frame in frames.EnumerateArray())
+        {
+            float phase = frame.GetProperty("phase").GetSingle();
+            True(float.IsFinite(phase) && phase > previous);
+            previous = phase;
+            int index = 0;
+            foreach (JsonElement joint in joints.Values)
+            {
+                float angle = frame.GetProperty("angles")[index++].GetSingle();
+                True(float.IsFinite(angle) && angle >= joint.GetProperty("minimumDegrees").GetSingle()
+                    && angle <= joint.GetProperty("maximumDegrees").GetSingle());
+                if (phase == 0 || phase == 1) Equal(0f, angle);
+            }
+            float closure = frame.GetProperty("gripperDegrees").GetSingle();
+            True(closure >= 0 && closure <= gripper.GetProperty("maximumDegrees").GetSingle());
+            closes |= closure > 0;
+            if (phase == 0 || phase == 1) Equal(0f, closure);
+        }
+        True(closes);
     }
 
     private static void BicycleMotionConfiguration()

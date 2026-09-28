@@ -90,9 +90,12 @@ namespace MechMaster.Editor
                     app.ToggleMotion();
                     if (!app.IsMotionPlaying)
                         throw new InvalidOperationException("运行时运转演示未能启动。");
-                    app.ChangeMotionCadence(15);
-                    if (app.MotionCadenceRpm != 75)
+                    int targetSpeed = app.MotionSpeedValue + app.MotionSpeedStep;
+                    app.ChangeMotionSpeed(app.MotionSpeedStep);
+                    if (app.MotionSpeedValue != targetSpeed)
                         throw new InvalidOperationException("运行时演示调速未生效。");
+                    if (app.Model.motion.kind == "bicycle-pedaling-v1")
+                    {
                     BicycleBrakeHitTarget[] brakeTargets =
                         UnityEngine.Object.FindObjectsOfType<BicycleBrakeHitTarget>();
                     if (brakeTargets.Length != 2
@@ -106,6 +109,7 @@ namespace MechMaster.Editor
                     if (app.FrontBrakeEngaged || !app.RearBrakeEngaged)
                         throw new InvalidOperationException("运行时左刹未能按住。");
                     app.SetBrakeHeld(false, false);
+                    }
                     app.ToggleMotion();
                     if (!app.IsMotionActive || app.IsMotionPlaying)
                         throw new InvalidOperationException("运行时演示未能暂停。");

@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: DHNMtyr4Vno1T8yVj7hRAPK6F6nGaFyAC7VjzAah5ytLtHTQsFq0CGo=
+ModelImporter:
+  serializedVersion: 22361
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    aCLCompressionLevel: 3
+    aCLCurvePrecision: 0.01
+    aCLFastSampleMode: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+    tuanjieGIEnable: 0
+    tuanjieGIGenSDFFactor: 1
+    tuanjieGIGenSDFBias: 0.25
+    tuanjieGIDoubleSidedMode: 0
+    tuanjieGIGenFacetNums: 12
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    totalVerticesCount: 36098
+    totalTrianglesCount: 47794
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  virtualGeometry:
+    virtualGeometry: 0
+    useTransparent: 0
+    setVGForeachMesh: 0
+    isFirstUse: 1
+    virtualGeometrySettings:
+      generateGeometryBuffer: 0
+      surfaceCompensation: 0
+      allMeshUse: 1
+      ignoreSimpleMesh: 0
+      transformScaleState: 0
+      isPossibleOverflow: 0
+      hasBoneData: 0
+      isBoneCountOverflow: 0
+    virtualGeometryPlatformSettings: []
+    selectedVGMeshes:
+    - index: 0
+      meshName: MM_moveo_3m1d_69fade4855
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 1
+      meshName: MM_moveo_8mm_bearing_4038690507
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 2
+      meshName: MM_moveo_8mm_bearing_be71372295
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 3
+      meshName: MM_moveo_bearing_4bore_13ext_5_6b7d4e458b
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 4
+      meshName: MM_moveo_bearing_4bore_13ext_5_9c796bbfa1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 5
+      meshName: MM_moveo_bearing_4bore_13ext_5_d6490fac33
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 6
+      meshName: MM_moveo_brass_insert_m3_240a09095a
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 7
+      meshName: MM_moveo_brass_insert_m3_494f8c89dd
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 8
+      meshName: MM_moveo_brass_insert_m3_68ad0664b0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 9
+      meshName: MM_moveo_brass_insert_m3_6ad90cdc7c
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 10
+      meshName: MM_moveo_brass_insert_m3_9887d8c8e6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 11
+      meshName: MM_moveo_brass_insert_m3_99f7871bf4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 12
+      meshName: MM_moveo_m3_nut_6497f8a50d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 13
+      meshName: MM_moveo_m3x10_17af66a675
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 14
+      meshName: MM_moveo_m3x10_39a271d375
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 15
+      meshName: MM_moveo_m3x10_65c6a96ec9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 16
+      meshName: MM_moveo_m3x10_7060d01476
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 17
+      meshName: MM_moveo_m3x10_b32c5e1160
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 18
+      meshName: MM_moveo_m3x10_ef33494358
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 19
+      meshName: MM_moveo_m3x12_04326c9555
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 20
+      meshName: MM_moveo_m3x12_a5c2ddf499
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 21
+      meshName: MM_moveo_m3x12_b47ad5df26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 22
+      meshName: MM_moveo_m3x12_f3b061e7d0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 23
+      meshName: MM_moveo_m3x40_bf5c0446fd
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 24
+      meshName: MM_moveo_m4_nut_9f676de871
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 25
+      meshName: MM_moveo_m4x16_0ffc26337c
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 26
+      meshName: MM_moveo_m4x16_6fac8cd2b4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 27
+      meshName: MM_moveo_m4x16_8ea5b9a814
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 28
+      meshName: MM_moveo_m4x16_f7ab2246b1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 29
+      meshName: MM_moveo_m4x20_316710edef
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 30
+      meshName: MM_moveo_nema_17_reductor_2f8b3f61b1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 31
+      meshName: MM_moveo_pulley_8mm_ignis_dc8a72d1ca
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 32
+      meshName: MM_moveo_smooth_bar_8mm_x_121mm_d1fd489fe9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 33
+      meshName: MM_moveo_t3m1c_e4ca2d49f0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 34
+      meshName: MM_moveo_tapa_3m1c_d0b123f179
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 35
+      meshName: MM_moveo_tapa_3m1c_de9928f371
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    supportVGMeshes:
+    - index: 0
+      meshName: MM_moveo_3m1d_69fade4855
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 1
+      meshName: MM_moveo_8mm_bearing_4038690507
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 2
+      meshName: MM_moveo_8mm_bearing_be71372295
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 3
+      meshName: MM_moveo_bearing_4bore_13ext_5_6b7d4e458b
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 4
+      meshName: MM_moveo_bearing_4bore_13ext_5_9c796bbfa1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 5
+      meshName: MM_moveo_bearing_4bore_13ext_5_d6490fac33
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 6
+      meshName: MM_moveo_brass_insert_m3_240a09095a
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 7
+      meshName: MM_moveo_brass_insert_m3_494f8c89dd
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 8
+      meshName: MM_moveo_brass_insert_m3_68ad0664b0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 9
+      meshName: MM_moveo_brass_insert_m3_6ad90cdc7c
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 10
+      meshName: MM_moveo_brass_insert_m3_9887d8c8e6
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 11
+      meshName: MM_moveo_brass_insert_m3_99f7871bf4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 12
+      meshName: MM_moveo_m3_nut_6497f8a50d
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 13
+      meshName: MM_moveo_m3x10_17af66a675
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 14
+      meshName: MM_moveo_m3x10_39a271d375
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 15
+      meshName: MM_moveo_m3x10_65c6a96ec9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 16
+      meshName: MM_moveo_m3x10_7060d01476
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 17
+      meshName: MM_moveo_m3x10_b32c5e1160
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 18
+      meshName: MM_moveo_m3x10_ef33494358
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 19
+      meshName: MM_moveo_m3x12_04326c9555
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 20
+      meshName: MM_moveo_m3x12_a5c2ddf499
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 21
+      meshName: MM_moveo_m3x12_b47ad5df26
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 22
+      meshName: MM_moveo_m3x12_f3b061e7d0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 23
+      meshName: MM_moveo_m3x40_bf5c0446fd
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 24
+      meshName: MM_moveo_m4_nut_9f676de871
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 25
+      meshName: MM_moveo_m4x16_0ffc26337c
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 26
+      meshName: MM_moveo_m4x16_6fac8cd2b4
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 27
+      meshName: MM_moveo_m4x16_8ea5b9a814
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 28
+      meshName: MM_moveo_m4x16_f7ab2246b1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 29
+      meshName: MM_moveo_m4x20_316710edef
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 30
+      meshName: MM_moveo_nema_17_reductor_2f8b3f61b1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 31
+      meshName: MM_moveo_pulley_8mm_ignis_dc8a72d1ca
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 32
+      meshName: MM_moveo_smooth_bar_8mm_x_121mm_d1fd489fe9
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 33
+      meshName: MM_moveo_t3m1c_e4ca2d49f0
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 34
+      meshName: MM_moveo_tapa_3m1c_d0b123f179
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 35
+      meshName: MM_moveo_tapa_3m1c_de9928f371
+      lodLevel: 0
+      meshGeometryBuffer: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  overrideDefaultPose: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    namedPoseList:
+    - name: Default
+      skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    defaultPoseIndex: -1
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

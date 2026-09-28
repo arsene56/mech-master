@@ -19,6 +19,7 @@ namespace MechMaster.Runtime
         public int frontTeeth;
         public int rearTeeth;
         public int chainLinks;
+        public string rigResourcePath;
     }
 
     [Serializable]
@@ -83,6 +84,14 @@ namespace MechMaster.Runtime
             foreach (TextAsset asset in assets)
             {
                 MechanicalModelDefinition model = JsonUtility.FromJson<MechanicalModelDefinition>(asset.text);
+                // Unity can instantiate an empty inline class for an omitted
+                // optional field. Normalize its empty value before validation.
+                if (model != null && model.motion != null
+                    && string.IsNullOrWhiteSpace(model.motion.kind)
+                    && model.motion.frontTeeth == 0 && model.motion.rearTeeth == 0
+                    && model.motion.chainLinks == 0
+                    && string.IsNullOrWhiteSpace(model.motion.rigResourcePath))
+                    model.motion = null;
                 Validate(model, asset.name);
                 if (!ids.Add(model.id))
                 {
@@ -118,7 +127,9 @@ namespace MechMaster.Runtime
                 || model.motion != null && (string.IsNullOrWhiteSpace(model.motion.kind)
                     || model.motion.kind == "bicycle-pedaling-v1"
                     && (model.motion.frontTeeth <= 0 || model.motion.rearTeeth <= 0
-                        || model.motion.chainLinks <= 0)))
+                        || model.motion.chainLinks <= 0)
+                    || model.motion.kind == "moveo-articulation-v1"
+                    && string.IsNullOrWhiteSpace(model.motion.rigResourcePath)))
             {
                 throw new InvalidOperationException("机械模型清单包含空值或重复项：" + assetName);
             }

@@ -1,0 +1,623 @@
+{
+  "schemaVersion": 1,
+  "modelId": "arm.bcn3d.moveo.v1",
+  "source": "BCN3D/BCN3D-Moveo",
+  "license": "MIT",
+  "units": "m",
+  "types": [
+    {
+      "id": "8",
+      "sourceName": "1M2A",
+      "displayName": "回转盘",
+      "sourceFile": "1M2A.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "14",
+      "sourceName": "M5x20",
+      "displayName": "M5x20 螺钉",
+      "sourceFile": "M5x20.SLDPRT",
+      "quantity": 8
+    },
+    {
+      "id": "17",
+      "sourceName": "Bearing 5mm",
+      "displayName": "5 毫米内孔轴承",
+      "sourceFile": "Bearing 5mm.SLDPRT",
+      "quantity": 8
+    },
+    {
+      "id": "20",
+      "sourceName": "Spacer M5x10",
+      "displayName": "M5 间隔套",
+      "sourceFile": "Spacer M5x10.SLDPRT",
+      "quantity": 8
+    },
+    {
+      "id": "30",
+      "sourceName": "Spacer M8x20",
+      "displayName": "M8 间隔套",
+      "sourceFile": "Spacer M8x20.SLDPRT",
+      "quantity": 2
+    },
+    {
+      "id": "33",
+      "sourceName": "8mm Bearing",
+      "displayName": "8 毫米内孔轴承",
+      "sourceFile": "8mm Bearing.SLDPRT",
+      "quantity": 10
+    },
+    {
+      "id": "40",
+      "sourceName": "M5 Lock",
+      "displayName": "M5 自锁螺母",
+      "sourceFile": "M5 Lock.SLDPRT",
+      "quantity": 20
+    },
+    {
+      "id": "43",
+      "sourceName": "2M1D",
+      "displayName": "肩关节壳体",
+      "sourceFile": "2M1D.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "53",
+      "sourceName": "Nema 23",
+      "displayName": "NEMA 23 步进电机",
+      "sourceFile": "Nema 23.SLDPRT",
+      "quantity": 2
+    },
+    {
+      "id": "57",
+      "sourceName": "M5x15",
+      "displayName": "M5x15 螺钉",
+      "sourceFile": "M5x15.SLDPRT",
+      "quantity": 8
+    },
+    {
+      "id": "72",
+      "sourceName": "T2M1BI",
+      "displayName": "肩部左张紧器",
+      "sourceFile": "T2M1BI.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "75",
+      "sourceName": "M3 Nut",
+      "displayName": "M3 螺母",
+      "sourceFile": "M3 Nut.SLDPRT",
+      "quantity": 27
+    },
+    {
+      "id": "78",
+      "sourceName": "M4 Nut",
+      "displayName": "M4 螺母",
+      "sourceFile": "M4 Nut.SLDPRT",
+      "quantity": 7
+    },
+    {
+      "id": "81",
+      "sourceName": "M4x20",
+      "displayName": "M4x20 螺钉",
+      "sourceFile": "M4x20.SLDPRT",
+      "quantity": 3
+    },
+    {
+      "id": "84",
+      "sourceName": "Bearing 4Bore 13Ext 5",
+      "displayName": "4 毫米内孔轴承",
+      "sourceFile": "Bearing 4Bore 13Ext 5.SLDPRT",
+      "quantity": 9
+    },
+    {
+      "id": "92",
+      "sourceName": "T2M1BD",
+      "displayName": "肩部右张紧器",
+      "sourceFile": "T2M1BD.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "101",
+      "sourceName": "Arandela",
+      "displayName": "张紧器垫圈",
+      "sourceFile": "Arandela.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "104",
+      "sourceName": "Pulley 8mm IGNIS",
+      "displayName": "8 毫米孔带轮",
+      "sourceFile": "Pulley 8mm IGNIS.SLDPRT",
+      "quantity": 3
+    },
+    {
+      "id": "108",
+      "sourceName": "Smooth bar 8mm x 140mm",
+      "displayName": "8 毫米光轴（源标注 140 毫米）",
+      "sourceFile": "Smooth bar 8mm x 140mm.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "111",
+      "sourceName": "Brass insert M3",
+      "displayName": "M3 黄铜螺纹嵌件",
+      "sourceFile": "Brass insert M3.SLDPRT",
+      "quantity": 14
+    },
+    {
+      "id": "119",
+      "sourceName": "Brass insert M4",
+      "displayName": "M4 黄铜螺纹嵌件",
+      "sourceFile": "Brass insert M4.SLDPRT",
+      "quantity": 3
+    },
+    {
+      "id": "123",
+      "sourceName": "Tapa 2M1C",
+      "displayName": "肩部关节盖",
+      "sourceFile": "Tapa 2M1C.SLDPRT",
+      "quantity": 2
+    },
+    {
+      "id": "126",
+      "sourceName": "M3x10",
+      "displayName": "M3x10 螺钉",
+      "sourceFile": "M3x10.SLDPRT",
+      "quantity": 16
+    },
+    {
+      "id": "143",
+      "sourceName": "1M1B",
+      "displayName": "肩部支架",
+      "sourceFile": "1M1B.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "146",
+      "sourceName": "M4x45",
+      "displayName": "M4x45 螺钉",
+      "sourceFile": "M4x45.SLDPRT",
+      "quantity": 6
+    },
+    {
+      "id": "154",
+      "sourceName": "M4 Locknut",
+      "displayName": "M4 自锁螺母",
+      "sourceFile": "M4 Locknut.SLDPRT",
+      "quantity": 20
+    },
+    {
+      "id": "163",
+      "sourceName": "M8x65",
+      "displayName": "M8x65 螺钉",
+      "sourceFile": "M8x65.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "166",
+      "sourceName": "M8 Autoblocant",
+      "displayName": "M8 自锁螺母",
+      "sourceFile": "M8 Autoblocant.SLDPRT",
+      "quantity": 2
+    },
+    {
+      "id": "172",
+      "sourceName": "2M2HA",
+      "displayName": "上臂外壳 A",
+      "sourceFile": "2M2HA.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "175",
+      "sourceName": "2M2MA",
+      "displayName": "上臂外壳 B",
+      "sourceFile": "2M2MA.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "182",
+      "sourceName": "M4x30",
+      "displayName": "M4x30 螺钉",
+      "sourceFile": "M4x30.SLDPRT",
+      "quantity": 10
+    },
+    {
+      "id": "195",
+      "sourceName": "3M1D",
+      "displayName": "肘关节壳体",
+      "sourceFile": "3M1D.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "201",
+      "sourceName": "T3M1C",
+      "displayName": "肘部张紧器",
+      "sourceFile": "T3M1C.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "209",
+      "sourceName": "M3x40",
+      "displayName": "M3x40 螺钉",
+      "sourceFile": "M3x40.SLDPRT",
+      "quantity": 7
+    },
+    {
+      "id": "212",
+      "sourceName": "Nema 17 Reductor",
+      "displayName": "NEMA 17 减速步进电机",
+      "sourceFile": "Nema 17 Reductor.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "215",
+      "sourceName": "M3x12",
+      "displayName": "M3x12 螺钉",
+      "sourceFile": "M3x12.SLDPRT",
+      "quantity": 12
+    },
+    {
+      "id": "228",
+      "sourceName": "M4x16",
+      "displayName": "M4x16 螺钉",
+      "sourceFile": "M4x16.SLDPRT",
+      "quantity": 4
+    },
+    {
+      "id": "243",
+      "sourceName": "Smooth bar 8mm x 121mm",
+      "displayName": "8 毫米光轴（源标注 121 毫米）",
+      "sourceFile": "Smooth bar 8mm x 121mm.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "249",
+      "sourceName": "3M2C",
+      "displayName": "前臂外壳 A",
+      "sourceFile": "3M2C.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "252",
+      "sourceName": "3M2CC",
+      "displayName": "前臂外壳 B",
+      "sourceFile": "3M2CC.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "255",
+      "sourceName": "Nema 17 Curt",
+      "displayName": "NEMA 17 短步进电机",
+      "sourceFile": "Nema 17 Curt.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "259",
+      "sourceName": "Coupling 5 to 8 mm",
+      "displayName": "5 转 8 毫米联轴器",
+      "sourceFile": "Coupling 5 to 8 mm.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "262",
+      "sourceName": "Smooth bar 8mm x 50mm",
+      "displayName": "8 毫米光轴（源标注 50 毫米）",
+      "sourceFile": "Smooth bar 8mm x 50mm.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "282",
+      "sourceName": "4M1D",
+      "displayName": "腕关节壳体",
+      "sourceFile": "4M1D.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "286",
+      "sourceName": "Nema 14",
+      "displayName": "NEMA 14 步进电机",
+      "sourceFile": "Nema 14.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "289",
+      "sourceName": "M3x8",
+      "displayName": "M3x8 螺钉",
+      "sourceFile": "M3x8.SLDPRT",
+      "quantity": 5
+    },
+    {
+      "id": "300",
+      "sourceName": "T4M1E",
+      "displayName": "腕部张紧器",
+      "sourceFile": "T4M1E.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "303",
+      "sourceName": "M3x20",
+      "displayName": "M3x20 螺钉",
+      "sourceFile": "M3x20.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "306",
+      "sourceName": "Bearing 3Bore 10Ext 4Height",
+      "displayName": "3 毫米内孔轴承",
+      "sourceFile": "Bearing 3Bore 10Ext 4Height.SLDPRT",
+      "quantity": 3
+    },
+    {
+      "id": "312",
+      "sourceName": "M3x35",
+      "displayName": "M3x35 螺钉",
+      "sourceFile": "M3x35.SLDPRT",
+      "quantity": 5
+    },
+    {
+      "id": "315",
+      "sourceName": "Pulley M5",
+      "displayName": "腕部带轮",
+      "sourceFile": "Pulley M5.SLDPRT",
+      "quantity": 2
+    },
+    {
+      "id": "327",
+      "sourceName": "Tapa 4M1D",
+      "displayName": "腕部关节盖",
+      "sourceFile": "Tapa 4M1D.SLDPRT",
+      "quantity": 2
+    },
+    {
+      "id": "339",
+      "sourceName": "TBC",
+      "displayName": "腕部传动连接件",
+      "sourceFile": "TBC.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "347",
+      "sourceName": "4M2B",
+      "displayName": "夹爪安装架",
+      "sourceFile": "4M2B.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "350",
+      "sourceName": "4M2CB",
+      "displayName": "夹爪安装盖",
+      "sourceFile": "4M2CB.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "360",
+      "sourceName": "M3x25",
+      "displayName": "M3x25 螺钉",
+      "sourceFile": "M3x25.SLDPRT",
+      "quantity": 3
+    },
+    {
+      "id": "365",
+      "sourceName": "Barra llisa 8mm x 80mm",
+      "displayName": "8 毫米光轴（源标注 80 毫米）",
+      "sourceFile": "Barra llisa 8mm x 80mm.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "371",
+      "sourceName": "Bottom Plate C",
+      "displayName": "夹爪下支板",
+      "sourceFile": "Bottom Plate C.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "374",
+      "sourceName": "Top Plate C",
+      "displayName": "夹爪上支板",
+      "sourceFile": "Top Plate C.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "377",
+      "sourceName": "Cilinder",
+      "displayName": "夹爪连接柱",
+      "sourceFile": "Cilinder.SLDPRT",
+      "quantity": 2
+    },
+    {
+      "id": "380",
+      "sourceName": "Gripper Left B",
+      "displayName": "左夹指",
+      "sourceFile": "Gripper Left B.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "383",
+      "sourceName": "Gripper Right B",
+      "displayName": "右夹指",
+      "sourceFile": "Gripper Right B.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "386",
+      "sourceName": "Idol Gear B",
+      "displayName": "从动齿轮",
+      "sourceFile": "Idol Gear B.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "389",
+      "sourceName": "Pivot Arm B",
+      "displayName": "夹爪连杆",
+      "sourceFile": "Pivot Arm B.SLDPRT",
+      "quantity": 2
+    },
+    {
+      "id": "392",
+      "sourceName": "Servo Gear B",
+      "displayName": "舵机齿轮",
+      "sourceFile": "Servo Gear B.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "409",
+      "sourceName": "Servo Futaba S3003",
+      "displayName": "S3003 舵机与引线",
+      "sourceFile": "Servo Futaba S3003.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "412",
+      "sourceName": "M3x16",
+      "displayName": "M3x16 螺钉",
+      "sourceFile": "M3x16.SLDPRT",
+      "quantity": 13
+    },
+    {
+      "id": "423",
+      "sourceName": "Volandera M3",
+      "displayName": "M3 垫圈",
+      "sourceFile": "Volandera M3.SLDPRT",
+      "quantity": 7
+    },
+    {
+      "id": "449",
+      "sourceName": "Base fusta",
+      "displayName": "木质安装板",
+      "sourceFile": "Base fusta.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "452",
+      "sourceName": "Potes base B",
+      "displayName": "底座支脚",
+      "sourceFile": "Potes base B.SLDPRT",
+      "quantity": 4
+    },
+    {
+      "id": "464",
+      "sourceName": "Suport Drivers E",
+      "displayName": "驱动板支架",
+      "sourceFile": "Suport Drivers E.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "470",
+      "sourceName": "PCB TB6560",
+      "displayName": "TB6560 驱动板",
+      "sourceFile": "PCB TB6560.SLDPRT",
+      "quantity": 6
+    },
+    {
+      "id": "473",
+      "sourceName": "Capacitor 1",
+      "displayName": "驱动板电容 A",
+      "sourceFile": "Capacitor 1.SLDPRT",
+      "quantity": 6
+    },
+    {
+      "id": "476",
+      "sourceName": "Capacitor 2",
+      "displayName": "驱动板电容 B",
+      "sourceFile": "Capacitor 2.SLDPRT",
+      "quantity": 6
+    },
+    {
+      "id": "479",
+      "sourceName": "Chip",
+      "displayName": "驱动芯片",
+      "sourceFile": "Chip.SLDPRT",
+      "quantity": 6
+    },
+    {
+      "id": "482",
+      "sourceName": "Sink",
+      "displayName": "散热片",
+      "sourceFile": "Sink.SLDPRT",
+      "quantity": 6
+    },
+    {
+      "id": "485",
+      "sourceName": "Terminal",
+      "displayName": "接线端子",
+      "sourceFile": "Terminal.SLDPRT",
+      "quantity": 12
+    },
+    {
+      "id": "494",
+      "sourceName": "Box C",
+      "displayName": "电控盒",
+      "sourceFile": "Box C.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "500",
+      "sourceName": "Fan Module",
+      "displayName": "风扇安装架",
+      "sourceFile": "Fan Module.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "503",
+      "sourceName": "Fan",
+      "displayName": "散热风扇",
+      "sourceFile": "Fan.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "512",
+      "sourceName": "Tapa 3M1C",
+      "displayName": "肘部关节盖",
+      "sourceFile": "Tapa 3M1C.SLDPRT",
+      "quantity": 2
+    },
+    {
+      "id": "519",
+      "sourceName": "1M3A",
+      "displayName": "底座电机支架",
+      "sourceFile": "1M3A.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "522",
+      "sourceName": "Nema 17 Llarg",
+      "displayName": "NEMA 17 长步进电机",
+      "sourceFile": "Nema 17 Llarg.SLDPRT",
+      "quantity": 1
+    },
+    {
+      "id": "530",
+      "sourceName": "M4x40",
+      "displayName": "M4x40 螺钉",
+      "sourceFile": "M4x40.SLDPRT",
+      "quantity": 4
+    },
+    {
+      "id": "542",
+      "sourceName": "Volandera M4",
+      "displayName": "M4 垫圈",
+      "sourceFile": "Volandera M4.SLDPRT",
+      "quantity": 10
+    },
+    {
+      "id": "564",
+      "sourceName": "M5x30",
+      "displayName": "M5x30 螺钉",
+      "sourceFile": "M5x30.SLDPRT",
+      "quantity": 4
+    },
+    {
+      "id": "570",
+      "sourceName": "Volandera M5",
+      "displayName": "M5 垫圈",
+      "sourceFile": "Volandera M5.SLDPRT",
+      "quantity": 4
+    }
+  ],
+  "limitations": [
+    "Saved tessellation, not parametric solids or manufacturing tolerances.",
+    "Official assembly has no complete belt or wiring harness geometry.",
+    "Sealed motors, servos and bearings remain complete service units; soldered electronics move with their PCB."
+  ]
+}

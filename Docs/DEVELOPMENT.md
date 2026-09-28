@@ -12,11 +12,13 @@
 
 1. 克隆仓库并确认当前分支为 `main`。
 2. 用引擎 Hub 打开仓库根目录。
-3. 等待 16 个工程 FBX、JSON 和 C# 脚本导入。
+3. 等待自行车与 Moveo 的 FBX、JSON 和 C# 脚本导入。
 4. 打开 `Assets/Scenes/Main.unity` 并进入 Play Mode。
 5. 运行入口由 `MechMasterApp.Bootstrap` 创建，不需要在场景中手工绑定脚本。
 
 ## 完整资产流水线
+
+### 自行车
 
 按以下顺序执行：
 
@@ -37,6 +39,21 @@ dotnet run --project Tools/Tests/MechMaster.Domain.Tests.csproj -c Release
 
 生成顺序不能互换：交互目录依赖最新模型清单，LOD 与验证依赖最新 `.blend`。
 
+### Moveo 机械臂
+
+已有运行资产可直接导入，无需 SolidWorks。重建资产时还需 Python 3.9 或更高版本；以下命令在仓库根目录执行：
+
+```powershell
+python Tools/Content/fetch_moveo_sources.py
+python -m pip install --target Library/MechMaster/MoveoSource/parser/python olefile==0.47
+python Tools/Content/convert_moveo_solidworks.py
+& 'C:\Program Files\Blender Foundation\Blender 4.5\blender.exe' `
+  --background --python Tools/Blender/import_moveo.py
+dotnet run --project Tools/Tests/MechMaster.Domain.Tests.csproj -c Release
+```
+
+获取、解析与 Blender 导入依次执行。源 CAD 下载和转换缓存位于忽略的 `Library/MechMaster/MoveoSource/`；正式模型、目录、来源与许可由导入脚本写入 `Assets/`。修改中文名称、知识和分组时编辑 `Tools/Content/moveo_content.py`；修改几何清理、材质或 LOD 时编辑 `Tools/Blender/import_moveo.py`。固定提交、尺寸、清理记录及验证边界见 [Moveo 接入记录](References/Moveo/IMPORT_STATUS.md)。
+
 ## 预期验证结果
 
 Blender 验证应以以下文本结束：
@@ -45,7 +62,7 @@ Blender 验证应以以下文本结束：
 ALL ENGINEERING BICYCLE VALIDATIONS PASSED
 ```
 
-关键基线：
+自行车关键基线：
 
 - 14 个模块、595 个唯一零件 ID。
 - 轮外径 0.698 m、轴距 1.120 m。
@@ -54,7 +71,9 @@ ALL ENGINEERING BICYCLE VALIDATIONS PASSED
 - Source 111,694 面、LOD1 71,305 面、LOD2 26,671 面。
 - Simple / Standard / Advanced 为 15 / 30 / 45 步；每档都覆盖 595 个模型对象。
 
-.NET 测试应全部显示 `PASS`，覆盖状态机、BOM、继承数量、尺寸基准、三档计数和模型绑定。
+Moveo 基线：9 模块、87 个源零件定义、366 实体；三档为 9 / 20 / 42 步，每档完整覆盖同一批实体。木底板为 550 × 550 × 16 mm；LOD0 / LOD1 / LOD2 为 447,667 / 268,593 / 34,999 三角面。
+
+.NET 测试共 15 项，应全部显示 `PASS`，覆盖状态机、BOM、继承数量、尺寸基准、三档计数、模型绑定、Moveo 内容完整性及 Moveo 关节轴 / 四连杆关键帧配置。
 
 ## 修改工程模型
 
@@ -77,7 +96,7 @@ ALL ENGINEERING BICYCLE VALIDATIONS PASSED
 完整 Editor 可用后至少检查：
 
 - C# 无编译错误、JSON 可被 `JsonUtility` 读取。
-- 14 个模块 FBX 在世界坐标中正确拼成整车。
+- 自行车 14 个模块、Moveo 9 个模块的 FBX 在世界坐标中正确拼成整机。
 - 三档均能命中正确对象并完整拆解。
 - 拆解与组装均可自由选择零件，最终能回到完整状态。
 - 45 步探索模式的组合机械单元没有异常爆炸距离。
@@ -86,6 +105,17 @@ ALL ENGINEERING BICYCLE VALIDATIONS PASSED
 - 镜头旋转、双指缩放与零件拖动不冲突。
 
 `PrototypeValidator.ValidateFromCommandLine` 会校验所有模型清单、资源与对象绑定，并对自行车检查 15/30/45 步及 595 个对象。`PrototypeValidator.ValidateRuntimeBootstrapFromCommandLine` 可在批处理 Play Mode 中检查当前已保存模型的启动、分件加载与计划绑定；它不会执行拆装或重置存档。两者都通过后仍须人工复核菜单、拖动与画面。
+
+Moveo 专用自动回归在停止 Editor 后运行：
+
+```powershell
+& 'C:\Program Files\Tuanjie\Hub\Editor\2022.3.62t15\Editor\Tuanjie.exe' `
+  -batchmode -projectPath . `
+  -executeMethod MechMaster.Editor.MoveoImportValidator.ValidateFromCommandLine `
+  -logFile Library/MechMaster/MoveoSource/converted/editor-runtime.log
+```
+
+按本机安装位置调整 Editor 路径。该入口自动进入和退出 Play 并关闭 Editor，因此不添加 `-quit`；使用正常图形模式以执行拾取和拖入托盘。它检查三档绑定、爆炸不改进度、存档、完整拆装和姿态复原，验证 Moveo 五轴关节、夹爪四连杆、暂停、调速、循环无漂移和视图切换复位，并切回自行车检查动态演示可用性；退出 Play 后恢复验证前的全部模型偏好及进度。成功日志包含 `MECH_MASTER_MOVEO_TIER_OK` 三档记录、`MECH_MASTER_MOVEO_MOTION_OK` 和 `MECH_MASTER_MOVEO_RUNTIME_OK`。
 
 ## 界面文字清晰度
 
@@ -112,6 +142,7 @@ ALL ENGINEERING BICYCLE VALIDATIONS PASSED
 - Play 中使用“机械大师 → 验证视角与面板交互”：检查完整取景、折叠布局、鼠标与单指手势、UI 拦截、取消拖动、中文语音就绪，并联动文字像素检查。验证器不提交拆装操作，不重置存档。
 - 修改脚本前先停止 Play，等待编译完成后重新 Play。当前原型不保证运行时领域对象能跨脚本热重载恢复。
 - 使用“机械大师 → 验证自行车动态演示”可自动检查转轴绑定、约 126 个运转显示链片、播放/暂停/恢复及退出后姿态复原。命令行入口为 `MechMaster.Editor.PrototypeValidator.ValidateMotionFromCommandLine`；自动检查仍需配合实际画面观察。
+- Moveo 动态演示由 `MoveoMotionController` 读取 `Assets/Resources/MechanicalCatalog/MoveoMotionRig.json`；自动回归检查五轴、支承轴、夹爪两套四连杆、暂停 / 调速 / 循环复位、碰撞状态和切换视图。该演示没有刹车热区，也不会在非完整装配时启动。
 - 手机端仍须实机验证双指缩放、触摸取消、前后台切换与窄屏布局；Editor 模拟触摸不等同于微信真机验收。
 
 ## Windows Editor 中文讲解
@@ -152,8 +183,8 @@ ALL ENGINEERING BICYCLE VALIDATIONS PASSED
 - .NET 测试全部通过。
 - 在可用时完成 Editor 编译和 Play Mode 检查。
 - Editor 运行时验证通过全局/局部爆炸目标数、重复点击收回、自动复位以及拆解进度不变。
-- 三档计数为 15 / 30 / 45。
-- 每档步骤都完整且无重复地覆盖全部 595 个模型对象。
+- 自行车三档为 15 / 30 / 45 步，Moveo 为 9 / 20 / 42 步。
+- 每档完整且无重复地覆盖本模型全部实体：自行车 595，Moveo 366。
 - 文档统计与运行清单一致。
 - 新资料与第三方资产记录来源和许可。
 - 不提交 AppID、密钥、个人账号、`Library`、`Temp`、`obj`、`bin`、`__pycache__` 或 `.blend1`。

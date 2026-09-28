@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "modelId": "arm.bcn3d.moveo.v1",
+  "modules": [
+    {
+      "assemblyId": "base_platform",
+      "resourcePath": "Models/Moveo/Modules/base_platform_LOD0",
+      "partObjects": 47,
+      "triangles": 21940,
+      "bytes": 620876
+    },
+    {
+      "assemblyId": "rotary_base",
+      "resourcePath": "Models/Moveo/Modules/rotary_base_LOD0",
+      "partObjects": 45,
+      "triangles": 69135,
+      "bytes": 1736236
+    },
+    {
+      "assemblyId": "shoulder",
+      "resourcePath": "Models/Moveo/Modules/shoulder_LOD0",
+      "partObjects": 57,
+      "triangles": 74871,
+      "bytes": 1851916
+    },
+    {
+      "assemblyId": "upper_arm",
+      "resourcePath": "Models/Moveo/Modules/upper_arm_LOD0",
+      "partObjects": 14,
+      "triangles": 16529,
+      "bytes": 437564
+    },
+    {
+      "assemblyId": "elbow",
+      "resourcePath": "Models/Moveo/Modules/elbow_LOD0",
+      "partObjects": 36,
+      "triangles": 47794,
+      "bytes": 1250204
+    },
+    {
+      "assemblyId": "forearm",
+      "resourcePath": "Models/Moveo/Modules/forearm_LOD0",
+      "partObjects": 20,
+      "triangles": 37177,
+      "bytes": 979164
+    },
+    {
+      "assemblyId": "wrist",
+      "resourcePath": "Models/Moveo/Modules/wrist_LOD0",
+      "partObjects": 56,
+      "triangles": 61573,
+      "bytes": 1615356
+    },
+    {
+      "assemblyId": "gripper",
+      "resourcePath": "Models/Moveo/Modules/gripper_LOD0",
+      "partObjects": 41,
+      "triangles": 60574,
+      "bytes": 1507692
+    },
+    {
+      "assemblyId": "controller",
+      "resourcePath": "Models/Moveo/Modules/controller_LOD0",
+      "partObjects": 50,
+      "triangles": 58074,
+      "bytes": 1306460
+    }
+  ],
+  "interactionSteps": {
+    "Simple": 9,
+    "Standard": 20,
+    "Advanced": 42
+  },
+  "lod1Triangles": 268593,
+  "lod2Triangles": 34999
+}

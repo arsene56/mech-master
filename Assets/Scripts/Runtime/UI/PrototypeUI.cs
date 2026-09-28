@@ -203,7 +203,7 @@ namespace MechMaster.Runtime.UI
                 GUI.enabled = enabled;
             }
             string guide = app.IsMotionActive
-                ? "按住刹把制动 · 空白处拖动旋转"
+                ? app.MotionGuide
                 : app.IsGlobalExplosionActive
                 ? "全局爆炸 · 拖动旋转 · 双指缩放"
                 : app.IsLocalExplosionMode
@@ -330,16 +330,16 @@ namespace MechMaster.Runtime.UI
             if (app.MotionAvailable)
             {
                 GUILayout.Space(Pixels(8f));
-                GUILayout.Label("演示调速：" + app.MotionCadenceRpm + " 转/分", captionStyle);
+                GUILayout.Label("演示调速：" + app.MotionSpeedLabel, captionStyle);
                 bool cadenceEnabled = GUI.enabled;
                 GUI.enabled = cadenceEnabled && app.IsMotionActive;
                 GUILayout.BeginHorizontal();
-                if (GUILayout.Button("慢 −15", cadenceButtonStyle,
+                if (GUILayout.Button("慢 −", cadenceButtonStyle,
                     GUILayout.Height(Pixels(36f))))
-                    app.ChangeMotionCadence(-15);
-                if (GUILayout.Button("快 +15", cadenceButtonStyle,
+                    app.ChangeMotionSpeed(-app.MotionSpeedStep);
+                if (GUILayout.Button("快 +", cadenceButtonStyle,
                     GUILayout.Height(Pixels(36f))))
-                    app.ChangeMotionCadence(15);
+                    app.ChangeMotionSpeed(app.MotionSpeedStep);
                 GUILayout.EndHorizontal();
                 GUI.enabled = cadenceEnabled;
             }
@@ -547,9 +547,7 @@ namespace MechMaster.Runtime.UI
             GUILayout.EndScrollView();
             GUILayout.Label(
                 app.IsMotionActive
-                    ? app.FrontBrakeEngaged || app.RearBrakeEngaged
-                        ? "制动中：松开刹把后对应车轮加速"
-                        : "左刹控后轮，右刹控前轮；按住制动"
+                    ? app.MotionHint
                     : app.Plan.Mode == AssemblyMode.Disassemble
                     ? "自由拆解：可选择任意尚未拆下的零件"
                     : "自由组装：可选择任意托盘中的零件",

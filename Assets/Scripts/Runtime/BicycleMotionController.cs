@@ -14,7 +14,7 @@ namespace MechMaster.Runtime
     }
 
     // A kinematic teaching view. The disassembly model and its saved state stay intact.
-    public sealed class BicycleMotionController : MonoBehaviour
+    public sealed class BicycleMotionController : MonoBehaviour, IMechanicalMotionController
     {
         private struct ChainCircle
         {
@@ -76,6 +76,8 @@ namespace MechMaster.Runtime
         public bool IsActive { get; private set; }
         public bool IsPlaying { get; private set; }
         public int CadenceRpm { get; private set; } = 60;
+        public int Speed => CadenceRpm;
+        public void SetSpeed(int value) => SetCadence(value);
         public float EffectiveCadenceRpm => effectiveCadenceRpm;
         public float FrontWheelRpm => frontWheelRpm;
         public float RearWheelRpm => effectiveCadenceRpm * RearWheelRatio;

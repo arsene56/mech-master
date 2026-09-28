@@ -27,7 +27,13 @@
 - [Park Tool Repair Help](https://www.parktool.com/en-int/blog/repair-help)
 - ISO 4210 自行车安全要求：只用于核对安全术语和设计边界，标准正文需通过合法渠道取得。
 
-## 当前样片假设
+## Moveo 模型与转换来源
+
+- [BCN3D Moveo 官方仓库](https://github.com/BCN3D/BCN3D-Moveo/tree/0866a92501277636f76000a195d8a16d44b5b476)：采用固定提交的 CAD 总装保存网格、装配变换、BOM 和手册；[MIT 许可](https://github.com/BCN3D/BCN3D-Moveo/blob/0866a92501277636f76000a195d8a16d44b5b476/LICENSE)随运行资产保存。
+- [Wintaru/model_viewer 的三角条带解析研究](https://github.com/Wintaru/model_viewer/blob/9aabcab92cfaaac03b1276229e11ce798b60e6f9/research/d9-decode.py)：解析器参考其 MIT 代码，版权与许可保存在 `Tools/Content/ThirdParty/Wintaru-MIT-LICENSE.txt`。
+- [Moveo 接入记录](Moveo/IMPORT_STATUS.md)：原始文件校验、隐藏和重复引用清理、米制尺寸、流水线与验证边界。运行模型为源 CAD 的保存网格快照；展示 BOM 保留源版本差异，不能作为采购清单。
+
+## 自行车样片假设
 
 - 27.5 英寸山地车轮组，模型外径约 0.698 m。
 - 轴距 1.120 m。

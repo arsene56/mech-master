@@ -1,0 +1,933 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "name": "official",
+      "repository": "https://github.com/BCN3D/BCN3D-Moveo",
+      "commit": "0866a92501277636f76000a195d8a16d44b5b476",
+      "archiveUrl": "https://codeload.github.com/BCN3D/BCN3D-Moveo/zip/0866a92501277636f76000a195d8a16d44b5b476",
+      "archiveSha256": "dc47ca9af32bf733faed299e9e672ef25954604f241d611537ddc9ec5fcff160",
+      "files": [
+        {
+          "path": "BOM/BCN3D Moveo BOM.pdf",
+          "bytes": 75439,
+          "sha256": "fae2125b350f08639070a6268f46754b5d3ba0993feb2fb1ebac4e151d0c8a8e"
+        },
+        {
+          "path": "CAD files/1M1B.SLDPRT",
+          "bytes": 1200128,
+          "sha256": "2019a6b6865b0ebcb6a7a568910a533510a4faaf6af7e2823ddc0cec0dc0f527"
+        },
+        {
+          "path": "CAD files/1M2A.SLDPRT",
+          "bytes": 997376,
+          "sha256": "cdbb9d524ff67d92fd23520f2273d8d49f0c6209857c435230604e39ba131e0f"
+        },
+        {
+          "path": "CAD files/1M3.SLDASM",
+          "bytes": 495104,
+          "sha256": "d6f6b39e8c9c249590cbb7fd566d83644616a3c617bf0d0354f22316bb1b664b"
+        },
+        {
+          "path": "CAD files/1M3A.SLDPRT",
+          "bytes": 721408,
+          "sha256": "fefa0104da99b1a6b6ee163326b10d131f914ac82a9a9e47378b184c62f68533"
+        },
+        {
+          "path": "CAD files/2.SLDASM",
+          "bytes": 3552768,
+          "sha256": "772a70f28e198e222ac915b280bfd5cc4c3cb33d34c662f7b58d611da3ce193f"
+        },
+        {
+          "path": "CAD files/2M1 assembly.SLDASM",
+          "bytes": 2958336,
+          "sha256": "14d652d8c8f445adc624e55a7bb344a33a0fcf107415116112aee0450e88076b"
+        },
+        {
+          "path": "CAD files/2M1D.SLDPRT",
+          "bytes": 1335808,
+          "sha256": "57ee17b291d79ddabfcc6febe73de774b9c9eae22ef383013856be76ece19173"
+        },
+        {
+          "path": "CAD files/2M2 assembly.SLDASM",
+          "bytes": 552960,
+          "sha256": "458a26174614eda803d20fb1a5e51318e1475d101aedc15fd9f23b0ded4019a1"
+        },
+        {
+          "path": "CAD files/2M2.SLDASM",
+          "bytes": 597504,
+          "sha256": "4f42b76431545afc790a18c8196306303228d971dc56d9a1e152942667e69af0"
+        },
+        {
+          "path": "CAD files/2M2HA.SLDPRT",
+          "bytes": 1606144,
+          "sha256": "f47e3476ab54178b297ea3630e98853569594abc830d7c1f52e9f968f7cd41a8"
+        },
+        {
+          "path": "CAD files/2M2M assembly.SLDASM",
+          "bytes": 326656,
+          "sha256": "ad36afab70a83b65a2a2309b3760ea11198d6c421d03e3c8e7a47c1e4d17d290"
+        },
+        {
+          "path": "CAD files/2M2MA.SLDPRT",
+          "bytes": 1720832,
+          "sha256": "78bc685ccc116bef12fff978374dfc255e496795c14faf987d27a16cf5f13848"
+        },
+        {
+          "path": "CAD files/3M1.SLDASM",
+          "bytes": 2915328,
+          "sha256": "3882a2743e3f1baa354defe91b9edef17e733c119a294c3064c84994e94d9cf1"
+        },
+        {
+          "path": "CAD files/3M1D.SLDPRT",
+          "bytes": 4753920,
+          "sha256": "6679c5afc64fbed92695fb24128efe6863e4fd4010d67101cbb895fe572c7a7b"
+        },
+        {
+          "path": "CAD files/3M2.SLDASM",
+          "bytes": 6331904,
+          "sha256": "8db0468fc72293ec25ebce20ff5f456425f99188a36c9c902e5d7fd11339221a"
+        },
+        {
+          "path": "CAD files/3M2C.SLDPRT",
+          "bytes": 1083904,
+          "sha256": "3329252dade64ab35e8cb5fd59de5045db8a64f71eb11ee8872f060056564ffa"
+        },
+        {
+          "path": "CAD files/3M2CC.SLDPRT",
+          "bytes": 2050560,
+          "sha256": "b478bf55fe8ffad8977d926228e553caa4b50b40290f9580e944cf8bde85236e"
+        },
+        {
+          "path": "CAD files/4M.SLDASM",
+          "bytes": 6014976,
+          "sha256": "26dfa3cf075a3a746d8f980974bae3548ea98a65baf50c7e8d1c8d2c9295c861"
+        },
+        {
+          "path": "CAD files/4M1D.SLDPRT",
+          "bytes": 1452544,
+          "sha256": "485fc4685c09cb9a4038d861ce9ba0de5c7389f189601591c17020e65c5415da"
+        },
+        {
+          "path": "CAD files/4M2.SLDASM",
+          "bytes": 436224,
+          "sha256": "4dafbbe6e8cbe16a4dd58700acbafa69a1232523160c65df642b2a3e48c44ad1"
+        },
+        {
+          "path": "CAD files/4M2B.SLDPRT",
+          "bytes": 709632,
+          "sha256": "076b614afcfcbdc2d15ca585b85a66807698652977ad4ce60cd532f38528dc63"
+        },
+        {
+          "path": "CAD files/4M2CB.SLDPRT",
+          "bytes": 1026048,
+          "sha256": "9ed59477a3449efff9fe849e4d1679b689c416f9052db35e45005a0929056cb5"
+        },
+        {
+          "path": "CAD files/8mm Bearing.SLDPRT",
+          "bytes": 948736,
+          "sha256": "601e08180bc3e42699360527a4e793f12eedeb6d6c181119ebe140ead22fcc6f"
+        },
+        {
+          "path": "CAD files/Arandela.SLDPRT",
+          "bytes": 108544,
+          "sha256": "c42cd4f193550a44f667ea139f1a0c549eedbb9a993f68abfa1e69536efdd88d"
+        },
+        {
+          "path": "CAD files/BCN3D Moveo assembly.SLDASM",
+          "bytes": 10930688,
+          "sha256": "97994c1420a67e92043af83ddf1327b8130980d5e8dfc2c12c61b41c2e988e46"
+        },
+        {
+          "path": "CAD files/Barra llisa 8mm x 80mm.SLDPRT",
+          "bytes": 117760,
+          "sha256": "a2aea6eb1cd9aefa3a60f10a737148d07620c0423de3d6da958e1c3cc8328da5"
+        },
+        {
+          "path": "CAD files/Base assembly.SLDASM",
+          "bytes": 886272,
+          "sha256": "2ddab0d4ce1f375b6a366f76fa163fd1e9b074b20a05d3662356ea45c33b68a4"
+        },
+        {
+          "path": "CAD files/Base fusta.SLDPRT",
+          "bytes": 225280,
+          "sha256": "fcaf498791f027a849883a0c4dae78fd23b3778c4267b41c543b1ce0a49939c9"
+        },
+        {
+          "path": "CAD files/Bearing 3Bore 10Ext 4Height.SLDPRT",
+          "bytes": 259584,
+          "sha256": "5f7a4ce144fa02677a905099419c7b04ae59a8d6318a38a96ca66c562869bdad"
+        },
+        {
+          "path": "CAD files/Bearing 4Bore 13Ext 5.SLDPRT",
+          "bytes": 256512,
+          "sha256": "17ca1f1f6e71ec747d30123d9c858d2427dcb48bb7aaa20eb6257ee925bcb22e"
+        },
+        {
+          "path": "CAD files/Bearing 5mm.SLDPRT",
+          "bytes": 737280,
+          "sha256": "e0979b25a9642fe550b8668f9232e0b187d40d4c6cdb537ebd18b8329525e607"
+        },
+        {
+          "path": "CAD files/Bottom Plate C.SLDPRT",
+          "bytes": 838656,
+          "sha256": "4dfdcafbd1222d1cac8b6a7b33164c985e8f716d2dd5b11b97bdb039fc1245d8"
+        },
+        {
+          "path": "CAD files/Box Assembly B.SLDASM",
+          "bytes": 677376,
+          "sha256": "0f16f5b08764cfc6ee747bf7904a02dd381c3daec18df4bc84b6a7dff0f7082d"
+        },
+        {
+          "path": "CAD files/Box C.SLDPRT",
+          "bytes": 1162752,
+          "sha256": "d5246becda7bdd363afc31e56451fe9f7f87d6bc0eec31e77b015ed992a6921c"
+        },
+        {
+          "path": "CAD files/Brass insert M3.SLDPRT",
+          "bytes": 1406976,
+          "sha256": "7925dc76f0c19bf654858be0a7ba279e74e698b2e4def66620e17513f7f55ec0"
+        },
+        {
+          "path": "CAD files/Brass insert M4.SLDPRT",
+          "bytes": 1740800,
+          "sha256": "a0860fd80546ff6405ffbcdb366f4f513d1fb707d768bba6681e2a719c4e0be2"
+        },
+        {
+          "path": "CAD files/Capacitor 1.SLDPRT",
+          "bytes": 113664,
+          "sha256": "aee10875ed8febf096dacc1f6cd759ee1d7bde19970b5ee6ea382f7a613d1d0b"
+        },
+        {
+          "path": "CAD files/Capacitor 2.SLDPRT",
+          "bytes": 114688,
+          "sha256": "71eaab6f13cf8e87cf641810dfa83e63db073f839b9ae455cc2fba489ca3cba7"
+        },
+        {
+          "path": "CAD files/Chip.SLDPRT",
+          "bytes": 99840,
+          "sha256": "09b11d13b227fdded40911eb5e7c163636907f2317feddeea56db32506b3ec29"
+        },
+        {
+          "path": "CAD files/Cilinder.SLDPRT",
+          "bytes": 117248,
+          "sha256": "288f8a76aef9ff3fa75b9f46f969169f78f7a14d54ae98e35a0a5dd9b7337224"
+        },
+        {
+          "path": "CAD files/Coupling 5 to 8 mm.SLDPRT",
+          "bytes": 661504,
+          "sha256": "71d51f5924d3dcf718bd8a3b36f5c82b9254395784c8a716e49b1017d0417ea0"
+        },
+        {
+          "path": "CAD files/Driver.SLDASM",
+          "bytes": 314880,
+          "sha256": "b598a77a805eee5112b34ec805b4a8457634f1244a3fb3a27c7976804f7b3cdb"
+        },
+        {
+          "path": "CAD files/Drivers Support Assembly B.SLDASM",
+          "bytes": 422912,
+          "sha256": "6cb091993da7a892d0cd81c8e979647fe891a884970f0478e412c46da34674ad"
+        },
+        {
+          "path": "CAD files/Fan Module.SLDPRT",
+          "bytes": 466944,
+          "sha256": "d240a8fa9a8a187b46dc98d027a01135b1784ad2ab69ac522fc0e30b773e3863"
+        },
+        {
+          "path": "CAD files/Fan.SLDPRT",
+          "bytes": 212992,
+          "sha256": "b4abc93b96e3191a88a66b4f720a9eae785f3b4ccd42b93757cfd336b9be105d"
+        },
+        {
+          "path": "CAD files/Gripper B Assembly.SLDASM",
+          "bytes": 4161024,
+          "sha256": "45d08e4801e373c2192895db120aa06dd7209a4d89f93baf36e750b1d9f3350f"
+        },
+        {
+          "path": "CAD files/Gripper Left B.SLDPRT",
+          "bytes": 481280,
+          "sha256": "a6b6ada011723d0589c0da6567053f9cd3bac84f8173ff344fd348d62aabfdc7"
+        },
+        {
+          "path": "CAD files/Gripper Right B.SLDPRT",
+          "bytes": 484352,
+          "sha256": "5ebe9a60ac6f5036392d2057f92aa473be43c03effca7772502f9f4ce4116852"
+        },
+        {
+          "path": "CAD files/Idol Gear B.SLDPRT",
+          "bytes": 877568,
+          "sha256": "188d0c7dbaf6a6d1e300cd6b9171f92b59b97112bbdc1e32897042af11c5bf0a"
+        },
+        {
+          "path": "CAD files/M1 Tensor D.SLDASM",
+          "bytes": 279552,
+          "sha256": "be817c862702175c69c66e719897d308f2e984a3427c296361935cd733bc5376"
+        },
+        {
+          "path": "CAD files/M3 Nut.SLDPRT",
+          "bytes": 204800,
+          "sha256": "b5865c0e90ab162807caf482fdc6001ef43c9c3fa07f3bbb1e2a2fb3cb8afdf7"
+        },
+        {
+          "path": "CAD files/M3x10.SLDPRT",
+          "bytes": 179200,
+          "sha256": "cb7937a6fed99c522b79020b7041d84e410783f0d4e36322758fd22cc0327508"
+        },
+        {
+          "path": "CAD files/M3x12.SLDPRT",
+          "bytes": 186880,
+          "sha256": "924337356804f2a1cae5c68061ad2fef4b173dd4e12ac0387f89de6d3b55cf51"
+        },
+        {
+          "path": "CAD files/M3x16.SLDPRT",
+          "bytes": 172032,
+          "sha256": "d7c4e9a72539d0e6ef3024ecb367ee4ded421b8e042b41befbbfde28b1d5a85c"
+        },
+        {
+          "path": "CAD files/M3x20.SLDPRT",
+          "bytes": 159744,
+          "sha256": "86428573dae50156d03f8668058be46a08ba64f8c93c878948e245e5b943cdf0"
+        },
+        {
+          "path": "CAD files/M3x25.SLDPRT",
+          "bytes": 159232,
+          "sha256": "b0df22d7a3cd9c0440d98f78e9deb6b695b10de0b4919b8a74bcd754e7d0dcae"
+        },
+        {
+          "path": "CAD files/M3x35.SLDPRT",
+          "bytes": 159232,
+          "sha256": "c1301acf15067847e67c9a083a64541c9ce5540e65cd04a6b69e0035a375da7e"
+        },
+        {
+          "path": "CAD files/M3x40.SLDPRT",
+          "bytes": 153088,
+          "sha256": "32d237a326109088dc3cdb631ce2edbb2b114d836b981d4242cc3dfe3fa70925"
+        },
+        {
+          "path": "CAD files/M3x8.SLDPRT",
+          "bytes": 184320,
+          "sha256": "04a7a0f6a9d5268b8af37113e4f037bf502336182b38cfcdb3d5098c6eee7b53"
+        },
+        {
+          "path": "CAD files/M4 Locknut.SLDPRT",
+          "bytes": 251904,
+          "sha256": "71f4c0619e50f36f1ff632e63341db2c78a93f687ecaa34a6157598ecd1aeb7e"
+        },
+        {
+          "path": "CAD files/M4 Nut.SLDPRT",
+          "bytes": 192000,
+          "sha256": "8435068331121e2cbde500a7a979be6065f54ef517513357526d2cf7cb41a8ba"
+        },
+        {
+          "path": "CAD files/M4x16.SLDPRT",
+          "bytes": 165376,
+          "sha256": "27c4b511377c24300d878fa410128cb450726b5fd7c1d7392a0a77c25b75450c"
+        },
+        {
+          "path": "CAD files/M4x20.SLDPRT",
+          "bytes": 174080,
+          "sha256": "bc9fd74a8cb8331769b2aa68284a9b95345dd170a012b77ce563ce94a8f3c75a"
+        },
+        {
+          "path": "CAD files/M4x30.SLDPRT",
+          "bytes": 153600,
+          "sha256": "2123f7dff7b89a396971156a564813acdb7fd2ad948bdbd763a5a050c2d546cf"
+        },
+        {
+          "path": "CAD files/M4x40.SLDPRT",
+          "bytes": 149504,
+          "sha256": "5a82e05ade70fecebd0d66df6c6009fcdef66ae8dd2378722d66102e99bc665c"
+        },
+        {
+          "path": "CAD files/M4x45.SLDPRT",
+          "bytes": 150016,
+          "sha256": "8706d4881451a355a55a99f4a3b70e89a672ba089801360426005507a7541670"
+        },
+        {
+          "path": "CAD files/M5 Lock.SLDPRT",
+          "bytes": 319488,
+          "sha256": "fa1a520cc787d98bd995cda055f1160534bcf6c9d98acc7fee3a8fbe8370e123"
+        },
+        {
+          "path": "CAD files/M5x15.SLDPRT",
+          "bytes": 141824,
+          "sha256": "43fe9571433710c0e1712bd36683748192df20f035dfe96b34d2685cf1627c52"
+        },
+        {
+          "path": "CAD files/M5x20.SLDPRT",
+          "bytes": 147456,
+          "sha256": "6ed91187ad1792fe7df3d9837fdd3efc6dec1fc08c5520237df1e510983385da"
+        },
+        {
+          "path": "CAD files/M5x30.SLDPRT",
+          "bytes": 135168,
+          "sha256": "997e686bc08a8bb2aee221244d6a56f640ffdf7647eb6f2d202012796b184c59"
+        },
+        {
+          "path": "CAD files/M8 Autoblocant.SLDPRT",
+          "bytes": 208384,
+          "sha256": "1b8a004501d08d0790de402262a8232a11668a51c339077bbe4bd68b1dd2956a"
+        },
+        {
+          "path": "CAD files/M8x65.SLDPRT",
+          "bytes": 142336,
+          "sha256": "e7c37bc91d14d836a973957aca41d0008854960e2a6f5337b686527a4072d64a"
+        },
+        {
+          "path": "CAD files/Module Fan Assembly.SLDASM",
+          "bytes": 258560,
+          "sha256": "c85ddb844d9ce4089adad7e83f56f910105eaf2d01610faac6e155b7ee4e3b42"
+        },
+        {
+          "path": "CAD files/Nema 14.SLDPRT",
+          "bytes": 1036288,
+          "sha256": "77e231004515aba19abd20c41430051dc6269a3be6cc805b4658de5cb6e80e75"
+        },
+        {
+          "path": "CAD files/Nema 17 Curt.SLDPRT",
+          "bytes": 1308160,
+          "sha256": "93288dc65b43a42125747b823c21020558bb55244544da1e3ffa2b5e523dc240"
+        },
+        {
+          "path": "CAD files/Nema 17 Llarg.SLDPRT",
+          "bytes": 1396736,
+          "sha256": "ce584b449f610c6ef141b8f58714169746b758ce672c59f84b700e4883c593ca"
+        },
+        {
+          "path": "CAD files/Nema 17 Reductor.SLDPRT",
+          "bytes": 1609216,
+          "sha256": "38d853d559efd894ef0af6fa932b350cb015182fa077b2a05dbaecaed03bbe0e"
+        },
+        {
+          "path": "CAD files/Nema 23.SLDPRT",
+          "bytes": 1022976,
+          "sha256": "c6d9332217a13001db1d41c920fcf37b0548334f7d8bf6d3833ff8454d85e9f7"
+        },
+        {
+          "path": "CAD files/PCB TB6560.SLDPRT",
+          "bytes": 393216,
+          "sha256": "083a7ae6abf950e6f5a492c2af670a3068f97dd734bc540b6686e5865c5ba01e"
+        },
+        {
+          "path": "CAD files/Pivot Arm B.SLDPRT",
+          "bytes": 201728,
+          "sha256": "725752f56a5a5221906505d0264c0c1175094a530683325baf431dff7e24c55a"
+        },
+        {
+          "path": "CAD files/Potes base B.SLDPRT",
+          "bytes": 250368,
+          "sha256": "c1b4176d1ac64fae9c809d556ccd47e759ad30502e913349f08f5c9ccb16f233"
+        },
+        {
+          "path": "CAD files/Pulley 8mm IGNIS.SLDPRT",
+          "bytes": 515072,
+          "sha256": "8cf5b677bfdf44610f6ab7a599b5ac47cf997b334931662e4e34338ebbe21e77"
+        },
+        {
+          "path": "CAD files/Pulley M5.SLDPRT",
+          "bytes": 240128,
+          "sha256": "2ed2d13f0c10c77a242edabf3fe6a5e6ee1bc1ed896ddc6ea927e4b891cea070"
+        },
+        {
+          "path": "CAD files/Rotary Plate.SLDASM",
+          "bytes": 1221120,
+          "sha256": "0b16cc38f6c5ccfa929a1a6f2ce30c07f8a09561eef399d49dde2852d15bf82f"
+        },
+        {
+          "path": "CAD files/Servo Futaba S3003.SLDPRT",
+          "bytes": 7087104,
+          "sha256": "c8cb21d559924abe88cdd378bbcc80b07b773e1e19a7eedc7945eee8f46ca20f"
+        },
+        {
+          "path": "CAD files/Servo Gear B.SLDPRT",
+          "bytes": 899072,
+          "sha256": "6125e0f28e48f0cb8acfcc010980fe8810b101cb34885f7eb707763671c75c68"
+        },
+        {
+          "path": "CAD files/Sink.SLDPRT",
+          "bytes": 402432,
+          "sha256": "1e2cec08f63b43f83ce6e1e0bde6c4ce1fc03367b1166a1553595351a1fdda8c"
+        },
+        {
+          "path": "CAD files/Sistema rodaments.SLDASM",
+          "bytes": 437760,
+          "sha256": "0dde3a94513e39b128cc104884369a4e322e8183133d0bd757da319ba69a5cd3"
+        },
+        {
+          "path": "CAD files/Smooth bar 8mm x 121mm.SLDPRT",
+          "bytes": 94720,
+          "sha256": "17883de27f0c1917e9f9ec6a946be780005e0bd7b6aea558883d95c52d2bcccd"
+        },
+        {
+          "path": "CAD files/Smooth bar 8mm x 140mm.SLDPRT",
+          "bytes": 94720,
+          "sha256": "11dacf1c66067c3375e07f10232972560ca5a07183ba7491c39fff8eacb3b8c0"
+        },
+        {
+          "path": "CAD files/Smooth bar 8mm x 50mm.SLDPRT",
+          "bytes": 99328,
+          "sha256": "ca34e473501f931cd85d4468eaa864e1ba01a1ab49ae6acd3b75a698e1f2000f"
+        },
+        {
+          "path": "CAD files/Spacer M5x10.SLDPRT",
+          "bytes": 125952,
+          "sha256": "06c5f0303d0d784364920c3de6f5b493f2b7d77c43924d6671cf45a065ed2d9e"
+        },
+        {
+          "path": "CAD files/Spacer M8x20.SLDPRT",
+          "bytes": 123392,
+          "sha256": "2e0b4126ad900033c2e72175e277372a34af68e9d6d047c3bdf14e68cbffcebf"
+        },
+        {
+          "path": "CAD files/Suport Drivers E.SLDPRT",
+          "bytes": 465920,
+          "sha256": "8d1f590fb266e6ada3b1b0036890893ac5137a980e736a40f618c395afe6c38a"
+        },
+        {
+          "path": "CAD files/T2M1BD.SLDPRT",
+          "bytes": 430592,
+          "sha256": "ab11ccfde2f66321aaa9b061ddc75a09978a59a3aff8a80b98e2151a013f7ecc"
+        },
+        {
+          "path": "CAD files/T2M1BI.SLDPRT",
+          "bytes": 456192,
+          "sha256": "eefe4890a0d8a2d280ab2af11561b015162a1772387b7c670464d8bbca35cf11"
+        },
+        {
+          "path": "CAD files/T3M1.SLDASM",
+          "bytes": 296448,
+          "sha256": "65568525d4a733061853c123d1696cff1fcfbda49c17ba03113dcbaffcbc4197"
+        },
+        {
+          "path": "CAD files/T3M1C.SLDPRT",
+          "bytes": 428544,
+          "sha256": "d538f419239afa3bbc9c08bce6f6b6d967fdee532c1c4b4a6605e40aaf42c189"
+        },
+        {
+          "path": "CAD files/T4M1E.SLDPRT",
+          "bytes": 850944,
+          "sha256": "7059f0705c530cc6fff245a0270cf7d390d66330e36b203d9de176b2e0acd35a"
+        },
+        {
+          "path": "CAD files/TBC.SLDPRT",
+          "bytes": 221696,
+          "sha256": "68cfb7f8485ff5f199f15fb8ad8fabba1e229cc324d5c6aeec8da19150c7d649"
+        },
+        {
+          "path": "CAD files/Tapa 2M1C.SLDPRT",
+          "bytes": 220160,
+          "sha256": "31661d8b0935b36540ba0f605ced595d0d5a2c1b7857a98b8708fcea69d5ea92"
+        },
+        {
+          "path": "CAD files/Tapa 3M1C.SLDPRT",
+          "bytes": 200192,
+          "sha256": "abe7b1993be5102c2d6a2c17e779f6553a3eb3499632cdf2f98cb1ff9c0d70f2"
+        },
+        {
+          "path": "CAD files/Tapa 4M1D.SLDPRT",
+          "bytes": 211456,
+          "sha256": "af8a459d6b8e75ed72d4dbcdeb40db433adac6dddf9639b48146c8c5394b1c01"
+        },
+        {
+          "path": "CAD files/Tensor D.SLDASM",
+          "bytes": 326144,
+          "sha256": "38c711fe0eb66cb6bc4d5e787919af3fc55994528392c5facea38842a9d25dae"
+        },
+        {
+          "path": "CAD files/Tensor I.SLDASM",
+          "bytes": 307712,
+          "sha256": "f90ab61e15479e5c38fd05c35f1c0939f9128d333f9b149881f51d64260b801c"
+        },
+        {
+          "path": "CAD files/Terminal.SLDPRT",
+          "bytes": 206848,
+          "sha256": "ea6d237c11fd37e345648cc7d805419814c0537ce79c6f74bc1e301d3837af74"
+        },
+        {
+          "path": "CAD files/Top Plate C.SLDPRT",
+          "bytes": 541696,
+          "sha256": "a70050732c57ae389acf6ed05c6212a973321ae8a27b485b317bd33bf2ce293a"
+        },
+        {
+          "path": "CAD files/Volandera M3.SLDPRT",
+          "bytes": 103936,
+          "sha256": "46e5b0fc0532825dba5c39c218fa3d66d4d759fd9444c0e4441f0c75660bcbd3"
+        },
+        {
+          "path": "CAD files/Volandera M4.SLDPRT",
+          "bytes": 104448,
+          "sha256": "2fab37001478aedf745077285ea77924b6461f7e1ae857f1a7a83ae93214869e"
+        },
+        {
+          "path": "CAD files/Volandera M5.SLDPRT",
+          "bytes": 107008,
+          "sha256": "a4bfe7a77529e1db51ea2fcb85bb9e9f22b62de3a97417e1994175e4e1cecb1b"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1085,
+          "sha256": "6d0323944039e416103ce14b47b940202990d85aaf2ded007f6da545bfb00680"
+        },
+        {
+          "path": "README.md",
+          "bytes": 3556,
+          "sha256": "6132e41a0b43ab82d86ed5e660c2fdc4b1c5d9a04866d92327ff9e8384363f47"
+        },
+        {
+          "path": "STL files/Articulation 1/1M1.STL",
+          "bytes": 416484,
+          "sha256": "421a5bd6aaf0ce382844766462eb18f20a791aed2e4994c9c47c76277fbc2d68"
+        },
+        {
+          "path": "STL files/Articulation 1/1M2.STL",
+          "bytes": 873684,
+          "sha256": "2ce68aa68b6c4c0940a14a0d76af4703615acb70654360a6af832f2aab5f6bf8"
+        },
+        {
+          "path": "STL files/Articulation 1/1M3.STL",
+          "bytes": 8905484,
+          "sha256": "ff7cefb85f0e2fc7a410d4d1c8466969472f4274c689884f0b52338f1e686cb4"
+        },
+        {
+          "path": "STL files/Articulation 2/2M1.STL",
+          "bytes": 12145584,
+          "sha256": "f30505b1d4e21fd92530f2f00def872e3872272d1c7767b466c216dcd0acf42d"
+        },
+        {
+          "path": "STL files/Articulation 2/2M2H.STL",
+          "bytes": 2674484,
+          "sha256": "fe16c80487a4278776d73474501d781366240b2746aa832ab5fed5c8ddead144"
+        },
+        {
+          "path": "STL files/Articulation 2/2M2M.STL",
+          "bytes": 833384,
+          "sha256": "945bd736da63947cf54b84eb4b7eec1de4316ae3d322294ac5117b1cdbcd78a3"
+        },
+        {
+          "path": "STL files/Articulation 2/T2M1BD.stl",
+          "bytes": 242184,
+          "sha256": "6f9ef0723c21c7b49defbb58dd2e94facc3e87809f762d62a9dc958769a8cff4"
+        },
+        {
+          "path": "STL files/Articulation 2/T2M1BI.stl",
+          "bytes": 259884,
+          "sha256": "f2465db21be21bcacbc28b26676ac6ce728db1495c7bc3868be3de02547cccf4"
+        },
+        {
+          "path": "STL files/Articulation 3/3M1.STL",
+          "bytes": 3565184,
+          "sha256": "efb291f7e8ec12f0f62b42892730889d0f596e68ca1ca676dcdebe521ed6a842"
+        },
+        {
+          "path": "STL files/Articulation 3/3M2.STL",
+          "bytes": 2153084,
+          "sha256": "56970cc49cfda0dee2f79a2f1be7b6ec0da9b01bcaaf5b3fd77be1be6b852786"
+        },
+        {
+          "path": "STL files/Articulation 3/3M2C.STL",
+          "bytes": 2027084,
+          "sha256": "d05a730ef75845fd9c09540739a0a9580b69b3d3472902efe1dc2ba1bfe99f25"
+        },
+        {
+          "path": "STL files/Articulation 3/T3M1C.stl",
+          "bytes": 200884,
+          "sha256": "5b621b49896b8552fda248ac6f49c44c2b0c2e0566c4874c1c0701a45f913517"
+        },
+        {
+          "path": "STL files/Articulation 4/4M1.STL",
+          "bytes": 6703284,
+          "sha256": "b6484d9562264d61bbcfb587e392932ec219b0019c7304c73116969f364802f2"
+        },
+        {
+          "path": "STL files/Articulation 4/4M2.STL",
+          "bytes": 523484,
+          "sha256": "6b58f9e5e01f814d9e5768b5981a18ffa91728f74a5cf462d829170372b9b68c"
+        },
+        {
+          "path": "STL files/Articulation 4/4M2C.STL",
+          "bytes": 412584,
+          "sha256": "195d16cb3ecd8b2a1c1467832ad7b0774797bf508234205c24f369cb8a25d91b"
+        },
+        {
+          "path": "STL files/Articulation 4/T4M1E.stl",
+          "bytes": 301184,
+          "sha256": "99b5a6503143296ee3befeb665b50fc19f6f8049f8dde7ccd6600676868ce5a0"
+        },
+        {
+          "path": "STL files/Base/Potes.STL",
+          "bytes": 15684,
+          "sha256": "f2dd47385efe241b259a12d22be7d9ca37a49a1a7bbe946981f801da180e6b48"
+        },
+        {
+          "path": "STL files/Cover/Tapa 2M1.STL",
+          "bytes": 243484,
+          "sha256": "cab18ed2547d27d18909d3cb2a370bd403f9c440a5d0be1c3b693de04ff8f7d0"
+        },
+        {
+          "path": "STL files/Cover/Tapa 3M1.STL",
+          "bytes": 261484,
+          "sha256": "6a0fc3a62f62e751c65e3f64466a06ac2fb2ce5c04314c49287bc1f3af8bc64a"
+        },
+        {
+          "path": "STL files/Cover/Tapa 4M1.STL",
+          "bytes": 260184,
+          "sha256": "53db7d98ffb0f51b6baf59d11d682c9a453b4a06cff7f70b43ed0cc463363761"
+        },
+        {
+          "path": "STL files/Cover/Tapa TBB.STL",
+          "bytes": 541484,
+          "sha256": "6603c1b035616a275936865581a40c1f8ab2077c0a0f153a97446834a3732b88"
+        },
+        {
+          "path": "STL files/Electronics box/Box.STL",
+          "bytes": 25784284,
+          "sha256": "c0de076942198180ec55b95c53f4f1b8d1e5542f9d0662e79aecfb3e41043bd0"
+        },
+        {
+          "path": "STL files/Electronics box/Fan Module.STL",
+          "bytes": 859084,
+          "sha256": "69bf3e4b58825fb8795f692a589f336d4c017e5e802a6179a6a7c107b4535bf9"
+        },
+        {
+          "path": "STL files/Electronics box/Suport Drivers.STL",
+          "bytes": 602084,
+          "sha256": "3dfdae7f38bf55317db7976d1faba4ec291997df364b6d7e2126e5b8bdbbe68a"
+        },
+        {
+          "path": "STL files/Machine - tool/Bottom Plate.STL",
+          "bytes": 2483784,
+          "sha256": "194437fcf5d66790c847a4c3c8106d0d102615dd8e5f6f2819feeacbcb39fb40"
+        },
+        {
+          "path": "STL files/Machine - tool/Cilinder.STL",
+          "bytes": 36084,
+          "sha256": "926c0150adde750c280896dc90f28cc15e58b9a168a9311b60fa114afba6e18a"
+        },
+        {
+          "path": "STL files/Machine - tool/Gripper Left.STL",
+          "bytes": 1879384,
+          "sha256": "5bca365190633f9d3c14353114a9c870f5601fd91520d383969dae7106e88c11"
+        },
+        {
+          "path": "STL files/Machine - tool/Gripper Right.STL",
+          "bytes": 1879284,
+          "sha256": "746ef654a9e92055e01c09861a09212e2b30b75c29ad6f6c0287a2b280e0091e"
+        },
+        {
+          "path": "STL files/Machine - tool/Idol Gear.STL",
+          "bytes": 2943884,
+          "sha256": "41f3394cbd02459e39da53d35da8473f6a2efa20a01f7457a3384d0b9baa99d5"
+        },
+        {
+          "path": "STL files/Machine - tool/Pivot Arm.STL",
+          "bytes": 750484,
+          "sha256": "7b863659555ef9ad36bbe54770c0e3ab1c2246f911343983cdf729389e824118"
+        },
+        {
+          "path": "STL files/Machine - tool/Servo Gear.STL",
+          "bytes": 2834484,
+          "sha256": "29560213bad180b07d80b31ccf590695ae126d6bdb5d1368a0066f94de82be05"
+        },
+        {
+          "path": "STL files/Machine - tool/Top Plate.STL",
+          "bytes": 997984,
+          "sha256": "9185cf92f9ab5719d3032938f05da85a63ce406ce6e781e6048e3755cd70571f"
+        },
+        {
+          "path": "USER MANUAL/User Manual BCN3D Moveo.pdf",
+          "bytes": 3045559,
+          "sha256": "f5ae170a18c9cdba55f9fdeb8745cfe1ffc9726db8f2a984e4aabc6f500fc857"
+        }
+      ]
+    },
+    {
+      "name": "ros",
+      "repository": "https://github.com/jesseweisberg/moveo_ros",
+      "commit": "b9282bdadbf2505a26d3b94b91e60a98d86efa34",
+      "archiveUrl": "https://codeload.github.com/jesseweisberg/moveo_ros/zip/b9282bdadbf2505a26d3b94b91e60a98d86efa34",
+      "archiveSha256": "710071590e3c9d633cbd5eb34439d187328ca65eda3034e11c377eb8f4635c9e",
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1071,
+          "sha256": "5afc0191bd028c81b95793037e9f414417e05016c9ad24aa9b58772736935901"
+        },
+        {
+          "path": "README.md",
+          "bytes": 5709,
+          "sha256": "8489eb88cae8bed1f1ba0fa481dc8ead9416e0f3fcfb4d88f72f25f33168effb"
+        },
+        {
+          "path": "moveo_urdf/CMakeLists.txt",
+          "bytes": 288,
+          "sha256": "1c8d9003612bf6be34018a4d15aff2fd037595cbc79b4ef76bc9d46a3c33ba96"
+        },
+        {
+          "path": "moveo_urdf/config/joint_names_move_urdf.yaml",
+          "bytes": 203,
+          "sha256": "9548a06f322374676cb607d58ace0ff118b82aef1b87fb76daa6870924385a9f"
+        },
+        {
+          "path": "moveo_urdf/launch/display.launch",
+          "bytes": 579,
+          "sha256": "98259bac97dc7af49f135a17fb59afada7e48f7302150e7f715b4304ef6b4bbe"
+        },
+        {
+          "path": "moveo_urdf/launch/gazebo.launch",
+          "bytes": 1341,
+          "sha256": "c96431a6466f7cba0b74eb0388c4c6ac598c4176828e5ba8519f2be9d44ac278"
+        },
+        {
+          "path": "moveo_urdf/launch/gazebo_old.launch",
+          "bytes": 546,
+          "sha256": "cfafeb332c2519bcc3ba3f7691b45558410c3209832680bdd9f9743c093af303"
+        },
+        {
+          "path": "moveo_urdf/launch/gazebo_sdf.launch",
+          "bytes": 540,
+          "sha256": "f7452c20a46aae62f942d792cdf0b83b7dcabb903f2f1c193f65c374442901e6"
+        },
+        {
+          "path": "moveo_urdf/meshes/Gripper_Idol_Gear.STL",
+          "bytes": 385084,
+          "sha256": "fbcbac057ffcf5da286f7a5f6e1bf0a65cb5f8b4750cd1440ffd1d518fb60cf2"
+        },
+        {
+          "path": "moveo_urdf/meshes/Gripper_Idol_Gear_col.STL",
+          "bytes": 25084,
+          "sha256": "00b4481cde86607de8e6926ba1576437e8baaea3fe33798c888152f1f15a0de2"
+        },
+        {
+          "path": "moveo_urdf/meshes/Gripper_Servo_Gear.STL",
+          "bytes": 322284,
+          "sha256": "c897ff899c1db2150694803b14547fbf8b1bba45a128bdb6778f44ace9fcdbb1"
+        },
+        {
+          "path": "moveo_urdf/meshes/Gripper_Servo_Gear_col.STL",
+          "bytes": 15084,
+          "sha256": "77f41cbe1eb05d266cb5c684bf7d1b2c40e99057169090f9479f4a5aff9caff8"
+        },
+        {
+          "path": "moveo_urdf/meshes/Link_1.STL",
+          "bytes": 10567784,
+          "sha256": "fb9eddac1c0ef39d17195ef2ca474b184a7face9b4836f92662d4d2e76f81ff5"
+        },
+        {
+          "path": "moveo_urdf/meshes/Link_1_col.STL",
+          "bytes": 2454284,
+          "sha256": "1afdb8ab739b58ac85e4a615dff54a63c3a046f8f781138a23c3d101eb541d20"
+        },
+        {
+          "path": "moveo_urdf/meshes/Link_2.STL",
+          "bytes": 8640484,
+          "sha256": "cb9b8c105d2dcf8834ff5054dacc05ff2d1ce9f20b9572d3230736106c2936bf"
+        },
+        {
+          "path": "moveo_urdf/meshes/Link_2_col.STL",
+          "bytes": 1326984,
+          "sha256": "4765d0c2094c3bc82a1ab443aea8a8fbdded4549d0ae681e05d874181f1e5bb2"
+        },
+        {
+          "path": "moveo_urdf/meshes/Link_3.STL",
+          "bytes": 2813984,
+          "sha256": "5bd9e93364a4ec6c0fff7a69e1358a8c7a6a4e99aeefe07ba9bbbd8c5f1e02cb"
+        },
+        {
+          "path": "moveo_urdf/meshes/Link_3_col.STL",
+          "bytes": 632684,
+          "sha256": "44155d2e2ded402e93ca2c8606945bc5b0c7391e957a2366a6515d7aa7669737"
+        },
+        {
+          "path": "moveo_urdf/meshes/Link_4.STL",
+          "bytes": 8871884,
+          "sha256": "55f2e1db568ad4cf2396524df010d0e042c76a98c57070d827bf4df2be63538c"
+        },
+        {
+          "path": "moveo_urdf/meshes/Link_4_col.STL",
+          "bytes": 1141284,
+          "sha256": "c57524f9cf80f3018d4f72a6e57a843cbb9c3a8007cd92a96929b723d62adaa8"
+        },
+        {
+          "path": "moveo_urdf/meshes/Link_5.STL",
+          "bytes": 4923884,
+          "sha256": "52bb4511647c618a3724424a6853e9a5479115ea02b87091ed79df6fb579d6dc"
+        },
+        {
+          "path": "moveo_urdf/meshes/Link_5_col.STL",
+          "bytes": 957984,
+          "sha256": "e658ee8bfebfdb8da90f8f04a84c217e12d4e8f0994cca8df50d685afffbdd14"
+        },
+        {
+          "path": "moveo_urdf/meshes/Pivot_Arm_Gripper_Idol.STL",
+          "bytes": 173084,
+          "sha256": "b29650cec63d985be933c65207bfaeca62b8ab2ec5178f13f55038fff82c40c6"
+        },
+        {
+          "path": "moveo_urdf/meshes/Pivot_Arm_Gripper_Idol_col.STL",
+          "bytes": 25084,
+          "sha256": "ddfa62fdb81311c823cd64ef7698d86c81f522b3b0b3f47db567a49617887fa4"
+        },
+        {
+          "path": "moveo_urdf/meshes/Pivot_Arm_Gripper_Servo.STL",
+          "bytes": 173084,
+          "sha256": "02086bb9a1b6dcc62544a01cda6dab10ddc7616920791adcce3d5f5e3caa2015"
+        },
+        {
+          "path": "moveo_urdf/meshes/Pivot_Arm_Gripper_Servo_col.STL",
+          "bytes": 25084,
+          "sha256": "cbf4629bd72f8b620bf906b8b40f07888494318777a7fd97dcbc64e28c300eb8"
+        },
+        {
+          "path": "moveo_urdf/meshes/Tip_Gripper_Idol.STL",
+          "bytes": 349284,
+          "sha256": "87cbeb7be0b4fad65962c6810379b9ea3b46f2d86317f3c53bbfeba037cc6ad5"
+        },
+        {
+          "path": "moveo_urdf/meshes/Tip_Gripper_Idol_col.STL",
+          "bytes": 25084,
+          "sha256": "5b7a01b52f55f779adfb1567056334078c157558a5203cb17f3e95dd64af5339"
+        },
+        {
+          "path": "moveo_urdf/meshes/Tip_Gripper_Servo.STL",
+          "bytes": 349384,
+          "sha256": "2ca2fcd9d05e1c4969b7068578cea247a39f2468bf0f743dfb99665d8108d6a6"
+        },
+        {
+          "path": "moveo_urdf/meshes/Tip_Gripper_Servo_col.STL",
+          "bytes": 25084,
+          "sha256": "55e99163df04d0ea58d098382a3faa60d608a3ca554e0e556496b8178204fce7"
+        },
+        {
+          "path": "moveo_urdf/meshes/base_link.STL",
+          "bytes": 12462684,
+          "sha256": "58776191610eb6f806c01ba26f41a1d74ad9fb90dcac1a45be38ffb1364a5696"
+        },
+        {
+          "path": "moveo_urdf/meshes/base_link_col.STL",
+          "bytes": 231484,
+          "sha256": "e57b26299aec452dc5b6c5091a0491d02ee5ba8ca9d613dbfd10eae334385879"
+        },
+        {
+          "path": "moveo_urdf/package.xml",
+          "bytes": 696,
+          "sha256": "0f459742a299e4907ba7bdf5395569ccd02fd277a21eb8c7d60f4e10a5d4017b"
+        },
+        {
+          "path": "moveo_urdf/urdf/moveo_urdf.urdf",
+          "bytes": 16188,
+          "sha256": "dafbaaee19ad7ae9d7a852f561ed8f6219845745eba244fff09b707eba0dabf4"
+        },
+        {
+          "path": "moveo_urdf/urdf/moveo_urdf_new.urdf",
+          "bytes": 15250,
+          "sha256": "abf06554b1b40ad570f5965d46da3141f8810bc41d6f791152cda9caf9f6d348"
+        },
+        {
+          "path": "moveo_urdf/urdf/moveo_urdf_og.urdf",
+          "bytes": 15832,
+          "sha256": "c4c37609c17780b157688815045338a2c8faa38cb8683b2812427ad3a3c34bec"
+        }
+      ]
+    }
+  ]
+}

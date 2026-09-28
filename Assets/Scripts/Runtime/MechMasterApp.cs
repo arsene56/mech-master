@@ -18,7 +18,7 @@ namespace MechMaster.Runtime
     {
         private GameObject modelInstance;
         private MechanicalModelView modelView;
-        private BicycleMotionController motion;
+        private IMechanicalMotionController motion;
         private FeedbackAudio feedbackAudio;
         private VoiceNarrator narrator;
 
@@ -41,9 +41,22 @@ namespace MechMaster.Runtime
         public bool MotionAvailable => motion != null && motion.IsReady;
         public bool IsMotionActive => motion != null && motion.IsActive;
         public bool IsMotionPlaying => motion != null && motion.IsPlaying;
-        public int MotionCadenceRpm => motion == null ? 60 : motion.CadenceRpm;
-        public bool FrontBrakeEngaged => motion != null && motion.FrontBrakeEngaged;
-        public bool RearBrakeEngaged => motion != null && motion.RearBrakeEngaged;
+        public int MotionCadenceRpm => (motion as BicycleMotionController)?.CadenceRpm ?? 60;
+        public int MotionSpeedValue => motion == null ? 60 : motion.Speed;
+        public int MotionSpeedStep => motion is MoveoMotionController ? 25 : 15;
+        public string MotionSpeedLabel => motion is MoveoMotionController
+            ? (MotionSpeedValue / 100f).ToString("0.00") + "×"
+            : MotionSpeedValue + " 转/分";
+        public string MotionGuide => motion is MoveoMotionController
+            ? "关节联动 · 夹爪开合 · 拖动旋转"
+            : "按住刹把制动 · 空白处拖动旋转";
+        public string MotionHint => motion is MoveoMotionController
+            ? "底座、肩、肘、腕依次联动，夹爪开合"
+            : FrontBrakeEngaged || RearBrakeEngaged
+                ? "制动中：松开刹把后对应车轮加速"
+                : "左刹控后轮，右刹控前轮；按住制动";
+        public bool FrontBrakeEngaged => (motion as BicycleMotionController)?.FrontBrakeEngaged ?? false;
+        public bool RearBrakeEngaged => (motion as BicycleMotionController)?.RearBrakeEngaged ?? false;
 
         public event Action StateChanged;
 
@@ -546,7 +559,6 @@ namespace MechMaster.Runtime
             var layout = new AssemblyLayout(Model, modelBounds);
             modelView = modelInstance.AddComponent<MechanicalModelView>();
             modelView.Bind(Plan, layout);
-            modelView.Refresh(Plan, true);
 
             if (Model.motion != null && Model.motion.kind == "bicycle-pedaling-v1")
             {
@@ -561,6 +573,19 @@ namespace MechMaster.Runtime
                     Destroy(candidate);
                 }
             }
+
+            if (Model.motion != null && Model.motion.kind == "moveo-articulation-v1")
+            {
+                MoveoMotionController candidate = modelInstance.AddComponent<MoveoMotionController>();
+                if (candidate.Initialize(Model.motion.rigResourcePath, Model.id))
+                {
+                    motion = candidate;
+                    framingPoints.AddRange(candidate.GetFramingPoints());
+                }
+                else Destroy(candidate);
+            }
+            // Capture assembled motion poses before restoring any saved removals.
+            modelView.Refresh(Plan, true);
 
             OrbitCameraController orbit = Camera.main.GetComponent<OrbitCameraController>();
             if (orbit != null)
@@ -637,15 +662,17 @@ namespace MechMaster.Runtime
         public void ToggleMotion()
         {
             if (!MotionAvailable) return;
+            bool arm = motion is MoveoMotionController;
+            string demoName = arm ? "机械臂关节演示" : "原地踩踏演示";
             if (motion.IsPlaying)
             {
                 motion.Pause();
-                StatusMessage = "原地踩踏演示已暂停，可继续观察或恢复播放。";
+                StatusMessage = demoName + "已暂停，可继续观察或恢复播放。";
             }
             else if (motion.IsActive)
             {
                 motion.Play();
-                StatusMessage = "原地踩踏演示继续播放。";
+                StatusMessage = demoName + "继续播放。";
             }
             else
             {
@@ -658,10 +685,16 @@ namespace MechMaster.Runtime
                 }
                 PartInteractionController.Instance?.CancelGesture();
                 ClearExplosionInternal(true);
+                // Finish the last assembly animation before moving the joints.
+                modelView.Refresh(Plan, true);
                 PartInteractionController.SetViewMode(true);
                 motion.Play();
-                StatusMessage = "原地踩踏：左刹控制后轮，右刹控制前轮；按住刹把可制动。";
-                SpeakNarration("脚踏带动牙盘，链条驱动飞轮和后轮旋转。");
+                StatusMessage = arm
+                    ? "机械臂关节与夹爪循环演示中，可暂停、调速或结束。"
+                    : "原地踩踏：左刹控制后轮，右刹控制前轮；按住刹把可制动。";
+                SpeakNarration(arm
+                    ? "电机驱动各关节转动，夹爪通过齿轮和连杆同步开合。"
+                    : "脚踏带动牙盘，链条驱动飞轮和后轮旋转。");
             }
             feedbackAudio.PlayModeSwitch();
             NotifyStateChanged();
@@ -670,24 +703,32 @@ namespace MechMaster.Runtime
         public void StopMotion()
         {
             if (!IsMotionActive) return;
+            bool arm = motion is MoveoMotionController;
             StopMotionInternal();
-            StatusMessage = "原地踩踏演示已结束，整车恢复静止姿态。";
+            StatusMessage = arm ? "机械臂关节演示已结束，整机恢复原始姿态。"
+                : "原地踩踏演示已结束，整车恢复静止姿态。";
             feedbackAudio.PlayModeSwitch();
             NotifyStateChanged();
         }
 
         public void ChangeMotionCadence(int change)
         {
+            ChangeMotionSpeed(change);
+        }
+
+        public void ChangeMotionSpeed(int change)
+        {
             if (!MotionAvailable) return;
-            motion.SetCadence(motion.CadenceRpm + change);
-            StatusMessage = "原地踩踏速度：每分钟 " + motion.CadenceRpm + " 圈。";
+            motion.SetSpeed(motion.Speed + change);
+            StatusMessage = "演示速度：" + MotionSpeedLabel + "。";
             NotifyStateChanged();
         }
 
         public void SetBrakeHeld(bool isFront, bool held)
         {
             if (!IsMotionActive) return;
-            if (!motion.SetBrakeHeld(isFront, held)) return;
+            var bicycle = motion as BicycleMotionController;
+            if (bicycle == null || !bicycle.SetBrakeHeld(isFront, held)) return;
             string brakeName = isFront ? "右刹（前轮）" : "左刹（后轮）";
             StatusMessage = held
                 ? brakeName + "已按住：对应车轮正在减速。"

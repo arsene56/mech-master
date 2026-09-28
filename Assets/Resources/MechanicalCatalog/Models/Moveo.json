@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "arm.bcn3d.moveo.v1",
+  "displayName": "Moveo 机械臂",
+  "displayOrder": 10,
+  "catalogResourcePath": "MechanicalCatalog/MoveoInteractionCatalog",
+  "moduleResourcePaths": [
+    "Models/Moveo/Modules/base_platform_LOD0",
+    "Models/Moveo/Modules/rotary_base_LOD0",
+    "Models/Moveo/Modules/shoulder_LOD0",
+    "Models/Moveo/Modules/upper_arm_LOD0",
+    "Models/Moveo/Modules/elbow_LOD0",
+    "Models/Moveo/Modules/forearm_LOD0",
+    "Models/Moveo/Modules/wrist_LOD0",
+    "Models/Moveo/Modules/gripper_LOD0",
+    "Models/Moveo/Modules/controller_LOD0"
+  ],
+  "assemblies": [
+    {
+      "id": "base_platform",
+      "displayName": "安装底座"
+    },
+    {
+      "id": "rotary_base",
+      "displayName": "回转机构"
+    },
+    {
+      "id": "shoulder",
+      "displayName": "肩关节"
+    },
+    {
+      "id": "upper_arm",
+      "displayName": "上臂"
+    },
+    {
+      "id": "elbow",
+      "displayName": "肘关节"
+    },
+    {
+      "id": "forearm",
+      "displayName": "前臂"
+    },
+    {
+      "id": "wrist",
+      "displayName": "腕关节"
+    },
+    {
+      "id": "gripper",
+      "displayName": "夹爪"
+    },
+    {
+      "id": "controller",
+      "displayName": "驱动电控"
+    }
+  ],
+  "motion": {
+    "kind": "moveo-articulation-v1",
+    "rigResourcePath": "MechanicalCatalog/MoveoMotionRig"
+  }
+}

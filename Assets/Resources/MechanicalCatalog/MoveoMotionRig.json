@@ -1,0 +1,2793 @@
+{
+  "schemaVersion": 1,
+  "modelId": "arm.bcn3d.moveo.v1",
+  "description": "Official CAD shaft/bearing axes; conservative relative teaching angles, not actuator limits.",
+  "cycleSeconds": 20,
+  "joints": [
+    {
+      "id": "base",
+      "displayName": "底座回转",
+      "parentId": "",
+      "pivotObject": "MM_moveo_8mm_bearing_557b9dbf76",
+      "axisStartObject": "MM_moveo_8mm_bearing_557b9dbf76",
+      "axisEndObject": "MM_moveo_8mm_bearing_3b9123d0f2",
+      "minimumDegrees": -30,
+      "maximumDegrees": 30
+    },
+    {
+      "id": "shoulder",
+      "displayName": "肩关节",
+      "parentId": "base",
+      "pivotObject": "MM_moveo_smooth_bar_8mm_x_140mm_6e6b0a6c04",
+      "axisStartObject": "MM_moveo_8mm_bearing_09b75b6465",
+      "axisEndObject": "MM_moveo_8mm_bearing_22e88b9f14",
+      "minimumDegrees": -12,
+      "maximumDegrees": 12
+    },
+    {
+      "id": "elbow",
+      "displayName": "肘关节",
+      "parentId": "shoulder",
+      "pivotObject": "MM_moveo_smooth_bar_8mm_x_121mm_d1fd489fe9",
+      "axisStartObject": "MM_moveo_8mm_bearing_4038690507",
+      "axisEndObject": "MM_moveo_8mm_bearing_be71372295",
+      "minimumDegrees": -18,
+      "maximumDegrees": 18
+    },
+    {
+      "id": "wrist_roll",
+      "displayName": "腕部旋转",
+      "parentId": "elbow",
+      "pivotObject": "MM_moveo_smooth_bar_8mm_x_50mm_5c63b88db9",
+      "axisStartObject": "MM_moveo_8mm_bearing_515833fd05",
+      "axisEndObject": "MM_moveo_8mm_bearing_03b6b1c04a",
+      "minimumDegrees": -35,
+      "maximumDegrees": 35
+    },
+    {
+      "id": "wrist_pitch",
+      "displayName": "腕部俯仰",
+      "parentId": "wrist_roll",
+      "pivotObject": "MM_moveo_barra_llisa_8mm_x_80mm_10d95daf05",
+      "axisStartObject": "MM_moveo_8mm_bearing_d1f9982875",
+      "axisEndObject": "MM_moveo_8mm_bearing_1dea4f765b",
+      "minimumDegrees": -20,
+      "maximumDegrees": 20
+    }
+  ],
+  "gripper": {
+    "parentId": "wrist_pitch",
+    "minimumDegrees": 0,
+    "maximumDegrees": 40,
+    "axisStartObject": "MM_moveo_m3x16_39952b43aa",
+    "axisEndObject": "MM_moveo_m3_nut_d77d4673db",
+    "left": {
+      "driverPivotObject": "MM_moveo_m3x16_39952b43aa",
+      "driverTipObject": "MM_moveo_m3x16_c4466d3214",
+      "followerPivotObject": "MM_moveo_m3x16_46c546cf57",
+      "followerTipObject": "MM_moveo_m3x16_d250089828",
+      "direction": 1
+    },
+    "right": {
+      "driverPivotObject": "MM_moveo_m3x8_d609ea9da9",
+      "driverTipObject": "MM_moveo_m3x16_3c8c01762e",
+      "followerPivotObject": "MM_moveo_m3x16_a1c77b42a8",
+      "followerTipObject": "MM_moveo_m3x16_c5957bd90f",
+      "direction": -1
+    }
+  },
+  "bindings": [
+    {
+      "objectName": "MM_moveo_1m1b_24149e46ff",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "1M1B-1@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_1m2a_8d0764d7ee",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/1M2A-1@Rotary Plate"
+    },
+    {
+      "objectName": "MM_moveo_1m3a_de6043b10f",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "1M3-1@BCN3D Moveo assembly/1M3A-1@1M3"
+    },
+    {
+      "objectName": "MM_moveo_2m1d_9ab6d4de88",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/2M1D-1@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_2m2ha_ff356c135b",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/2M2HA-1@2M2"
+    },
+    {
+      "objectName": "MM_moveo_2m2ma_7036002665",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/2M2MA-1@2M2"
+    },
+    {
+      "objectName": "MM_moveo_3m1d_69fade4855",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/3M1D-1@3M1"
+    },
+    {
+      "objectName": "MM_moveo_3m2c_b6db0b8c40",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/3M2C-1@3M2"
+    },
+    {
+      "objectName": "MM_moveo_3m2cc_b6f65144bf",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/3M2CC-1@3M2"
+    },
+    {
+      "objectName": "MM_moveo_4m1d_44ef42247d",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M1D-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_4m2b_4e934c6d4e",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M2-1@4M/4M2B-1@4M2"
+    },
+    {
+      "objectName": "MM_moveo_4m2cb_c253864565",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M2-1@4M/4M2CB-1@4M2"
+    },
+    {
+      "objectName": "MM_moveo_8mm_bearing_03b6b1c04a",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/8mm Bearing-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_8mm_bearing_09b75b6465",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/8mm Bearing-1@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_8mm_bearing_1dea4f765b",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/8mm Bearing-3@4M"
+    },
+    {
+      "objectName": "MM_moveo_8mm_bearing_22e88b9f14",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/8mm Bearing-2@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_8mm_bearing_3b9123d0f2",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/8mm Bearing-2@Rotary Plate"
+    },
+    {
+      "objectName": "MM_moveo_8mm_bearing_4038690507",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/8mm Bearing-2@3M1"
+    },
+    {
+      "objectName": "MM_moveo_8mm_bearing_515833fd05",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/8mm Bearing-1@3M2"
+    },
+    {
+      "objectName": "MM_moveo_8mm_bearing_557b9dbf76",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/8mm Bearing-1@Rotary Plate"
+    },
+    {
+      "objectName": "MM_moveo_8mm_bearing_be71372295",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/8mm Bearing-1@3M1"
+    },
+    {
+      "objectName": "MM_moveo_8mm_bearing_d1f9982875",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/8mm Bearing-2@4M"
+    },
+    {
+      "objectName": "MM_moveo_arandela_354db976d5",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor D-2@2M1 assembly/Arandela-1@Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_barra_llisa_8mm_x_80mm_10d95daf05",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Barra llisa 8mm x 80mm-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_base_fusta_930b474ffb",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Base fusta-1@Base assembly"
+    },
+    {
+      "objectName": "MM_moveo_bearing_3bore_10ext_4height_22022e89f7",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M1 Tensor D-1@4M/Bearing 3Bore 10Ext 4Height-2@M1 Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_bearing_3bore_10ext_4height_22aa2ffc66",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M1 Tensor D-1@4M/Bearing 3Bore 10Ext 4Height-3@M1 Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_bearing_3bore_10ext_4height_8bf7987bb8",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M1 Tensor D-1@4M/Bearing 3Bore 10Ext 4Height-1@M1 Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_bearing_4bore_13ext_5_38a0e47256",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor D-2@2M1 assembly/Bearing 4Bore 13Ext 5-3@Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_bearing_4bore_13ext_5_6b7d4e458b",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/T3M1-1@3M1/Bearing 4Bore 13Ext 5-3@T3M1"
+    },
+    {
+      "objectName": "MM_moveo_bearing_4bore_13ext_5_7b75197fb0",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor D-2@2M1 assembly/Bearing 4Bore 13Ext 5-2@Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_bearing_4bore_13ext_5_9269a6ed25",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor I-2@2M1 assembly/Bearing 4Bore 13Ext 5-2@Tensor I"
+    },
+    {
+      "objectName": "MM_moveo_bearing_4bore_13ext_5_9c796bbfa1",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/T3M1-1@3M1/Bearing 4Bore 13Ext 5-1@T3M1"
+    },
+    {
+      "objectName": "MM_moveo_bearing_4bore_13ext_5_bc0ce72555",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor I-2@2M1 assembly/Bearing 4Bore 13Ext 5-3@Tensor I"
+    },
+    {
+      "objectName": "MM_moveo_bearing_4bore_13ext_5_bc13507dda",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor D-2@2M1 assembly/Bearing 4Bore 13Ext 5-1@Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_bearing_4bore_13ext_5_d6490fac33",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/T3M1-1@3M1/Bearing 4Bore 13Ext 5-2@T3M1"
+    },
+    {
+      "objectName": "MM_moveo_bearing_4bore_13ext_5_e97aa70d2f",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor I-2@2M1 assembly/Bearing 4Bore 13Ext 5-1@Tensor I"
+    },
+    {
+      "objectName": "MM_moveo_bearing_5mm_0211c7ef3f",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-4@Rotary Plate/Bearing 5mm-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_bearing_5mm_1da82953f9",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-6@Rotary Plate/Bearing 5mm-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_bearing_5mm_2abf87f7bf",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-8@Rotary Plate/Bearing 5mm-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_bearing_5mm_4fff6ffe33",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-1@Rotary Plate/Bearing 5mm-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_bearing_5mm_86ee2f6a5f",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-7@Rotary Plate/Bearing 5mm-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_bearing_5mm_d0635e659c",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-5@Rotary Plate/Bearing 5mm-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_bearing_5mm_d355e518e5",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-2@Rotary Plate/Bearing 5mm-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_bearing_5mm_f619cc72e2",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-3@Rotary Plate/Bearing 5mm-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_bottom_plate_c_4851a3331d",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Bottom Plate C-1@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_box_c_0a0ea85998",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Box C-1@Box Assembly B"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_240a09095a",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m1d_69fade4855",
+      "supportDistanceM": 0.002082023536786437,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/Brass insert M3-1@3M1"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_318810d347",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0020820247009396553,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Brass insert M3-7@4M"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_340f460b3c",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0020819646306335926,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Brass insert M3-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_494f8c89dd",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m1d_69fade4855",
+      "supportDistanceM": 0.0020820116624236107,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/Brass insert M3-6@3M1"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_68ad0664b0",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m1d_69fade4855",
+      "supportDistanceM": 0.0020819981582462788,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/Brass insert M3-8@3M1"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_6ad90cdc7c",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m1d_69fade4855",
+      "supportDistanceM": 0.0020820123609155416,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/Brass insert M3-9@3M1"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_6dc52fa56d",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.002082015620544553,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Brass insert M3-5@4M"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_9887d8c8e6",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m1d_69fade4855",
+      "supportDistanceM": 0.002082003280520439,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/Brass insert M3-5@3M1"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_98b229028c",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0020819969940930605,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Brass insert M3-6@4M"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_99f7871bf4",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m1d_69fade4855",
+      "supportDistanceM": 0.0020819995552301407,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/Brass insert M3-7@3M1"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_b17aca5a25",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0020819720812141895,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Brass insert M3-2@4M"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_c04f8399a7",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0020820165518671274,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Brass insert M3-8@4M"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_c93da16614",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0020820170175284147,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Brass insert M3-4@4M"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m3_f4b6ce65ad",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.002081992570310831,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Brass insert M3-3@4M"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m4_88a408ea7b",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.002816869178786874,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Brass insert M4-2@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m4_96e410e7b6",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.0028168673161417246,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Brass insert M4-1@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_brass_insert_m4_a4f4f3562d",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_t4m1e_0ff3a334ae",
+      "supportDistanceM": 0.0018343707779422402,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Brass insert M4-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_capacitor_1_4013fd7545",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-6@Drivers Support Assembly B/Capacitor 1-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_capacitor_1_667ec7550c",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-3@Drivers Support Assembly B/Capacitor 1-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_capacitor_1_682b789bec",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-4@Drivers Support Assembly B/Capacitor 1-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_capacitor_1_69c86025d2",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-1@Drivers Support Assembly B/Capacitor 1-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_capacitor_1_7bab791073",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-2@Drivers Support Assembly B/Capacitor 1-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_capacitor_1_8875398bca",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-5@Drivers Support Assembly B/Capacitor 1-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_capacitor_2_01a9af31b7",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-3@Drivers Support Assembly B/Capacitor 2-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_capacitor_2_13ae532c87",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-5@Drivers Support Assembly B/Capacitor 2-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_capacitor_2_214880c1ad",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-6@Drivers Support Assembly B/Capacitor 2-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_capacitor_2_6ac9fbb810",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-4@Drivers Support Assembly B/Capacitor 2-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_capacitor_2_8f6be96168",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-2@Drivers Support Assembly B/Capacitor 2-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_capacitor_2_f5c9677eb2",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-1@Drivers Support Assembly B/Capacitor 2-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_chip_252e13d5a0",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-2@Drivers Support Assembly B/Chip-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_chip_74f1d5e052",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-6@Drivers Support Assembly B/Chip-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_chip_7ab4bd60e2",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-3@Drivers Support Assembly B/Chip-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_chip_803064b10b",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-1@Drivers Support Assembly B/Chip-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_chip_e6a49946da",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-4@Drivers Support Assembly B/Chip-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_chip_e6d7db22e6",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-5@Drivers Support Assembly B/Chip-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_cilinder_b9d114e28d",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Cilinder-1@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_cilinder_d5a51a5aa1",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Cilinder-2@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_coupling_5_to_8_mm_936485e8c0",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/Coupling 5 to 8 mm-1@3M2"
+    },
+    {
+      "objectName": "MM_moveo_fan_21907032aa",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Module Fan Assembly-1@Box Assembly B/Fan-1@Module Fan Assembly"
+    },
+    {
+      "objectName": "MM_moveo_fan_module_aee2a55970",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Module Fan Assembly-1@Box Assembly B/Fan Module-1@Module Fan Assembly"
+    },
+    {
+      "objectName": "MM_moveo_gripper_left_b_bc190cbb1d",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "left_finger",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Gripper Left B-1@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_gripper_right_b_221edfd3cb",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "right_finger",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Gripper Right B-1@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_idol_gear_b_b445b8329f",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "left_driver",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Idol Gear B-1@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_02734a2b54",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_t2m1bi_b0bbcdda6c",
+      "supportDistanceM": 0.0019438540330156684,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor I-2@2M1 assembly/M3 Nut-1@Tensor I"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_0968163c4b",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2c_b6db0b8c40",
+      "supportDistanceM": 0.0019428189843893051,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3 Nut-5@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_10d5ecab57",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0010499939089640975,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3 Nut-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_123da51736",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2c_b6db0b8c40",
+      "supportDistanceM": 0.0019438433228060603,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3 Nut-4@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_145b44e5d7",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_bottom_plate_c_4851a3331d",
+      "supportDistanceM": 0.00190231972374022,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3 Nut-8@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_31f808505d",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_bottom_plate_c_4851a3331d",
+      "supportDistanceM": 0.0018611836712807417,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3 Nut-12@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_43c2c2c128",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "left_finger",
+      "supportObject": "MM_moveo_gripper_left_b_bc190cbb1d",
+      "supportDistanceM": 0.0019438365707173944,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3 Nut-6@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_4d76a7d537",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2cb_c253864565",
+      "supportDistanceM": 0.002120979828760028,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M2-1@4M/M3 Nut-3@4M2"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_5111bbda14",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "left_finger",
+      "supportObject": "MM_moveo_gripper_left_b_bc190cbb1d",
+      "supportDistanceM": 0.0019438330782577395,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3 Nut-7@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_54eaaf176e",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2b_4e934c6d4e",
+      "supportDistanceM": 0.0019023081986233592,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M2-1@4M/M3 Nut-8@4M2"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_5db71aaff0",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2c_b6db0b8c40",
+      "supportDistanceM": 0.001942817005328834,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3 Nut-2@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_6497f8a50d",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m1d_69fade4855",
+      "supportDistanceM": 0.0019438365707173944,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/M3 Nut-1@3M1"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_6972526d23",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.001700000953860581,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M1 Tensor D-1@4M/M3 Nut-1@M1 Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_99c0309178",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_bottom_plate_c_4851a3331d",
+      "supportDistanceM": 0.0019023186760023236,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3 Nut-10@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_9ca50b7a1c",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_t2m1bd_9f7a6940e4",
+      "supportDistanceM": 0.0019438598537817597,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor D-2@2M1 assembly/M3 Nut-1@Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_9d4fc829b9",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2b_4e934c6d4e",
+      "supportDistanceM": 0.001902315067127347,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M2-1@4M/M3 Nut-5@4M2"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_a5ba5ac38d",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2cb_c253864565",
+      "supportDistanceM": 0.002120973076671362,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M2-1@4M/M3 Nut-4@4M2"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_adfc5be4c6",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2c_b6db0b8c40",
+      "supportDistanceM": 0.0019438330782577395,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3 Nut-3@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_d3d5ae44e4",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2c_b6db0b8c40",
+      "supportDistanceM": 0.001943838782608509,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3 Nut-1@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_d61b06ea41",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "right_finger",
+      "supportObject": "MM_moveo_gripper_right_b_221edfd3cb",
+      "supportDistanceM": 0.0019438292365521193,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3 Nut-1@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_d77d4673db",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_bottom_plate_c_4851a3331d",
+      "supportDistanceM": 0.0019023281056433916,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3 Nut-9@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_d80ccf64e7",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2c_b6db0b8c40",
+      "supportDistanceM": 0.001943824696354568,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3 Nut-6@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_d9b2cf524a",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_bottom_plate_c_4851a3331d",
+      "supportDistanceM": 0.0018611849518492818,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3 Nut-11@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_e050f017af",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2b_4e934c6d4e",
+      "supportDistanceM": 0.0021209775004535913,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M2-1@4M/M3 Nut-1@4M2"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_e19f435ba3",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "right_finger",
+      "supportObject": "MM_moveo_gripper_right_b_221edfd3cb",
+      "supportDistanceM": 0.00194382609333843,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3 Nut-5@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_fdc6220eba",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2b_4e934c6d4e",
+      "supportDistanceM": 0.0021209546830505133,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M2-1@4M/M3 Nut-2@4M2"
+    },
+    {
+      "objectName": "MM_moveo_m3_nut_ff2a48115c",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2b_4e934c6d4e",
+      "supportDistanceM": 0.0019023095956072211,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M2-1@4M/M3 Nut-9@4M2"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_17af66a675",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_tapa_3m1c_de9928f371",
+      "supportDistanceM": 0.0015367103042080998,
+      "sourceCadInstance": "M3x10-7@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_23640e4ec6",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2cc_b6f65144bf",
+      "supportDistanceM": 0.001635831780731678,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3x10-1@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_26a4a73b01",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_servo_futaba_s3003_ca1c8814b5",
+      "supportDistanceM": 0.0006766690639778972,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x10-2@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_2ba89427ec",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_17_llarg_e19a1550cd",
+      "supportDistanceM": 0.001239290228113532,
+      "sourceCadInstance": "1M3-1@BCN3D Moveo assembly/M3x10-1@1M3"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_39a271d375",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_tapa_3m1c_d0b123f179",
+      "supportDistanceM": 0.0015367103042080998,
+      "sourceCadInstance": "M3x10-1@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_3a7b76e44d",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_17_llarg_e19a1550cd",
+      "supportDistanceM": 0.0012392859207466245,
+      "sourceCadInstance": "1M3-1@BCN3D Moveo assembly/M3x10-2@1M3"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_65c6a96ec9",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_tapa_3m1c_de9928f371",
+      "supportDistanceM": 0.0015367193846032023,
+      "sourceCadInstance": "M3x10-6@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_7060d01476",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_tapa_3m1c_d0b123f179",
+      "supportDistanceM": 0.0015367254381999373,
+      "sourceCadInstance": "M3x10-2@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_7a127988e2",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_servo_futaba_s3003_ca1c8814b5",
+      "supportDistanceM": 0.0013447662349790335,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x10-4@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_a3ed435953",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_17_llarg_e19a1550cd",
+      "supportDistanceM": 0.0012392899952828884,
+      "sourceCadInstance": "1M3-1@BCN3D Moveo assembly/M3x10-3@1M3"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_b32c5e1160",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_tapa_3m1c_de9928f371",
+      "supportDistanceM": 0.0015367193846032023,
+      "sourceCadInstance": "M3x10-8@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_c9c268d0e1",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_servo_futaba_s3003_ca1c8814b5",
+      "supportDistanceM": 0.0006586183444596827,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x10-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_cc1168af24",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_17_llarg_e19a1550cd",
+      "supportDistanceM": 0.0012392919743433595,
+      "sourceCadInstance": "1M3-1@BCN3D Moveo assembly/M3x10-4@1M3"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_e5b9dcee2b",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_servo_futaba_s3003_ca1c8814b5",
+      "supportDistanceM": 0.0012086147908121347,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x10-5@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_ef33494358",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_tapa_3m1c_d0b123f179",
+      "supportDistanceM": 0.001536710886284709,
+      "sourceCadInstance": "M3x10-5@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x10_f5e6036670",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2cc_b6f65144bf",
+      "supportDistanceM": 0.0016358518041670322,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3x10-2@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3x12_04326c9555",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_17_reductor_2f8b3f61b1",
+      "supportDistanceM": 0.0014839498326182365,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/M3x12-3@3M1"
+    },
+    {
+      "objectName": "MM_moveo_m3x12_1c49f4b706",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0020795245654881,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x12-7@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x12_48f399279f",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0020795378368347883,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x12-10@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x12_55d27a2457",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.002079535974189639,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x12-9@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x12_816bc6d1a0",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0020795245654881,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x12-2@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x12_87cd39bab2",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.002070607617497444,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x12-5@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x12_a5c2ddf499",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_17_reductor_2f8b3f61b1",
+      "supportDistanceM": 0.0014841086231172085,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/M3x12-4@3M1"
+    },
+    {
+      "objectName": "MM_moveo_m3x12_af3aa1cf85",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0020795357413589954,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x12-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x12_b47ad5df26",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_17_reductor_2f8b3f61b1",
+      "supportDistanceM": 0.001485100481659174,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/M3x12-1@3M1"
+    },
+    {
+      "objectName": "MM_moveo_m3x12_ed74d7eb82",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.002079513855278492,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x12-8@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x12_f3b061e7d0",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_17_reductor_2f8b3f61b1",
+      "supportDistanceM": 0.0014852852327749133,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/M3x12-2@3M1"
+    },
+    {
+      "objectName": "MM_moveo_m3x12_fc0fb8775a",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.002069614129140973,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x12-3@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_248923620e",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2cb_c253864565",
+      "supportDistanceM": 0.001635860768146813,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-16@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_298dd92ba9",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_cilinder_b9d114e28d",
+      "supportDistanceM": 0.0016922865761443973,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-7@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_39952b43aa",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "left_driver",
+      "supportObject": "MM_moveo_idol_gear_b_b445b8329f",
+      "supportDistanceM": 0.001586291240528226,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-6@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_3c8c01762e",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "right_driver",
+      "supportObject": "MM_moveo_servo_gear_b_4135fb36dd",
+      "supportDistanceM": 0.0016358582070097327,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-11@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_46c546cf57",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "left_follower",
+      "supportObject": "MM_moveo_pivot_arm_b_1e5d9d2fdc",
+      "supportDistanceM": 0.001635866821743548,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-9@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_5c9930c858",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2b_4e934c6d4e",
+      "supportDistanceM": 0.0016358466818928719,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-15@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_73fce6f368",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_cilinder_d5a51a5aa1",
+      "supportDistanceM": 0.001692278659902513,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-8@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_96104d5a36",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2b_4e934c6d4e",
+      "supportDistanceM": 0.0016358656575903296,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-17@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_a1c77b42a8",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "right_follower",
+      "supportObject": "MM_moveo_pivot_arm_b_21d8a86559",
+      "supportDistanceM": 0.0016358622815459967,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-10@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_c4466d3214",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "left_driver",
+      "supportObject": "MM_moveo_idol_gear_b_b445b8329f",
+      "supportDistanceM": 0.001635861350223422,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-12@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_c5957bd90f",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "right_follower",
+      "supportObject": "MM_moveo_pivot_arm_b_21d8a86559",
+      "supportDistanceM": 0.001635870081372559,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-13@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_d250089828",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "left_follower",
+      "supportObject": "MM_moveo_pivot_arm_b_1e5d9d2fdc",
+      "supportDistanceM": 0.001635855296626687,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-14@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x16_d9e4b7c7da",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2cb_c253864565",
+      "supportDistanceM": 0.001635859371162951,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x16-18@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x20_a02bfea2c4",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_bearing_3bore_10ext_4height_22aa2ffc66",
+      "supportDistanceM": 0.0014957728562876582,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M1 Tensor D-1@4M/M3x20-1@M1 Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_m3x25_01e7d1d0a9",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2b_4e934c6d4e",
+      "supportDistanceM": 0.0015820498811081052,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M2-1@4M/M3x25-2@4M2"
+    },
+    {
+      "objectName": "MM_moveo_m3x25_76c6862f41",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2b_4e934c6d4e",
+      "supportDistanceM": 0.0015820562839508057,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M2-1@4M/M3x25-3@4M2"
+    },
+    {
+      "objectName": "MM_moveo_m3x25_e98053dbc9",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m2b_4e934c6d4e",
+      "supportDistanceM": 0.001582044642418623,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/4M2-1@4M/M3x25-1@4M2"
+    },
+    {
+      "objectName": "MM_moveo_m3x35_045c7197ce",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_t4m1e_0ff3a334ae",
+      "supportDistanceM": 0.0016358382999897003,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x35-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x35_412b934eae",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_fan_21907032aa",
+      "supportDistanceM": 0.0019828600343316793,
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/M3x35-4@Box Assembly B"
+    },
+    {
+      "objectName": "MM_moveo_m3x35_701b0e79d9",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_fan_21907032aa",
+      "supportDistanceM": 0.001982864225283265,
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/M3x35-1@Box Assembly B"
+    },
+    {
+      "objectName": "MM_moveo_m3x35_91846a7874",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_fan_21907032aa",
+      "supportDistanceM": 0.0019828586373478174,
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/M3x35-2@Box Assembly B"
+    },
+    {
+      "objectName": "MM_moveo_m3x35_ffed5d3590",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_fan_21907032aa",
+      "supportDistanceM": 0.001982856774702668,
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/M3x35-3@Box Assembly B"
+    },
+    {
+      "objectName": "MM_moveo_m3x40_37c185ad79",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2c_b6db0b8c40",
+      "supportDistanceM": 0.0016358413267880678,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3x40-6@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3x40_8d536e7f60",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2c_b6db0b8c40",
+      "supportDistanceM": 0.0016346413176506758,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3x40-3@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3x40_9ba7cb81af",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2c_b6db0b8c40",
+      "supportDistanceM": 0.00163463584613055,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3x40-4@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3x40_a2ae12bbc6",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2c_b6db0b8c40",
+      "supportDistanceM": 0.00163585739210248,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3x40-5@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3x40_bf5c0446fd",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_t3m1c_e4ca2d49f0",
+      "supportDistanceM": 0.0016358395805582404,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/M3x40-1@3M1"
+    },
+    {
+      "objectName": "MM_moveo_m3x40_eac8fc4aa6",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2c_b6db0b8c40",
+      "supportDistanceM": 0.0016358518041670322,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3x40-1@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3x40_f95fbd8878",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m2c_b6db0b8c40",
+      "supportDistanceM": 0.0016358359716832638,
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/M3x40-2@3M2"
+    },
+    {
+      "objectName": "MM_moveo_m3x8_230664f4f0",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0016338983550667763,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x8-2@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x8_8a61aee79d",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0016338890418410301,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x8-3@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x8_aa809b4ad3",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0016338905552402139,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x8-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_m3x8_d609ea9da9",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "right_driver",
+      "supportObject": "MM_moveo_servo_gear_b_4135fb36dd",
+      "supportDistanceM": 0.0015874635428190231,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/M3x8-1@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_m3x8_ed6a2e9ed7",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_4m1d_44ef42247d",
+      "supportDistanceM": 0.0016338916029781103,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M3x8-4@4M"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_081b3bac1d",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ha_ff356c135b",
+      "supportDistanceM": 0.002992265857756138,
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/M4 Locknut-2@2M2"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_0b811a723a",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_1m1b_24149e46ff",
+      "supportDistanceM": 0.0029922756366431713,
+      "sourceCadInstance": "M4 Locknut-3@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_3588f6250a",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0033235829323530197,
+      "sourceCadInstance": "M4 Locknut-13@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_43537eaaf3",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0033232856076210737,
+      "sourceCadInstance": "M4 Locknut-7@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_50fd477a19",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0033232965506613255,
+      "sourceCadInstance": "M4 Locknut-14@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_5816bd2a3d",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ha_ff356c135b",
+      "supportDistanceM": 0.0029922735411673784,
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/M4 Locknut-1@2M2"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_5b959e7890",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_1m1b_24149e46ff",
+      "supportDistanceM": 0.002992265159264207,
+      "sourceCadInstance": "M4 Locknut-5@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_6bc478274c",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ha_ff356c135b",
+      "supportDistanceM": 0.0029922579415142536,
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/M4 Locknut-4@2M2"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_848d2a9073",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_1m1b_24149e46ff",
+      "supportDistanceM": 0.0029922742396593094,
+      "sourceCadInstance": "M4 Locknut-1@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_8f19c7f8da",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0033235903829336166,
+      "sourceCadInstance": "M4 Locknut-15@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_90d1c5ca05",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0033231591805815697,
+      "sourceCadInstance": "M4 Locknut-11@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_96ad700136",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0033235729206353426,
+      "sourceCadInstance": "M4 Locknut-12@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_b8f1771708",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_1m1b_24149e46ff",
+      "supportDistanceM": 0.0029922707471996546,
+      "sourceCadInstance": "M4 Locknut-4@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_b91bb9e084",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.003323585959151387,
+      "sourceCadInstance": "M4 Locknut-16@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_c61d541b9e",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.003323594806715846,
+      "sourceCadInstance": "M4 Locknut-18@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_dddddcd977",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_1m1b_24149e46ff",
+      "supportDistanceM": 0.002992277732118964,
+      "sourceCadInstance": "M4 Locknut-2@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_df890990ea",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_1m1b_24149e46ff",
+      "supportDistanceM": 0.002992265624925494,
+      "sourceCadInstance": "M4 Locknut-6@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_e71851984d",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ha_ff356c135b",
+      "supportDistanceM": 0.0029922646936029196,
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/M4 Locknut-3@2M2"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_f759fd04a1",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.003323604352772236,
+      "sourceCadInstance": "M4 Locknut-17@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_locknut_faf27fea62",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0033236120361834764,
+      "sourceCadInstance": "M4 Locknut-19@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4_nut_41f6503db6",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.0016499964985996485,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor D-2@2M1 assembly/M4 Nut-1@Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_m4_nut_9f676de871",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_3m1d_69fade4855",
+      "supportDistanceM": 0.0017000028165057302,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/T3M1-1@3M1/M4 Nut-1@T3M1"
+    },
+    {
+      "objectName": "MM_moveo_m4_nut_b0a1793bd5",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.0016500018537044525,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor I-2@2M1 assembly/M4 Nut-1@Tensor I"
+    },
+    {
+      "objectName": "MM_moveo_m4_nut_ba3c05c77d",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ma_7036002665",
+      "supportDistanceM": 0.0016500201309099793,
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/M4 Nut-7@2M2"
+    },
+    {
+      "objectName": "MM_moveo_m4_nut_dc315b9ba1",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ha_ff356c135b",
+      "supportDistanceM": 0.001650021062232554,
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/M4 Nut-2@2M2"
+    },
+    {
+      "objectName": "MM_moveo_m4_nut_e01194a8c5",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ma_7036002665",
+      "supportDistanceM": 0.0016500201309099793,
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/M4 Nut-6@2M2"
+    },
+    {
+      "objectName": "MM_moveo_m4_nut_f65723eae3",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ha_ff356c135b",
+      "supportDistanceM": 0.0016500115161761642,
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/M4 Nut-1@2M2"
+    },
+    {
+      "objectName": "MM_moveo_m4x16_0ffc26337c",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ma_7036002665",
+      "supportDistanceM": 0.002127408515661955,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/M4x16-3@3M1"
+    },
+    {
+      "objectName": "MM_moveo_m4x16_6fac8cd2b4",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ha_ff356c135b",
+      "supportDistanceM": 0.002127421088516712,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/M4x16-1@3M1"
+    },
+    {
+      "objectName": "MM_moveo_m4x16_8ea5b9a814",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ma_7036002665",
+      "supportDistanceM": 0.002127413870766759,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/M4x16-4@3M1"
+    },
+    {
+      "objectName": "MM_moveo_m4x16_f7ab2246b1",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ha_ff356c135b",
+      "supportDistanceM": 0.0021274180617183447,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/M4x16-2@3M1"
+    },
+    {
+      "objectName": "MM_moveo_m4x20_035765dce3",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_bearing_4bore_13ext_5_38a0e47256",
+      "supportDistanceM": 0.0019890323746949434,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor D-2@2M1 assembly/M4x20-1@Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_m4x20_316710edef",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_bearing_4bore_13ext_5_d6490fac33",
+      "supportDistanceM": 0.0019915299490094185,
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/T3M1-1@3M1/M4x20-1@T3M1"
+    },
+    {
+      "objectName": "MM_moveo_m4x20_59ee0fbd67",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_bearing_4bore_13ext_5_bc0ce72555",
+      "supportDistanceM": 0.0019890295807272196,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor I-2@2M1 assembly/M4x20-1@Tensor I"
+    },
+    {
+      "objectName": "MM_moveo_m4x30_3b3da3f60d",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021315980702638626,
+      "sourceCadInstance": "M4x30-1@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x30_5ff2e0036e",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021315959747880697,
+      "sourceCadInstance": "M4x30-2@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x30_6421752082",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ha_ff356c135b",
+      "supportDistanceM": 0.0021315920166671276,
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/M4x30-4@2M2"
+    },
+    {
+      "objectName": "MM_moveo_m4x30_675435d881",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021315915510058403,
+      "sourceCadInstance": "M4x30-3@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x30_81b550cd8f",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ha_ff356c135b",
+      "supportDistanceM": 0.002131576417014003,
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/M4x30-3@2M2"
+    },
+    {
+      "objectName": "MM_moveo_m4x30_87c1977dea",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021315820049494505,
+      "sourceCadInstance": "M4x30-4@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x30_b7600cba93",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ha_ff356c135b",
+      "supportDistanceM": 0.0021315801423043013,
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/M4x30-2@2M2"
+    },
+    {
+      "objectName": "MM_moveo_m4x30_cf3b8b1bcc",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.002131558023393154,
+      "sourceCadInstance": "M4x30-7@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x30_d1a91f350b",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m2ha_ff356c135b",
+      "supportDistanceM": 0.0021315738558769226,
+      "sourceCadInstance": "2M2-1@BCN3D Moveo assembly/M4x30-1@2M2"
+    },
+    {
+      "objectName": "MM_moveo_m4x30_f8f033f0a2",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.002131545217707753,
+      "sourceCadInstance": "M4x30-8@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x40_4e3d3de2d3",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021315710619091988,
+      "sourceCadInstance": "M4x40-9@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x40_61145c7808",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021309289149940014,
+      "sourceCadInstance": "M4x40-7@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x40_8c2326ab1b",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021311405580490828,
+      "sourceCadInstance": "M4x40-5@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x40_8cb4e1bd6c",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021311191376298666,
+      "sourceCadInstance": "M4x40-8@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x45_86f1a36fae",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.0021315990015864372,
+      "sourceCadInstance": "M4x45-1@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x45_a9f48b7835",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.002131599234417081,
+      "sourceCadInstance": "M4x45-2@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x45_d3c30f4987",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.0021315845660865307,
+      "sourceCadInstance": "M4x45-4@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x45_f55f2f5bbe",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.0021315834019333124,
+      "sourceCadInstance": "M4x45-6@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x45_f55f5309e6",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.0021315845660865307,
+      "sourceCadInstance": "M4x45-5@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m4x45_fbdfd8cad3",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.0021315973717719316,
+      "sourceCadInstance": "M4x45-3@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_120bb55a6c",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_potes_base_b_440d0dcfa5",
+      "supportDistanceM": 0.0033948845230042934,
+      "sourceCadInstance": "M5 Lock-15@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_170043ccb3",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_1m2a_8d0764d7ee",
+      "supportDistanceM": 0.002850012155249715,
+      "sourceCadInstance": "M5 Lock-8@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_3ccfd02439",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_potes_base_b_000b205ac5",
+      "supportDistanceM": 0.0033948898781090975,
+      "sourceCadInstance": "M5 Lock-14@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_5481dfe508",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.0033566646743565798,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5 Lock-6@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_640050543b",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_1m2a_8d0764d7ee",
+      "supportDistanceM": 0.0028499963227659464,
+      "sourceCadInstance": "M5 Lock-4@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_66f05e850a",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_potes_base_b_3ab9c5a979",
+      "supportDistanceM": 0.0033948724158108234,
+      "sourceCadInstance": "M5 Lock-13@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_7e9f6e2cfb",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m5x10_a8eb21e8e4",
+      "supportDistanceM": 0.0033879713155329227,
+      "sourceCadInstance": "M5 Lock-5@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_7f0f6beb59",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m5x10_6e4c1b2919",
+      "supportDistanceM": 0.0033879769034683704,
+      "sourceCadInstance": "M5 Lock-1@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_82c05a8337",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.003356675384566188,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5 Lock-7@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_857e58f04c",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_potes_base_b_d2e815a478",
+      "supportDistanceM": 0.0033948812633752823,
+      "sourceCadInstance": "M5 Lock-9@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_975e4222d5",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.0033566642086952925,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5 Lock-8@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_9920973125",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m5x10_f919455b81",
+      "supportDistanceM": 0.0033879815600812435,
+      "sourceCadInstance": "M5 Lock-3@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_9eb29fe711",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.003356668632477522,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5 Lock-1@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_b0a267e70b",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_1m2a_8d0764d7ee",
+      "supportDistanceM": 0.0028499963227659464,
+      "sourceCadInstance": "M5 Lock-2@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_c622015857",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.003356674686074257,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5 Lock-3@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_e3c2ffe0f5",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.0033566791098564863,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5 Lock-4@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_e7b385b916",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m5x10_742349fcc3",
+      "supportDistanceM": 0.003387968521565199,
+      "sourceCadInstance": "M5 Lock-7@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_e85392e2a1",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.0033566763158887625,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5 Lock-5@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_f249159e17",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_1m2a_8d0764d7ee",
+      "supportDistanceM": 0.002850012155249715,
+      "sourceCadInstance": "M5 Lock-6@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5_lock_f886f97ad6",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_2m1d_9ab6d4de88",
+      "supportDistanceM": 0.003356676083058119,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5 Lock-2@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5x15_27d4f4f904",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_23_2b8e776b70",
+      "supportDistanceM": 0.0025388889480382204,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5x15-8@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5x15_40209b508c",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_23_26ba15beb1",
+      "supportDistanceM": 0.0025388856884092093,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5x15-2@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5x15_41e902d692",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_23_26ba15beb1",
+      "supportDistanceM": 0.002538885222747922,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5x15-1@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5x15_444363a6ee",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_23_2b8e776b70",
+      "supportDistanceM": 0.0025388796348124743,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5x15-5@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5x15_a6f4b3c574",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_23_2b8e776b70",
+      "supportDistanceM": 0.0025388794019818306,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5x15-6@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5x15_b1ec327154",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_23_2b8e776b70",
+      "supportDistanceM": 0.0025388761423528194,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5x15-7@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5x15_d0922935c6",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_23_26ba15beb1",
+      "supportDistanceM": 0.002538895234465599,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5x15-3@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5x15_d9cb8e766e",
+      "jointId": "base",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_nema_23_26ba15beb1",
+      "supportDistanceM": 0.00253889337182045,
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/M5x15-4@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5x20_08378ece00",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m5x10_b9a896a12e",
+      "supportDistanceM": 0.002340031787753105,
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-7@Rotary Plate/M5x20-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_m5x20_12e44dd55a",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m5x10_61f74fe5ee",
+      "supportDistanceM": 0.00234003528021276,
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-8@Rotary Plate/M5x20-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_m5x20_8f747c12b8",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m5x10_6e4c1b2919",
+      "supportDistanceM": 0.002340033184736967,
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-1@Rotary Plate/M5x20-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_m5x20_b5da2a3155",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m5x10_f919455b81",
+      "supportDistanceM": 0.002340033883228898,
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-3@Rotary Plate/M5x20-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_m5x20_bbadcfc89c",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m5x10_742349fcc3",
+      "supportDistanceM": 0.0023400341160595417,
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-5@Rotary Plate/M5x20-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_m5x20_c45bcc8ccc",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m5x10_91af800c21",
+      "supportDistanceM": 0.002340052044019103,
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-6@Rotary Plate/M5x20-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_m5x20_da721b278f",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m5x10_bd939d8b05",
+      "supportDistanceM": 0.00234003784134984,
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-4@Rotary Plate/M5x20-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_m5x20_e842cb7ec0",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m5x10_a8eb21e8e4",
+      "supportDistanceM": 0.0023400369100272655,
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-2@Rotary Plate/M5x20-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_m5x30_1be1e472d9",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.002131521701812744,
+      "sourceCadInstance": "M5x30-4@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5x30_9ba8dec527",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.002131543355062604,
+      "sourceCadInstance": "M5x30-3@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5x30_a6f29547cb",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021315747871994972,
+      "sourceCadInstance": "M5x30-1@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m5x30_c08c281924",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021315731573849916,
+      "sourceCadInstance": "M5x30-2@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m8_autoblocant_158e04f14f",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_smooth_bar_8mm_x_50mm_5c63b88db9",
+      "supportDistanceM": 0.003968631848692894,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M8 Autoblocant-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_m8_autoblocant_9e210b7f39",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_8mm_bearing_557b9dbf76",
+      "supportDistanceM": 0.005863070022314787,
+      "sourceCadInstance": "M8 Autoblocant-1@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_m8x65_af011daf64",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_spacer_m8x20_68deb1435a",
+      "supportDistanceM": 0.003984768409281969,
+      "sourceCadInstance": "M8x65-1@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_nema_14_5b52ebed0c",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Nema 14-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_nema_17_curt_cbd1a6bd24",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/Nema 17 Curt-2@3M2"
+    },
+    {
+      "objectName": "MM_moveo_nema_17_llarg_e19a1550cd",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "1M3-1@BCN3D Moveo assembly/Nema 17 Llarg-1@1M3"
+    },
+    {
+      "objectName": "MM_moveo_nema_17_reductor_2f8b3f61b1",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/Nema 17 Reductor-1@3M1"
+    },
+    {
+      "objectName": "MM_moveo_nema_23_26ba15beb1",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Nema 23-1@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_nema_23_2b8e776b70",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Nema 23-2@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_pcb_tb6560_50a99f7dcf",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-3@Drivers Support Assembly B/PCB TB6560-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_pcb_tb6560_5d079916b3",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-4@Drivers Support Assembly B/PCB TB6560-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_pcb_tb6560_780d7d167a",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-1@Drivers Support Assembly B/PCB TB6560-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_pcb_tb6560_ba1bb3d92d",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-5@Drivers Support Assembly B/PCB TB6560-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_pcb_tb6560_e1ce6a316e",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-6@Drivers Support Assembly B/PCB TB6560-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_pcb_tb6560_ffd646f1f7",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-2@Drivers Support Assembly B/PCB TB6560-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_pivot_arm_b_1e5d9d2fdc",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "left_follower",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Pivot Arm B-2@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_pivot_arm_b_21d8a86559",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "right_follower",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Pivot Arm B-1@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_potes_base_b_000b205ac5",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Potes base B-4@Base assembly"
+    },
+    {
+      "objectName": "MM_moveo_potes_base_b_3ab9c5a979",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Potes base B-2@Base assembly"
+    },
+    {
+      "objectName": "MM_moveo_potes_base_b_440d0dcfa5",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Potes base B-3@Base assembly"
+    },
+    {
+      "objectName": "MM_moveo_potes_base_b_d2e815a478",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Potes base B-1@Base assembly"
+    },
+    {
+      "objectName": "MM_moveo_pulley_8mm_ignis_7fd385043b",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Pulley 8mm IGNIS-1@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_pulley_8mm_ignis_8bb9f1a4be",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Pulley 8mm IGNIS-2@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_pulley_8mm_ignis_dc8a72d1ca",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/Pulley 8mm IGNIS-1@3M1"
+    },
+    {
+      "objectName": "MM_moveo_pulley_m5_09daa6b3b0",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Pulley M5-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_pulley_m5_34409c2623",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "1M3-1@BCN3D Moveo assembly/Pulley M5-1@1M3"
+    },
+    {
+      "objectName": "MM_moveo_servo_futaba_s3003_ca1c8814b5",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/2-1@Gripper B Assembly/Servo Futaba S3003-1@2"
+    },
+    {
+      "objectName": "MM_moveo_servo_gear_b_4135fb36dd",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "right_driver",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Servo Gear B-1@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_sink_3ffe898fdc",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-4@Drivers Support Assembly B/Sink-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_sink_60b615712e",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-3@Drivers Support Assembly B/Sink-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_sink_930fd36b53",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-2@Drivers Support Assembly B/Sink-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_sink_97ec415627",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-5@Drivers Support Assembly B/Sink-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_sink_99f1e16e98",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-6@Drivers Support Assembly B/Sink-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_sink_bfd3d5ddf6",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-1@Drivers Support Assembly B/Sink-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_smooth_bar_8mm_x_121mm_d1fd489fe9",
+      "jointId": "elbow",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/Smooth bar 8mm x 121mm-1@3M1"
+    },
+    {
+      "objectName": "MM_moveo_smooth_bar_8mm_x_140mm_6e6b0a6c04",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Smooth bar 8mm x 140mm-1@2M1 assembly"
+    },
+    {
+      "objectName": "MM_moveo_smooth_bar_8mm_x_50mm_5c63b88db9",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M2-1@BCN3D Moveo assembly/Smooth bar 8mm x 50mm-1@3M2"
+    },
+    {
+      "objectName": "MM_moveo_spacer_m5x10_61f74fe5ee",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-8@Rotary Plate/Spacer M5x10-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_spacer_m5x10_6e4c1b2919",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-1@Rotary Plate/Spacer M5x10-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_spacer_m5x10_742349fcc3",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-5@Rotary Plate/Spacer M5x10-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_spacer_m5x10_91af800c21",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-6@Rotary Plate/Spacer M5x10-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_spacer_m5x10_a8eb21e8e4",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-2@Rotary Plate/Spacer M5x10-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_spacer_m5x10_b9a896a12e",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-7@Rotary Plate/Spacer M5x10-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_spacer_m5x10_bd939d8b05",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-4@Rotary Plate/Spacer M5x10-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_spacer_m5x10_f919455b81",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Sistema rodaments-3@Rotary Plate/Spacer M5x10-1@Sistema rodaments"
+    },
+    {
+      "objectName": "MM_moveo_spacer_m8x20_68deb1435a",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Rotary Plate-1@BCN3D Moveo assembly/Spacer M8x20-1@Rotary Plate"
+    },
+    {
+      "objectName": "MM_moveo_spacer_m8x20_bbe810f00c",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "Spacer M8x20-1@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_suport_drivers_e_5260d430d3",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Suport Drivers E-1@Drivers Support Assembly B"
+    },
+    {
+      "objectName": "MM_moveo_t2m1bd_9f7a6940e4",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor D-2@2M1 assembly/T2M1BD-1@Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_t2m1bi_b0bbcdda6c",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "2M1 assembly-2@BCN3D Moveo assembly/Tensor I-2@2M1 assembly/T2M1BI-1@Tensor I"
+    },
+    {
+      "objectName": "MM_moveo_t3m1c_e4ca2d49f0",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "3M1-1@BCN3D Moveo assembly/T3M1-1@3M1/T3M1C-1@T3M1"
+    },
+    {
+      "objectName": "MM_moveo_t4m1e_0ff3a334ae",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/M1 Tensor D-1@4M/T4M1E-1@M1 Tensor D"
+    },
+    {
+      "objectName": "MM_moveo_tapa_2m1c_6dbd8f4ca9",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "Tapa 2M1C-2@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_tapa_2m1c_cecb37eae0",
+      "jointId": "base",
+      "gripperGroup": "",
+      "sourceCadInstance": "Tapa 2M1C-1@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_tapa_3m1c_d0b123f179",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "Tapa 3M1C-3@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_tapa_3m1c_de9928f371",
+      "jointId": "shoulder",
+      "gripperGroup": "",
+      "sourceCadInstance": "Tapa 3M1C-2@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_tapa_4m1d_0befacd0a2",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Tapa 4M1D-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_tapa_4m1d_b2d41aa5f8",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Tapa 4M1D-2@4M"
+    },
+    {
+      "objectName": "MM_moveo_tbc_26357320af",
+      "jointId": "wrist_roll",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/TBC-1@4M"
+    },
+    {
+      "objectName": "MM_moveo_terminal_0934d501e6",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-3@Drivers Support Assembly B/Terminal-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_terminal_11bb038a81",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-6@Drivers Support Assembly B/Terminal-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_terminal_14d7d73a9c",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-1@Drivers Support Assembly B/Terminal-2@Driver"
+    },
+    {
+      "objectName": "MM_moveo_terminal_1eb19026d7",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-2@Drivers Support Assembly B/Terminal-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_terminal_654924f34d",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-4@Drivers Support Assembly B/Terminal-2@Driver"
+    },
+    {
+      "objectName": "MM_moveo_terminal_700614b7a0",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-6@Drivers Support Assembly B/Terminal-2@Driver"
+    },
+    {
+      "objectName": "MM_moveo_terminal_7f78805d4e",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-3@Drivers Support Assembly B/Terminal-2@Driver"
+    },
+    {
+      "objectName": "MM_moveo_terminal_ab52e5bcdd",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-1@Drivers Support Assembly B/Terminal-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_terminal_b9a5f4a0ae",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-5@Drivers Support Assembly B/Terminal-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_terminal_c6a4227ca5",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-2@Drivers Support Assembly B/Terminal-2@Driver"
+    },
+    {
+      "objectName": "MM_moveo_terminal_d924b4152c",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-5@Drivers Support Assembly B/Terminal-2@Driver"
+    },
+    {
+      "objectName": "MM_moveo_terminal_feda47ec81",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "sourceCadInstance": "Base assembly-1@BCN3D Moveo assembly/Box Assembly B-1@Base assembly/Drivers Support Assembly B-1@Box Assembly B/Driver-4@Drivers Support Assembly B/Terminal-1@Driver"
+    },
+    {
+      "objectName": "MM_moveo_top_plate_c_4c902ccc3b",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Top Plate C-1@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m3_4808cd1fab",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "right_driver",
+      "supportObject": "MM_moveo_servo_gear_b_4135fb36dd",
+      "supportDistanceM": 0.0016632182523608208,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Volandera M3-2@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m3_524d0022e6",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_bottom_plate_c_4851a3331d",
+      "supportDistanceM": 0.0016632097540423274,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Volandera M3-9@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m3_639fc2b6d2",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "left_driver",
+      "supportObject": "MM_moveo_idol_gear_b_b445b8329f",
+      "supportDistanceM": 0.0016632170882076025,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Volandera M3-6@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m3_acd9ef8af7",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_top_plate_c_4c902ccc3b",
+      "supportDistanceM": 0.0016632259357720613,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Volandera M3-3@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m3_cb8a86b4ab",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_top_plate_c_4c902ccc3b",
+      "supportDistanceM": 0.0016632333863526583,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Volandera M3-1@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m3_f270bda30b",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_bottom_plate_c_4851a3331d",
+      "supportDistanceM": 0.0016632055630907416,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Volandera M3-4@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m3_fee36e6a75",
+      "jointId": "wrist_pitch",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_bottom_plate_c_4851a3331d",
+      "supportDistanceM": 0.0016632043989375234,
+      "sourceCadInstance": "4M-1@BCN3D Moveo assembly/Gripper B Assembly-1@4M/Volandera M3-5@Gripper B Assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m4_6755b0f2e6",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.002143392339348793,
+      "sourceCadInstance": "Volandera M4-3@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m4_730457ae58",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021433967631310225,
+      "sourceCadInstance": "Volandera M4-6@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m4_888dcc1652",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021434412337839603,
+      "sourceCadInstance": "Volandera M4-8@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m4_9575f074b1",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021429795306175947,
+      "sourceCadInstance": "Volandera M4-1@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m4_bd10693ff4",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.002143438905477524,
+      "sourceCadInstance": "Volandera M4-9@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m4_c2f8803c19",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021434116642922163,
+      "sourceCadInstance": "Volandera M4-7@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m4_cb0ca7319e",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.002143431454896927,
+      "sourceCadInstance": "Volandera M4-4@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m4_d07bb8868c",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021434426307678223,
+      "sourceCadInstance": "Volandera M4-10@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m4_dd8f33b6ba",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.002143444959074259,
+      "sourceCadInstance": "Volandera M4-11@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m4_f2fb7e5008",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021434160880744457,
+      "sourceCadInstance": "Volandera M4-2@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m5_3032df5033",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021433818619698286,
+      "sourceCadInstance": "Volandera M5-2@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m5_aac4daad4d",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021433888468891382,
+      "sourceCadInstance": "Volandera M5-3@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m5_bbab12892d",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.002143359277397394,
+      "sourceCadInstance": "Volandera M5-4@BCN3D Moveo assembly"
+    },
+    {
+      "objectName": "MM_moveo_volandera_m5_db9a0a865e",
+      "jointId": "fixed",
+      "gripperGroup": "",
+      "supportObject": "MM_moveo_base_fusta_930b474ffb",
+      "supportDistanceM": 0.0021434242371469736,
+      "sourceCadInstance": "Volandera M5-1@BCN3D Moveo assembly"
+    }
+  ],
+  "keyframes": [
+    {
+      "phase": 0,
+      "angles": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "gripperDegrees": 0
+    },
+    {
+      "phase": 0.2,
+      "angles": [
+        -28,
+        8,
+        -8,
+        -28,
+        14
+      ],
+      "gripperDegrees": 0
+    },
+    {
+      "phase": 0.35,
+      "angles": [
+        -28,
+        8,
+        -8,
+        -28,
+        14
+      ],
+      "gripperDegrees": 40
+    },
+    {
+      "phase": 0.65,
+      "angles": [
+        28,
+        -8,
+        14,
+        28,
+        -14
+      ],
+      "gripperDegrees": 40
+    },
+    {
+      "phase": 0.8,
+      "angles": [
+        28,
+        -8,
+        14,
+        28,
+        -14
+      ],
+      "gripperDegrees": 0
+    },
+    {
+      "phase": 1,
+      "angles": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "gripperDegrees": 0
+    }
+  ]
+}
