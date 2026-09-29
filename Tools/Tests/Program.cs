@@ -30,11 +30,132 @@ internal static class Program
         Run("Bolt active/passive axes and closed teaching cycle", BoltArticulationRig);
         Run("Periodic motion curve continuity and bounded interpolation", PeriodicCurveContinuity);
         Run("Bolt continuous alternating cycle without global holds", BoltContinuousCycle);
+        Run("OpenTorque standard source and complete service coverage", OpenTorqueSourceAndTierCoverage);
+        Run("OpenTorque motion bindings and source limitations", OpenTorqueMotionRig);
+        Run("Fixed-ring planetary ratio, continuous phase and closed cycle", PlanetaryKinematics);
 
         Console.WriteLine(failures == 0
             ? "All MechMaster domain tests passed."
             : failures + " test(s) failed.");
         return failures == 0 ? 0 : 1;
+    }
+
+    private static void OpenTorqueSourceAndTierCoverage()
+    {
+        using JsonDocument manifest = LoadJson("Assets", "StreamingAssets", "MechanicalCatalog", "opentorque_model_manifest.json");
+        JsonElement root = manifest.RootElement;
+        Equal("gearbox.opentorque.planetary.v1", root.GetProperty("modelId").GetString());
+        Equal("412762e9a4ca424564d3ebed882db95ef4b22ed9", root.GetProperty("sourceCommit").GetString());
+        Equal("715965dc130555453d7d76d7ab51beeb8a5566a35cc37aae25cbb81151c879a3", root.GetProperty("stepSha256").GetString());
+        Equal("m", root.GetProperty("units").GetString());
+        Equal(13, root.GetProperty("partTypeCount").GetInt32());
+        Equal(19, root.GetProperty("partObjectCount").GetInt32());
+        var objects = new HashSet<string>();
+        var ids = new HashSet<string>();
+        var paths = new HashSet<string>();
+        var definitions = new HashSet<string>();
+        var frequencies = new Dictionary<string, int>();
+        foreach (JsonElement part in root.GetProperty("parts").EnumerateArray())
+        {
+            True(objects.Add(part.GetProperty("object").GetString()));
+            True(ids.Add(part.GetProperty("id").GetString()));
+            True(paths.Add(part.GetProperty("sourceInstancePath").GetString()));
+            definitions.Add(part.GetProperty("componentId").GetString());
+            string name = part.GetProperty("sourceName").GetString();
+            frequencies.TryGetValue(name, out int count); frequencies[name] = count + 1;
+            True(part.GetProperty("runtimeTriangles").GetInt32() > 0);
+            if (name == "RA-8008C Cross Roller Bearing" || name == "F625ZZ")
+                Equal("sealed-bearing", part.GetProperty("serviceBoundary").GetString());
+            if (name == "Bearing Retainer") Equal("source-part", part.GetProperty("serviceBoundary").GetString());
+            False(name.Contains("low backlash"));
+        }
+        Equal(19, objects.Count); Equal(13, definitions.Count);
+        Equal(3, frequencies["Planet Gear"]); Equal(3, frequencies["F625ZZ"]); Equal(3, frequencies["M5x30 Dowel Pin"]);
+        Equal(1, frequencies["Actuator Housing"]); False(frequencies.ContainsKey("Ring Gear"));
+        using JsonDocument catalog = LoadJson("Assets", "Resources", "MechanicalCatalog", "OpenTorqueInteractionCatalog.json");
+        int tier = 0;
+        foreach (JsonElement plan in catalog.RootElement.GetProperty("plans").EnumerateArray())
+        {
+            Equal(new[] { "Simple", "Standard", "Advanced" }[tier], plan.GetProperty("difficulty").GetString());
+            Equal(new[] { 5, 10, 17 }[tier++], plan.GetProperty("steps").GetArrayLength());
+            var names = new HashSet<string>(); var steps = new HashSet<string>();
+            foreach (JsonElement step in plan.GetProperty("steps").EnumerateArray())
+            {
+                True(steps.Add(step.GetProperty("id").GetString()));
+                foreach (string field in new[] { "simpleSummary", "mechanism", "advancedNote" })
+                {
+                    string text = step.GetProperty(field).GetString();
+                    True(!string.IsNullOrWhiteSpace(text) && text.Length <= 50);
+                }
+                foreach (JsonElement name in step.GetProperty("objectNames").EnumerateArray()) True(names.Add(name.GetString()));
+            }
+            True(names.SetEquals(objects));
+        }
+        Equal(3, tier);
+        string notices = Path.Combine("Assets", "StreamingAssets", "MechanicalCatalog", "OpenTorque");
+        True(File.ReadAllText(Path.Combine(notices, "CC-BY-SA-4.0-LICENSE.txt")).Contains("Attribution-ShareAlike 4.0"));
+        string attribution = File.ReadAllText(Path.Combine(notices, "ATTRIBUTION.txt"));
+        True(attribution.Contains("Gabrael Levine") && attribution.Contains("modifications") && attribution.Contains("CC BY-SA 4.0"));
+    }
+
+    private static void OpenTorqueMotionRig()
+    {
+        using JsonDocument document = LoadJson("Assets", "Resources", "MechanicalCatalog", "OpenTorqueMotionRig.json");
+        JsonElement rig = document.RootElement;
+        Equal(9, rig.GetProperty("sunTeeth").GetInt32()); Equal(27, rig.GetProperty("planetTeeth").GetInt32());
+        Equal(63, rig.GetProperty("ringTeeth").GetInt32()); Equal(24, rig.GetProperty("closedCycleInputTurns").GetInt32());
+        Equal(60, rig.GetProperty("inputRpm").GetInt32()); Equal(.027, rig.GetProperty("orbitRadiusM").GetDouble());
+        using JsonDocument manifest = LoadJson("Assets", "StreamingAssets", "MechanicalCatalog", "opentorque_model_manifest.json");
+        var objects = new Dictionary<string, string>();
+        foreach (JsonElement part in manifest.RootElement.GetProperty("parts").EnumerateArray())
+            objects.Add(part.GetProperty("object").GetString(), part.GetProperty("sourceName").GetString());
+        var names = new HashSet<string>(); int planets = 0, sun = 0, fixedCount = 0, carriers = 0;
+        foreach (JsonElement binding in rig.GetProperty("bindings").EnumerateArray())
+        {
+            string name = binding.GetProperty("objectName").GetString(); True(names.Add(name)); True(objects.ContainsKey(name));
+            switch (binding.GetProperty("role").GetString())
+            {
+                case "planet": Equal("Planet Gear", objects[name]); planets++; break;
+                case "sun": True(objects[name] == "Sun Gear" || objects[name] == "Encoder Magnet Holder"); sun++; break;
+                case "carrier": carriers++; break;
+                case "fixed": fixedCount++; break;
+                default: throw new InvalidOperationException("Unknown motion role");
+            }
+        }
+        Equal(19, names.Count); Equal(3, planets); Equal(2, sun); Equal(9, carriers); Equal(5, fixedCount);
+        Equal(8, rig.GetProperty("transparentObjects").GetArrayLength());
+        foreach (JsonElement name in rig.GetProperty("transparentObjects").EnumerateArray())
+        { True(objects.ContainsKey(name.GetString())); False(objects[name.GetString()] == "Planet Gear" || objects[name.GetString()] == "Sun Gear"); }
+        True(rig.GetProperty("limitations").GetArrayLength() >= 4);
+    }
+
+    private static void PlanetaryKinematics()
+    {
+        var drive = new PlanetaryGearKinematics(9, 27, 63);
+        Equal(8.0, drive.ReductionRatio); Equal(24, drive.ClosedCycleInputTurns);
+        PlanetaryGearKinematics.Angles one = drive.Evaluate(360);
+        Equal(360.0, one.Sun); Equal(45.0, one.Carrier); Equal(-60.0, one.Planet);
+        PlanetaryGearKinematics.Angles closed = drive.Evaluate(drive.ClosedCycleInputTurns * 360);
+        Equal(0.0, closed.Sun % 360); Equal(0.0, closed.Carrier % 360); Equal(0.0, closed.Planet % 360);
+        for (int index = -100; index <= 1000; index++)
+        {
+            double input = index * 13.719;
+            var angles = drive.Evaluate(input);
+            True(Math.Abs(9 * (angles.Sun - angles.Carrier) - 63 * angles.Carrier) < 1e-9);
+            True(Math.Abs(9 * (angles.Sun - angles.Carrier) + 27 * (angles.Planet - angles.Carrier)) < 1e-9);
+            var next = drive.Evaluate(input + .001);
+            True(Math.Abs((next.Carrier - angles.Carrier) / .001 - .125) < 1e-8);
+            True(Math.Abs((next.Planet - angles.Planet) / .001 + 1.0 / 6) < 1e-8);
+        }
+        bool rejected = false;
+        try { new PlanetaryGearKinematics(9, 27, 62); } catch (ArgumentException) { rejected = true; }
+        True(rejected); rejected = false;
+        try { drive.Evaluate(double.NaN); } catch (ArgumentException) { rejected = true; }
+        True(rejected);
+        var other = new PlanetaryGearKinematics(20, 30, 80);
+        Equal(5.0, other.ReductionRatio);
+        var repeat = other.Evaluate(other.ClosedCycleInputTurns * 360.0);
+        True(Math.Abs(repeat.Carrier % 360) < 1e-8 && Math.Abs(repeat.Planet % 360) < 1e-8);
     }
 
     private static void BoltSourceAndTierCoverage()

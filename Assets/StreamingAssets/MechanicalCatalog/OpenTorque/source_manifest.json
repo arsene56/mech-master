@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/G-Levine/OpenTorque-Actuator",
+  "commit": "412762e9a4ca424564d3ebed882db95ef4b22ed9",
+  "license": "CC-BY-SA-4.0",
+  "author": "Gabrael Levine",
+  "retrievedUtc": "2026-09-29T08:23:45.470063+00:00",
+  "files": [
+    {
+      "path": "Bill of Materials.csv",
+      "url": "https://raw.githubusercontent.com/G-Levine/OpenTorque-Actuator/412762e9a4ca424564d3ebed882db95ef4b22ed9/Bill%20of%20Materials.csv",
+      "bytes": 1171,
+      "sha256": "bf8270a1bab8a3d0bdbf5ea450fd390aef436cb9f90101276281a8d35cbab535",
+      "gitBlob": "008eeaeec707f3a2e05ee1b74044bade32773748"
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/G-Levine/OpenTorque-Actuator/412762e9a4ca424564d3ebed882db95ef4b22ed9/LICENSE",
+      "bytes": 15059,
+      "sha256": "b0db1521043f65a7daa3c87294ebd7daa7f73720edb9eb0ea7a61912d87c2a90",
+      "gitBlob": "f13c02cbd3726fecc7c2687cdc7145a49498be16"
+    },
+    {
+      "path": "Print Instructions.txt",
+      "url": "https://raw.githubusercontent.com/G-Levine/OpenTorque-Actuator/412762e9a4ca424564d3ebed882db95ef4b22ed9/Print%20Instructions.txt",
+      "bytes": 393,
+      "sha256": "3c8cb3fdf1f524b489645a1a141e2b538bf4d72029dd4f0287f729e6d2401919",
+      "gitBlob": "c12ffdaed6ebba2df041049951bd44842607ed2a"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/G-Levine/OpenTorque-Actuator/412762e9a4ca424564d3ebed882db95ef4b22ed9/README.md",
+      "bytes": 182,
+      "sha256": "435983fd39fac0377ec2338bbc424a20423e5d7352b8b8184c6dd7a8e17a377c",
+      "gitBlob": "aa9c715cc8b8548f836fe60dd43c8eccb29ce703"
+    },
+    {
+      "path": "STEP/low_backlash_gears.step",
+      "url": "https://raw.githubusercontent.com/G-Levine/OpenTorque-Actuator/412762e9a4ca424564d3ebed882db95ef4b22ed9/STEP/low_backlash_gears.step",
+      "bytes": 4724421,
+      "sha256": "e42087627ee49bbe70a7d5259ede9f61386a24b58baccef7d7f00b92ffdfcce9",
+      "gitBlob": "e7bb341adc9fd5991e5495bd52498a4e74a72599"
+    },
+    {
+      "path": "STEP/opentorque.step",
+      "url": "https://raw.githubusercontent.com/G-Levine/OpenTorque-Actuator/412762e9a4ca424564d3ebed882db95ef4b22ed9/STEP/opentorque.step",
+      "bytes": 7168329,
+      "sha256": "715965dc130555453d7d76d7ab51beeb8a5566a35cc37aae25cbb81151c879a3",
+      "gitBlob": "037a81e60809baf60c1cdb45b7b885002e924a04"
+    }
+  ]
+}

@@ -16,6 +16,12 @@
 
 ![Bolt 运行分件预览](Docs/Preview/Bolt.png)
 
+第四个模型为 **OpenTorque 行星减速器**，采用官方 CC BY-SA 4.0 标准版 STEP，保留真实分件、米制比例和连续齿轮联动；不补造缺失的电机与电子控制件。
+
+![OpenTorque 运行分件预览](Docs/Preview/OpenTorque.png)
+
+![OpenTorque 引擎透明观察预览](Docs/Preview/OpenTorqueMotion.png)
+
 ## 当前交付
 
 - 1:1 米制源模型，允许自由旋转和缩放。
@@ -32,20 +38,23 @@
 - Moveo 关节演示：底座回转、肩、肘、腕部旋转和腕部俯仰五轴循环联动；夹爪按两侧齿轮与四连杆开合，默认速度 1.00×（以原 2.00× 的实际节奏为新基准），支持暂停、继续、结束和 0.50×–1.50× 调速，不修改拆装进度。
 - Bolt：12 模块、56 个源零件定义、345 个装配实例；简单 / 进阶 / 探索为 12 / 23 / 42 步，支持拆装、爆炸、中文讲解和独立存档。
 - Bolt 关节演示：六个主动轴与两个被动踝轴的固定躯干双腿屈伸，左右腿连续交替，髋膝错峰转向，关键姿态与循环接缝保持速度连续；支持暂停、调速与停止复原，不是平衡行走或地面接触仿真。
+- OpenTorque：5 模块、13 个源定义、19 个装配实例；简单 / 进阶 / 探索为 5 / 10 / 17 步，支持拆装、爆炸、中文讲解和独立存档。内齿圈与壳体一体，密封轴承按整件处理。
+- OpenTorque 分级爆炸：简单分开五大模块，进阶沿轴分层并径向展开三套行星轮，探索再分开行星架板、齿轮、轴承与销轴组；不再仅以小幅错位区分等级。
+- OpenTorque 运转演示：固定 63 齿内齿圈，9 齿太阳轮驱动三个 27 齿行星轮，行星架以 8∶1 减速输出；默认 1.00× 为输入 60 rpm，支持暂停及 0.50×–1.50× 调速。支承件临时透明便于观察，结束后恢复源姿态与材质，不改变拆装进度；不是电机或负载仿真。
 - Source、模块 LOD0、整车 LOD1 和 LOD2 四层资产流水线。
 - 不包含星级、徽章、排行榜、付费激励、工具规格或扭矩考核。
 
-当前还没有微信小游戏 AppID。自行车、Moveo 与 Bolt 已通过本机团结引擎的导入、编译及目录绑定；Moveo 与 Bolt 三档拆装和关节演示已通过自动回归，.NET 19 项测试全部通过（含连续动作曲线回归）。Game View 的人工画面复核及微信开发者工具、真机测试仍需完成。
+当前还没有微信小游戏 AppID。自行车、Moveo、Bolt 与 OpenTorque 已通过本机团结引擎的导入、编译及目录绑定；后三者的三档拆装和演示已通过自动回归，.NET 22 项测试全部通过（含连续动作曲线与行星齿轮运动学）。用户实际 Game View 全流程及微信开发者工具、真机测试仍需完成。
 
 ## 三档拆解等级
 
-| 拆解等级 | 拆装粒度 | 自行车步骤数 | Moveo 步骤数 | Bolt 步骤数 |
-| --- | --- | ---: | ---: | ---: |
-| 简单 | 整机主要机械模块 | 15 | 9 | 12 |
-| 进阶 | 模块内按功能系统分组 | 30 | 20 | 23 |
-| 探索 | 更细的机械子总成，紧固件和重复件仍成组 | 45 | 42 | 42 |
+| 拆解等级 | 拆装粒度 | 自行车步骤数 | Moveo 步骤数 | Bolt 步骤数 | OpenTorque 步骤数 |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 简单 | 整机主要机械模块 | 15 | 9 | 12 | 5 |
+| 进阶 | 模块内按功能系统分组 | 30 | 20 | 23 | 10 |
+| 探索 | 更细的机械子总成，紧固件和重复件仍成组 | 45 | 42 | 42 | 17 |
 
-每个模型的三个等级都覆盖相同的完整实体集合：自行车 595 个，Moveo 366 个，Bolt 345 个，只改变一次拖动所包含的范围。探索等级也以机械子总成为单位，链节、辐条、紧固件和内部小件不会逐个操作；焊接、粘接、硫化和铆死结构不作为常规拆装操作。刹车油流程计划在后续覆盖所有等级。
+每个模型的三个等级都覆盖相同的完整实体集合：自行车 595 个，Moveo 366 个，Bolt 345 个，OpenTorque 19 个，只改变一次拖动所包含的范围。探索等级也以机械子总成为单位，链节、辐条、紧固件和内部小件不会逐个操作；焊接、粘接、硫化和铆死结构不作为常规拆装操作。刹车油流程计划在后续覆盖所有等级。
 
 ## 自行车工程基准
 
@@ -74,7 +83,7 @@
 
 ```text
 Assets/
-├─ Art/Models/Source/             # 自行车、Moveo、Bolt 三个 Source .blend
+├─ Art/Models/Source/             # 自行车、Moveo、Bolt、OpenTorque Source .blend
 ├─ Resources/
 │  ├─ MechanicalCatalog/BicycleInteractionCatalog.json
 │  ├─ MechanicalCatalog/Models/Bicycle.json # 自动发现的模型清单
@@ -84,9 +93,13 @@ Assets/
 │  ├─ MechanicalCatalog/Models/Bolt.json
 │  ├─ MechanicalCatalog/BoltInteractionCatalog.json
 │  ├─ MechanicalCatalog/BoltMotionRig.json
+│  ├─ MechanicalCatalog/Models/OpenTorque.json
+│  ├─ MechanicalCatalog/OpenTorqueInteractionCatalog.json
+│  ├─ MechanicalCatalog/OpenTorqueMotionRig.json
 │  ├─ Models/Bicycle/             # 14 个模块 LOD0 + 整车 LOD1/LOD2
 │  ├─ Models/Moveo/               # 9 个模块 LOD0 + 整机 LOD1/LOD2
-│  └─ Models/Bolt/                # 12 个模块 LOD0 + 整机 LOD1/LOD2
+│  ├─ Models/Bolt/                # 12 个模块 LOD0 + 整机 LOD1/LOD2
+│  └─ Models/OpenTorque/          # 5 个模块 LOD0 + 整机 LOD1/LOD2
 ├─ StreamingAssets/MechanicalCatalog/
 │  ├─ bicycle_engineering.json    # 工程 BOM
 │  ├─ bicycle_model_manifest.json # 595 个对象映射
@@ -94,7 +107,9 @@ Assets/
 │  ├─ moveo_*.json                # Moveo BOM、对象映射和运行统计
 │  ├─ Moveo/                      # 官方来源记录和 MIT 许可
 │  ├─ bolt_*.json                 # Bolt BOM、对象映射和运行统计
-│  └─ Bolt/                       # 官方来源记录和 BSD-3-Clause 许可
+│  ├─ Bolt/                       # 官方来源记录和 BSD-3-Clause 许可
+│  ├─ opentorque_*.json           # OpenTorque 对象映射、工程参数和运行统计
+│  └─ OpenTorque/                 # 固定来源、CC BY-SA 4.0 与改编署名
 └─ Scripts/
    ├─ Domain/                     # 纯 C# 拆装状态机
    ├─ Runtime/                    # 3D、输入、UI、存档
@@ -192,6 +207,8 @@ Bolt 的“运转演示”在完整装配时展示六主动轴与两被动踝轴
 - [Moveo 关节演示配置](Assets/Resources/MechanicalCatalog/MoveoMotionRig.json)：五轴、夹爪四连杆、关键帧与 366 个对象绑定。
 - [Bolt 接入记录](Docs/References/Bolt/IMPORT_STATUS.md)：STEP 转换、源尺寸、12 / 23 / 42 步、许可与验证边界。
 - [Bolt 关节演示配置](Assets/Resources/MechanicalCatalog/BoltMotionRig.json)：六主动轴、两被动踝轴及 345 个对象绑定。
+- [OpenTorque 接入记录](Docs/References/OpenTorque/IMPORT_STATUS.md)：标准 STEP、5 / 10 / 17 步、连续齿轮联动、许可及验证边界。
+- [OpenTorque 演示配置](Assets/Resources/MechanicalCatalog/OpenTorqueMotionRig.json)：9/27/63 齿、19 个实例及透明观察层。
 - [OM10 与 V8 模型候选验收](Docs/References/MODEL_CANDIDATES.md)：仅完成来源初筛，尚未取得原始模型或接入运行时。
 
 ## 版本控制

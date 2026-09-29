@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "gearbox.opentorque.planetary.v1",
+  "displayName": "OpenTorque 行星减速器",
+  "displayOrder": 30,
+  "catalogResourcePath": "MechanicalCatalog/OpenTorqueInteractionCatalog",
+  "moduleResourcePaths": [
+    "Models/OpenTorque/Modules/housing_LOD0",
+    "Models/OpenTorque/Modules/carrier_LOD0",
+    "Models/OpenTorque/Modules/sun_LOD0",
+    "Models/OpenTorque/Modules/planets_LOD0",
+    "Models/OpenTorque/Modules/encoder_LOD0"
+  ],
+  "assemblies": [
+    {
+      "id": "housing",
+      "displayName": "壳体与盖板"
+    },
+    {
+      "id": "carrier",
+      "displayName": "行星架与输出支承"
+    },
+    {
+      "id": "sun",
+      "displayName": "太阳轮"
+    },
+    {
+      "id": "planets",
+      "displayName": "行星轮组件"
+    },
+    {
+      "id": "encoder",
+      "displayName": "编码器安装件"
+    }
+  ],
+  "motion": {
+    "kind": "opentorque-planetary-v1",
+    "rigResourcePath": "MechanicalCatalog/OpenTorqueMotionRig"
+  }
+}

@@ -18,6 +18,7 @@ namespace MechMaster.Runtime
             new Dictionary<string, Renderer>(StringComparer.Ordinal);
         private Dictionary<string, Transform> namedTransforms;
         private Bounds assembledPartBounds;
+        private OpenTorqueExplosionLayout explosionLayout;
         private bool globalExplosionActive;
         private string localExplosionPartId;
         private string highlightedTrayAssemblyId;
@@ -27,10 +28,11 @@ namespace MechMaster.Runtime
         public IReadOnlyDictionary<string, MechanicalPartView> Parts => parts;
         public bool GlobalExplosionActive => globalExplosionActive;
         public string LocalExplosionPartId => localExplosionPartId;
+        public Vector2? GlobalExplosionViewAngles => explosionLayout?.ViewAngles;
         public int ExplosionTargetCount =>
             orderedParts.Count(view => view.IsInspectionExplosionTarget);
 
-        public void Bind(DisassemblyPlan plan, AssemblyLayout layout)
+        public void Bind(DisassemblyPlan plan, AssemblyLayout layout, MechanicalModelDefinition model)
         {
             assemblyLayout = layout;
             parts.Clear();
@@ -92,6 +94,8 @@ namespace MechMaster.Runtime
             }
 
             assembledPartBounds = CombinedBounds(orderedParts);
+            explosionLayout = OpenTorqueExplosionLayout.TryCreate(
+                model, plan, namedTransforms, layout.Scale * 2f);
             BuildDisplayTray();
         }
 
@@ -213,6 +217,13 @@ namespace MechMaster.Runtime
             if (available.Count == 0)
             {
                 globalExplosionActive = false;
+                return;
+            }
+
+            if (explosionLayout != null)
+            {
+                foreach (MechanicalPartView view in available)
+                    view.SetInspectionExplosion(explosionLayout.OffsetFor(view.PartId), true, immediate);
                 return;
             }
 

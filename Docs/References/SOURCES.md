@@ -33,6 +33,13 @@
 - [Wintaru/model_viewer 的三角条带解析研究](https://github.com/Wintaru/model_viewer/blob/9aabcab92cfaaac03b1276229e11ce798b60e6f9/research/d9-decode.py)：解析器参考其 MIT 代码，版权与许可保存在 `Tools/Content/ThirdParty/Wintaru-MIT-LICENSE.txt`。
 - [Moveo 接入记录](Moveo/IMPORT_STATUS.md)：原始文件校验、隐藏和重复引用清理、米制尺寸、流水线与验证边界。运行模型为源 CAD 的保存网格快照；展示 BOM 保留源版本差异，不能作为采购清单。
 
+## OpenTorque 模型与转换来源
+
+- [OpenTorque 官方固定版本](https://github.com/G-Levine/OpenTorque-Actuator/tree/412762e9a4ca424564d3ebed882db95ef4b22ed9)：作者 Gabrael Levine；标准整机 STEP、替代低背隙 STEP、采购 BOM 与打印说明。首版仅接标准减速机构，不补造源缺失的电机和电子件。
+- [原始 CC BY-SA 4.0 许可](https://github.com/G-Levine/OpenTorque-Actuator/blob/412762e9a4ca424564d3ebed882db95ef4b22ed9/LICENSE)：许可全文、固定来源与模型改编署名随运行资源保存。派生模型/Source/预览按相同许可分享，独立游戏代码单独管理许可；发行前核对平台的分发限制。
+- [作者项目与 8∶1 参数](https://hackaday.io/project/159404-opentorque-actuator)：参数与本版 CAD 齿数核对一致；旧版装配教程和性能数据不等于本游戏完成的验证。
+- [OpenTorque 接入记录](OpenTorque/IMPORT_STATUS.md)：源校验、13 定义/19 实例、5/10/17 步、材质/LOD、连续运动、复现命令与验证边界。
+
 ## 自行车样片假设
 
 - 27.5 英寸山地车轮组，模型外径约 0.698 m。

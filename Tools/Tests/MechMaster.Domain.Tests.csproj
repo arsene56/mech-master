@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="..\..\Assets\Scripts\Domain\*.cs" Link="Domain\%(Filename)%(Extension)" />
     <Compile Include="..\..\Assets\Scripts\Runtime\PeriodicMotionCurve.cs" Link="Runtime\PeriodicMotionCurve.cs" />
+    <Compile Include="..\..\Assets\Scripts\Runtime\PlanetaryGearKinematics.cs" Link="Runtime\PlanetaryGearKinematics.cs" />
   </ItemGroup>
 </Project>
 

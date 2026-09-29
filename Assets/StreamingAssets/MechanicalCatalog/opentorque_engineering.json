@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "modelId": "gearbox.opentorque.planetary.v1",
+  "units": "m",
+  "license": "CC-BY-SA-4.0",
+  "dimensionsMm": [
+    110,
+    110,
+    95
+  ],
+  "sunTeeth": 9,
+  "planetTeeth": 27,
+  "ringTeeth": 63,
+  "reductionRatio": 8,
+  "planetOrbitRadiusM": 0.027,
+  "printedMaterial": "Nylon or other engineering polymer per author's print instructions",
+  "types": [
+    {
+      "id": "0:1:1:2",
+      "sourceName": "Actuator Housing",
+      "displayName": "带内齿圈壳体",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:3",
+      "sourceName": "Bearing Retainer",
+      "displayName": "输出轴承压圈",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:4",
+      "sourceName": "Planet Carrier A",
+      "displayName": "行星架外侧输出板",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:5",
+      "sourceName": "Planet Carrier C",
+      "displayName": "行星架内侧支承板",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:6",
+      "sourceName": "Planet Carrier B",
+      "displayName": "行星架中间连接板",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:7",
+      "sourceName": "Backplate",
+      "displayName": "后盖板",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:8",
+      "sourceName": "Encoder Cover",
+      "displayName": "编码器保护盖",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:9",
+      "sourceName": "Encoder Magnet Holder",
+      "displayName": "编码器磁体安装座",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:10",
+      "sourceName": "RA-8008C Cross Roller Bearing",
+      "displayName": "交叉滚子输出轴承",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:12",
+      "sourceName": "Sun Gear",
+      "displayName": "九齿太阳轮",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:13",
+      "sourceName": "Planet Gear",
+      "displayName": "二十七齿行星轮",
+      "quantity": 3
+    },
+    {
+      "id": "0:1:1:14",
+      "sourceName": "F625ZZ",
+      "displayName": "带法兰密封轴承",
+      "quantity": 3
+    },
+    {
+      "id": "0:1:1:15",
+      "sourceName": "M5x30 Dowel Pin",
+      "displayName": "五毫米行星轮销轴",
+      "quantity": 3
+    }
+  ],
+  "limitations": [
+    "Prescribed ideal kinematics, not motor, torque, contact or backlash simulation.",
+    "Sealed bearings orbit as service units; internal rolling elements are not animated.",
+    "Transparent support parts are a viewing layer; no assembly removal is recorded.",
+    "Motor, input shaft, encoder PCB, magnet and most fasteners are absent from source CAD."
+  ]
+}

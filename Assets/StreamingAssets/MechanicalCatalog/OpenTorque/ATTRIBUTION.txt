@@ -1,0 +1,7 @@
+OpenTorque Actuator — Gabrael Levine
+Source: https://github.com/G-Levine/OpenTorque-Actuator/tree/412762e9a4ca424564d3ebed882db95ef4b22ed9
+License: Creative Commons Attribution-ShareAlike 4.0 International
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Mech.Master modifications (2026-09-29): STEP tessellation in metres, preserved occurrence transforms, Chinese service groups, polymer/metal display materials, bearing mesh simplification, runtime LODs and teaching previews. These adapted OpenTorque model assets and previews are CC BY-SA 4.0.
+This notice does not relicense independent game code or other models. No endorsement is implied.

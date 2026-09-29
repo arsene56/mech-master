@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "modelId": "gearbox.opentorque.planetary.v1",
+  "sourceTriangles": 275926,
+  "modules": [
+    {
+      "assemblyId": "housing",
+      "resourcePath": "Models/OpenTorque/Modules/housing_LOD0",
+      "partObjects": 3,
+      "triangles": 46082,
+      "bytes": 1130828
+    },
+    {
+      "assemblyId": "carrier",
+      "resourcePath": "Models/OpenTorque/Modules/carrier_LOD0",
+      "partObjects": 4,
+      "triangles": 19552,
+      "bytes": 468268
+    },
+    {
+      "assemblyId": "sun",
+      "resourcePath": "Models/OpenTorque/Modules/sun_LOD0",
+      "partObjects": 1,
+      "triangles": 9888,
+      "bytes": 248844
+    },
+    {
+      "assemblyId": "planets",
+      "resourcePath": "Models/OpenTorque/Modules/planets_LOD0",
+      "partObjects": 9,
+      "triangles": 58656,
+      "bytes": 1463500
+    },
+    {
+      "assemblyId": "encoder",
+      "resourcePath": "Models/OpenTorque/Modules/encoder_LOD0",
+      "partObjects": 2,
+      "triangles": 4872,
+      "bytes": 114892
+    }
+  ],
+  "interactionSteps": {
+    "Simple": 5,
+    "Standard": 10,
+    "Advanced": 17
+  },
+  "lod1Triangles": 80644,
+  "lod2Triangles": 16000
+}

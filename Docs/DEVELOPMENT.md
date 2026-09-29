@@ -12,7 +12,7 @@
 
 1. 克隆仓库并确认当前分支为 `main`。
 2. 用引擎 Hub 打开仓库根目录。
-3. 等待自行车、Moveo 与 Bolt 的 FBX、JSON 和 C# 脚本导入。
+3. 等待自行车、Moveo、Bolt 与 OpenTorque 的 FBX、JSON 和 C# 脚本导入。
 4. 打开 `Assets/Scenes/Main.unity` 并进入 Play Mode。
 5. 运行入口由 `MechMasterApp.Bootstrap` 创建，不需要在场景中手工绑定脚本。
 
@@ -60,6 +60,16 @@ dotnet run --project Tools/Tests/MechMaster.Domain.Tests.csproj -c Release
 
 流水线按 `fetch_bolt_sources.py → convert_bolt_step.py → import_bolt.py → validate_bolt.py` 执行。中文名称/知识/分组编辑 `Tools/Content/bolt_content.py`；材质与减面编辑 `Tools/Blender/import_bolt.py`；源轴、绑定与关键帧编辑 `Tools/Blender/build_bolt_motion_rig.py`。完整依赖安装、重建与 Editor 命令见 [Bolt 接入记录](References/Bolt/IMPORT_STATUS.md#可复现命令)。
 
+### OpenTorque 行星减速器
+
+已有分件 FBX 可直接运行。重建顺序为 `fetch_opentorque_sources.py → convert_opentorque_step.py → import_opentorque.py → validate_opentorque.py`，复用 Bolt 的 Python 3.12 / OCCT 固定依赖。中文知识和 5/10/17 步分组编辑 `Tools/Content/opentorque_content.py`；材质、轴承减面、源绑定与预览编辑 `Tools/Blender/import_opentorque.py`。完整命令、CC BY-SA 模型署名和缺失电机/电子件边界见 [OpenTorque 接入记录](References/OpenTorque/IMPORT_STATUS.md#可复现命令)。
+
+引擎入口为 `MechMaster.Editor.OpenTorqueImportValidator.ValidateFromCommandLine`，不加 `-quit`，由验证器负责 Play/退出并恢复全部模型原有偏好和进度。日志建议使用 `Library/MechMaster/OpenTorqueSource/converted/editor-runtime-view-final.log`。它在三档验证全部 19 实例、尺寸、241 相位连续运动、8∶1、暂停调速、源姿态/材质/阴影复原，调用每档 6 组单件爆炸与 6 组停止后真实拖放回归，跨帧原生鼠标事件检查播放/结束/拆装按钮，再检查旧模型切换和演示可用性。
+
+Source / LOD0 / LOD1 / LOD2 为 **275,926 / 139,050 / 80,644 / 16,000** 三角形；13 定义、19 实例、5 模块、110×110×95 mm，公转半径 27 mm，三个行星轮间隔 120°。LOD0 保留齿面；单网格太阳轮由 `OpenTorqueAssetImportSettings` 保留原节点名，并补齐 FBX 默认导入丢失的金属度。正式相机以模型尺寸调整近裁剪；自建验证近景相机采用 0.001 m 近裁剪，不用默认 0.3 m 截掉内部件。
+
+成功标记为 `OPENTORQUE_SOURCE_VALIDATION_OK`、`OPENTORQUE_LOD_VALIDATION_OK`，引擎三档 `MECH_MASTER_OPENTORQUE_MOTION_OK`、`MECH_MASTER_OPENTORQUE_TIER_OK` 和最终 `MECH_MASTER_OPENTORQUE_RUNTIME_OK`。微信真机、触控和用户实际 Game View 全流程仍需复核，不以面数或 Editor 自动化通过代替平台验收。
+
 ## 预期验证结果
 
 Blender 验证应以以下文本结束：
@@ -81,7 +91,15 @@ Moveo 基线：9 模块、87 个源零件定义、366 实体；三档为 9 / 20 
 
 Bolt 基线：12 模块、56 个源叶零件定义、345 个叶实例；三档为 12 / 23 / 42 步，每档完整覆盖同一批实例。左右腿的髋屈伸—膝、膝—踝轴距均为 200 mm；Source / LOD0 / LOD1 / LOD2 为 2,553,404 / 399,230 / 219,566 / 22,000 三角面。源验证成功标记为 `BOLT_SOURCE_VALIDATION_OK` 与 `BOLT_TRANSFORM_VALIDATION_OK`。
 
-.NET 测试共 19 项，应全部显示 `PASS`，覆盖状态机、BOM、继承数量、尺寸基准、三档计数、模型绑定、Moveo 内容与五轴/四连杆配置，以及 Bolt 源身份、维修分组、六主动/两被动轴与闭合教学关键帧。两项连续曲线回归直接编译不依赖 Unity 的 `PeriodicMotionCurve.cs`，检查非等间隔关键帧、保形不超调、周期速度连续及连续双腿动作。
+.NET 测试共 22 项，应全部显示 `PASS`，覆盖状态机、BOM、继承数量、尺寸基准、三档计数、模型绑定、Moveo 内容与五轴/四连杆配置，以及 Bolt 源身份、维修分组、六主动/两被动轴与闭合教学关键帧。两项连续曲线回归直接编译不依赖 Unity 的 `PeriodicMotionCurve.cs`，检查非等间隔关键帧、保形不超调、周期速度连续及连续双腿动作；新增 OpenTorque 固定源/三级完整覆盖/许可、19 实例运动绑定与限制、固定齿圈连续运动学/真正闭合周期三项。
+
+## OpenTorque 分级爆炸布局
+
+`OpenTorqueExplosionLayout.cs` 只为 OpenTorque 提供 5 / 10 / 17 单元的轴向分层和行星轮径向布局，依据正式 motion rig 的真实主轴/行星轮中心计算，不重新生成网格或改变三级拆装目录。`MechanicalModelView` 在初次绑定源装配时缓存这些位移；其它模型保留通用算法。全局爆炸可使用专用初始视角，单件爆炸及收纳取景不变。
+
+修改布局后运行 `OpenTorqueImportValidator.ValidateFromCommandLine`。新增检查包括：每档独立位移数、相邻档至少 12 个实体的位移差超过 10 mm、逻辑组内部源相对位置与旋转不变、展开单元包围盒不相交、默认相机下每个单元至少 35% 的投影表面采样不被其它零件遮挡、动画终点取景与实际位置一致、再次点击及进入拆装复原、进度与存档不变。部分拆下时还检查未拆单元不重新排列、已拆单元留在收纳位。原有暂停/调速、停止后的拾取/拖放、原生按钮事件及四模型切换回归继续执行。
+
+同角度、统一 1600×900 的引擎补充渲染输出为 `Docs/Preview/OpenTorqueExplosionSimple.png`、`OpenTorqueExplosionStandard.png`、`OpenTorqueExplosionAdvanced.png`；这是实际分件姿态的对比渲染，不是含 UI 的 Game View 截屏。正式界面取景单独按当前屏幕验证。当前 Editor 已打开时，复制必要资产/脚本到忽略的独立测试工程，使用不同 company/product 隔离存档，不关闭用户 Editor。
 
 ## 修改工程模型
 
@@ -104,7 +122,7 @@ Bolt 基线：12 模块、56 个源叶零件定义、345 个叶实例；三档�
 完整 Editor 可用后至少检查：
 
 - C# 无编译错误、JSON 可被 `JsonUtility` 读取。
-- 自行车 14 个模块、Moveo 9 个模块、Bolt 12 个模块的 FBX 在世界坐标中正确拼成整机。
+- 自行车 14 个模块、Moveo 9 个模块、Bolt 12 个模块、OpenTorque 5 个模块的 FBX 在世界坐标中正确拼成整机。
 - 三档均能命中正确对象并完整拆解。
 - 拆解与组装均可自由选择零件，最终能回到完整状态。
 - 45 步探索模式的组合机械单元没有异常爆炸距离。

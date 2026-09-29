@@ -86,15 +86,15 @@ namespace MechMaster.Runtime
             ApplyTransform();
         }
 
-        public void FrameContents(Vector3[] points)
+        public void FrameContents(Vector3[] points, Vector2? viewAngles = null)
         {
             if (points == null || points.Length == 0 || target == null) return;
             Bounds bounds = new Bounds(points[0], Vector3.zero);
             foreach (Vector3 point in points) bounds.Encapsulate(point);
             target.position = bounds.center;
             activeFramingPoints = points;
-            yaw = -22f;
-            pitch = 24f;
+            yaw = viewAngles?.x ?? -22f;
+            pitch = viewAngles?.y ?? 24f;
             zoom = 1f;
             framingOffset = Vector2.zero;
             panOffset = Vector2.zero;

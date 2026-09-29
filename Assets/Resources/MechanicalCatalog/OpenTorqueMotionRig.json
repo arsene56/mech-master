@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "modelId": "gearbox.opentorque.planetary.v1",
+  "sunTeeth": 9,
+  "planetTeeth": 27,
+  "ringTeeth": 63,
+  "inputRpm": 60,
+  "closedCycleInputTurns": 24,
+  "orbitRadiusM": 0.027,
+  "axisStartObject": "MM_opentorque_backplate_a3494298e5",
+  "axisEndObject": "MM_opentorque_planet_carrier_a_8c5bed4455",
+  "sunObject": "MM_opentorque_sun_gear_cd4a1bc63b",
+  "planetObjects": [
+    "MM_opentorque_planet_gear_af5c958995",
+    "MM_opentorque_planet_gear_5db8852222",
+    "MM_opentorque_planet_gear_72558508bb"
+  ],
+  "transparentObjects": [
+    "MM_opentorque_actuator_housing_6b3f86bb2e",
+    "MM_opentorque_bearing_retainer_b092119325",
+    "MM_opentorque_planet_carrier_a_8c5bed4455",
+    "MM_opentorque_planet_carrier_c_266f3a09bf",
+    "MM_opentorque_planet_carrier_b_af0d20b36a",
+    "MM_opentorque_backplate_a3494298e5",
+    "MM_opentorque_encoder_cover_312a817964",
+    "MM_opentorque_ra_8008c_cross_roller_bearing_0b210abc56"
+  ],
+  "bindings": [
+    {
+      "objectName": "MM_opentorque_actuator_housing_6b3f86bb2e",
+      "role": "fixed",
+      "planetIndex": -1
+    },
+    {
+      "objectName": "MM_opentorque_bearing_retainer_b092119325",
+      "role": "fixed",
+      "planetIndex": -1
+    },
+    {
+      "objectName": "MM_opentorque_planet_carrier_a_8c5bed4455",
+      "role": "carrier",
+      "planetIndex": -1
+    },
+    {
+      "objectName": "MM_opentorque_planet_carrier_c_266f3a09bf",
+      "role": "carrier",
+      "planetIndex": -1
+    },
+    {
+      "objectName": "MM_opentorque_planet_carrier_b_af0d20b36a",
+      "role": "carrier",
+      "planetIndex": -1
+    },
+    {
+      "objectName": "MM_opentorque_backplate_a3494298e5",
+      "role": "fixed",
+      "planetIndex": -1
+    },
+    {
+      "objectName": "MM_opentorque_encoder_cover_312a817964",
+      "role": "fixed",
+      "planetIndex": -1
+    },
+    {
+      "objectName": "MM_opentorque_encoder_magnet_holder_2091064459",
+      "role": "sun",
+      "planetIndex": -1
+    },
+    {
+      "objectName": "MM_opentorque_ra_8008c_cross_roller_bearing_0b210abc56",
+      "role": "fixed",
+      "planetIndex": -1
+    },
+    {
+      "objectName": "MM_opentorque_sun_gear_cd4a1bc63b",
+      "role": "sun",
+      "planetIndex": -1
+    },
+    {
+      "objectName": "MM_opentorque_planet_gear_af5c958995",
+      "role": "planet",
+      "planetIndex": 0
+    },
+    {
+      "objectName": "MM_opentorque_planet_gear_5db8852222",
+      "role": "planet",
+      "planetIndex": 1
+    },
+    {
+      "objectName": "MM_opentorque_planet_gear_72558508bb",
+      "role": "planet",
+      "planetIndex": 2
+    },
+    {
+      "objectName": "MM_opentorque_f625zz_3bb62ee69e",
+      "role": "carrier",
+      "planetIndex": 0
+    },
+    {
+      "objectName": "MM_opentorque_m5x30_dowel_pin_e2db54c60f",
+      "role": "carrier",
+      "planetIndex": 0
+    },
+    {
+      "objectName": "MM_opentorque_f625zz_3304ba2d2d",
+      "role": "carrier",
+      "planetIndex": 1
+    },
+    {
+      "objectName": "MM_opentorque_f625zz_b71b710309",
+      "role": "carrier",
+      "planetIndex": 2
+    },
+    {
+      "objectName": "MM_opentorque_m5x30_dowel_pin_196a983226",
+      "role": "carrier",
+      "planetIndex": 1
+    },
+    {
+      "objectName": "MM_opentorque_m5x30_dowel_pin_6ace21a764",
+      "role": "carrier",
+      "planetIndex": 2
+    }
+  ],
+  "limitations": [
+    "Prescribed ideal kinematics, not motor, torque, contact or backlash simulation.",
+    "Sealed bearings orbit as service units; internal rolling elements are not animated.",
+    "Transparent support parts are a viewing layer; no assembly removal is recorded.",
+    "Motor, input shaft, encoder PCB, magnet and most fasteners are absent from source CAD."
+  ]
+}

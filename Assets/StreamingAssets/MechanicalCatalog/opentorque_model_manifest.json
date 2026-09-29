@@ -1,0 +1,855 @@
+{
+  "schemaVersion": 1,
+  "modelId": "gearbox.opentorque.planetary.v1",
+  "units": "m",
+  "sourceCommit": "412762e9a4ca424564d3ebed882db95ef4b22ed9",
+  "stepSha256": "715965dc130555453d7d76d7ab51beeb8a5566a35cc37aae25cbb81151c879a3",
+  "partTypeCount": 13,
+  "partObjectCount": 19,
+  "parts": [
+    {
+      "id": "opentorque.actuator_housing.6b3f86bb2e",
+      "object": "MM_opentorque_actuator_housing_6b3f86bb2e",
+      "componentId": "0:1:1:2",
+      "sourceName": "Actuator Housing",
+      "displayName": "带内齿圈壳体",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/Actuator Housing@0:1:1:1:1",
+      "assemblyId": "housing",
+      "sourceTriangles": 33898,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.0,
+        0.029500000178813934
+      ],
+      "planetIndex": -1,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 33898
+    },
+    {
+      "id": "opentorque.bearing_retainer.b092119325",
+      "object": "MM_opentorque_bearing_retainer_b092119325",
+      "componentId": "0:1:1:3",
+      "sourceName": "Bearing Retainer",
+      "displayName": "输出轴承压圈",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/Bearing Retainer@0:1:1:1:2",
+      "assemblyId": "housing",
+      "sourceTriangles": 5686,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.0,
+        0.0677499994635582
+      ],
+      "planetIndex": -1,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 5686
+    },
+    {
+      "id": "opentorque.planet_carrier_a.8c5bed4455",
+      "object": "MM_opentorque_planet_carrier_a_8c5bed4455",
+      "componentId": "0:1:1:4",
+      "sourceName": "Planet Carrier A",
+      "displayName": "行星架外侧输出板",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/Planet Carrier A@0:1:1:1:3",
+      "assemblyId": "carrier",
+      "sourceTriangles": 9260,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.0,
+        0.06825000047683716
+      ],
+      "planetIndex": -1,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 6498
+    },
+    {
+      "id": "opentorque.planet_carrier_c.266f3a09bf",
+      "object": "MM_opentorque_planet_carrier_c_266f3a09bf",
+      "componentId": "0:1:1:5",
+      "sourceName": "Planet Carrier C",
+      "displayName": "行星架内侧支承板",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/Planet Carrier C@0:1:1:1:4",
+      "assemblyId": "carrier",
+      "sourceTriangles": 5660,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.0,
+        0.041749998927116394
+      ],
+      "planetIndex": -1,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 5660
+    },
+    {
+      "id": "opentorque.planet_carrier_b.af0d20b36a",
+      "object": "MM_opentorque_planet_carrier_b_af0d20b36a",
+      "componentId": "0:1:1:6",
+      "sourceName": "Planet Carrier B",
+      "displayName": "行星架中间连接板",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/Planet Carrier B@0:1:1:1:5",
+      "assemblyId": "carrier",
+      "sourceTriangles": 4994,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.0,
+        0.051249999552965164
+      ],
+      "planetIndex": -1,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 4994
+    },
+    {
+      "id": "opentorque.backplate.a3494298e5",
+      "object": "MM_opentorque_backplate_a3494298e5",
+      "componentId": "0:1:1:7",
+      "sourceName": "Backplate",
+      "displayName": "后盖板",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/Backplate@0:1:1:1:6",
+      "assemblyId": "housing",
+      "sourceTriangles": 12154,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.0,
+        -0.007249999791383743
+      ],
+      "planetIndex": -1,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 6498
+    },
+    {
+      "id": "opentorque.encoder_cover.312a817964",
+      "object": "MM_opentorque_encoder_cover_312a817964",
+      "componentId": "0:1:1:8",
+      "sourceName": "Encoder Cover",
+      "displayName": "编码器保护盖",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/Encoder Cover@0:1:1:1:7",
+      "assemblyId": "encoder",
+      "sourceTriangles": 3868,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        -0.001401013694703579,
+        -0.01599999889731407
+      ],
+      "planetIndex": -1,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 3868
+    },
+    {
+      "id": "opentorque.encoder_magnet_holder.2091064459",
+      "object": "MM_opentorque_encoder_magnet_holder_2091064459",
+      "componentId": "0:1:1:9",
+      "sourceName": "Encoder Magnet Holder",
+      "displayName": "编码器磁体安装座",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/Encoder Magnet Holder@0:1:1:1:8",
+      "assemblyId": "encoder",
+      "sourceTriangles": 1004,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.0,
+        -0.011500000022351742
+      ],
+      "planetIndex": -1,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 1004
+    },
+    {
+      "id": "opentorque.ra_8008c_cross_roller_bearing.0b210abc56",
+      "object": "MM_opentorque_ra_8008c_cross_roller_bearing_0b210abc56",
+      "componentId": "0:1:1:10",
+      "sourceName": "RA-8008C Cross Roller Bearing",
+      "displayName": "交叉滚子输出轴承",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/RA-8008C Cross Roller Bearing@0:1:1:1:9",
+      "assemblyId": "carrier",
+      "sourceTriangles": 17194,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.0,
+        0.06650000065565109
+      ],
+      "planetIndex": -1,
+      "serviceBoundary": "sealed-bearing",
+      "runtimeTriangles": 2400
+    },
+    {
+      "id": "opentorque.sun_gear.cd4a1bc63b",
+      "object": "MM_opentorque_sun_gear_cd4a1bc63b",
+      "componentId": "0:1:1:12",
+      "sourceName": "Sun Gear",
+      "displayName": "九齿太阳轮",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/V2 Gears v31 v2@0:1:1:1:10/Sun Gear@0:1:1:11:1",
+      "assemblyId": "sun",
+      "sourceTriangles": 9888,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.04
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.0,
+        0.007499999832361937
+      ],
+      "planetIndex": -1,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 9888
+    },
+    {
+      "id": "opentorque.planet_gear.af5c958995",
+      "object": "MM_opentorque_planet_gear_af5c958995",
+      "componentId": "0:1:1:13",
+      "sourceName": "Planet Gear",
+      "displayName": "二十七齿行星轮",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/V2 Gears v31 v2@0:1:1:1:10/Planet Gear@0:1:1:11:2",
+      "assemblyId": "planets",
+      "sourceTriangles": 17476,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.027
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.040999999999999995
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        2.100132405757904e-06,
+        5.383044481277466e-07,
+        0.008999999612569809
+      ],
+      "planetIndex": 0,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 17476
+    },
+    {
+      "id": "opentorque.planet_gear.5db8852222",
+      "object": "MM_opentorque_planet_gear_5db8852222",
+      "componentId": "0:1:1:13",
+      "sourceName": "Planet Gear",
+      "displayName": "二十七齿行星轮",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/V2 Gears v31 v2@0:1:1:1:10/Planet Gear@0:1:1:11:3",
+      "assemblyId": "planets",
+      "sourceTriangles": 17476,
+      "sourceMatrix": [
+        [
+          -0.4999999999999999,
+          -0.8660254037844388,
+          0.0,
+          -0.0233826859021799
+        ],
+        [
+          0.8660254037844388,
+          -0.4999999999999999,
+          0.0,
+          -0.0135
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.040999999999999995
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        2.100132405757904e-06,
+        5.383044481277466e-07,
+        0.008999999612569809
+      ],
+      "planetIndex": 1,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 17476
+    },
+    {
+      "id": "opentorque.planet_gear.72558508bb",
+      "object": "MM_opentorque_planet_gear_72558508bb",
+      "componentId": "0:1:1:13",
+      "sourceName": "Planet Gear",
+      "displayName": "二十七齿行星轮",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/V2 Gears v31 v2@0:1:1:1:10/Planet Gear@0:1:1:11:4",
+      "assemblyId": "planets",
+      "sourceTriangles": 17476,
+      "sourceMatrix": [
+        [
+          -0.5000000000000003,
+          0.8660254037844385,
+          0.0,
+          0.0233826859021798
+        ],
+        [
+          -0.8660254037844385,
+          -0.5000000000000003,
+          0.0,
+          -0.0135
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.040999999999999995
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        2.100132405757904e-06,
+        5.383044481277466e-07,
+        0.008999999612569809
+      ],
+      "planetIndex": 2,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 17476
+    },
+    {
+      "id": "opentorque.f625zz.3bb62ee69e",
+      "object": "MM_opentorque_f625zz_3bb62ee69e",
+      "componentId": "0:1:1:14",
+      "sourceName": "F625ZZ",
+      "displayName": "带法兰密封轴承",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/V2 Gears v31 v2@0:1:1:1:10/F625ZZ@0:1:1:11:5",
+      "assemblyId": "planets",
+      "sourceTriangles": 39688,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.027
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.05
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "planetIndex": 0,
+      "serviceBoundary": "sealed-bearing",
+      "runtimeTriangles": 1800
+    },
+    {
+      "id": "opentorque.m5x30_dowel_pin.e2db54c60f",
+      "object": "MM_opentorque_m5x30_dowel_pin_e2db54c60f",
+      "componentId": "0:1:1:15",
+      "sourceName": "M5x30 Dowel Pin",
+      "displayName": "五毫米行星轮销轴",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/V2 Gears v31 v2@0:1:1:1:10/M5x30 Dowel Pin@0:1:1:11:6",
+      "assemblyId": "planets",
+      "sourceTriangles": 276,
+      "sourceMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.04
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.027000000700354576,
+        0.012000000104308128
+      ],
+      "planetIndex": 0,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 276
+    },
+    {
+      "id": "opentorque.f625zz.3304ba2d2d",
+      "object": "MM_opentorque_f625zz_3304ba2d2d",
+      "componentId": "0:1:1:14",
+      "sourceName": "F625ZZ",
+      "displayName": "带法兰密封轴承",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/V2 Gears v31 v2@0:1:1:1:10/F625ZZ@0:1:1:11:7",
+      "assemblyId": "planets",
+      "sourceTriangles": 39688,
+      "sourceMatrix": [
+        [
+          -0.4999999999999999,
+          -0.8660254037844388,
+          0.0,
+          -0.0233826859021799
+        ],
+        [
+          0.8660254037844388,
+          -0.4999999999999999,
+          0.0,
+          -0.0135
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.05
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "planetIndex": 1,
+      "serviceBoundary": "sealed-bearing",
+      "runtimeTriangles": 1800
+    },
+    {
+      "id": "opentorque.f625zz.b71b710309",
+      "object": "MM_opentorque_f625zz_b71b710309",
+      "componentId": "0:1:1:14",
+      "sourceName": "F625ZZ",
+      "displayName": "带法兰密封轴承",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/V2 Gears v31 v2@0:1:1:1:10/F625ZZ@0:1:1:11:8",
+      "assemblyId": "planets",
+      "sourceTriangles": 39688,
+      "sourceMatrix": [
+        [
+          -0.5000000000000003,
+          0.8660254037844385,
+          0.0,
+          0.0233826859021798
+        ],
+        [
+          -0.8660254037844385,
+          -0.5000000000000003,
+          0.0,
+          -0.0135
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.05
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "planetIndex": 2,
+      "serviceBoundary": "sealed-bearing",
+      "runtimeTriangles": 1800
+    },
+    {
+      "id": "opentorque.m5x30_dowel_pin.196a983226",
+      "object": "MM_opentorque_m5x30_dowel_pin_196a983226",
+      "componentId": "0:1:1:15",
+      "sourceName": "M5x30 Dowel Pin",
+      "displayName": "五毫米行星轮销轴",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/V2 Gears v31 v2@0:1:1:1:10/M5x30 Dowel Pin@0:1:1:11:9",
+      "assemblyId": "planets",
+      "sourceTriangles": 276,
+      "sourceMatrix": [
+        [
+          -0.4999999999999999,
+          -0.8660254037844388,
+          0.0,
+          0.0
+        ],
+        [
+          0.8660254037844388,
+          -0.4999999999999999,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.04
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.027000000700354576,
+        0.012000000104308128
+      ],
+      "planetIndex": 1,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 276
+    },
+    {
+      "id": "opentorque.m5x30_dowel_pin.6ace21a764",
+      "object": "MM_opentorque_m5x30_dowel_pin_6ace21a764",
+      "componentId": "0:1:1:15",
+      "sourceName": "M5x30 Dowel Pin",
+      "displayName": "五毫米行星轮销轴",
+      "sourceInstancePath": "opentorque_v2 v3@0:1:1:1/V2 Gears v31 v2@0:1:1:1:10/M5x30 Dowel Pin@0:1:1:11:10",
+      "assemblyId": "planets",
+      "sourceTriangles": 276,
+      "sourceMatrix": [
+        [
+          -0.5000000000000003,
+          0.8660254037844385,
+          0.0,
+          0.0
+        ],
+        [
+          -0.8660254037844385,
+          -0.5000000000000003,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.04
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "sourceCenter": [
+        0.0,
+        0.027000000700354576,
+        0.012000000104308128
+      ],
+      "planetIndex": 2,
+      "serviceBoundary": "source-part",
+      "runtimeTriangles": 276
+    }
+  ],
+  "excludedReferences": [],
+  "missingSourceComponents": [
+    "motor",
+    "input shaft",
+    "encoder PCB",
+    "encoder magnet",
+    "most fasteners"
+  ]
+}

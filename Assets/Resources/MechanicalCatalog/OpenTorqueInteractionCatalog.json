@@ -1,0 +1,462 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "gearbox.opentorque.planetary.v1",
+  "plans": [
+    {
+      "difficulty": "Simple",
+      "steps": [
+        {
+          "id": "opentorque.simple.housing.whole",
+          "displayName": "壳体与盖板",
+          "tool": "Hand",
+          "simpleSummary": "保护齿轮，并支承内部零件。",
+          "mechanism": "壳体内壁的齿圈固定不动，供行星轮啮合。",
+          "advancedNote": "内齿圈与壳体为一体打印件，不作为独立零件拆装。",
+          "assemblyId": "housing",
+          "componentId": "whole",
+          "objectNames": [
+            "MM_opentorque_actuator_housing_6b3f86bb2e",
+            "MM_opentorque_bearing_retainer_b092119325",
+            "MM_opentorque_backplate_a3494298e5"
+          ]
+        },
+        {
+          "id": "opentorque.simple.carrier.whole",
+          "displayName": "行星架与输出支承",
+          "tool": "Hand",
+          "simpleSummary": "托住三个行星轮，把慢转动传出去。",
+          "mechanism": "行星架围绕太阳轮旋转，成为减速器的输出端。",
+          "advancedNote": "三片行星架保留真实分件；交叉滚子轴承按整件拆装。",
+          "assemblyId": "carrier",
+          "componentId": "whole",
+          "objectNames": [
+            "MM_opentorque_planet_carrier_a_8c5bed4455",
+            "MM_opentorque_planet_carrier_c_266f3a09bf",
+            "MM_opentorque_planet_carrier_b_af0d20b36a",
+            "MM_opentorque_ra_8008c_cross_roller_bearing_0b210abc56"
+          ]
+        },
+        {
+          "id": "opentorque.simple.sun.whole",
+          "displayName": "太阳轮",
+          "tool": "Hand",
+          "simpleSummary": "位于中央，把转动传给行星轮。",
+          "mechanism": "九齿太阳轮与三个二十七齿行星轮同时啮合。",
+          "advancedNote": "电机和输入轴未包含在源模型中，演示仅驱动已有太阳轮。",
+          "assemblyId": "sun",
+          "componentId": "whole",
+          "objectNames": [
+            "MM_opentorque_sun_gear_cd4a1bc63b"
+          ]
+        },
+        {
+          "id": "opentorque.simple.planets.whole",
+          "displayName": "行星轮组件",
+          "tool": "Hand",
+          "simpleSummary": "一边自转，一边绕太阳轮转。",
+          "mechanism": "三个行星轮间隔一百二十度，在内齿圈中滚动。",
+          "advancedNote": "行星轮、轴承和销轴保留源位置；不模拟轴承内部滚动体。",
+          "assemblyId": "planets",
+          "componentId": "whole",
+          "objectNames": [
+            "MM_opentorque_planet_gear_af5c958995",
+            "MM_opentorque_planet_gear_5db8852222",
+            "MM_opentorque_planet_gear_72558508bb",
+            "MM_opentorque_f625zz_3bb62ee69e",
+            "MM_opentorque_m5x30_dowel_pin_e2db54c60f",
+            "MM_opentorque_f625zz_3304ba2d2d",
+            "MM_opentorque_f625zz_b71b710309",
+            "MM_opentorque_m5x30_dowel_pin_196a983226",
+            "MM_opentorque_m5x30_dowel_pin_6ace21a764"
+          ]
+        },
+        {
+          "id": "opentorque.simple.encoder.whole",
+          "displayName": "编码器安装件",
+          "tool": "Hand",
+          "simpleSummary": "为位置感知部件提供安装位置。",
+          "mechanism": "磁体安装座随输入端转动，可配合传感器测角度。",
+          "advancedNote": "源模型仅含盖和安装座，没有编码器电路板或完整线束。",
+          "assemblyId": "encoder",
+          "componentId": "whole",
+          "objectNames": [
+            "MM_opentorque_encoder_cover_312a817964",
+            "MM_opentorque_encoder_magnet_holder_2091064459"
+          ]
+        }
+      ]
+    },
+    {
+      "difficulty": "Standard",
+      "steps": [
+        {
+          "id": "opentorque.standard.housing.actuator_housing.6b3f86bb2e",
+          "displayName": "壳体与轴承压圈",
+          "tool": "Hand",
+          "simpleSummary": "保护齿轮，并支承内部零件。",
+          "mechanism": "壳体内壁的齿圈固定不动，供行星轮啮合。",
+          "advancedNote": "内齿圈与壳体为一体打印件，不作为独立零件拆装。",
+          "assemblyId": "housing",
+          "componentId": "housing",
+          "objectNames": [
+            "MM_opentorque_actuator_housing_6b3f86bb2e",
+            "MM_opentorque_bearing_retainer_b092119325"
+          ]
+        },
+        {
+          "id": "opentorque.standard.housing.backplate.a3494298e5",
+          "displayName": "后盖板",
+          "tool": "Hand",
+          "simpleSummary": "盖住减速器后侧。",
+          "mechanism": "后盖与壳体连接，为输入侧部件提供安装边界。",
+          "advancedNote": "源装配没有电机，后盖附近的空位不是漏导入的零件。",
+          "assemblyId": "housing",
+          "componentId": "backplate",
+          "objectNames": [
+            "MM_opentorque_backplate_a3494298e5"
+          ]
+        },
+        {
+          "id": "opentorque.standard.carrier.planet_carrier_a.8c5bed4455",
+          "displayName": "行星架三片板组",
+          "tool": "Hand",
+          "simpleSummary": "托住三个行星轮，把慢转动传出去。",
+          "mechanism": "行星架围绕太阳轮旋转，成为减速器的输出端。",
+          "advancedNote": "三片行星架保留真实分件；交叉滚子轴承按整件拆装。",
+          "assemblyId": "carrier",
+          "componentId": "plates",
+          "objectNames": [
+            "MM_opentorque_planet_carrier_a_8c5bed4455",
+            "MM_opentorque_planet_carrier_c_266f3a09bf",
+            "MM_opentorque_planet_carrier_b_af0d20b36a"
+          ]
+        },
+        {
+          "id": "opentorque.standard.carrier.ra_8008c_cross_roller_bearing.0b210abc56",
+          "displayName": "交叉滚子输出轴承",
+          "tool": "Hand",
+          "simpleSummary": "支承行星架的输出转动。",
+          "mechanism": "交叉滚子轴承可承受多个方向的载荷。",
+          "advancedNote": "轴承按密封维修单元处理，演示不计算内部滚动接触。",
+          "assemblyId": "carrier",
+          "componentId": "bearing",
+          "objectNames": [
+            "MM_opentorque_ra_8008c_cross_roller_bearing_0b210abc56"
+          ]
+        },
+        {
+          "id": "opentorque.standard.sun.sun_gear.cd4a1bc63b",
+          "displayName": "九齿太阳轮",
+          "tool": "Hand",
+          "simpleSummary": "位于中央，把转动传给行星轮。",
+          "mechanism": "九齿太阳轮与三个二十七齿行星轮同时啮合。",
+          "advancedNote": "电机和输入轴未包含在源模型中，演示仅驱动已有太阳轮。",
+          "assemblyId": "sun",
+          "componentId": "Sun Gear",
+          "objectNames": [
+            "MM_opentorque_sun_gear_cd4a1bc63b"
+          ]
+        },
+        {
+          "id": "opentorque.standard.planets.planet_gear.af5c958995",
+          "displayName": "行星轮组件 1",
+          "tool": "Hand",
+          "simpleSummary": "一边自转，一边绕太阳轮转。",
+          "mechanism": "三个行星轮间隔一百二十度，在内齿圈中滚动。",
+          "advancedNote": "行星轮、轴承和销轴保留源位置；不模拟轴承内部滚动体。",
+          "assemblyId": "planets",
+          "componentId": "planet_1",
+          "objectNames": [
+            "MM_opentorque_planet_gear_af5c958995",
+            "MM_opentorque_f625zz_3bb62ee69e",
+            "MM_opentorque_m5x30_dowel_pin_e2db54c60f"
+          ]
+        },
+        {
+          "id": "opentorque.standard.planets.planet_gear.5db8852222",
+          "displayName": "行星轮组件 2",
+          "tool": "Hand",
+          "simpleSummary": "一边自转，一边绕太阳轮转。",
+          "mechanism": "三个行星轮间隔一百二十度，在内齿圈中滚动。",
+          "advancedNote": "行星轮、轴承和销轴保留源位置；不模拟轴承内部滚动体。",
+          "assemblyId": "planets",
+          "componentId": "planet_2",
+          "objectNames": [
+            "MM_opentorque_planet_gear_5db8852222",
+            "MM_opentorque_f625zz_3304ba2d2d",
+            "MM_opentorque_m5x30_dowel_pin_196a983226"
+          ]
+        },
+        {
+          "id": "opentorque.standard.planets.planet_gear.72558508bb",
+          "displayName": "行星轮组件 3",
+          "tool": "Hand",
+          "simpleSummary": "一边自转，一边绕太阳轮转。",
+          "mechanism": "三个行星轮间隔一百二十度，在内齿圈中滚动。",
+          "advancedNote": "行星轮、轴承和销轴保留源位置；不模拟轴承内部滚动体。",
+          "assemblyId": "planets",
+          "componentId": "planet_3",
+          "objectNames": [
+            "MM_opentorque_planet_gear_72558508bb",
+            "MM_opentorque_f625zz_b71b710309",
+            "MM_opentorque_m5x30_dowel_pin_6ace21a764"
+          ]
+        },
+        {
+          "id": "opentorque.standard.encoder.encoder_cover.312a817964",
+          "displayName": "编码器保护盖",
+          "tool": "Hand",
+          "simpleSummary": "为位置感知部件提供安装位置。",
+          "mechanism": "磁体安装座随输入端转动，可配合传感器测角度。",
+          "advancedNote": "源模型仅含盖和安装座，没有编码器电路板或完整线束。",
+          "assemblyId": "encoder",
+          "componentId": "Encoder Cover",
+          "objectNames": [
+            "MM_opentorque_encoder_cover_312a817964"
+          ]
+        },
+        {
+          "id": "opentorque.standard.encoder.encoder_magnet_holder.2091064459",
+          "displayName": "编码器磁体安装座",
+          "tool": "Hand",
+          "simpleSummary": "为位置感知部件提供安装位置。",
+          "mechanism": "磁体安装座随输入端转动，可配合传感器测角度。",
+          "advancedNote": "源模型仅含盖和安装座，没有编码器电路板或完整线束。",
+          "assemblyId": "encoder",
+          "componentId": "Encoder Magnet Holder",
+          "objectNames": [
+            "MM_opentorque_encoder_magnet_holder_2091064459"
+          ]
+        }
+      ]
+    },
+    {
+      "difficulty": "Advanced",
+      "steps": [
+        {
+          "id": "opentorque.advanced.housing.actuator_housing.6b3f86bb2e",
+          "displayName": "带内齿圈壳体",
+          "tool": "Hand",
+          "simpleSummary": "给行星轮提供固定的内齿圈。",
+          "mechanism": "六十三齿内齿圈与行星轮内啮合，约束它的转动。",
+          "advancedNote": "壳体和齿圈是一体打印件；演示透明只是观察效果。",
+          "assemblyId": "housing",
+          "componentId": "Actuator Housing",
+          "objectNames": [
+            "MM_opentorque_actuator_housing_6b3f86bb2e"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.housing.bearing_retainer.b092119325",
+          "displayName": "输出轴承压圈",
+          "tool": "Hand",
+          "simpleSummary": "把输出轴承固定在壳体中。",
+          "mechanism": "压圈限制轴承轴向移动，使行星架保持支承。",
+          "advancedNote": "CAD 未包含多数安装螺钉，不能照此当作现实维修步骤。",
+          "assemblyId": "housing",
+          "componentId": "Bearing Retainer",
+          "objectNames": [
+            "MM_opentorque_bearing_retainer_b092119325"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.housing.backplate.a3494298e5",
+          "displayName": "后盖板",
+          "tool": "Hand",
+          "simpleSummary": "盖住减速器后侧。",
+          "mechanism": "后盖与壳体连接，为输入侧部件提供安装边界。",
+          "advancedNote": "源装配没有电机，后盖附近的空位不是漏导入的零件。",
+          "assemblyId": "housing",
+          "componentId": "Backplate",
+          "objectNames": [
+            "MM_opentorque_backplate_a3494298e5"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.carrier.planet_carrier_a.8c5bed4455",
+          "displayName": "行星架外侧输出板",
+          "tool": "Hand",
+          "simpleSummary": "托住三个行星轮，把慢转动传出去。",
+          "mechanism": "行星架围绕太阳轮旋转，成为减速器的输出端。",
+          "advancedNote": "三片行星架保留真实分件；交叉滚子轴承按整件拆装。",
+          "assemblyId": "carrier",
+          "componentId": "Planet Carrier A",
+          "objectNames": [
+            "MM_opentorque_planet_carrier_a_8c5bed4455"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.carrier.planet_carrier_c.266f3a09bf",
+          "displayName": "行星架内侧支承板",
+          "tool": "Hand",
+          "simpleSummary": "托住三个行星轮，把慢转动传出去。",
+          "mechanism": "行星架围绕太阳轮旋转，成为减速器的输出端。",
+          "advancedNote": "三片行星架保留真实分件；交叉滚子轴承按整件拆装。",
+          "assemblyId": "carrier",
+          "componentId": "Planet Carrier C",
+          "objectNames": [
+            "MM_opentorque_planet_carrier_c_266f3a09bf"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.carrier.planet_carrier_b.af0d20b36a",
+          "displayName": "行星架中间连接板",
+          "tool": "Hand",
+          "simpleSummary": "托住三个行星轮，把慢转动传出去。",
+          "mechanism": "行星架围绕太阳轮旋转，成为减速器的输出端。",
+          "advancedNote": "三片行星架保留真实分件；交叉滚子轴承按整件拆装。",
+          "assemblyId": "carrier",
+          "componentId": "Planet Carrier B",
+          "objectNames": [
+            "MM_opentorque_planet_carrier_b_af0d20b36a"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.carrier.ra_8008c_cross_roller_bearing.0b210abc56",
+          "displayName": "交叉滚子输出轴承",
+          "tool": "Hand",
+          "simpleSummary": "支承行星架的输出转动。",
+          "mechanism": "交叉滚子轴承可承受多个方向的载荷。",
+          "advancedNote": "轴承按密封维修单元处理，演示不计算内部滚动接触。",
+          "assemblyId": "carrier",
+          "componentId": "RA-8008C Cross Roller Bearing",
+          "objectNames": [
+            "MM_opentorque_ra_8008c_cross_roller_bearing_0b210abc56"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.sun.sun_gear.cd4a1bc63b",
+          "displayName": "九齿太阳轮",
+          "tool": "Hand",
+          "simpleSummary": "位于中央，把转动传给行星轮。",
+          "mechanism": "九齿太阳轮与三个二十七齿行星轮同时啮合。",
+          "advancedNote": "电机和输入轴未包含在源模型中，演示仅驱动已有太阳轮。",
+          "assemblyId": "sun",
+          "componentId": "Sun Gear",
+          "objectNames": [
+            "MM_opentorque_sun_gear_cd4a1bc63b"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.planets.planet_gear.af5c958995",
+          "displayName": "二十七齿行星轮 1",
+          "tool": "Hand",
+          "simpleSummary": "一边自转，一边绕太阳轮转。",
+          "mechanism": "三个行星轮间隔一百二十度，在内齿圈中滚动。",
+          "advancedNote": "行星轮、轴承和销轴保留源位置；不模拟轴承内部滚动体。",
+          "assemblyId": "planets",
+          "componentId": "Planet Gear_1",
+          "objectNames": [
+            "MM_opentorque_planet_gear_af5c958995"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.planets.planet_gear.5db8852222",
+          "displayName": "二十七齿行星轮 2",
+          "tool": "Hand",
+          "simpleSummary": "一边自转，一边绕太阳轮转。",
+          "mechanism": "三个行星轮间隔一百二十度，在内齿圈中滚动。",
+          "advancedNote": "行星轮、轴承和销轴保留源位置；不模拟轴承内部滚动体。",
+          "assemblyId": "planets",
+          "componentId": "Planet Gear_2",
+          "objectNames": [
+            "MM_opentorque_planet_gear_5db8852222"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.planets.planet_gear.72558508bb",
+          "displayName": "二十七齿行星轮 3",
+          "tool": "Hand",
+          "simpleSummary": "一边自转，一边绕太阳轮转。",
+          "mechanism": "三个行星轮间隔一百二十度，在内齿圈中滚动。",
+          "advancedNote": "行星轮、轴承和销轴保留源位置；不模拟轴承内部滚动体。",
+          "assemblyId": "planets",
+          "componentId": "Planet Gear_3",
+          "objectNames": [
+            "MM_opentorque_planet_gear_72558508bb"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.planets.f625zz.3bb62ee69e",
+          "displayName": "带法兰密封轴承 1",
+          "tool": "Hand",
+          "simpleSummary": "让行星轮能绕销轴转动。",
+          "mechanism": "带法兰轴承支承行星轮，随行星架一起公转。",
+          "advancedNote": "不把轴承内的滚动体拆成操作步骤，也不模拟其实际转速。",
+          "assemblyId": "planets",
+          "componentId": "F625ZZ_1",
+          "objectNames": [
+            "MM_opentorque_f625zz_3bb62ee69e"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.planets.m5x30_dowel_pin.e2db54c60f",
+          "displayName": "五毫米行星轮销轴组",
+          "tool": "Hand",
+          "simpleSummary": "为行星轮提供转轴。",
+          "mechanism": "三个五毫米销轴连接行星架，定位行星轮的轴线。",
+          "advancedNote": "销轴长三十毫米，三个重复销轴在探索档也成组拆装。",
+          "assemblyId": "planets",
+          "componentId": "M5x30 Dowel Pin",
+          "objectNames": [
+            "MM_opentorque_m5x30_dowel_pin_e2db54c60f",
+            "MM_opentorque_m5x30_dowel_pin_196a983226",
+            "MM_opentorque_m5x30_dowel_pin_6ace21a764"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.planets.f625zz.3304ba2d2d",
+          "displayName": "带法兰密封轴承 2",
+          "tool": "Hand",
+          "simpleSummary": "让行星轮能绕销轴转动。",
+          "mechanism": "带法兰轴承支承行星轮，随行星架一起公转。",
+          "advancedNote": "不把轴承内的滚动体拆成操作步骤，也不模拟其实际转速。",
+          "assemblyId": "planets",
+          "componentId": "F625ZZ_2",
+          "objectNames": [
+            "MM_opentorque_f625zz_3304ba2d2d"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.planets.f625zz.b71b710309",
+          "displayName": "带法兰密封轴承 3",
+          "tool": "Hand",
+          "simpleSummary": "让行星轮能绕销轴转动。",
+          "mechanism": "带法兰轴承支承行星轮，随行星架一起公转。",
+          "advancedNote": "不把轴承内的滚动体拆成操作步骤，也不模拟其实际转速。",
+          "assemblyId": "planets",
+          "componentId": "F625ZZ_3",
+          "objectNames": [
+            "MM_opentorque_f625zz_b71b710309"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.encoder.encoder_cover.312a817964",
+          "displayName": "编码器保护盖",
+          "tool": "Hand",
+          "simpleSummary": "为位置感知部件提供安装位置。",
+          "mechanism": "磁体安装座随输入端转动，可配合传感器测角度。",
+          "advancedNote": "源模型仅含盖和安装座，没有编码器电路板或完整线束。",
+          "assemblyId": "encoder",
+          "componentId": "Encoder Cover",
+          "objectNames": [
+            "MM_opentorque_encoder_cover_312a817964"
+          ]
+        },
+        {
+          "id": "opentorque.advanced.encoder.encoder_magnet_holder.2091064459",
+          "displayName": "编码器磁体安装座",
+          "tool": "Hand",
+          "simpleSummary": "为位置感知部件提供安装位置。",
+          "mechanism": "磁体安装座随输入端转动，可配合传感器测角度。",
+          "advancedNote": "源模型仅含盖和安装座，没有编码器电路板或完整线束。",
+          "assemblyId": "encoder",
+          "componentId": "Encoder Magnet Holder",
+          "objectNames": [
+            "MM_opentorque_encoder_magnet_holder_2091064459"
+          ]
+        }
+      ]
+    }
+  ]
+}

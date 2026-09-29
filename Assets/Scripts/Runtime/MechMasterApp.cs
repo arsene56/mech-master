@@ -44,16 +44,22 @@ namespace MechMaster.Runtime
         public bool IsMotionPlaying => motion != null && motion.IsPlaying;
         public int MotionCadenceRpm => (motion as BicycleMotionController)?.CadenceRpm ?? 60;
         public int MotionSpeedValue => motion == null ? 60 : motion.Speed;
-        public int MotionSpeedStep => motion is MoveoMotionController || motion is BoltMotionController ? 25 : 15;
-        public string MotionSpeedLabel => motion is MoveoMotionController || motion is BoltMotionController
+        private bool UsesMultiplierSpeed => motion is MoveoMotionController || motion is BoltMotionController
+            || motion is OpenTorqueMotionController;
+        public int MotionSpeedStep => UsesMultiplierSpeed ? 25 : 15;
+        public string MotionSpeedLabel => UsesMultiplierSpeed
             ? (MotionSpeedValue / 100f).ToString("0.00") + "×"
             : MotionSpeedValue + " 转/分";
-        public string MotionGuide => motion is BoltMotionController
+        public string MotionGuide => motion is OpenTorqueMotionController
+            ? "8∶1 减速 · 透明观察 · 拖动旋转"
+            : motion is BoltMotionController
             ? "双腿屈伸 · 被动踝随动 · 拖动旋转"
             : motion is MoveoMotionController
             ? "关节联动 · 夹爪开合 · 拖动旋转"
             : "按住刹把制动 · 空白处拖动旋转";
-        public string MotionHint => motion is BoltMotionController
+        public string MotionHint => motion is OpenTorqueMotionController
+            ? "齿圈固定，太阳轮输入，行星架以八分之一转速输出"
+            : motion is BoltMotionController
             ? "六个主动关节联动，固定躯干展示双腿屈伸"
             : motion is MoveoMotionController
             ? "底座、肩、肘、腕依次联动，夹爪开合"
@@ -367,7 +373,7 @@ namespace MechMaster.Runtime
                 else
                 {
                     Camera.main?.GetComponent<OrbitCameraController>()?.FrameContents(
-                        modelView.GetExplosionFramingPoints());
+                        modelView.GetExplosionFramingPoints(), modelView.GlobalExplosionViewAngles);
                     StatusMessage = "全局爆炸视图：全部机械单元已向外展开。";
                 }
             }
@@ -572,7 +578,7 @@ namespace MechMaster.Runtime
             ModelWorldSize = Mathf.Max(modelBounds.size.x, modelBounds.size.y, modelBounds.size.z);
             var layout = new AssemblyLayout(Model, modelBounds);
             modelView = modelInstance.AddComponent<MechanicalModelView>();
-            modelView.Bind(Plan, layout);
+            modelView.Bind(Plan, layout, Model);
 
             if (Model.motion != null && Model.motion.kind == "bicycle-pedaling-v1")
             {
@@ -606,6 +612,12 @@ namespace MechMaster.Runtime
                     motion = candidate;
                     framingPoints.AddRange(candidate.GetFramingPoints());
                 }
+                else Destroy(candidate);
+            }
+            if (Model.motion != null && Model.motion.kind == "opentorque-planetary-v1")
+            {
+                OpenTorqueMotionController candidate = modelInstance.AddComponent<OpenTorqueMotionController>();
+                if (candidate.Initialize(Model.motion.rigResourcePath, Model.id)) motion = candidate;
                 else Destroy(candidate);
             }
             // Capture assembled motion poses before restoring any saved removals.
@@ -688,7 +700,8 @@ namespace MechMaster.Runtime
             if (!MotionAvailable) return;
             bool arm = motion is MoveoMotionController;
             bool biped = motion is BoltMotionController;
-            string demoName = biped ? "双足机器人关节演示" : arm ? "机械臂关节演示" : "原地踩踏演示";
+            bool gearbox = motion is OpenTorqueMotionController;
+            string demoName = gearbox ? "行星减速演示" : biped ? "双足机器人关节演示" : arm ? "机械臂关节演示" : "原地踩踏演示";
             if (motion.IsPlaying)
             {
                 motion.Pause();
@@ -715,12 +728,16 @@ namespace MechMaster.Runtime
                 interactionViewModeBeforeMotion = PartInteractionController.ViewMode;
                 PartInteractionController.SetViewMode(true);
                 motion.Play();
-                StatusMessage = biped
+                StatusMessage = gearbox
+                    ? "齿圈固定，太阳轮驱动行星轮，行星架以八分之一转速输出；透明支承件仅供观察。"
+                    : biped
                     ? "固定躯干展示双腿屈伸与被动踝随动，可暂停、调速或结束。"
                     : arm
                     ? "机械臂关节与夹爪循环演示中，可暂停、调速或结束。"
                     : "原地踩踏：左刹控制后轮，右刹控制前轮；按住刹把可制动。";
-                SpeakNarration(biped
+                SpeakNarration(gearbox
+                    ? "太阳轮带动行星轮自转和公转，行星架慢速输出。透明壳体便于观察，不改变拆装进度。"
+                    : biped
                     ? "六个主动关节驱动双腿屈伸，踝部被动随动；这是固定躯干的教学演示。"
                     : arm
                     ? "电机驱动各关节转动，夹爪通过齿轮和连杆同步开合。"
@@ -735,8 +752,10 @@ namespace MechMaster.Runtime
             if (!IsMotionActive) return;
             bool arm = motion is MoveoMotionController;
             bool biped = motion is BoltMotionController;
+            bool gearbox = motion is OpenTorqueMotionController;
             StopMotionInternal();
-            StatusMessage = biped ? "双足机器人关节演示已结束，整机恢复原始姿态。"
+            StatusMessage = gearbox ? "行星减速演示已结束，源装配姿态和不透明材质已恢复。"
+                : biped ? "双足机器人关节演示已结束，整机恢复原始姿态。"
                 : arm ? "机械臂关节演示已结束，整机恢复原始姿态。"
                 : "原地踩踏演示已结束，整车恢复静止姿态。";
             feedbackAudio.PlayModeSwitch();
