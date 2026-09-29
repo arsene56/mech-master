@@ -1,0 +1,2072 @@
+{
+  "schemaVersion": 1,
+  "modelId": "robot.odri.bolt.6dof.v1",
+  "cycleSeconds": 12,
+  "description": "Source CAD axes; continuous alternating, fixed-body teaching cycle with periodic shape-preserving cubic interpolation, not locomotion dynamics.",
+  "joints": [
+    {
+      "id": "left_hip_aa",
+      "displayName": "左髋侧摆",
+      "parentId": "",
+      "axisSign": -1,
+      "passive": false,
+      "pivotObject": "MM_bolt_transmission_pulley_at3_t30_output_2156d226d4",
+      "axisStartObject": "MM_bolt_bearing_32_25_4_sbn_61705rs_7b952c9aca",
+      "axisEndObject": "MM_bolt_bearing_32_25_4_sbn_61705rs_ae7b110485",
+      "axisObject": "",
+      "minimumDegrees": -10,
+      "maximumDegrees": 10
+    },
+    {
+      "id": "left_hip_fe",
+      "displayName": "左髋屈伸",
+      "parentId": "left_hip_aa",
+      "axisSign": -1,
+      "passive": false,
+      "pivotObject": "MM_bolt_transmission_pulley_at3_t30_output_b5551f7e10",
+      "axisStartObject": "MM_bolt_bearing_32_25_4_sbn_61705rs_3e5aa5d754",
+      "axisEndObject": "MM_bolt_bearing_32_25_4_sbn_61705rs_a1e2702957",
+      "axisObject": "",
+      "minimumDegrees": -20,
+      "maximumDegrees": 20
+    },
+    {
+      "id": "left_knee",
+      "displayName": "左膝屈伸",
+      "parentId": "left_hip_fe",
+      "axisSign": -1,
+      "passive": false,
+      "pivotObject": "MM_bolt_transmission_pulley_at3_t30_output_6d3f30bc21",
+      "axisStartObject": "MM_bolt_bearing_32_25_4_sbn_61705rs_395a420c18",
+      "axisEndObject": "MM_bolt_bearing_32_25_4_sbn_61705rs_7ea44888d7",
+      "axisObject": "",
+      "minimumDegrees": -28,
+      "maximumDegrees": 28
+    },
+    {
+      "id": "left_ankle",
+      "displayName": "左被动踝",
+      "parentId": "left_knee",
+      "axisSign": -1,
+      "passive": true,
+      "pivotObject": "MM_bolt_pin_5mm_28mm_921edf4817",
+      "axisObject": "MM_bolt_pin_5mm_28mm_921edf4817",
+      "axisStartObject": "",
+      "axisEndObject": "",
+      "minimumDegrees": -40,
+      "maximumDegrees": 40
+    },
+    {
+      "id": "right_hip_aa",
+      "displayName": "右髋侧摆",
+      "parentId": "",
+      "axisSign": -1,
+      "passive": false,
+      "pivotObject": "MM_bolt_transmission_pulley_at3_t30_output_8784a3ce4a",
+      "axisStartObject": "MM_bolt_bearing_32_25_4_sbn_61705rs_19ef8da9f9",
+      "axisEndObject": "MM_bolt_bearing_32_25_4_sbn_61705rs_64627857d1",
+      "axisObject": "",
+      "minimumDegrees": -10,
+      "maximumDegrees": 10
+    },
+    {
+      "id": "right_hip_fe",
+      "displayName": "右髋屈伸",
+      "parentId": "right_hip_aa",
+      "axisSign": 1,
+      "passive": false,
+      "pivotObject": "MM_bolt_transmission_pulley_at3_t30_output_78321aecd0",
+      "axisStartObject": "MM_bolt_bearing_32_25_4_sbn_61705rs_30edf2391b",
+      "axisEndObject": "MM_bolt_bearing_32_25_4_sbn_61705rs_2cc0286b5b",
+      "axisObject": "",
+      "minimumDegrees": -20,
+      "maximumDegrees": 20
+    },
+    {
+      "id": "right_knee",
+      "displayName": "右膝屈伸",
+      "parentId": "right_hip_fe",
+      "axisSign": 1,
+      "passive": false,
+      "pivotObject": "MM_bolt_transmission_pulley_at3_t30_output_aaa869849f",
+      "axisStartObject": "MM_bolt_bearing_32_25_4_sbn_61705rs_56225ffb0a",
+      "axisEndObject": "MM_bolt_bearing_32_25_4_sbn_61705rs_d5a9ecc51f",
+      "axisObject": "",
+      "minimumDegrees": -28,
+      "maximumDegrees": 28
+    },
+    {
+      "id": "right_ankle",
+      "displayName": "右被动踝",
+      "parentId": "right_knee",
+      "axisSign": 1,
+      "passive": true,
+      "pivotObject": "MM_bolt_pin_5mm_28mm_5b2e235751",
+      "axisObject": "MM_bolt_pin_5mm_28mm_5b2e235751",
+      "axisStartObject": "",
+      "axisEndObject": "",
+      "minimumDegrees": -40,
+      "maximumDegrees": 40
+    }
+  ],
+  "bindings": [
+    {
+      "objectName": "MM_bolt_body_structure_biped_front_9ce89042a6",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_front@0:1:1:2:1"
+    },
+    {
+      "objectName": "MM_bolt_body_structure_biped_bottom_91c0172ec5",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_bottom@0:1:1:2:2"
+    },
+    {
+      "objectName": "MM_bolt_body_structure_biped_back_rev_a_39adf77bd6",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_back_rev_a@0:1:1:2:3"
+    },
+    {
+      "objectName": "MM_bolt_body_structure_biped_left_side_64533ea002",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_left_side@0:1:1:2:4"
+    },
+    {
+      "objectName": "MM_bolt_body_structure_biped_right_side_5deb78cf25",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_right_side@0:1:1:2:5"
+    },
+    {
+      "objectName": "MM_bolt_bearing_25_20_4_sbn_et25202zva_f82d88a978",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/bearing_25_20_4_sbn_ET25202ZVA@0:1:1:2:6"
+    },
+    {
+      "objectName": "MM_bolt_bearing_25_20_4_sbn_et25202zva_38073a3605",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/bearing_25_20_4_sbn_ET25202ZVA@0:1:1:2:7"
+    },
+    {
+      "objectName": "MM_bolt_body_structure_biped_top_4ef34e18dd",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_top@0:1:1:2:8/body_structure_biped_top@0:1:1:9:1"
+    },
+    {
+      "objectName": "MM_bolt_vicon_marker_10mm_899823f8d7",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_top@0:1:1:2:8/vicon_marker_10mm@0:1:1:9:2"
+    },
+    {
+      "objectName": "MM_bolt_vicon_marker_10mm_49c3838b33",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_top@0:1:1:2:8/vicon_marker_10mm@0:1:1:9:3"
+    },
+    {
+      "objectName": "MM_bolt_vicon_marker_10mm_7997e6f32e",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_top@0:1:1:2:8/vicon_marker_10mm@0:1:1:9:4"
+    },
+    {
+      "objectName": "MM_bolt_vicon_marker_10mm_4576988a92",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_top@0:1:1:2:8/vicon_marker_10mm@0:1:1:9:5"
+    },
+    {
+      "objectName": "MM_bolt_vicon_marker_10mm_d4da3b4c20",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_top@0:1:1:2:8/vicon_marker_10mm@0:1:1:9:6"
+    },
+    {
+      "objectName": "MM_bolt_vicon_marker_10mm_e568c2965a",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_top@0:1:1:2:8/vicon_marker_10mm@0:1:1:9:7"
+    },
+    {
+      "objectName": "MM_bolt_vicon_marker_10mm_8f2ee52b6b",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_top@0:1:1:2:8/vicon_marker_10mm@0:1:1:9:8"
+    },
+    {
+      "objectName": "MM_bolt_vicon_marker_10mm_ea6155246b",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/body_structure_biped_top@0:1:1:2:8/vicon_marker_10mm@0:1:1:9:9"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_39427a4cc9",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:9"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_4039832566",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:10"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_f19514b3a6",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:11"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_4fd4edd729",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:12"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_13ae051ae3",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:13"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_0947f6df6f",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:14"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_84ec713e82",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:15"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_5ab6f26848",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:16"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_4a88905acb",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:17"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_88ed35d7b2",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:18"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_4e93b11d36",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:19"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_d93b3c3812",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:20"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_75e7c4313b",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:21"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_7baf0d4cf8",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:22"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_134a46b755",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:23"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_12080e2305",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:24"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_93a3190b58",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:25"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_765a4339a2",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/fastener_shcs_m3_8@0:1:1:2:26"
+    },
+    {
+      "objectName": "MM_bolt_micro_driver_90_deg_hirose_7063fcfa41",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/micro_driver_90_deg_hirose@0:1:1:13:1"
+    },
+    {
+      "objectName": "MM_bolt_micro_driver_90_deg_hirose_e89465704e",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/micro_driver_90_deg_hirose@0:1:1:13:2"
+    },
+    {
+      "objectName": "MM_bolt_micro_driver_90_deg_hirose_f255959cc1",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/micro_driver_90_deg_hirose@0:1:1:13:3"
+    },
+    {
+      "objectName": "MM_bolt_spacer_micro_driver_stack_647ca68f93",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/spacer_micro_driver_stack@0:1:1:13:4"
+    },
+    {
+      "objectName": "MM_bolt_spacer_micro_driver_stack_87ac18bcf2",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/spacer_micro_driver_stack@0:1:1:13:5"
+    },
+    {
+      "objectName": "MM_bolt_spacer_micro_driver_stack_40b55730b8",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/spacer_micro_driver_stack@0:1:1:13:6"
+    },
+    {
+      "objectName": "MM_bolt_spacer_micro_driver_stack_ec4e22e28a",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/spacer_micro_driver_stack@0:1:1:13:7"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_25_f66416165f",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/fastener_shcs_m2.5_25@0:1:1:13:8"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_25_075b015f88",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/fastener_shcs_m2.5_25@0:1:1:13:9"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_25_a9f6a9c5ae",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/fastener_shcs_m2.5_25@0:1:1:13:10"
+    },
+    {
+      "objectName": "MM_bolt_spacer_micro_driver_stack_9e4a3634f3",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/spacer_micro_driver_stack@0:1:1:13:11"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_25_f3839ad9d6",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/fastener_shcs_m2.5_25@0:1:1:13:12"
+    },
+    {
+      "objectName": "MM_bolt_spacer_micro_driver_stack_b32b14f138",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/spacer_micro_driver_stack@0:1:1:13:13"
+    },
+    {
+      "objectName": "MM_bolt_spacer_micro_driver_stack_130f892427",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/spacer_micro_driver_stack@0:1:1:13:14"
+    },
+    {
+      "objectName": "MM_bolt_spacer_micro_driver_stack_338b744e6a",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/micro_driver_stack@0:1:1:2:27/spacer_micro_driver_stack@0:1:1:13:15"
+    },
+    {
+      "objectName": "MM_bolt_master_board_87b6154cba",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/master_board@0:1:1:2:28/master_board@0:1:1:17:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_04fb0e8a47",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/master_board@0:1:1:2:28/fastener_shcs_m2_5@0:1:1:17:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_bea85f7524",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/master_board@0:1:1:2:28/fastener_shcs_m2_5@0:1:1:17:3"
+    },
+    {
+      "objectName": "MM_bolt_body_structure_master_board_protecti_cf48564e60",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/master_board@0:1:1:2:28/body_structure_master_board_protection@0:1:1:17:4"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_20_9bd1e70279",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/master_board@0:1:1:2:28/fastener_shcs_m2_20@0:1:1:17:5"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_20_c83608ff53",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/master_board@0:1:1:2:28/fastener_shcs_m2_20@0:1:1:17:6"
+    },
+    {
+      "objectName": "MM_bolt_imu_3dm_cx5_25_5539e1861e",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/imu_3dm_cx5_25@0:1:1:2:29/imu_3dm_cx5_25@0:1:1:22:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shs_m2_5_12_e346dc4a9a",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/imu_3dm_cx5_25@0:1:1:2:29/fastener_shs_m2.5_12@0:1:1:22:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shs_m2_5_12_a260924a88",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/imu_3dm_cx5_25@0:1:1:2:29/fastener_shs_m2.5_12@0:1:1:22:3"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shs_m2_5_12_dd7f5e619a",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_body_structure_biped@0:1:1:1:1/imu_3dm_cx5_25@0:1:1:2:29/fastener_shs_m2.5_12@0:1:1:22:4"
+    },
+    {
+      "objectName": "MM_bolt_hip_aa_structure_left_side_bl_biped_528d5f4060",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/_hip_aa_structure_left_side_bl_biped@0:1:1:25:1"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_stator_6ea6cf4d07",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/motor_module@0:1:1:25:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_stator@0:1:1:28:1"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_rotor_759324e72e",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/motor_module@0:1:1:25:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_rotor@0:1:1:28:2"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_custom_shaft_5b7223e793",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/motor_module@0:1:1:25:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_custom_shaft@0:1:1:28:3"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_brass_spacer_9493c15f33",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/motor_module@0:1:1:25:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_brass_spacer@0:1:1:28:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t10_motor_a7cdb3140e",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/motor_module@0:1:1:25:2/transmission_pulley_at3_t10_motor@0:1:1:27:2"
+    },
+    {
+      "objectName": "MM_bolt_encoder_codewheel_pwb_mount_ed14ea97be",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/motor_module@0:1:1:25:2/encoder_codewheel_pwb_mount@0:1:1:27:3"
+    },
+    {
+      "objectName": "MM_bolt_encoder_codewheel_5000cpr_pwb_7mm_14afefb3f2",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/motor_module@0:1:1:25:2/encoder_codewheel_5000cpr_pwb_7mm@0:1:1:27:4"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_612a2eceed",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/motor_module@0:1:1:25:2/bearing_8_4_2_sbn_MR84VA@0:1:1:27:5"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_0e4a343997",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/motor_module@0:1:1:25:2/fastener_fhs_m3_5@0:1:1:27:6"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_b3ea78b311",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/motor_module@0:1:1:25:2/fastener_fhs_m3_5@0:1:1:27:7"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_c78954d25c",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/motor_module@0:1:1:25:2/fastener_fhs_m3_5@0:1:1:27:8"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_4c77501e9c",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/motor_module@0:1:1:25:2/fastener_fhs_m3_5@0:1:1:27:9"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t30_output_2156d226d4",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_output_pulley@0:1:1:25:3/transmission_pulley_at3_t30_output@0:1:1:38:1"
+    },
+    {
+      "objectName": "MM_bolt_bearing_32_25_4_sbn_61705rs_7b952c9aca",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_output_pulley@0:1:1:25:3/bearing_32_25_4_sbn_61705RS@0:1:1:38:2"
+    },
+    {
+      "objectName": "MM_bolt_bearing_32_25_4_sbn_61705rs_ae7b110485",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_output_pulley@0:1:1:25:3/bearing_32_25_4_sbn_61705RS@0:1:1:38:3"
+    },
+    {
+      "objectName": "MM_bolt_encoder_avago_aedt_9810_fc81883d6b",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/encoder@0:1:1:25:4/encoder_avago_aedt_9810@0:1:1:41:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_16_plastic_a0e79f25d0",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/encoder@0:1:1:25:4/fastener_fhs_m3_16_plastic@0:1:1:41:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_16_plastic_f2a706bb2c",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/encoder@0:1:1:25:4/fastener_fhs_m3_16_plastic@0:1:1:41:3"
+    },
+    {
+      "objectName": "MM_bolt_bearing_7_3_3_sbn_683_2zva_c55fb36eed",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_belt_tensioner@0:1:1:25:5/bearing_7_3_3_sbn_683_2ZVA@0:1:1:44:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_10_833fc1cd6b",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_belt_tensioner@0:1:1:25:5/fastener_fhs_m3_10@0:1:1:44:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_69e41f53df",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_belt_tensioner@0:1:1:25:5/fastener_washer_m2.5@0:1:1:44:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_belt_tensioner_roller_cd0405e9a2",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_belt_tensioner@0:1:1:25:5/transmission_belt_tensioner_roller@0:1:1:44:4"
+    },
+    {
+      "objectName": "MM_bolt_bearing_7_3_3_sbn_683_2zva_969efeeab2",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_belt_tensioner@0:1:1:25:6/bearing_7_3_3_sbn_683_2ZVA@0:1:1:44:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_10_81dbdbfd2b",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_belt_tensioner@0:1:1:25:6/fastener_fhs_m3_10@0:1:1:44:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_4ea673f034",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_belt_tensioner@0:1:1:25:6/fastener_washer_m2.5@0:1:1:44:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_belt_tensioner_roller_2751f9e784",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_belt_tensioner@0:1:1:25:6/transmission_belt_tensioner_roller@0:1:1:44:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t10_center_50f9e4d47e",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_center_pulley_at3_t10_t30@0:1:1:25:7/transmission_pulley_at3_t10_center@0:1:1:49:1"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_a22668469d",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_center_pulley_at3_t10_t30@0:1:1:25:7/bearing_8_4_2_sbn_MR84VA@0:1:1:49:2"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_fd607645b1",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_center_pulley_at3_t10_t30@0:1:1:25:7/bearing_8_4_2_sbn_MR84VA@0:1:1:49:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t30_center_0aa292cf5a",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_center_pulley_at3_t10_t30@0:1:1:25:7/transmission_pulley_at3_t30_center@0:1:1:49:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_timing_belt_at3_150_4_9562d1d653",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_timing_belt_at3_150_4@0:1:1:25:8"
+    },
+    {
+      "objectName": "MM_bolt_transmission_timing_belt_at3_201_6_74e3fd7f2a",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/transmission_timing_belt_at3_201_6@0:1:1:25:9"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_fd08003bae",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m3_8@0:1:1:25:10"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_a4d0cd5645",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m3_8@0:1:1:25:11"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_ccd19ec43b",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m3_8@0:1:1:25:12"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_bedf1becd5",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m2.5_10@0:1:1:25:13"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_0bfdc3e278",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m2.5_6@0:1:1:25:14"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_3cd2605156",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m2.5_10@0:1:1:25:15"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_201a174811",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m2.5_6@0:1:1:25:16"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_81055ceaa7",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m2.5_6@0:1:1:25:17"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_748398ab93",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m2.5_6@0:1:1:25:18"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_e6f3c38534",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m2.5_6@0:1:1:25:19"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_0961621eaa",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m2.5_6@0:1:1:25:20"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_22_c1cb1ce551",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m3_22_washer@0:1:1:25:21/fastener_shcs_m3_22@0:1:1:56:1"
+    },
+    {
+      "objectName": "MM_bolt_fasteners_m3_washer_8c6cbf8388",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m3_22_washer@0:1:1:25:21/fasteners_m3_washer@0:1:1:56:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_22_3cc312e21b",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m3_22_washer@0:1:1:25:22/fastener_shcs_m3_22@0:1:1:56:1"
+    },
+    {
+      "objectName": "MM_bolt_fasteners_m3_washer_a0092c19e7",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_left_side_bl_biped@0:1:1:1:2/fastener_shcs_m3_22_washer@0:1:1:25:22/fasteners_m3_washer@0:1:1:56:2"
+    },
+    {
+      "objectName": "MM_bolt_hip_aa_structure_right_side_bl_biped_b806c89c6e",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/_hip_aa_structure_right_side_bl_biped@0:1:1:59:1"
+    },
+    {
+      "objectName": "MM_bolt_encoder_avago_aedt_9810_3d30a7d92d",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/encoder@0:1:1:59:2/encoder_avago_aedt_9810@0:1:1:41:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_16_plastic_c42f92c09b",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/encoder@0:1:1:59:2/fastener_fhs_m3_16_plastic@0:1:1:41:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_16_plastic_539ae08059",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/encoder@0:1:1:59:2/fastener_fhs_m3_16_plastic@0:1:1:41:3"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_stator_e830cca9c1",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/motor_module@0:1:1:59:3/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_stator@0:1:1:28:1"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_rotor_b61f586c7e",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/motor_module@0:1:1:59:3/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_rotor@0:1:1:28:2"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_custom_shaft_b69a887171",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/motor_module@0:1:1:59:3/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_custom_shaft@0:1:1:28:3"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_brass_spacer_84668096f6",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/motor_module@0:1:1:59:3/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_brass_spacer@0:1:1:28:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t10_motor_a4b05e3ff4",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/motor_module@0:1:1:59:3/transmission_pulley_at3_t10_motor@0:1:1:27:2"
+    },
+    {
+      "objectName": "MM_bolt_encoder_codewheel_pwb_mount_89d19f5a9c",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/motor_module@0:1:1:59:3/encoder_codewheel_pwb_mount@0:1:1:27:3"
+    },
+    {
+      "objectName": "MM_bolt_encoder_codewheel_5000cpr_pwb_7mm_dc205975ed",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/motor_module@0:1:1:59:3/encoder_codewheel_5000cpr_pwb_7mm@0:1:1:27:4"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_d551837e00",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/motor_module@0:1:1:59:3/bearing_8_4_2_sbn_MR84VA@0:1:1:27:5"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_aebd2b4e99",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/motor_module@0:1:1:59:3/fastener_fhs_m3_5@0:1:1:27:6"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_335839cbc8",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/motor_module@0:1:1:59:3/fastener_fhs_m3_5@0:1:1:27:7"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_4db390a72b",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/motor_module@0:1:1:59:3/fastener_fhs_m3_5@0:1:1:27:8"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_2f62dafcef",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/motor_module@0:1:1:59:3/fastener_fhs_m3_5@0:1:1:27:9"
+    },
+    {
+      "objectName": "MM_bolt_bearing_7_3_3_sbn_683_2zva_0401492552",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_belt_tensioner@0:1:1:59:4/bearing_7_3_3_sbn_683_2ZVA@0:1:1:44:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_10_d80ff6a18a",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_belt_tensioner@0:1:1:59:4/fastener_fhs_m3_10@0:1:1:44:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_7c824700bd",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_belt_tensioner@0:1:1:59:4/fastener_washer_m2.5@0:1:1:44:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_belt_tensioner_roller_b26380ed33",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_belt_tensioner@0:1:1:59:4/transmission_belt_tensioner_roller@0:1:1:44:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t10_center_8cb8c449d8",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_center_pulley_at3_t10_t30@0:1:1:59:5/transmission_pulley_at3_t10_center@0:1:1:49:1"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_3648926843",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_center_pulley_at3_t10_t30@0:1:1:59:5/bearing_8_4_2_sbn_MR84VA@0:1:1:49:2"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_028d175f83",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_center_pulley_at3_t10_t30@0:1:1:59:5/bearing_8_4_2_sbn_MR84VA@0:1:1:49:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t30_center_b9ea306f57",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_center_pulley_at3_t10_t30@0:1:1:59:5/transmission_pulley_at3_t30_center@0:1:1:49:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t30_output_8784a3ce4a",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_output_pulley@0:1:1:59:6/transmission_pulley_at3_t30_output@0:1:1:38:1"
+    },
+    {
+      "objectName": "MM_bolt_bearing_32_25_4_sbn_61705rs_19ef8da9f9",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_output_pulley@0:1:1:59:6/bearing_32_25_4_sbn_61705RS@0:1:1:38:2"
+    },
+    {
+      "objectName": "MM_bolt_bearing_32_25_4_sbn_61705rs_64627857d1",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_output_pulley@0:1:1:59:6/bearing_32_25_4_sbn_61705RS@0:1:1:38:3"
+    },
+    {
+      "objectName": "MM_bolt_bearing_7_3_3_sbn_683_2zva_b65fdaf9ae",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_belt_tensioner@0:1:1:59:7/bearing_7_3_3_sbn_683_2ZVA@0:1:1:44:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_10_10b66c1749",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_belt_tensioner@0:1:1:59:7/fastener_fhs_m3_10@0:1:1:44:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_8691fb6b5a",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_belt_tensioner@0:1:1:59:7/fastener_washer_m2.5@0:1:1:44:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_belt_tensioner_roller_f8b35f77b0",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_belt_tensioner@0:1:1:59:7/transmission_belt_tensioner_roller@0:1:1:44:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_timing_belt_at3_150_4_e12b28db6e",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_timing_belt_at3_150_4@0:1:1:59:8"
+    },
+    {
+      "objectName": "MM_bolt_transmission_timing_belt_at3_201_6_60939c50c7",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/transmission_timing_belt_at3_201_6@0:1:1:59:9"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_6e14592070",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m3_8@0:1:1:59:10"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_59f79daf29",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m3_8@0:1:1:59:11"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_8_393363c880",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m3_8@0:1:1:59:12"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_9b2045458a",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m2.5_10@0:1:1:59:13"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_1a121bef95",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m2.5_10@0:1:1:59:14"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_192a3931c6",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m2.5_6@0:1:1:59:15"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_8501231ad9",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m2.5_6@0:1:1:59:16"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_0eb3c6de7d",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m2.5_6@0:1:1:59:17"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_57355c434c",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m2.5_6@0:1:1:59:18"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_ec98d8a813",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m2.5_6@0:1:1:59:19"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_297aa9d56c",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m2.5_6@0:1:1:59:20"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_22_539b6df73f",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m3_22_washer@0:1:1:59:21/fastener_shcs_m3_22@0:1:1:56:1"
+    },
+    {
+      "objectName": "MM_bolt_fasteners_m3_washer_6cef4465d5",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m3_22_washer@0:1:1:59:21/fasteners_m3_washer@0:1:1:56:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_22_be698f52e7",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m3_22_washer@0:1:1:59:22/fastener_shcs_m3_22@0:1:1:56:1"
+    },
+    {
+      "objectName": "MM_bolt_fasteners_m3_washer_79ff94df8f",
+      "jointId": "fixed",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_aa_right_side_bl_biped@0:1:1:1:3/fastener_shcs_m3_22_washer@0:1:1:59:22/fasteners_m3_washer@0:1:1:56:2"
+    },
+    {
+      "objectName": "MM_bolt_hip_fe_structure_right_side_bl_biped_16c6002937",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/_hip_fe_structure_right_side_bl_biped@0:1:1:61:1"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_stator_8997bf014c",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/motor_module@0:1:1:61:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_stator@0:1:1:28:1"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_rotor_e661103963",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/motor_module@0:1:1:61:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_rotor@0:1:1:28:2"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_custom_shaft_852c39647c",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/motor_module@0:1:1:61:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_custom_shaft@0:1:1:28:3"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_brass_spacer_3bb6f8e598",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/motor_module@0:1:1:61:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_brass_spacer@0:1:1:28:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t10_motor_5fd60c55f1",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/motor_module@0:1:1:61:2/transmission_pulley_at3_t10_motor@0:1:1:27:2"
+    },
+    {
+      "objectName": "MM_bolt_encoder_codewheel_pwb_mount_cb2b0d55ea",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/motor_module@0:1:1:61:2/encoder_codewheel_pwb_mount@0:1:1:27:3"
+    },
+    {
+      "objectName": "MM_bolt_encoder_codewheel_5000cpr_pwb_7mm_4e80a79aaf",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/motor_module@0:1:1:61:2/encoder_codewheel_5000cpr_pwb_7mm@0:1:1:27:4"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_b3a430edce",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/motor_module@0:1:1:61:2/bearing_8_4_2_sbn_MR84VA@0:1:1:27:5"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_86ad9215f9",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/motor_module@0:1:1:61:2/fastener_fhs_m3_5@0:1:1:27:6"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_1463e72d98",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/motor_module@0:1:1:61:2/fastener_fhs_m3_5@0:1:1:27:7"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_68257e932a",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/motor_module@0:1:1:61:2/fastener_fhs_m3_5@0:1:1:27:8"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_27fe3590f7",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/motor_module@0:1:1:61:2/fastener_fhs_m3_5@0:1:1:27:9"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t10_center_cad2f6ff4a",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_center_pulley_at3_t10_t30@0:1:1:61:3/transmission_pulley_at3_t10_center@0:1:1:49:1"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_e146c6be75",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_center_pulley_at3_t10_t30@0:1:1:61:3/bearing_8_4_2_sbn_MR84VA@0:1:1:49:2"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_828150ad15",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_center_pulley_at3_t10_t30@0:1:1:61:3/bearing_8_4_2_sbn_MR84VA@0:1:1:49:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t30_center_75d7caba9c",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_center_pulley_at3_t10_t30@0:1:1:61:3/transmission_pulley_at3_t30_center@0:1:1:49:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t30_output_78321aecd0",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_output_pulley@0:1:1:61:4/transmission_pulley_at3_t30_output@0:1:1:38:1"
+    },
+    {
+      "objectName": "MM_bolt_bearing_32_25_4_sbn_61705rs_30edf2391b",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_output_pulley@0:1:1:61:4/bearing_32_25_4_sbn_61705RS@0:1:1:38:2"
+    },
+    {
+      "objectName": "MM_bolt_bearing_32_25_4_sbn_61705rs_2cc0286b5b",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_output_pulley@0:1:1:61:4/bearing_32_25_4_sbn_61705RS@0:1:1:38:3"
+    },
+    {
+      "objectName": "MM_bolt_encoder_avago_aedt_9810_920cea2dad",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/encoder@0:1:1:61:5/encoder_avago_aedt_9810@0:1:1:41:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_16_plastic_0182251bc0",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/encoder@0:1:1:61:5/fastener_fhs_m3_16_plastic@0:1:1:41:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_16_plastic_b187676319",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/encoder@0:1:1:61:5/fastener_fhs_m3_16_plastic@0:1:1:41:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_timing_belt_at3_150_4_99ef99fdb1",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_timing_belt_at3_150_4@0:1:1:61:6"
+    },
+    {
+      "objectName": "MM_bolt_transmission_timing_belt_at3_201_6_9ed3a17f7d",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_timing_belt_at3_201_6@0:1:1:61:7"
+    },
+    {
+      "objectName": "MM_bolt_bearing_7_3_3_sbn_683_2zva_08bf0c7cbc",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_belt_tensioner@0:1:1:61:8/bearing_7_3_3_sbn_683_2ZVA@0:1:1:44:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_10_48a7fceb9d",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_belt_tensioner@0:1:1:61:8/fastener_fhs_m3_10@0:1:1:44:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_cd22d39f10",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_belt_tensioner@0:1:1:61:8/fastener_washer_m2.5@0:1:1:44:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_belt_tensioner_roller_8297555fc0",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_belt_tensioner@0:1:1:61:8/transmission_belt_tensioner_roller@0:1:1:44:4"
+    },
+    {
+      "objectName": "MM_bolt_bearing_7_3_3_sbn_683_2zva_d947e00c99",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_belt_tensioner@0:1:1:61:9/bearing_7_3_3_sbn_683_2ZVA@0:1:1:44:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_10_ca79e5388c",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_belt_tensioner@0:1:1:61:9/fastener_fhs_m3_10@0:1:1:44:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_fe894cc5ad",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_belt_tensioner@0:1:1:61:9/fastener_washer_m2.5@0:1:1:44:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_belt_tensioner_roller_99bba0e020",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/transmission_belt_tensioner@0:1:1:61:9/transmission_belt_tensioner_roller@0:1:1:44:4"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_731e2c92d5",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/fastener_shcs_m2.5_6@0:1:1:61:10"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_9c4ab71ac7",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/fastener_shcs_m2.5_6@0:1:1:61:11"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_fd5ee860af",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/fastener_shcs_m2.5_6@0:1:1:61:12"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_c75dd486b4",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/fastener_shcs_m2.5_6@0:1:1:61:13"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_123b3f0c5e",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/fastener_shcs_m2.5_6@0:1:1:61:14"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_a98627a558",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/fastener_shcs_m2.5_6@0:1:1:61:15"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_d884920f80",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/fastener_shcs_m2.5_10@0:1:1:61:16"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_8ff01ec7f7",
+      "jointId": "right_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_right_side_bl_biped@0:1:1:1:4/fastener_shcs_m2.5_10@0:1:1:61:17"
+    },
+    {
+      "objectName": "MM_bolt_hip_fe_structure_left_side_bl_biped_736d8f71dd",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/_hip_fe_structure_left_side_bl_biped@0:1:1:63:1"
+    },
+    {
+      "objectName": "MM_bolt_encoder_avago_aedt_9810_48d8041f2b",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/encoder@0:1:1:63:2/encoder_avago_aedt_9810@0:1:1:41:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_16_plastic_8f0ebe0494",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/encoder@0:1:1:63:2/fastener_fhs_m3_16_plastic@0:1:1:41:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_16_plastic_d22d6d0565",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/encoder@0:1:1:63:2/fastener_fhs_m3_16_plastic@0:1:1:41:3"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_stator_7f8beec5fc",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/motor_module@0:1:1:63:3/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_stator@0:1:1:28:1"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_rotor_77b643466c",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/motor_module@0:1:1:63:3/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_rotor@0:1:1:28:2"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_custom_shaft_37357e875c",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/motor_module@0:1:1:63:3/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_custom_shaft@0:1:1:28:3"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_brass_spacer_7751395c0c",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/motor_module@0:1:1:63:3/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_brass_spacer@0:1:1:28:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t10_motor_db7e6c0aae",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/motor_module@0:1:1:63:3/transmission_pulley_at3_t10_motor@0:1:1:27:2"
+    },
+    {
+      "objectName": "MM_bolt_encoder_codewheel_pwb_mount_a0c7d385e7",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/motor_module@0:1:1:63:3/encoder_codewheel_pwb_mount@0:1:1:27:3"
+    },
+    {
+      "objectName": "MM_bolt_encoder_codewheel_5000cpr_pwb_7mm_e75614b5fc",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/motor_module@0:1:1:63:3/encoder_codewheel_5000cpr_pwb_7mm@0:1:1:27:4"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_de96fb4b78",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/motor_module@0:1:1:63:3/bearing_8_4_2_sbn_MR84VA@0:1:1:27:5"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_b062188311",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/motor_module@0:1:1:63:3/fastener_fhs_m3_5@0:1:1:27:6"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_cfd137c519",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/motor_module@0:1:1:63:3/fastener_fhs_m3_5@0:1:1:27:7"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_e5d1dd5f77",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/motor_module@0:1:1:63:3/fastener_fhs_m3_5@0:1:1:27:8"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_4743bd1641",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/motor_module@0:1:1:63:3/fastener_fhs_m3_5@0:1:1:27:9"
+    },
+    {
+      "objectName": "MM_bolt_bearing_7_3_3_sbn_683_2zva_25d0d068e9",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_belt_tensioner@0:1:1:63:4/bearing_7_3_3_sbn_683_2ZVA@0:1:1:44:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_10_ad08c1803d",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_belt_tensioner@0:1:1:63:4/fastener_fhs_m3_10@0:1:1:44:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_50ebff6a76",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_belt_tensioner@0:1:1:63:4/fastener_washer_m2.5@0:1:1:44:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_belt_tensioner_roller_35e085f6c6",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_belt_tensioner@0:1:1:63:4/transmission_belt_tensioner_roller@0:1:1:44:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t10_center_7cf0ff525e",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_center_pulley_at3_t10_t30@0:1:1:63:5/transmission_pulley_at3_t10_center@0:1:1:49:1"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_390154699d",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_center_pulley_at3_t10_t30@0:1:1:63:5/bearing_8_4_2_sbn_MR84VA@0:1:1:49:2"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_b0a957ec14",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_center_pulley_at3_t10_t30@0:1:1:63:5/bearing_8_4_2_sbn_MR84VA@0:1:1:49:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t30_center_0e2550f9fb",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_center_pulley_at3_t10_t30@0:1:1:63:5/transmission_pulley_at3_t30_center@0:1:1:49:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t30_output_b5551f7e10",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_output_pulley@0:1:1:63:6/transmission_pulley_at3_t30_output@0:1:1:38:1"
+    },
+    {
+      "objectName": "MM_bolt_bearing_32_25_4_sbn_61705rs_3e5aa5d754",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_output_pulley@0:1:1:63:6/bearing_32_25_4_sbn_61705RS@0:1:1:38:2"
+    },
+    {
+      "objectName": "MM_bolt_bearing_32_25_4_sbn_61705rs_a1e2702957",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_output_pulley@0:1:1:63:6/bearing_32_25_4_sbn_61705RS@0:1:1:38:3"
+    },
+    {
+      "objectName": "MM_bolt_bearing_7_3_3_sbn_683_2zva_9ae6191a4d",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_belt_tensioner@0:1:1:63:7/bearing_7_3_3_sbn_683_2ZVA@0:1:1:44:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_10_568f626b38",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_belt_tensioner@0:1:1:63:7/fastener_fhs_m3_10@0:1:1:44:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_74160baf39",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_belt_tensioner@0:1:1:63:7/fastener_washer_m2.5@0:1:1:44:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_belt_tensioner_roller_93bf0e8329",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_belt_tensioner@0:1:1:63:7/transmission_belt_tensioner_roller@0:1:1:44:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_timing_belt_at3_150_4_2e8c63d617",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_timing_belt_at3_150_4@0:1:1:63:8"
+    },
+    {
+      "objectName": "MM_bolt_transmission_timing_belt_at3_201_6_61665ecbc9",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/transmission_timing_belt_at3_201_6@0:1:1:63:9"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_09c8a4b64d",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/fastener_shcs_m2.5_10@0:1:1:63:10"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_0b9ab9849e",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/fastener_shcs_m2.5_6@0:1:1:63:11"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_e6bde51e10",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/fastener_shcs_m2.5_10@0:1:1:63:12"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_c8be781df2",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/fastener_shcs_m2.5_6@0:1:1:63:13"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_56861b1c14",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/fastener_shcs_m2.5_6@0:1:1:63:14"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_0aac8257fc",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/fastener_shcs_m2.5_6@0:1:1:63:15"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_1246ddf147",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/fastener_shcs_m2.5_6@0:1:1:63:16"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_e83488a3a5",
+      "jointId": "left_hip_aa",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_hip_fe_left_side_bl_biped@0:1:1:1:5/fastener_shcs_m2.5_6@0:1:1:63:17"
+    },
+    {
+      "objectName": "MM_bolt_upper_leg_200mm_c41d56d99e",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/_upper_leg_200mm@0:1:1:65:1"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_stator_ba4e7a91ba",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/motor_module@0:1:1:65:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_stator@0:1:1:28:1"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_rotor_cb681c6a78",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/motor_module@0:1:1:65:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_rotor@0:1:1:28:2"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_custom_shaft_294ce9e654",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/motor_module@0:1:1:65:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_custom_shaft@0:1:1:28:3"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_brass_spacer_fe16422b0a",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/motor_module@0:1:1:65:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_brass_spacer@0:1:1:28:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t10_motor_8662a0550d",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/motor_module@0:1:1:65:2/transmission_pulley_at3_t10_motor@0:1:1:27:2"
+    },
+    {
+      "objectName": "MM_bolt_encoder_codewheel_pwb_mount_cabbdcfa36",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/motor_module@0:1:1:65:2/encoder_codewheel_pwb_mount@0:1:1:27:3"
+    },
+    {
+      "objectName": "MM_bolt_encoder_codewheel_5000cpr_pwb_7mm_ac92acceaa",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/motor_module@0:1:1:65:2/encoder_codewheel_5000cpr_pwb_7mm@0:1:1:27:4"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_7a7d1bc1f2",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/motor_module@0:1:1:65:2/bearing_8_4_2_sbn_MR84VA@0:1:1:27:5"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_e6d02c0d88",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/motor_module@0:1:1:65:2/fastener_fhs_m3_5@0:1:1:27:6"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_617e7e295a",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/motor_module@0:1:1:65:2/fastener_fhs_m3_5@0:1:1:27:7"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_fbaddc654b",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/motor_module@0:1:1:65:2/fastener_fhs_m3_5@0:1:1:27:8"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_344044bcb6",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/motor_module@0:1:1:65:2/fastener_fhs_m3_5@0:1:1:27:9"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t30_output_aaa869849f",
+      "jointId": "right_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_output_pulley@0:1:1:65:3/transmission_pulley_at3_t30_output@0:1:1:38:1"
+    },
+    {
+      "objectName": "MM_bolt_bearing_32_25_4_sbn_61705rs_56225ffb0a",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_output_pulley@0:1:1:65:3/bearing_32_25_4_sbn_61705RS@0:1:1:38:2"
+    },
+    {
+      "objectName": "MM_bolt_bearing_32_25_4_sbn_61705rs_d5a9ecc51f",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_output_pulley@0:1:1:65:3/bearing_32_25_4_sbn_61705RS@0:1:1:38:3"
+    },
+    {
+      "objectName": "MM_bolt_encoder_avago_aedt_9810_7d10dfe0b9",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/encoder@0:1:1:65:4/encoder_avago_aedt_9810@0:1:1:41:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_16_plastic_b9c7b0a9ea",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/encoder@0:1:1:65:4/fastener_fhs_m3_16_plastic@0:1:1:41:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_16_plastic_9d4b2cd7f9",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/encoder@0:1:1:65:4/fastener_fhs_m3_16_plastic@0:1:1:41:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_timing_belt_at3_150_4_65d3dd8077",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_timing_belt_at3_150_4@0:1:1:65:5"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t10_center_ac022c78a6",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_center_pulley_at3_t10_t30@0:1:1:65:6/transmission_pulley_at3_t10_center@0:1:1:49:1"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_91592b2bf1",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_center_pulley_at3_t10_t30@0:1:1:65:6/bearing_8_4_2_sbn_MR84VA@0:1:1:49:2"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_1353a2df41",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_center_pulley_at3_t10_t30@0:1:1:65:6/bearing_8_4_2_sbn_MR84VA@0:1:1:49:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t30_center_6ed3595a77",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_center_pulley_at3_t10_t30@0:1:1:65:6/transmission_pulley_at3_t30_center@0:1:1:49:4"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_16_8ec4b16cfb",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/fastener_shcs_m3_16@0:1:1:65:7"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_16_21808b13c6",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/fastener_shcs_m3_16@0:1:1:65:8"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_ed62e84f7b",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/fastener_shcs_m2.5_6@0:1:1:65:9"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_df8e71139b",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/fastener_shcs_m2.5_6@0:1:1:65:10"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_5e20cd1ab4",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/fastener_shcs_m2.5_6@0:1:1:65:11"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_2c9cd8133c",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/fastener_shcs_m2.5_6@0:1:1:65:12"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_aab3fae0ac",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/fastener_shcs_m2.5_6@0:1:1:65:13"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_10c875073a",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/fastener_shcs_m2.5_10@0:1:1:65:14"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_4a96d46912",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/fastener_shcs_m2.5_10@0:1:1:65:15"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_fe25ea23e1",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/fastener_shcs_m2.5_10@0:1:1:65:16"
+    },
+    {
+      "objectName": "MM_bolt_bearing_7_3_3_sbn_683_2zva_0fd7965bd0",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_belt_tensioner@0:1:1:65:17/bearing_7_3_3_sbn_683_2ZVA@0:1:1:44:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_10_dc98584526",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_belt_tensioner@0:1:1:65:17/fastener_fhs_m3_10@0:1:1:44:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_abf94162cb",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_belt_tensioner@0:1:1:65:17/fastener_washer_m2.5@0:1:1:44:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_belt_tensioner_roller_f94365b563",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_belt_tensioner@0:1:1:65:17/transmission_belt_tensioner_roller@0:1:1:44:4"
+    },
+    {
+      "objectName": "MM_bolt_bearing_7_3_3_sbn_683_2zva_77ce2813b5",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_belt_tensioner@0:1:1:65:18/bearing_7_3_3_sbn_683_2ZVA@0:1:1:44:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_10_04dce972f9",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_belt_tensioner@0:1:1:65:18/fastener_fhs_m3_10@0:1:1:44:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_be59d070f2",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_belt_tensioner@0:1:1:65:18/fastener_washer_m2.5@0:1:1:44:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_belt_tensioner_roller_3c3569ddd9",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_belt_tensioner@0:1:1:65:18/transmission_belt_tensioner_roller@0:1:1:44:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_timing_belt_at3_201_6_ddda6e8f26",
+      "jointId": "right_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:6/transmission_timing_belt_at3_201_6@0:1:1:65:19"
+    },
+    {
+      "objectName": "MM_bolt_upper_leg_200mm_555b0a47ef",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/_upper_leg_200mm@0:1:1:65:1"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_stator_ed03ace3a2",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/motor_module@0:1:1:65:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_stator@0:1:1:28:1"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_rotor_71baa74543",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/motor_module@0:1:1:65:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_rotor@0:1:1:28:2"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_custom_shaft_46f139f18c",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/motor_module@0:1:1:65:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_custom_shaft@0:1:1:28:3"
+    },
+    {
+      "objectName": "MM_bolt_motor_antigravity_4004_brass_spacer_8f9e14cd93",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/motor_module@0:1:1:65:2/motor_antigravity_4004_custom_shaft@0:1:1:27:1/motor_antigravity_4004_brass_spacer@0:1:1:28:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t10_motor_8671711ace",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/motor_module@0:1:1:65:2/transmission_pulley_at3_t10_motor@0:1:1:27:2"
+    },
+    {
+      "objectName": "MM_bolt_encoder_codewheel_pwb_mount_73f7cb7aa1",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/motor_module@0:1:1:65:2/encoder_codewheel_pwb_mount@0:1:1:27:3"
+    },
+    {
+      "objectName": "MM_bolt_encoder_codewheel_5000cpr_pwb_7mm_cc9985bc30",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/motor_module@0:1:1:65:2/encoder_codewheel_5000cpr_pwb_7mm@0:1:1:27:4"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_fad44e6df2",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/motor_module@0:1:1:65:2/bearing_8_4_2_sbn_MR84VA@0:1:1:27:5"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_157be09bf6",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/motor_module@0:1:1:65:2/fastener_fhs_m3_5@0:1:1:27:6"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_7e74615ca3",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/motor_module@0:1:1:65:2/fastener_fhs_m3_5@0:1:1:27:7"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_630afb4d71",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/motor_module@0:1:1:65:2/fastener_fhs_m3_5@0:1:1:27:8"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_5_03465ef3f0",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/motor_module@0:1:1:65:2/fastener_fhs_m3_5@0:1:1:27:9"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t30_output_6d3f30bc21",
+      "jointId": "left_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_output_pulley@0:1:1:65:3/transmission_pulley_at3_t30_output@0:1:1:38:1"
+    },
+    {
+      "objectName": "MM_bolt_bearing_32_25_4_sbn_61705rs_395a420c18",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_output_pulley@0:1:1:65:3/bearing_32_25_4_sbn_61705RS@0:1:1:38:2"
+    },
+    {
+      "objectName": "MM_bolt_bearing_32_25_4_sbn_61705rs_7ea44888d7",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_output_pulley@0:1:1:65:3/bearing_32_25_4_sbn_61705RS@0:1:1:38:3"
+    },
+    {
+      "objectName": "MM_bolt_encoder_avago_aedt_9810_e7674219ac",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/encoder@0:1:1:65:4/encoder_avago_aedt_9810@0:1:1:41:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_16_plastic_4fe197dff9",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/encoder@0:1:1:65:4/fastener_fhs_m3_16_plastic@0:1:1:41:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_16_plastic_f5ea4750ad",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/encoder@0:1:1:65:4/fastener_fhs_m3_16_plastic@0:1:1:41:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_timing_belt_at3_150_4_69f8acacd0",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_timing_belt_at3_150_4@0:1:1:65:5"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t10_center_06804b150f",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_center_pulley_at3_t10_t30@0:1:1:65:6/transmission_pulley_at3_t10_center@0:1:1:49:1"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_f06dd0bdf3",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_center_pulley_at3_t10_t30@0:1:1:65:6/bearing_8_4_2_sbn_MR84VA@0:1:1:49:2"
+    },
+    {
+      "objectName": "MM_bolt_bearing_8_4_2_sbn_mr84va_c445994406",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_center_pulley_at3_t10_t30@0:1:1:65:6/bearing_8_4_2_sbn_MR84VA@0:1:1:49:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_pulley_at3_t30_center_13aeee8a94",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_center_pulley_at3_t10_t30@0:1:1:65:6/transmission_pulley_at3_t30_center@0:1:1:49:4"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_16_e2f5ccd346",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/fastener_shcs_m3_16@0:1:1:65:7"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_16_1a951b4c88",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/fastener_shcs_m3_16@0:1:1:65:8"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_c3fe1e40d1",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/fastener_shcs_m2.5_6@0:1:1:65:9"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_ab9c20bd79",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/fastener_shcs_m2.5_6@0:1:1:65:10"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_b81ae7ab44",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/fastener_shcs_m2.5_6@0:1:1:65:11"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_7a60e4ae88",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/fastener_shcs_m2.5_6@0:1:1:65:12"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_6_5f6816090a",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/fastener_shcs_m2.5_6@0:1:1:65:13"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_f1c6fff66d",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/fastener_shcs_m2.5_10@0:1:1:65:14"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_c339c64f0c",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/fastener_shcs_m2.5_10@0:1:1:65:15"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_10_495320da7a",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/fastener_shcs_m2.5_10@0:1:1:65:16"
+    },
+    {
+      "objectName": "MM_bolt_bearing_7_3_3_sbn_683_2zva_58d5585298",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_belt_tensioner@0:1:1:65:17/bearing_7_3_3_sbn_683_2ZVA@0:1:1:44:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_10_3febf0e65e",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_belt_tensioner@0:1:1:65:17/fastener_fhs_m3_10@0:1:1:44:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_a9e28e1c21",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_belt_tensioner@0:1:1:65:17/fastener_washer_m2.5@0:1:1:44:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_belt_tensioner_roller_5c4429c1ca",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_belt_tensioner@0:1:1:65:17/transmission_belt_tensioner_roller@0:1:1:44:4"
+    },
+    {
+      "objectName": "MM_bolt_bearing_7_3_3_sbn_683_2zva_a893a5d8f0",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_belt_tensioner@0:1:1:65:18/bearing_7_3_3_sbn_683_2ZVA@0:1:1:44:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_fhs_m3_10_599c86debf",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_belt_tensioner@0:1:1:65:18/fastener_fhs_m3_10@0:1:1:44:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_ee99987d8b",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_belt_tensioner@0:1:1:65:18/fastener_washer_m2.5@0:1:1:44:3"
+    },
+    {
+      "objectName": "MM_bolt_transmission_belt_tensioner_roller_29cf55f776",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_belt_tensioner@0:1:1:65:18/transmission_belt_tensioner_roller@0:1:1:44:4"
+    },
+    {
+      "objectName": "MM_bolt_transmission_timing_belt_at3_201_6_d1c8c617e3",
+      "jointId": "left_hip_fe",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_upper_leg_200mm@0:1:1:1:7/transmission_timing_belt_at3_201_6@0:1:1:65:19"
+    },
+    {
+      "objectName": "MM_bolt_lower_leg_structure_f51ab6a4fe",
+      "jointId": "right_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:8/lower_leg_structure@0:1:1:68:1"
+    },
+    {
+      "objectName": "MM_bolt_pin_5mm_28mm_5b2e235751",
+      "jointId": "right_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:8/pin_5mm_28mm@0:1:1:68:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_12_154a250d26",
+      "jointId": "right_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:8/fastener_shcs_m3_12@0:1:1:68:3"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_12_d0457623dc",
+      "jointId": "right_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:8/fastener_shcs_m3_12@0:1:1:68:4"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_20_9e1dcddc04",
+      "jointId": "right_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:8/fastener_m2.5_20_assembly@0:1:1:68:5/fastener_shcs_m2.5_20@0:1:1:72:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_18b5dc13f3",
+      "jointId": "right_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:8/fastener_m2.5_20_assembly@0:1:1:68:5/fastener_washer_m2.5@0:1:1:72:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_3bfb159be4",
+      "jointId": "right_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:8/fastener_m2.5_20_assembly@0:1:1:68:5/fastener_washer_m2.5@0:1:1:72:3"
+    },
+    {
+      "objectName": "MM_bolt_fastener_locknut_m2_5_11aca54eb7",
+      "jointId": "right_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:8/fastener_m2.5_20_assembly@0:1:1:68:5/fastener_locknut_m2.5@0:1:1:72:4"
+    },
+    {
+      "objectName": "MM_bolt_lower_leg_structure_41ebeefafd",
+      "jointId": "left_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:9/lower_leg_structure@0:1:1:68:1"
+    },
+    {
+      "objectName": "MM_bolt_pin_5mm_28mm_921edf4817",
+      "jointId": "left_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:9/pin_5mm_28mm@0:1:1:68:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_12_02e245eb47",
+      "jointId": "left_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:9/fastener_shcs_m3_12@0:1:1:68:3"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m3_12_dcf35ac711",
+      "jointId": "left_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:9/fastener_shcs_m3_12@0:1:1:68:4"
+    },
+    {
+      "objectName": "MM_bolt_fastener_shcs_m2_5_20_d62e6279a0",
+      "jointId": "left_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:9/fastener_m2.5_20_assembly@0:1:1:68:5/fastener_shcs_m2.5_20@0:1:1:72:1"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_b13009f6f9",
+      "jointId": "left_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:9/fastener_m2.5_20_assembly@0:1:1:68:5/fastener_washer_m2.5@0:1:1:72:2"
+    },
+    {
+      "objectName": "MM_bolt_fastener_washer_m2_5_37e1586ef5",
+      "jointId": "left_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:9/fastener_m2.5_20_assembly@0:1:1:68:5/fastener_washer_m2.5@0:1:1:72:3"
+    },
+    {
+      "objectName": "MM_bolt_fastener_locknut_m2_5_289ccf8f40",
+      "jointId": "left_knee",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_lower_leg_200mm@0:1:1:1:9/fastener_m2.5_20_assembly@0:1:1:68:5/fastener_locknut_m2.5@0:1:1:72:4"
+    },
+    {
+      "objectName": "MM_bolt_foot_2cfe0f6b48",
+      "jointId": "left_ankle",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_foot@0:1:1:1:10/foot@0:1:1:75:1"
+    },
+    {
+      "objectName": "MM_bolt_foot_silicone_tube_elements_0ee9d37ef1",
+      "jointId": "left_ankle",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_foot@0:1:1:1:10/foot_silicone_tube_elements@0:1:1:75:2"
+    },
+    {
+      "objectName": "MM_bolt_foot_silicone_tube_elements_89fab202d0",
+      "jointId": "left_ankle",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_foot@0:1:1:1:10/foot_silicone_tube_elements@0:1:1:75:3"
+    },
+    {
+      "objectName": "MM_bolt_foot_56644abe3e",
+      "jointId": "right_ankle",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_foot@0:1:1:1:11/foot@0:1:1:75:1"
+    },
+    {
+      "objectName": "MM_bolt_foot_silicone_tube_elements_b8fc7b63ac",
+      "jointId": "right_ankle",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_foot@0:1:1:1:11/foot_silicone_tube_elements@0:1:1:75:2"
+    },
+    {
+      "objectName": "MM_bolt_foot_silicone_tube_elements_68edd59b92",
+      "jointId": "right_ankle",
+      "sourceCadInstance": "__bl_biped@0:1:1:1/_foot@0:1:1:1:11/foot_silicone_tube_elements@0:1:1:75:3"
+    }
+  ],
+  "keyframes": [
+    {
+      "phase": 0.0,
+      "angles": [
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "phase": 0.0625,
+      "angles": [
+        1.530734,
+        3.765372,
+        -3.407821,
+        -0.357552,
+        -1.530734,
+        -2.740246,
+        7.307316,
+        -4.567069
+      ]
+    },
+    {
+      "phase": 0.125,
+      "angles": [
+        2.828427,
+        7.760408,
+        -8.899495,
+        1.139087,
+        -2.828427,
+        -4.260408,
+        10.899495,
+        -6.639087
+      ]
+    },
+    {
+      "phase": 0.1875,
+      "angles": [
+        3.695518,
+        10.840413,
+        -15.227207,
+        4.386794,
+        -3.695518,
+        -4.865539,
+        10.64142,
+        -5.775881
+      ]
+    },
+    {
+      "phase": 0.25,
+      "angles": [
+        4.0,
+        12.0,
+        -20.0,
+        8.0,
+        -4.0,
+        -5.0,
+        8.0,
+        -3.0
+      ]
+    },
+    {
+      "phase": 0.3125,
+      "angles": [
+        3.695518,
+        10.840413,
+        -20.884061,
+        10.043648,
+        -3.695518,
+        -4.865539,
+        4.984566,
+        -0.119027
+      ]
+    },
+    {
+      "phase": 0.375,
+      "angles": [
+        2.828427,
+        7.760408,
+        -16.899495,
+        9.139087,
+        -2.828427,
+        -4.260408,
+        2.899495,
+        1.360913
+      ]
+    },
+    {
+      "phase": 0.4375,
+      "angles": [
+        1.530734,
+        3.765372,
+        -9.064675,
+        5.299303,
+        -1.530734,
+        -2.740246,
+        1.650461,
+        1.089785
+      ]
+    },
+    {
+      "phase": 0.5,
+      "angles": [
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "phase": 0.5625,
+      "angles": [
+        -1.530734,
+        -2.740246,
+        7.307316,
+        -4.567069,
+        1.530734,
+        3.765372,
+        -3.407821,
+        -0.357552
+      ]
+    },
+    {
+      "phase": 0.625,
+      "angles": [
+        -2.828427,
+        -4.260408,
+        10.899495,
+        -6.639087,
+        2.828427,
+        7.760408,
+        -8.899495,
+        1.139087
+      ]
+    },
+    {
+      "phase": 0.6875,
+      "angles": [
+        -3.695518,
+        -4.865539,
+        10.64142,
+        -5.775881,
+        3.695518,
+        10.840413,
+        -15.227207,
+        4.386794
+      ]
+    },
+    {
+      "phase": 0.75,
+      "angles": [
+        -4.0,
+        -5.0,
+        8.0,
+        -3.0,
+        4.0,
+        12.0,
+        -20.0,
+        8.0
+      ]
+    },
+    {
+      "phase": 0.8125,
+      "angles": [
+        -3.695518,
+        -4.865539,
+        4.984566,
+        -0.119027,
+        3.695518,
+        10.840413,
+        -20.884061,
+        10.043648
+      ]
+    },
+    {
+      "phase": 0.875,
+      "angles": [
+        -2.828427,
+        -4.260408,
+        2.899495,
+        1.360913,
+        2.828427,
+        7.760408,
+        -16.899495,
+        9.139087
+      ]
+    },
+    {
+      "phase": 0.9375,
+      "angles": [
+        -1.530734,
+        -2.740246,
+        1.650461,
+        1.089785,
+        1.530734,
+        3.765372,
+        -9.064675,
+        5.299303
+      ]
+    },
+    {
+      "phase": 1.0,
+      "angles": [
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        -0.0
+      ]
+    }
+  ],
+  "dimensions": {
+    "left": {
+      "upperLegAxisDistanceM": 0.19999999310821284,
+      "lowerLegAxisDistanceM": 0.20000000474974508
+    },
+    "right": {
+      "upperLegAxisDistanceM": 0.19999999543651933,
+      "lowerLegAxisDistanceM": 0.20000001639127665
+    }
+  }
+}

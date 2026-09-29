@@ -128,7 +128,7 @@ namespace MechMaster.Runtime
                     || model.motion.kind == "bicycle-pedaling-v1"
                     && (model.motion.frontTeeth <= 0 || model.motion.rearTeeth <= 0
                         || model.motion.chainLinks <= 0)
-                    || model.motion.kind == "moveo-articulation-v1"
+                    || (model.motion.kind == "moveo-articulation-v1" || model.motion.kind == "bolt-articulation-v1")
                     && string.IsNullOrWhiteSpace(model.motion.rigResourcePath)))
             {
                 throw new InvalidOperationException("机械模型清单包含空值或重复项：" + assetName);

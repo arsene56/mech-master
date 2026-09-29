@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware",
+  "commit": "66af1522b4fba0ec4a1d7790e66f5e4652208d30",
+  "license": "BSD-3-Clause",
+  "retrievedUtc": "2026-09-29T01:39:45.274710+00:00",
+  "files": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/LICENSE",
+      "bytes": 1556,
+      "sha256": "79585c69269a2c116e52a804e705bffa4d7c7f557dbc446d1ff226a8d444b2a7",
+      "gitBlob": "5bacee38e91d6f7333e72f6cdad4f0d415689e46"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/README.md",
+      "bytes": 8822,
+      "sha256": "e7cf406f9e1b4dad865ef5fd864c2a55551a18283dbe8e072d9d65bcf2239489",
+      "gitBlob": "cf59a7f8a27dd3ca40b0796536a56e85f2826d4c"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/README.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/README.md",
+      "bytes": 22948,
+      "sha256": "74b078d09ca4aa51879b747496e8e555085c0c5eb0450b966efd3294397ddc08",
+      "gitBlob": "3268e64b753b4cc34bbd4b519d9093eef4423991"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/actuator_module_v1.1.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/actuator_module_v1.1.md",
+      "bytes": 21267,
+      "sha256": "18a18c3d9b773c824b46b69db38f74fd61fdd38b75bae8a3e0487c9858ca622d",
+      "gitBlob": "831d47fefeda09ff429f85a806c5c57207364350"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_3d_printed_parts.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_3d_printed_parts.md",
+      "bytes": 9329,
+      "sha256": "9e29eef291a1c451fdebcf1e0b8d4130aeb67b910bbf5422a388b4845105b3cd",
+      "gitBlob": "52cd13c413fc142c877af341e2685562603a9ce3"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_actuator_module_assembly.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_actuator_module_assembly.md",
+      "bytes": 11638,
+      "sha256": "e26faeebec0a323aa02688dbe99d9f95c3d84ffae66e2f4c350bdb7dd473d543",
+      "gitBlob": "fc812fc6b70dc954014eaff19f463c4c99bd1415"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_actuator_module_testing.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_actuator_module_testing.md",
+      "bytes": 3000,
+      "sha256": "bf58cceaa38651015a2612b31217ef238c1e1446a679181893b9a3912639d7e4",
+      "gitBlob": "4f8386c77f5aefc0046520f4310bb55bcac76ed2"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_center_pulley_preparation.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_center_pulley_preparation.md",
+      "bytes": 8013,
+      "sha256": "cbb39a75c2529370f093fb2d9715a3c8657f2338887ad859d50ce67da06aa20f",
+      "gitBlob": "f647eaccc1909b16763b7a32de917e485c3ca727"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_encoder.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_encoder.md",
+      "bytes": 5671,
+      "sha256": "107e391bcfa22119a745cfd3927e217974a21da512ae168c7379afdec6a6737c",
+      "gitBlob": "4d97e443dfa4b81cb44cd4e7ced4462df71f494d"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_encoder_kit_disassembly.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_encoder_kit_disassembly.md",
+      "bytes": 4309,
+      "sha256": "40a33a9a8b9ddb8144bb0b064c6e97274c851f7b6dc3630871dca0f1bc2f2e8c",
+      "gitBlob": "46aada0caa7f93c1e22a5cfd8ce293fb2f0949c8"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_encoder_preparation.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_encoder_preparation.md",
+      "bytes": 7682,
+      "sha256": "fae20dffcb3c38869990b76cd81a6616a1b927951fd0d65349519bb66da988fe",
+      "gitBlob": "f9209024e25bdefe4f40e6fa68fc13f9be9930e2"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_machined_parts.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_machined_parts.md",
+      "bytes": 6164,
+      "sha256": "7c2d1b0ad20cddd27608bf9b71f8145c397e3c8125a716711a7f4be9b992d50e",
+      "gitBlob": "903cea90087890691f8dcf74bfa473a950a14f13"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_motor_preparation.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_motor_preparation.md",
+      "bytes": 11457,
+      "sha256": "5974f2bdba9f31fbd557c146c7a1330edfa585c863e8b039fd833f811375f609",
+      "gitBlob": "bc02ad312d29858d56b9e95930f7f5afbe90b016"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_motor_shaft_preparation.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_motor_shaft_preparation.md",
+      "bytes": 10087,
+      "sha256": "794f690413b2d6f9a1d7403f8ede8c12e300de06e17760ee871fe543384ccced",
+      "gitBlob": "a27b8096b7b0000746eaee42337019d33ea18686"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_output_pulley_preparation.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_output_pulley_preparation.md",
+      "bytes": 8361,
+      "sha256": "cdbffc28233e85373db53d8ea7a0c7b0c97074647ce7eefd11164f7da0793bf5",
+      "gitBlob": "d27677df1f482b179e699bad69d8fcc56d51f266"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_shell_preparation.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_shell_preparation.md",
+      "bytes": 11657,
+      "sha256": "72577064b5ada117f1b151b209b895ff647304bbe9a18abd5dc7ea79bf70f810",
+      "gitBlob": "64167163475dbe0acc4972b7ef3e9b07e94f9852"
+    },
+    {
+      "path": "mechanics/actuator_module_v1/details/details_tools.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_tools.md",
+      "bytes": 14250,
+      "sha256": "ccead3bd152408e25d54344bfa83c1dcfe94773d55697a5d0c65625004eaf58a",
+      "gitBlob": "62627e57b2f62436255c5950b23773e5fde08999"
+    },
+    {
+      "path": "mechanics/biped_6dof_v1/README.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/biped_6dof_v1/README.md",
+      "bytes": 24484,
+      "sha256": "f05ed012ce0827879c0ed1338a76de1e80d4d7a468f81fe6f042098fbbe889d3",
+      "gitBlob": "506c8b17cd939447e18b06d0dda5b1bc0e6e0c52"
+    },
+    {
+      "path": "mechanics/biped_6dof_v1/cad_files/STEP/biped_6dof_v1.STEP",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/biped_6dof_v1/cad_files/STEP/biped_6dof_v1.STEP",
+      "bytes": 26548352,
+      "sha256": "b5018637f72dce223c2b4dccebe5d01c362c455ec6c7bd1ff14ffcce854643fa",
+      "gitBlob": "35d57be0a0830fb1e2d0641b70dabfd9f18f7071"
+    },
+    {
+      "path": "mechanics/biped_leg_3dof_v1/README.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/biped_leg_3dof_v1/README.md",
+      "bytes": 13219,
+      "sha256": "3041eeb3afe2754004411eac40f82c2adfa8b501b4be29ab00d31bac93040151",
+      "gitBlob": "6bf42eed6b71414aa21c4bde7ba04893edb18775"
+    },
+    {
+      "path": "mechanics/general/conventions.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/general/conventions.md",
+      "bytes": 3645,
+      "sha256": "9c06b00958a5bc590c7dfa906f80f297d4268c5e3da3ae67957936784d4e1eb1",
+      "gitBlob": "f04fc28cc4637816f0038f43b8110314306d61db"
+    },
+    {
+      "path": "mechanics/general/known_issues.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/general/known_issues.md",
+      "bytes": 746,
+      "sha256": "2d9dd18473e82e22e822fc600fca689703830cbf81229432253bdbf2fe77272c",
+      "gitBlob": "30e12b2c908a8ec52ea676a8b1c93e632aa7ed3b"
+    },
+    {
+      "path": "mechanics/general/lower_legs.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/general/lower_legs.md",
+      "bytes": 5266,
+      "sha256": "063fa7ffec78e1e43e3bfe4259dbaf67e5113214602f5aaf114d3d9c8408bed2",
+      "gitBlob": "606d104fc62f63664f76a5be79574e660ae046ba"
+    },
+    {
+      "path": "mechanics/general/robot_calibration.md",
+      "url": "https://raw.githubusercontent.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/general/robot_calibration.md",
+      "bytes": 11407,
+      "sha256": "2d8d81a7c347242bffd0e9595b373269ed67cd369159b7a4ad97acd26da3af19",
+      "gitBlob": "5576c6ef06c963f673d8f9812ddb2b0e42690097"
+    }
+  ]
+}

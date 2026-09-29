@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "robot.odri.bolt.6dof.v1",
+  "displayName": "Bolt 双足机器人",
+  "displayOrder": 20,
+  "catalogResourcePath": "MechanicalCatalog/BoltInteractionCatalog",
+  "moduleResourcePaths": [
+    "Models/Bolt/Modules/body_frame_LOD0",
+    "Models/Bolt/Modules/electronics_LOD0",
+    "Models/Bolt/Modules/left_hip_aa_LOD0",
+    "Models/Bolt/Modules/left_hip_fe_LOD0",
+    "Models/Bolt/Modules/left_thigh_LOD0",
+    "Models/Bolt/Modules/left_shin_LOD0",
+    "Models/Bolt/Modules/left_foot_LOD0",
+    "Models/Bolt/Modules/right_hip_aa_LOD0",
+    "Models/Bolt/Modules/right_hip_fe_LOD0",
+    "Models/Bolt/Modules/right_thigh_LOD0",
+    "Models/Bolt/Modules/right_shin_LOD0",
+    "Models/Bolt/Modules/right_foot_LOD0"
+  ],
+  "assemblies": [
+    {
+      "id": "body_frame",
+      "displayName": "躯干框架"
+    },
+    {
+      "id": "electronics",
+      "displayName": "控制与感知"
+    },
+    {
+      "id": "left_hip_aa",
+      "displayName": "左髋侧摆"
+    },
+    {
+      "id": "left_hip_fe",
+      "displayName": "左髋屈伸"
+    },
+    {
+      "id": "left_thigh",
+      "displayName": "左上腿与膝驱动"
+    },
+    {
+      "id": "left_shin",
+      "displayName": "左小腿与踝轴"
+    },
+    {
+      "id": "left_foot",
+      "displayName": "左脚掌"
+    },
+    {
+      "id": "right_hip_aa",
+      "displayName": "右髋侧摆"
+    },
+    {
+      "id": "right_hip_fe",
+      "displayName": "右髋屈伸"
+    },
+    {
+      "id": "right_thigh",
+      "displayName": "右上腿与膝驱动"
+    },
+    {
+      "id": "right_shin",
+      "displayName": "右小腿与踝轴"
+    },
+    {
+      "id": "right_foot",
+      "displayName": "右脚掌"
+    }
+  ],
+  "motion": {
+    "kind": "bolt-articulation-v1",
+    "rigResourcePath": "MechanicalCatalog/BoltMotionRig"
+  }
+}

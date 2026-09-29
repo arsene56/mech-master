@@ -1,0 +1,363 @@
+{
+  "schemaVersion": 1,
+  "modelId": "robot.odri.bolt.6dof.v1",
+  "source": "open-dynamic-robot-initiative/open_robot_actuator_hardware",
+  "license": "BSD-3-Clause",
+  "units": "m",
+  "activeJoints": 6,
+  "passiveJoints": 2,
+  "dimensions": {
+    "left": {
+      "upperLegAxisDistanceM": 0.19999999310821284,
+      "lowerLegAxisDistanceM": 0.20000000474974508
+    },
+    "right": {
+      "upperLegAxisDistanceM": 0.19999999543651933,
+      "lowerLegAxisDistanceM": 0.20000001639127665
+    }
+  },
+  "types": [
+    {
+      "id": "0:1:1:3",
+      "sourceName": "body_structure_biped_front",
+      "displayName": "躯干前板",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:4",
+      "sourceName": "body_structure_biped_bottom",
+      "displayName": "躯干底板",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:5",
+      "sourceName": "body_structure_biped_back_rev_a",
+      "displayName": "躯干后板",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:6",
+      "sourceName": "body_structure_biped_left_side",
+      "displayName": "躯干左侧板",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:7",
+      "sourceName": "body_structure_biped_right_side",
+      "displayName": "躯干右侧板",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:8",
+      "sourceName": "bearing_25_20_4_sbn_ET25202ZVA",
+      "displayName": "25×20×4 毫米轴承（外径×内径×宽度）",
+      "quantity": 2
+    },
+    {
+      "id": "0:1:1:10",
+      "sourceName": "body_structure_biped_top",
+      "displayName": "躯干顶板",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:11",
+      "sourceName": "vicon_marker_10mm",
+      "displayName": "运动捕捉标记球",
+      "quantity": 8
+    },
+    {
+      "id": "0:1:1:12",
+      "sourceName": "fastener_shcs_m3_8",
+      "displayName": "内六角螺钉 M3 8",
+      "quantity": 24
+    },
+    {
+      "id": "0:1:1:14",
+      "sourceName": "micro_driver_90_deg_hirose",
+      "displayName": "电机驱动板",
+      "quantity": 3
+    },
+    {
+      "id": "0:1:1:15",
+      "sourceName": "spacer_micro_driver_stack",
+      "displayName": "驱动板间隔柱",
+      "quantity": 8
+    },
+    {
+      "id": "0:1:1:16",
+      "sourceName": "fastener_shcs_m2.5_25",
+      "displayName": "内六角螺钉 M2.5 25",
+      "quantity": 4
+    },
+    {
+      "id": "0:1:1:18",
+      "sourceName": "master_board",
+      "displayName": "主控制板",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:19",
+      "sourceName": "fastener_shcs_m2_5",
+      "displayName": "内六角螺钉 M2 5",
+      "quantity": 2
+    },
+    {
+      "id": "0:1:1:20",
+      "sourceName": "body_structure_master_board_protection",
+      "displayName": "主控板保护架",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:21",
+      "sourceName": "fastener_shcs_m2_20",
+      "displayName": "内六角螺钉 M2 20",
+      "quantity": 2
+    },
+    {
+      "id": "0:1:1:23",
+      "sourceName": "imu_3dm_cx5_25",
+      "displayName": "惯性测量模块",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:24",
+      "sourceName": "fastener_shs_m2.5_12",
+      "displayName": "开槽螺钉 M2.5 12",
+      "quantity": 3
+    },
+    {
+      "id": "0:1:1:26",
+      "sourceName": "_hip_aa_structure_left_side_bl_biped",
+      "displayName": "左髋侧摆壳体",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:29",
+      "sourceName": "motor_antigravity_4004_stator",
+      "displayName": "无刷电机定子",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:30",
+      "sourceName": "motor_antigravity_4004_rotor",
+      "displayName": "无刷电机转子",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:31",
+      "sourceName": "motor_antigravity_4004_custom_shaft",
+      "displayName": "电机定制轴",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:32",
+      "sourceName": "motor_antigravity_4004_brass_spacer",
+      "displayName": "电机黄铜间隔套",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:33",
+      "sourceName": "transmission_pulley_at3_t10_motor",
+      "displayName": "十齿电机带轮",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:34",
+      "sourceName": "encoder_codewheel_pwb_mount",
+      "displayName": "编码盘安装座",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:35",
+      "sourceName": "encoder_codewheel_5000cpr_pwb_7mm",
+      "displayName": "光学编码盘",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:36",
+      "sourceName": "bearing_8_4_2_sbn_MR84VA",
+      "displayName": "8×4×2 毫米轴承（外径×内径×宽度）",
+      "quantity": 18
+    },
+    {
+      "id": "0:1:1:37",
+      "sourceName": "fastener_fhs_m3_5",
+      "displayName": "沉头螺钉 M3 5",
+      "quantity": 24
+    },
+    {
+      "id": "0:1:1:39",
+      "sourceName": "transmission_pulley_at3_t30_output",
+      "displayName": "三十齿输出带轮",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:40",
+      "sourceName": "bearing_32_25_4_sbn_61705RS",
+      "displayName": "32×25×4 毫米轴承（外径×内径×宽度）",
+      "quantity": 12
+    },
+    {
+      "id": "0:1:1:42",
+      "sourceName": "encoder_avago_aedt_9810",
+      "displayName": "光学编码器读头",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:43",
+      "sourceName": "fastener_fhs_m3_16_plastic",
+      "displayName": "沉头螺钉 M3 16 塑料",
+      "quantity": 12
+    },
+    {
+      "id": "0:1:1:45",
+      "sourceName": "bearing_7_3_3_sbn_683_2ZVA",
+      "displayName": "7×3×3 毫米轴承（外径×内径×宽度）",
+      "quantity": 12
+    },
+    {
+      "id": "0:1:1:46",
+      "sourceName": "fastener_fhs_m3_10",
+      "displayName": "沉头螺钉 M3 10",
+      "quantity": 12
+    },
+    {
+      "id": "0:1:1:47",
+      "sourceName": "fastener_washer_m2.5",
+      "displayName": "垫圈 M2.5",
+      "quantity": 16
+    },
+    {
+      "id": "0:1:1:48",
+      "sourceName": "transmission_belt_tensioner_roller",
+      "displayName": "同步带张紧滚轮",
+      "quantity": 12
+    },
+    {
+      "id": "0:1:1:50",
+      "sourceName": "transmission_pulley_at3_t10_center",
+      "displayName": "十齿中间带轮",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:51",
+      "sourceName": "transmission_pulley_at3_t30_center",
+      "displayName": "三十齿中间带轮",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:52",
+      "sourceName": "transmission_timing_belt_at3_150_4",
+      "displayName": "一级同步带",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:53",
+      "sourceName": "transmission_timing_belt_at3_201_6",
+      "displayName": "二级同步带",
+      "quantity": 6
+    },
+    {
+      "id": "0:1:1:54",
+      "sourceName": "fastener_shcs_m2.5_10",
+      "displayName": "内六角螺钉 M2.5 10",
+      "quantity": 14
+    },
+    {
+      "id": "0:1:1:55",
+      "sourceName": "fastener_shcs_m2.5_6",
+      "displayName": "内六角螺钉 M2.5 6",
+      "quantity": 34
+    },
+    {
+      "id": "0:1:1:57",
+      "sourceName": "fastener_shcs_m3_22",
+      "displayName": "内六角螺钉 M3 22",
+      "quantity": 4
+    },
+    {
+      "id": "0:1:1:58",
+      "sourceName": "fasteners_m3_washer",
+      "displayName": "M3 垫圈",
+      "quantity": 4
+    },
+    {
+      "id": "0:1:1:60",
+      "sourceName": "_hip_aa_structure_right_side_bl_biped",
+      "displayName": "右髋侧摆壳体",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:62",
+      "sourceName": "_hip_fe_structure_right_side_bl_biped",
+      "displayName": "右髋屈伸壳体",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:64",
+      "sourceName": "_hip_fe_structure_left_side_bl_biped",
+      "displayName": "左髋屈伸壳体",
+      "quantity": 1
+    },
+    {
+      "id": "0:1:1:66",
+      "sourceName": "_upper_leg_200mm",
+      "displayName": "二百毫米上腿壳体",
+      "quantity": 2
+    },
+    {
+      "id": "0:1:1:67",
+      "sourceName": "fastener_shcs_m3_16",
+      "displayName": "内六角螺钉 M3 16",
+      "quantity": 4
+    },
+    {
+      "id": "0:1:1:69",
+      "sourceName": "lower_leg_structure",
+      "displayName": "二百毫米小腿结构",
+      "quantity": 2
+    },
+    {
+      "id": "0:1:1:70",
+      "sourceName": "pin_5mm_28mm",
+      "displayName": "五毫米踝部钢轴",
+      "quantity": 2
+    },
+    {
+      "id": "0:1:1:71",
+      "sourceName": "fastener_shcs_m3_12",
+      "displayName": "内六角螺钉 M3 12",
+      "quantity": 4
+    },
+    {
+      "id": "0:1:1:73",
+      "sourceName": "fastener_shcs_m2.5_20",
+      "displayName": "内六角螺钉 M2.5 20",
+      "quantity": 2
+    },
+    {
+      "id": "0:1:1:74",
+      "sourceName": "fastener_locknut_m2.5",
+      "displayName": "锁紧螺母 M2.5",
+      "quantity": 2
+    },
+    {
+      "id": "0:1:1:76",
+      "sourceName": "foot",
+      "displayName": "脚掌支架",
+      "quantity": 2
+    },
+    {
+      "id": "0:1:1:77",
+      "sourceName": "foot_silicone_tube_elements",
+      "displayName": "脚掌硅胶接触件",
+      "quantity": 4
+    }
+  ],
+  "limitations": [
+    "Pinned STEP snapshot, not manufacturing tolerances or a purchase BOM.",
+    "Six active joints and two passive ankles; fixed-body teaching poses, not balanced walking.",
+    "Complete wires, control algorithms, motor dynamics and ground contact are not simulated.",
+    "Electronics, bearings, motor input assemblies and repeated hardware retain service grouping."
+  ]
+}

@@ -1,8 +1,10 @@
 # Moveo 机械臂接入记录
 
-更新日期：2026-09-28。用户已授权将 Moveo 加入工程，并允许遇到卡点时暂停询问。
+更新日期：2026-09-29（默认速度与演示后拾取修复）。用户已授权将 Moveo 加入工程，并允许遇到卡点时暂停询问。
 
 ## 当前状态
+
+2026-09-29 修订：默认演示速度为 1.00×（一轮约 10 秒，以原 2.00× 的实际节奏为新基准），调速范围为相对新基准的 0.50×–1.50×；结束/暂停后切换单件爆炸和再次点同一件收回已补回归。每档 6 组实测均通过，运行时在结束演示后及拾取前同步物理坐标；不依赖下一次物理刷新。复现与修复日志位于 `Library/MechMaster/MotionRegression/`，细节见 [开发与验证](../../DEVELOPMENT.md#演示结束后的点击回归2026-09-29)。
 
 用户确认本机没有可用的 SolidWorks。现已建立免费本地转换流水线，从官方总装保存的显示网格与分件变换恢复机械臂，新增 `arm.bcn3d.moveo.v1` 模型清单、运行资源和三档拆装目录。
 
@@ -66,7 +68,7 @@ dotnet run --project Tools/Tests/MechMaster.Domain.Tests.csproj -c Release
 - Play Mode 三档回归通过：9 / 20 / 42 步均完成实际射线拾取、拖入分类托盘、全局爆炸与收回、准确保存已拆 ID、逆序完整拆解及装回。全部 366 个节点恢复原位，切回自行车后动态演示绑定正常。
 - 自动回归入口为 `MechMaster.Editor.MoveoImportValidator.ValidateFromCommandLine`，完成标记为 `MECH_MASTER_MOVEO_RUNTIME_OK switch,bind,ray-pick,drag,explode,save,reassemble`。运行前保存已有模型、等级、讲解与拆装进度，退出 Play 后恢复；本机日志位于忽略的 `Library/MechMaster/MoveoSource/converted/editor-runtime.log`。
 - 已人工检查 Blender 生成的实际 LOD0 预览；尚未人工复核团结引擎 Game View 的画面和手势。
-- Moveo 关节演示已接入 `moveo-articulation-v1`：底座、肩、肘、腕旋转、腕俯仰五轴循环，夹爪两侧齿轮 / 四连杆同步开合；演示速度为 0.50×–1.50×，暂停、继续、结束和切换视图都会保持拆装进度并恢复源姿态。配置文件为 `Assets/Resources/MechanicalCatalog/MoveoMotionRig.json`，生成脚本为 `Tools/Blender/build_moveo_motion_rig.py`。
+- Moveo 关节演示已接入 `moveo-articulation-v1`：底座、肩、肘、腕旋转、腕俯仰五轴循环，夹爪两侧齿轮 / 四连杆同步开合；默认速度 1.00×（保持原 2.00× 的实际节奏），调速范围为相对新基准的 0.50×–1.50×，暂停、继续、结束和切换视图都会保持拆装进度并恢复源姿态。配置文件为 `Assets/Resources/MechanicalCatalog/MoveoMotionRig.json`，生成脚本为 `Tools/Blender/build_moveo_motion_rig.py`。
 - 自动回归额外检查关节动作、夹爪闭合、循环无漂移、固定底座不移动、支承轴保持、暂停与调速、碰撞状态恢复以及爆炸 / 拆装视图会停止演示；成功标记为 `MECH_MASTER_MOVEO_MOTION_OK`。本轮已重新启动团结 Editor 验证，`Library/MechMaster/MoveoSource/converted/editor-runtime-motion.log` 同时记录 Simple / Standard / Advanced 三档的该标记，且进程退出码为 0。
 
 当前是官方保存的网格和装配快照，不是参数化实体或制造公差模型。源 CAD 没有完整同步带体和电气线束，本次未补造；CAD 与手册 BOM 的部分型号、轴长及数量存在版本差异，源名用于追溯，展示 BOM 不作为采购清单。电机、舵机和轴承保持完整维修单元，焊接电子件随驱动板整体处理。关节演示是基于保存网格和支承轴的运动学教学循环，不是电机、控制器、负载、碰撞或真实动力学仿真。**微信真机包体、内存、帧率和触控仍未验收。**

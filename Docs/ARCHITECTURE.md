@@ -1,6 +1,6 @@
 # 机械大师：系统架构
 
-本文描述通用机械模型运行时，以及当前的 27.5 英寸 2×10 工程自行车和 BCN3D Moveo 机械臂。两者已通过本机引擎编译、导入及目录绑定；Moveo 三档也通过射线拾取、拖放、爆炸、存档与完整拆装的批处理 Play Mode 回归。实际画面与触控仍需人工复核；微信 AppID、开发者工具及真机测试属于后续工作。
+本文描述通用机械模型运行时，以及当前的工程自行车、BCN3D Moveo 机械臂和 Bolt 双足机器人。三者已通过本机引擎编译、导入及目录绑定；Moveo 与 Bolt 三档也通过射线拾取、拖放、爆炸、存档、完整拆装和关节演示的批处理 Play Mode 回归。实际画面与触控仍需人工复核；微信 AppID、开发者工具及真机测试属于后续工作。
 
 ## 1. 架构目标
 
@@ -32,6 +32,8 @@ flowchart LR
 ```
 
 手工修改生成后的 FBX 或交互目录会在下一次生成时被覆盖。修改应进入 BOM 或生成脚本。
+
+Bolt 的平行资产链为固定提交 STEP → OCCT/XCAF 叶定义、实例及装配矩阵 → Blender Source、12 模块 LOD0、整机 LOD1/LOD2 → 中文三级目录与关节配置。56 个叶定义展开成 345 个稳定实例；12/23/42 步均覆盖全部实例。源路径、矩阵、定义 ID 与校验值进入独立 `bolt_*.json`，详细边界见 [Bolt 接入记录](References/Bolt/IMPORT_STATUS.md)。
 
 ## 3. 运行时分层
 
@@ -82,6 +84,8 @@ flowchart TB
 
 三档计划都完整且无重复地绑定 595 个模型对象。生成器按 BOM 中相邻、相关的组件合并机械单元；即使在探索等级，辐条、链节、紧固件和内部小件也不会逐个操作。
 
+上述表是自行车的基线；Moveo 使用 9/20/42 步覆盖 366 实体，Bolt 使用 12/23/42 步覆盖 345 实例。步骤数来自模型自身可逆拆装与维修分组，不在通用领域层写死。
+
 组装不维护第二份清单，而是直接操作同一个已拆零件集合。拆解与组装都不限制顺序，BOM 增减零件时也不会产生两份清单漂移。
 
 ### 3.3 应用协调
@@ -123,7 +127,11 @@ flowchart TB
 
 中文讲解在 Windows Editor 中由 `VoiceNarrator` 调用本地 `WindowsSpeechHost`，使用已安装的系统中文语音。`LocalSpeechBuilder` 从仓库源码编译辅助程序到 `Library`。切换零件会取消旧播报；正常取消不能当成音频故障。此适配不进入微信构建，微信语音与音频资源仍需单独接入。
 
+Bolt 使用 `motion.kind = bolt-articulation-v1` 和 `BoltMotionRig.json`，由 `BoltMotionController` 从输出轮、支承轴承和踝销重建六主动/两被动轴，以源姿态矩阵驱动完整父子链。左右髋—膝、膝—踝的轴距均为 200 mm；躯干固定。`PeriodicMotionCurve` 在初始化时预计算周期、保形三次 Hermite 切线，关键帧与循环接缝保持一阶连续，只在各关节真正转向处将其速度降至零，不逐段重复 `SmoothStep`。连续双腿动作由 17 个关键帧定义，髋膝错峰转向；被动踝根据当前插值后的髋膝角度补偿，关键帧也校验同一补偿约束。曲线求值不在每帧分配数组。它共享暂停/调速/结束/停止恢复接口与存档隔离，不模拟平衡行走、地面接触或电机/皮带的传动自转。
+
 ## 5. 拆装状态与表现
+
+演示只临时进入旋转视角：`MechMasterApp` 在新一轮播放前记录操作模式，结束时恢复；暂停/继续不重写记录。结束或显式点击“拆装零件”时，`MechanicalModelView.RestorePartHitTargets` 重新启用当前计划所属零件的碰撞热区，不改收纳区等无关碰撞体，随后同步物理位置。输入控制器先于界面处理未消费的鼠标事件，仍显式排除按钮和面板区域。观察模式与领域层拆解/组装模式仍是两种独立状态，演示不重置练习进度。
 
 ```mermaid
 stateDiagram-v2
@@ -207,17 +215,17 @@ FBX 使用 `-Z Forward / Y Up`，引擎中 `1 unit = 1 m`。自由缩放通过�
 
 | 层级 | 工具 | 当前覆盖 |
 | --- | --- | --- |
-| 领域与目录 | .NET 8 | 状态机、BOM、595 实体数量、三档计数、模型清单自动发现与路径校验 |
-| 源模型 | Blender Python | 唯一 ID、模块数量、尺寸、几何统计 |
-| 运行资产 | Blender Python | 14 个 LOD0 文件、文件大小、LOD 面数递减 |
-| 编辑器导入与启动 | 团结引擎 Editor | C# 编译、已入库模型的资源与对象绑定、批处理 Play Mode 启动；手势与画面待人工复核 |
+| 领域与目录 | .NET 8 | 17 项：状态机、BOM、三模型身份/完整覆盖、自动发现、路径及关节配置 |
+| 源模型 | Blender Python | 唯一 ID、模块数量、尺寸、几何统计；Bolt 源矩阵与腿部轴距 |
+| 运行资产 | Blender Python / Editor | 自行车 14、Moveo 9、Bolt 12 个 LOD0 文件、文件大小、绑定与 LOD 面数递减 |
+| 编辑器导入与启动 | 团结引擎 Editor | C# 编译、全部资源绑定、Moveo/Bolt 三档拆装和关节回归；手势与 Game View 全流程待人工复核 |
 | 微信平台 | 待 AppID/工具 | 分包、内存、帧率、生命周期、触摸与音频 |
 
 自动化当前可以证明数据、几何和文件链闭合，但不能替代微信真机验证。
 
 ## 11. 性能与微信演进
 
-当前 FBX 总量约数 MB，几何量对桌面样片可控，但 595 个 GameObject、Collider 和 IMGUI 不应直接作为微信量产终态。平台阶段应实施：
+各模型的全量 LOD0、独立 GameObject/Collider 和 IMGUI 不应直接作为微信量产终态；Bolt LOD0 仍有 399,230 三角面，不能仅因桌面验证通过就宣称真机达标。平台阶段应实施：
 
 1. 整车默认加载 LOD1。
 2. 当前模块切换到 LOD0，其他模块保留 LOD1 或 LOD2。
@@ -228,7 +236,7 @@ FBX 使用 `-Z Forward / Y Up`，引擎中 `1 unit = 1 m`。自由缩放通过�
 
 ## 12. 已知边界
 
-- 模型为程序化维修训练模型，不是任何厂商 CAD，也不含制造公差和材料仿真。
+- 自行车为程序化维修训练模型；Moveo 与 Bolt 派生自官方开源 CAD。三者均不含制造公差、材料仿真或完整动力学。
 - 曲面、铸件外形、齿片镂空和线缆走向仍可继续做美术级精修。
 - 自动生成知识文本需专家和教育编辑审核。
 - UI 仍是 IMGUI 样片，应迁移到 UGUI 或 UI Toolkit。
@@ -246,6 +254,7 @@ FBX 使用 `-Z Forward / Y Up`，引擎中 `1 unit = 1 m`。自由缩放通过�
 - `moduleResourcePaths`：每个分件 FBX/Prefab 的 `Resources` 路径，不带扩展名。
 - `assemblies`：分类槽 ID 与中文显示名，交互目录中的每个 `assemblyId` 必须在此定义。
 - 可选 `motion`：仅已制作运转演示的模型填写；自行车使用 `bicycle-pedaling-v1`、前后齿数和原静态链节数，Moveo 使用 `moveo-articulation-v1` 与 `rigResourcePath`。没有该字段的模型不显示“运转演示”。新运动种类需实现 `IMechanicalMotionController` 对应控制器。
+- Bolt 使用 `bolt-articulation-v1` 与 `rigResourcePath`；两个关节演示种类均要求存在独立关节 JSON。新增静态模型仍只需配置，新增运动种类须在组合根接入对应控制器。
 - `JsonUtility` 可能为缺省的内联 `motion` 创建全空对象，加载器将这种空值归一化为 `null`；包含实际字段的不合法配置继续按规则校验。
 
 可复制 [`Bicycle.json`](../Assets/Resources/MechanicalCatalog/Models/Bicycle.json) 作为字段示例，但不要复用自行车 ID。正式入库还必须提供机器可读 BOM、稳定对象名、1:1 尺寸基准、来源许可、Source 与移动端 LOD、三级科普文本以及微信真机预算测试。[候选模型状态](References/MODEL_CANDIDATES.md)记录了 OM10 与 V8 尚未通过的环节。

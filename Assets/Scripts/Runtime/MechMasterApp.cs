@@ -19,6 +19,7 @@ namespace MechMaster.Runtime
         private GameObject modelInstance;
         private MechanicalModelView modelView;
         private IMechanicalMotionController motion;
+        private bool interactionViewModeBeforeMotion = true;
         private FeedbackAudio feedbackAudio;
         private VoiceNarrator narrator;
 
@@ -43,14 +44,18 @@ namespace MechMaster.Runtime
         public bool IsMotionPlaying => motion != null && motion.IsPlaying;
         public int MotionCadenceRpm => (motion as BicycleMotionController)?.CadenceRpm ?? 60;
         public int MotionSpeedValue => motion == null ? 60 : motion.Speed;
-        public int MotionSpeedStep => motion is MoveoMotionController ? 25 : 15;
-        public string MotionSpeedLabel => motion is MoveoMotionController
+        public int MotionSpeedStep => motion is MoveoMotionController || motion is BoltMotionController ? 25 : 15;
+        public string MotionSpeedLabel => motion is MoveoMotionController || motion is BoltMotionController
             ? (MotionSpeedValue / 100f).ToString("0.00") + "×"
             : MotionSpeedValue + " 转/分";
-        public string MotionGuide => motion is MoveoMotionController
+        public string MotionGuide => motion is BoltMotionController
+            ? "双腿屈伸 · 被动踝随动 · 拖动旋转"
+            : motion is MoveoMotionController
             ? "关节联动 · 夹爪开合 · 拖动旋转"
             : "按住刹把制动 · 空白处拖动旋转";
-        public string MotionHint => motion is MoveoMotionController
+        public string MotionHint => motion is BoltMotionController
+            ? "六个主动关节联动，固定躯干展示双腿屈伸"
+            : motion is MoveoMotionController
             ? "底座、肩、肘、腕依次联动，夹爪开合"
             : FrontBrakeEngaged || RearBrakeEngaged
                 ? "制动中：松开刹把后对应车轮加速"
@@ -318,6 +323,15 @@ namespace MechMaster.Runtime
             }
 
             PartInteractionController.SetViewMode(viewMode);
+            if (!viewMode)
+            {
+                modelView?.RestorePartHitTargets();
+                Physics.SyncTransforms();
+            }
+#if UNITY_EDITOR
+            Debug.Log("MECH_MASTER_INTERACTION_MODE model=" + Model.id
+                + " view=" + viewMode + " motion=" + IsMotionActive);
+#endif
             StatusMessage = viewMode
                 ? "旋转视角：拖动观察，轻点零件查看讲解。"
                 : "拆装零件：直接把机械单元拖入对应分类区。";
@@ -584,6 +598,16 @@ namespace MechMaster.Runtime
                 }
                 else Destroy(candidate);
             }
+            if (Model.motion != null && Model.motion.kind == "bolt-articulation-v1")
+            {
+                BoltMotionController candidate = modelInstance.AddComponent<BoltMotionController>();
+                if (candidate.Initialize(Model.motion.rigResourcePath, Model.id))
+                {
+                    motion = candidate;
+                    framingPoints.AddRange(candidate.GetFramingPoints());
+                }
+                else Destroy(candidate);
+            }
             // Capture assembled motion poses before restoring any saved removals.
             modelView.Refresh(Plan, true);
 
@@ -663,7 +687,8 @@ namespace MechMaster.Runtime
         {
             if (!MotionAvailable) return;
             bool arm = motion is MoveoMotionController;
-            string demoName = arm ? "机械臂关节演示" : "原地踩踏演示";
+            bool biped = motion is BoltMotionController;
+            string demoName = biped ? "双足机器人关节演示" : arm ? "机械臂关节演示" : "原地踩踏演示";
             if (motion.IsPlaying)
             {
                 motion.Pause();
@@ -687,12 +712,17 @@ namespace MechMaster.Runtime
                 ClearExplosionInternal(true);
                 // Finish the last assembly animation before moving the joints.
                 modelView.Refresh(Plan, true);
+                interactionViewModeBeforeMotion = PartInteractionController.ViewMode;
                 PartInteractionController.SetViewMode(true);
                 motion.Play();
-                StatusMessage = arm
+                StatusMessage = biped
+                    ? "固定躯干展示双腿屈伸与被动踝随动，可暂停、调速或结束。"
+                    : arm
                     ? "机械臂关节与夹爪循环演示中，可暂停、调速或结束。"
                     : "原地踩踏：左刹控制后轮，右刹控制前轮；按住刹把可制动。";
-                SpeakNarration(arm
+                SpeakNarration(biped
+                    ? "六个主动关节驱动双腿屈伸，踝部被动随动；这是固定躯干的教学演示。"
+                    : arm
                     ? "电机驱动各关节转动，夹爪通过齿轮和连杆同步开合。"
                     : "脚踏带动牙盘，链条驱动飞轮和后轮旋转。");
             }
@@ -704,8 +734,10 @@ namespace MechMaster.Runtime
         {
             if (!IsMotionActive) return;
             bool arm = motion is MoveoMotionController;
+            bool biped = motion is BoltMotionController;
             StopMotionInternal();
-            StatusMessage = arm ? "机械臂关节演示已结束，整机恢复原始姿态。"
+            StatusMessage = biped ? "双足机器人关节演示已结束，整机恢复原始姿态。"
+                : arm ? "机械臂关节演示已结束，整机恢复原始姿态。"
                 : "原地踩踏演示已结束，整车恢复静止姿态。";
             feedbackAudio.PlayModeSwitch();
             NotifyStateChanged();
@@ -741,7 +773,10 @@ namespace MechMaster.Runtime
         {
             if (!IsMotionActive) return;
             motion.Stop();
-            PartInteractionController.Instance?.CancelGesture();
+            PartInteractionController.SetViewMode(interactionViewModeBeforeMotion);
+            modelView?.RestorePartHitTargets();
+            // Restored colliders must be queryable before the next physics tick.
+            Physics.SyncTransforms();
         }
 
         private PartDefinition FindPart(string partId)

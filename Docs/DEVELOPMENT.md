@@ -12,7 +12,7 @@
 
 1. 克隆仓库并确认当前分支为 `main`。
 2. 用引擎 Hub 打开仓库根目录。
-3. 等待自行车与 Moveo 的 FBX、JSON 和 C# 脚本导入。
+3. 等待自行车、Moveo 与 Bolt 的 FBX、JSON 和 C# 脚本导入。
 4. 打开 `Assets/Scenes/Main.unity` 并进入 Play Mode。
 5. 运行入口由 `MechMasterApp.Bootstrap` 创建，不需要在场景中手工绑定脚本。
 
@@ -54,6 +54,12 @@ dotnet run --project Tools/Tests/MechMaster.Domain.Tests.csproj -c Release
 
 获取、解析与 Blender 导入依次执行。源 CAD 下载和转换缓存位于忽略的 `Library/MechMaster/MoveoSource/`；正式模型、目录、来源与许可由导入脚本写入 `Assets/`。修改中文名称、知识和分组时编辑 `Tools/Content/moveo_content.py`；修改几何清理、材质或 LOD 时编辑 `Tools/Blender/import_moveo.py`。固定提交、尺寸、清理记录及验证边界见 [Moveo 接入记录](References/Moveo/IMPORT_STATUS.md)。
 
+### Bolt 双足机器人
+
+已有分件 FBX 可直接运行。重新构建需要 Python 3.12、`cadquery-ocp==7.8.1.1.post1`、`vtk==9.3.1` 和 Blender 4.5 LTS；依赖安装至忽略的 `Library/MechMaster/BoltSource/parser/python`，不进入游戏包。
+
+流水线按 `fetch_bolt_sources.py → convert_bolt_step.py → import_bolt.py → validate_bolt.py` 执行。中文名称/知识/分组编辑 `Tools/Content/bolt_content.py`；材质与减面编辑 `Tools/Blender/import_bolt.py`；源轴、绑定与关键帧编辑 `Tools/Blender/build_bolt_motion_rig.py`。完整依赖安装、重建与 Editor 命令见 [Bolt 接入记录](References/Bolt/IMPORT_STATUS.md#可复现命令)。
+
 ## 预期验证结果
 
 Blender 验证应以以下文本结束：
@@ -73,7 +79,9 @@ ALL ENGINEERING BICYCLE VALIDATIONS PASSED
 
 Moveo 基线：9 模块、87 个源零件定义、366 实体；三档为 9 / 20 / 42 步，每档完整覆盖同一批实体。木底板为 550 × 550 × 16 mm；LOD0 / LOD1 / LOD2 为 447,667 / 268,593 / 34,999 三角面。
 
-.NET 测试共 15 项，应全部显示 `PASS`，覆盖状态机、BOM、继承数量、尺寸基准、三档计数、模型绑定、Moveo 内容完整性及 Moveo 关节轴 / 四连杆关键帧配置。
+Bolt 基线：12 模块、56 个源叶零件定义、345 个叶实例；三档为 12 / 23 / 42 步，每档完整覆盖同一批实例。左右腿的髋屈伸—膝、膝—踝轴距均为 200 mm；Source / LOD0 / LOD1 / LOD2 为 2,553,404 / 399,230 / 219,566 / 22,000 三角面。源验证成功标记为 `BOLT_SOURCE_VALIDATION_OK` 与 `BOLT_TRANSFORM_VALIDATION_OK`。
+
+.NET 测试共 19 项，应全部显示 `PASS`，覆盖状态机、BOM、继承数量、尺寸基准、三档计数、模型绑定、Moveo 内容与五轴/四连杆配置，以及 Bolt 源身份、维修分组、六主动/两被动轴与闭合教学关键帧。两项连续曲线回归直接编译不依赖 Unity 的 `PeriodicMotionCurve.cs`，检查非等间隔关键帧、保形不超调、周期速度连续及连续双腿动作。
 
 ## 修改工程模型
 
@@ -96,7 +104,7 @@ Moveo 基线：9 模块、87 个源零件定义、366 实体；三档为 9 / 20 
 完整 Editor 可用后至少检查：
 
 - C# 无编译错误、JSON 可被 `JsonUtility` 读取。
-- 自行车 14 个模块、Moveo 9 个模块的 FBX 在世界坐标中正确拼成整机。
+- 自行车 14 个模块、Moveo 9 个模块、Bolt 12 个模块的 FBX 在世界坐标中正确拼成整机。
 - 三档均能命中正确对象并完整拆解。
 - 拆解与组装均可自由选择零件，最终能回到完整状态。
 - 45 步探索模式的组合机械单元没有异常爆炸距离。
@@ -116,6 +124,44 @@ Moveo 专用自动回归在停止 Editor 后运行：
 ```
 
 按本机安装位置调整 Editor 路径。该入口自动进入和退出 Play 并关闭 Editor，因此不添加 `-quit`；使用正常图形模式以执行拾取和拖入托盘。它检查三档绑定、爆炸不改进度、存档、完整拆装和姿态复原，验证 Moveo 五轴关节、夹爪四连杆、暂停、调速、循环无漂移和视图切换复位，并切回自行车检查动态演示可用性；退出 Play 后恢复验证前的全部模型偏好及进度。成功日志包含 `MECH_MASTER_MOVEO_TIER_OK` 三档记录、`MECH_MASTER_MOVEO_MOTION_OK` 和 `MECH_MASTER_MOVEO_RUNTIME_OK`。
+
+Bolt 的自动回归入口为 `MechMaster.Editor.BoltImportValidator.ValidateFromCommandLine`，参数同上述 Moveo 命令，日志路径改为 `Library/MechMaster/BoltSource/converted/editor-runtime-final.log`。它检查三档 12/23/42 步的绑定、实际射线拾取/拖放、爆炸、存档恢复和任意顺序完整拆装；还检查六主动轴、两被动踝轴、两侧 200 mm 轴距、固定躯干、暂停/调速/循环复位和碰撞恢复，最后切回 Moveo 与自行车检查演示仍可用。退出 Play 后恢复验证前全部模型偏好及进度。成功日志包含三档 `MECH_MASTER_BOLT_MOTION_OK`、`MECH_MASTER_BOLT_TIER_OK` 和最终 `MECH_MASTER_BOLT_RUNTIME_OK`。自动保存的引擎姿态图在忽略的转换缓存 `preview/`，不等同于人工 Game View 全流程验收。
+
+## 演示结束后的点击回归（2026-09-29）
+
+Moveo 与 Bolt 将原 2.00× 的实际节奏重新定义为默认 1.00×；默认一轮分别约 10 秒与 6 秒，可调范围为相对新基准的 0.50×–1.50×。控制器保留源 rig 的 20 / 12 秒时间线，用 `DefaultTimelineRate = 2.0` 定义新基准；`Speed = 100` 表示新基准的 100%，不是只改显示标签或将动作减速。两套专用回归直接断言默认倍率、同一时间内的相位推进不变、暂停与调速连续性，以及 0.50× / 1.50× 的显示和实际相位推进。
+
+`MotionInteractionRegression` 由两套导入验证器调用：每模型每等级检查 6 组结束、暂停后切换、播放中直接切换到单件爆炸，再通过实际指针拾取展开和收回。测试关闭物理自动推进与自动坐标同步，展开后立即点击显示位置，不在两次点击之间替运行时同步，以暴露时序问题。修复后的六档均有 `MECH_MASTER_MOTION_PICKING_OK`；原代码可复现第二次点击不命中、手动同步后命中的失败。
+
+修复是在 `StopMotionInternal` 完成姿态/碰撞恢复与手势取消后，以及 `BeginPointer` 射线拾取前调用 `Physics.SyncTransforms()`，不改项目的全局 `autoSyncTransforms` 设置，也不每帧同步。回归前后拆装进度不变。
+
+本轮在 `Library/MechMaster/MotionValidation-*` 独立临时工程完成，采用单独 company/product 名以隔离测试存档，不关闭原工程 Editor。关键脚本 SHA-256 与工作区一致。速度基准归一化后的日志为 `Library/MechMaster/MotionRegression/normalized-bolt.log` 与 `normalized-moveo.log`：两模型三级完整回归、默认与调速实际相位断言、每档 6 组演示后单件爆炸/再点收回均通过，两个 Editor 进程退出码为 0，.NET 17 项通过。
+
+此前拾取问题的复现与修复日志仍保留在同目录：`baseline-bolt.log`、`fixed-bolt.log`、`fixed-moveo.log`、`fixed-bicycle-smoke.log`。当时修复后两模型三级完整回归及自行车启动/运转烟测退出码均为 0。缓存与日志均不提交。
+
+## Bolt 连续演示回归（2026-09-29）
+
+旧动作逐段使用 `SmoothStep`，每个关键姿态都将全部关节速度降到零；首尾各 15% 的周期还将髋屈伸和膝角度固定为零。现由 `build_bolt_motion_rig.py` 生成 17 个闭合关键帧，左右腿连续交替、髋膝错峰转向；控制器用周期、保形三次 Hermite 插值共用相邻段切线，关键帧与循环接缝的角速度连续，避免整机逐姿态停顿。被动踝直接补偿当前髋膝角度，不独立缓动。默认仍为 1.00× / 约 6 秒一轮，调速范围 0.50×–1.50×，不改变关节轴、源姿态、拆装进度或爆炸拾取修复。
+
+只更新动作时可从已有、未改动的 Source 重建 rig，无需重导 FBX 或 CAD：
+
+```powershell
+& 'C:\Program Files\Blender Foundation\Blender 4.5\blender.exe' `
+  --background --python-exit-code 1 --python Tools/Blender/build_bolt_motion_rig.py
+dotnet run --project Tools/Tests/MechMaster.Domain.Tests.csproj -c Release
+```
+
+`BoltImportValidator` 额外检查关键帧两侧及循环接缝的角速度，密采 512 个相位检查所有角度范围、踝补偿、全部关节确实运动及无整机停顿。每档成功标记为 `MECH_MASTER_BOLT_SMOOTH_OK`。旧版用同一回归实际报 `All active joints stalled at phase 0`，预期退出码为 1；新版本三级完整拆装/运动回归和每档 6 组演示后单件爆炸复测通过，最终退出码为 0。日志为 `Library/MechMaster/MotionRegression/baseline-bolt-smooth.log` 与 `smooth-bolt-final.log`；沿用独立 company/product 测试工程隔离用户存档。.NET 19 项和 Blender 源/LOD/变换验证通过。此处验证动作数值与交互状态，不等同于 Game View 人工观感或微信真机帧率验收。
+
+## 演示退出后的拆装回归（2026-09-29）
+
+用户续报为 Bolt 点击“结束”后再次点“拆装零件”仍只旋转整机。已确认旧代码没有恢复播放前的操作模式，直接继续拖动的回归实际失败；显式调用切换接口在原版可成功拖放，因此不能仅凭该缺陷解释续报。现记录并恢复原操作模式，停止及显式进入拆装都启用当前计划的零件热区并同步物理位置；不修改无关碰撞体、拆装集合或存档。鼠标事件先于 UI 处理，按钮和面板仍被排除。
+
+`MotionInteractionRegression.ValidateDisassembly` 每档执行 6 组停止、暂停、继续、显式/直接进入拆装以及异常禁用热区的故障注入；通过实际射线拾取、跟手拖动、匹配分类区松手，断言镜头不旋转、精确保存零件 ID，再完整拆开/装回并核对源姿态。关闭物理自动同步和模拟，不由测试先同步位置；额外断言无关禁用碰撞体保持禁用。
+
+`ValidateGui` 用引擎原生输入队列跨帧点击播放、结束和拆装按钮，再真实拖入正确分类区；运行时确认事件送达后才推进下一条，避免将 Editor 重绘和游戏帧的时序差异误报为按钮故障。停止后人为关闭零件热区，用于验证再次点击拆装能主动恢复拾取。这是恢复能力测试，不是原用户故障的确定归因。
+
+成功标记为 `MECH_MASTER_MOTION_DISASSEMBLY_OK` 和 `MECH_MASTER_MOTION_GUI_OK`。Bolt 三级及自行车探索档日志为 `Library/MechMaster/MotionRegression/disassembly-bolt-final.log`，Moveo 三级为 `disassembly-moveo-final.log`；两套完整 Editor 回归退出码均为 0，.NET 19 项通过。旧代码未恢复操作模式的失败日志为 `disassembly-bolt-baseline.log`。测试继续使用独立 company/product 工程隔离用户存档。实际用户 Game View 尚需复测；复现时检查 `MECH_MASTER_INTERACTION_MODE` 与 `MECH_MASTER_ORBIT_END` 中的 `view`、`button`、`hits`、`part`、`motion`，区分未切换模式、右键旋转及未拾取零件。
 
 ## 界面文字清晰度
 
@@ -143,6 +189,7 @@ Moveo 专用自动回归在停止 Editor 后运行：
 - 修改脚本前先停止 Play，等待编译完成后重新 Play。当前原型不保证运行时领域对象能跨脚本热重载恢复。
 - 使用“机械大师 → 验证自行车动态演示”可自动检查转轴绑定、约 126 个运转显示链片、播放/暂停/恢复及退出后姿态复原。命令行入口为 `MechMaster.Editor.PrototypeValidator.ValidateMotionFromCommandLine`；自动检查仍需配合实际画面观察。
 - Moveo 动态演示由 `MoveoMotionController` 读取 `Assets/Resources/MechanicalCatalog/MoveoMotionRig.json`；自动回归检查五轴、支承轴、夹爪两套四连杆、暂停 / 调速 / 循环复位、碰撞状态和切换视图。该演示没有刹车热区，也不会在非完整装配时启动。
+- Bolt 动态演示由 `BoltMotionController` 读取 `Assets/Resources/MechanicalCatalog/BoltMotionRig.json`；固定躯干，用周期、保形三次插值展示连续交替屈伸，髋膝错峰转向，被动踝实时补偿。没有虚构的踝电机或自行车刹车热区，不模拟平衡行走、地面接触及电机/皮带传动自转；非完整装配时不能启动。
 - 手机端仍须实机验证双指缩放、触摸取消、前后台切换与窄屏布局；Editor 模拟触摸不等同于微信真机验收。
 
 ## Windows Editor 中文讲解
@@ -172,7 +219,7 @@ Moveo 专用自动回归在停止 Editor 后运行：
 - 峰值内存和模块退出后的回落。
 - 中低端手机帧率、发热与耗电。
 - Draw Call、SetPass、纹理显存和 Shader 变体。
-- 595 个碰撞热区对物理和 GC 的影响。
+- 各模型全量实体的碰撞热区对物理和 GC 的影响（自行车 595、Moveo 366、Bolt 345）。
 - 前后台、来电打断、音频恢复和缓存失败。
 
 微信版本应从“全量 LOD0”切换为“整车 LOD1 + 当前模块 LOD0”。
@@ -183,8 +230,8 @@ Moveo 专用自动回归在停止 Editor 后运行：
 - .NET 测试全部通过。
 - 在可用时完成 Editor 编译和 Play Mode 检查。
 - Editor 运行时验证通过全局/局部爆炸目标数、重复点击收回、自动复位以及拆解进度不变。
-- 自行车三档为 15 / 30 / 45 步，Moveo 为 9 / 20 / 42 步。
-- 每档完整且无重复地覆盖本模型全部实体：自行车 595，Moveo 366。
+- 自行车三档为 15 / 30 / 45 步，Moveo 为 9 / 20 / 42 步，Bolt 为 12 / 23 / 42 步。
+- 每档完整且无重复地覆盖本模型全部实体：自行车 595，Moveo 366，Bolt 345。
 - 文档统计与运行清单一致。
 - 新资料与第三方资产记录来源和许可。
 - 不提交 AppID、密钥、个人账号、`Library`、`Temp`、`obj`、`bin`、`__pycache__` 或 `.blend1`。

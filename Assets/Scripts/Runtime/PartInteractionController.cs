@@ -5,6 +5,9 @@ using MechMaster.Runtime.UI;
 
 namespace MechMaster.Runtime
 {
+    // Handle unconsumed pointer events before PrototypeUI draws its controls.
+    // Toolbar and panel regions are excluded explicitly by IsOverUI.
+    [DefaultExecutionOrder(-50)]
     public sealed class PartInteractionController : MonoBehaviour
     {
         private const float DragThreshold = 18f;
@@ -22,6 +25,7 @@ namespace MechMaster.Runtime
         private bool moved;
         private bool suppressTap;
         private int mouseButton;
+        private int pointerHitCount;
         private int fingerId = -1;
         private int brakePressedFrame;
         private bool pinching;
@@ -34,6 +38,9 @@ namespace MechMaster.Runtime
         public static bool IsDraggingPart { get; private set; }
         public static bool ViewMode { get; private set; } = true;
         public static PartInteractionController Instance { get; private set; }
+#if UNITY_EDITOR
+        public static event Action<Event> EditorMouseEventReceived;
+#endif
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void ResetStatics()
@@ -41,6 +48,9 @@ namespace MechMaster.Runtime
             Instance = null;
             IsDraggingPart = false;
             ViewMode = true;
+#if UNITY_EDITOR
+            EditorMouseEventReceived = null;
+#endif
         }
 
         public void Initialize(Camera targetCamera)
@@ -143,6 +153,9 @@ namespace MechMaster.Runtime
                 || Input.touchCount > 0 || waitForAllTouchesUp) return;
             // Preserve each event's position. Frame polling can see both down/up at
             // the final position of a short drag, especially in a busy Editor.
+#if UNITY_EDITOR
+            EditorMouseEventReceived?.Invoke(Event.current);
+#endif
             HandleMouseEvent(Event.current);
         }
 
@@ -185,12 +198,16 @@ namespace MechMaster.Runtime
             orbitGesture = ViewMode || suppressTap;
             pressPosition = currentPosition = screenPosition;
 
+            // Auto-sync is disabled. Pick the displayed pose after motion
+            // restoration or explosion animation, not the previous physics pose.
+            Physics.SyncTransforms();
             Ray ray = interactionCamera.ScreenPointToRay(screenPosition);
             RaycastHit[] hits = Physics.RaycastAll(
                 ray,
                 100f,
                 Physics.DefaultRaycastLayers,
                 QueryTriggerInteraction.Ignore);
+            pointerHitCount = hits.Length;
             if (hits.Length == 0)
             {
                 orbitGesture = true;
@@ -360,7 +377,10 @@ namespace MechMaster.Runtime
             {
                 string tappedPartId = !moved && !suppressTap && activePart != null ? activePart.PartId : null;
 #if UNITY_EDITOR
-                if (moved) Debug.Log("MECH_MASTER_ORBIT_END angles=" + orbit.Angles);
+                if (moved) Debug.Log("MECH_MASTER_ORBIT_END angles=" + orbit.Angles
+                    + " view=" + ViewMode + " button=" + mouseButton
+                    + " hits=" + pointerHitCount + " part=" + (activePart == null ? "none" : activePart.PartId)
+                    + " motion=" + MechMasterApp.Instance.IsMotionActive);
 #endif
                 CancelGesture();
                 if (tappedPartId != null) MechMasterApp.Instance.SelectPart(tappedPartId);
@@ -430,6 +450,7 @@ namespace MechMaster.Runtime
             fingerId = -1;
             pointerActive = false;
             moved = false;
+            pointerHitCount = 0;
             IsDraggingPart = false;
             hasDragPlane = false;
             PrototypeUI.ClearTrayDragFeedback();

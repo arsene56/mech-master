@@ -161,6 +161,15 @@ namespace MechMaster.Editor
             Require(meshes.All(mesh => Vector3.Distance(mesh.transform.position, positions[mesh.name]) < 1e-5f),
                 "Reassembly changed source positions");
             Debug.Log("MECH_MASTER_MOVEO_TIER_OK level=" + app.Plan.Difficulty + " steps=" + view.Parts.Count);
+            MotionInteractionRegression.ValidateGui(app, FinishTier, error => {
+                Debug.LogException(error);
+                EditorApplication.isPlaying = false;
+            });
+        }
+
+        private static void FinishTier()
+        {
+            var app = MechMasterApp.Instance;
             if (++tier < 3) Later(BeginTier);
             else
             {
@@ -187,10 +196,12 @@ namespace MechMaster.Editor
             MoveoMotionRig rig = JsonUtility.FromJson<MoveoMotionRig>(Resources.Load<TextAsset>(app.Model.motion.rigResourcePath).text);
             MethodInfo advance = typeof(MoveoMotionController).GetMethod("Advance", BindingFlags.NonPublic | BindingFlags.Instance);
             MethodInfo phase = typeof(MoveoMotionController).GetMethod("ApplyPhase", BindingFlags.NonPublic | BindingFlags.Instance);
+            Require(controller.Speed == 100 && app.MotionSpeedLabel == "1.00×", "Arm normalized default speed");
             app.ToggleMotion();
             Require(app.IsMotionPlaying && colliders.All(collider => !collider.enabled), "Motion did not start / disable picking");
             var jaw = meshes.First(mesh => mesh.name.StartsWith("MM_moveo_gripper_left_"));
-            advance.Invoke(controller, new object[] { 4f });
+            advance.Invoke(controller, new object[] { 2f });
+            Require(Mathf.Abs(controller.CyclePhase - .2f) < 1e-5f, "Arm 1x baseline changed the previous 2x pace");
             Require(controller.JointAngles.All(angle => Mathf.Abs(angle) > 1)
                 && Vector3.Distance(jaw.transform.position, start[jaw.name]) > .02f, "Serial joints did not articulate");
             app.ToggleMotion();
@@ -201,14 +212,21 @@ namespace MechMaster.Editor
                 && Vector3.Distance(jaw.transform.position, paused) < 1e-6f, "Paused arm moved");
             app.ToggleMotion();
             app.ChangeMotionSpeed(25);
-            Require(app.MotionSpeedValue == 125, "Arm speed control");
+            Require(app.MotionSpeedValue == 125 && app.MotionSpeedLabel == "1.25×", "Arm speed control");
             advance.Invoke(controller, new object[] { 2f });
-            Require(Mathf.Abs(controller.CyclePhase - pausedPhase - .125f) < 1e-5f, "Speed changed the phase discontinuously");
+            Require(Mathf.Abs(controller.CyclePhase - pausedPhase - .25f) < 1e-5f, "Speed changed the phase discontinuously");
             app.ChangeMotionSpeed(-1000);
-            Require(app.MotionSpeedValue == 50, "Arm minimum speed");
+            Require(app.MotionSpeedValue == 50 && app.MotionSpeedLabel == "0.50×", "Arm minimum speed");
+            float slowPhase = controller.CyclePhase;
+            advance.Invoke(controller, new object[] { 2f });
+            Require(Mathf.Abs(controller.CyclePhase - slowPhase - .1f) < 1e-5f, "Arm half speed is not relative to the new baseline");
             app.ChangeMotionSpeed(1000);
-            Require(app.MotionSpeedValue == 150, "Arm maximum speed");
+            Require(app.MotionSpeedValue == 150 && app.MotionSpeedLabel == "1.50×", "Arm maximum speed");
+            float fastPhase = controller.CyclePhase;
+            advance.Invoke(controller, new object[] { 2f });
+            Require(Mathf.Abs(controller.CyclePhase - fastPhase - .3f) < 1e-5f, "Arm maximum speed is not relative to the new baseline");
             app.ChangeMotionSpeed(-50);
+            Require(app.MotionSpeedValue == 100 && app.MotionSpeedLabel == "1.00×", "Arm baseline speed restore");
 
             string[] shaftPrefixes = { "MM_moveo_smooth_bar_8mm_x_140mm_", "MM_moveo_smooth_bar_8mm_x_121mm_",
                 "MM_moveo_smooth_bar_8mm_x_50mm_", "MM_moveo_barra_llisa_8mm_x_80mm_" };
@@ -271,8 +289,10 @@ namespace MechMaster.Editor
             app.SetInteractionViewMode(false);
             Require(!app.IsMotionActive, "Disassembly view did not end motion");
             app.SetInteractionViewMode(true);
+            MotionInteractionRegression.Validate(app, controller);
+            MotionInteractionRegression.ValidateDisassembly(app, controller);
             Debug.Log("MECH_MASTER_MOVEO_MOTION_OK level=" + app.Plan.Difficulty
-                + " axes=5 fourbars=2 pause,speed,cycle,restore,transitions");
+                + " axes=5 fourbars=2 default=1.00x cycleSeconds=10 pause,speed,cycle,restore,transitions");
         }
 
         private static void CapturePreview(GameObject root, MoveoMotionController controller, MethodInfo phase)

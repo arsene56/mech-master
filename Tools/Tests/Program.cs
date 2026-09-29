@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using MechMaster.Domain;
+using MechMaster.Runtime;
 
 internal static class Program
 {
@@ -25,11 +26,238 @@ internal static class Program
         Run("Discoverable mechanical model manifests", DiscoverableModelManifests);
         Run("Moveo source and complete tier coverage", MoveoSourceAndTierCoverage);
         Run("Moveo articulation rig and closed teaching cycle", MoveoArticulationRig);
+        Run("Bolt STEP identity and complete service-group coverage", BoltSourceAndTierCoverage);
+        Run("Bolt active/passive axes and closed teaching cycle", BoltArticulationRig);
+        Run("Periodic motion curve continuity and bounded interpolation", PeriodicCurveContinuity);
+        Run("Bolt continuous alternating cycle without global holds", BoltContinuousCycle);
 
         Console.WriteLine(failures == 0
             ? "All MechMaster domain tests passed."
             : failures + " test(s) failed.");
         return failures == 0 ? 0 : 1;
+    }
+
+    private static void BoltSourceAndTierCoverage()
+    {
+        using JsonDocument manifest = LoadJson("Assets", "StreamingAssets", "MechanicalCatalog", "bolt_model_manifest.json");
+        JsonElement source = manifest.RootElement;
+        Equal("66af1522b4fba0ec4a1d7790e66f5e4652208d30", source.GetProperty("sourceCommit").GetString());
+        Equal("m", source.GetProperty("units").GetString());
+        Equal(56, source.GetProperty("partTypeCount").GetInt32());
+        Equal(345, source.GetProperty("partObjectCount").GetInt32());
+        Equal(64, source.GetProperty("stepSha256").GetString().Length);
+        var objects = new HashSet<string>(StringComparer.Ordinal);
+        var ids = new HashSet<string>(StringComparer.Ordinal);
+        var paths = new HashSet<string>(StringComparer.Ordinal);
+        var modules = new HashSet<string>(StringComparer.Ordinal);
+        int stators = 0, rotors = 0, belts = 0, ankles = 0, driverBoards = 0;
+        foreach (JsonElement part in source.GetProperty("parts").EnumerateArray())
+        {
+            True(objects.Add(part.GetProperty("object").GetString()));
+            True(ids.Add(part.GetProperty("id").GetString()));
+            True(paths.Add(part.GetProperty("sourceInstancePath").GetString()));
+            modules.Add(part.GetProperty("assemblyId").GetString());
+            True(part.GetProperty("runtimeTriangles").GetInt32() > 0);
+            True(!string.IsNullOrWhiteSpace(part.GetProperty("displayName").GetString()));
+            string name = part.GetProperty("sourceName").GetString();
+            if (name.EndsWith("4004_stator")) stators++;
+            if (name.EndsWith("4004_rotor")) rotors++;
+            if (name.StartsWith("transmission_timing_belt_")) belts++;
+            if (name == "pin_5mm_28mm") ankles++;
+            if (name == "micro_driver_90_deg_hirose") driverBoards++;
+        }
+        Equal(345, objects.Count);
+        Equal(12, modules.Count);
+        Equal(6, stators); Equal(6, rotors); Equal(12, belts); Equal(2, ankles); Equal(3, driverBoards);
+        using JsonDocument catalog = LoadJson("Assets", "Resources", "MechanicalCatalog", "BoltInteractionCatalog.json");
+        int[] expected = { 12, 23, 42 };
+        int level = 0;
+        foreach (JsonElement plan in catalog.RootElement.GetProperty("plans").EnumerateArray())
+        {
+            Equal(expected[level++], plan.GetProperty("steps").GetArrayLength());
+            var bound = new HashSet<string>(StringComparer.Ordinal);
+            var motorGroups = new Dictionary<string, int>(StringComparer.Ordinal);
+            foreach (JsonElement step in plan.GetProperty("steps").EnumerateArray())
+            {
+                foreach (string field in new[] { "simpleSummary", "mechanism", "advancedNote" })
+                {
+                    True(step.GetProperty(field).GetString().Length > 0);
+                    True(step.GetProperty(field).GetString().Length <= 50);
+                }
+                foreach (JsonElement name in step.GetProperty("objectNames").EnumerateArray())
+                    True(bound.Add(name.GetString()));
+                if (step.GetProperty("componentId").GetString() == "motor")
+                {
+                    string group = step.GetProperty("assemblyId").GetString();
+                    motorGroups[group] = step.GetProperty("objectNames").GetArrayLength();
+                }
+            }
+            True(bound.SetEquals(objects));
+            if (plan.GetProperty("difficulty").GetString() == "Advanced")
+            {
+                Equal(6, motorGroups.Count);
+                foreach (int count in motorGroups.Values) True(count > 4);
+            }
+        }
+    }
+
+    private static void BoltArticulationRig()
+    {
+        using JsonDocument document = LoadJson("Assets", "Resources", "MechanicalCatalog", "BoltMotionRig.json");
+        JsonElement rig = document.RootElement;
+        Equal("robot.odri.bolt.6dof.v1", rig.GetProperty("modelId").GetString());
+        Equal(8, rig.GetProperty("joints").GetArrayLength());
+        Equal(345, rig.GetProperty("bindings").GetArrayLength());
+        var ids = new HashSet<string>(StringComparer.Ordinal) { "fixed" };
+        var names = new HashSet<string>(StringComparer.Ordinal);
+        using JsonDocument manifest = LoadJson("Assets", "StreamingAssets", "MechanicalCatalog", "bolt_model_manifest.json");
+        foreach (JsonElement part in manifest.RootElement.GetProperty("parts").EnumerateArray())
+            True(names.Add(part.GetProperty("object").GetString()));
+        int passive = 0;
+        foreach (JsonElement joint in rig.GetProperty("joints").EnumerateArray())
+        {
+            string parent = joint.GetProperty("parentId").GetString();
+            True(string.IsNullOrEmpty(parent) || ids.Contains(parent));
+            True(ids.Add(joint.GetProperty("id").GetString()));
+            True(names.Contains(joint.GetProperty("pivotObject").GetString()));
+            Equal(1, Math.Abs(joint.GetProperty("axisSign").GetInt32()));
+            if (joint.GetProperty("passive").GetBoolean())
+            {
+                passive++;
+                True(names.Contains(joint.GetProperty("axisObject").GetString()));
+                True(parent.EndsWith("_knee"));
+            }
+            else
+            {
+                True(names.Contains(joint.GetProperty("axisStartObject").GetString()));
+                True(names.Contains(joint.GetProperty("axisEndObject").GetString()));
+            }
+        }
+        Equal(2, passive);
+        var bound = new HashSet<string>(StringComparer.Ordinal);
+        foreach (JsonElement binding in rig.GetProperty("bindings").EnumerateArray())
+        {
+            True(bound.Add(binding.GetProperty("objectName").GetString()));
+            True(ids.Contains(binding.GetProperty("jointId").GetString()));
+        }
+        True(bound.SetEquals(names));
+        float phase = -1;
+        JsonElement frames = rig.GetProperty("keyframes");
+        foreach (JsonElement frame in frames.EnumerateArray())
+        {
+            True(frame.GetProperty("phase").GetSingle() > phase);
+            phase = frame.GetProperty("phase").GetSingle();
+            Equal(8, frame.GetProperty("angles").GetArrayLength());
+            int index = 0;
+            foreach (JsonElement joint in rig.GetProperty("joints").EnumerateArray())
+            {
+                float angle = frame.GetProperty("angles")[index++].GetSingle();
+                True(angle >= joint.GetProperty("minimumDegrees").GetSingle());
+                True(angle <= joint.GetProperty("maximumDegrees").GetSingle());
+            }
+        }
+        Equal(0f, frames[0].GetProperty("phase").GetSingle());
+        Equal(1f, phase);
+        for (int index = 0; index < 8; index++)
+        {
+            Equal(0f, frames[0].GetProperty("angles")[index].GetSingle());
+            Equal(0f, frames[frames.GetArrayLength() - 1].GetProperty("angles")[index].GetSingle());
+        }
+        foreach (string side in new[] { "left", "right" })
+        {
+            JsonElement dimensions = rig.GetProperty("dimensions").GetProperty(side);
+            True(Math.Abs(dimensions.GetProperty("upperLegAxisDistanceM").GetDouble() - .2) < .0003);
+            True(Math.Abs(dimensions.GetProperty("lowerLegAxisDistanceM").GetDouble() - .2) < .0003);
+        }
+    }
+
+    private static void PeriodicCurveContinuity()
+    {
+        // Nonuniform phases exercise duration-aware tangents and the seam.
+        float[] phases = { 0, .125f, .5f, .75f, 1 };
+        float[][] values = { new float[] { 0, 0 }, new float[] { 8, -3 },
+            new float[] { 1, 6 }, new float[] { -6, -2 }, new float[] { 0, 0 } };
+        var curve = new PeriodicMotionCurve(phases, values);
+        CheckCurveContinuity(curve, phases, values);
+        var a = new float[2]; var b = new float[2];
+        curve.Evaluate(-.125f, a); curve.Evaluate(.875f, b);
+        for (int channel = 0; channel < 2; channel++) Equal(a[channel], b[channel]);
+        curve.Evaluate(1.125f, a); curve.Evaluate(.125f, b);
+        for (int channel = 0; channel < 2; channel++) Equal(a[channel], b[channel]);
+        curve.Evaluate(.5f - .0001f, a); curve.Evaluate(.5f + .0001f, b);
+        True(Math.Abs((b[0] - a[0]) / .0002f) > 5);
+    }
+
+    private static void CheckCurveContinuity(PeriodicMotionCurve curve, float[] phases, float[][] values)
+    {
+        int channels = values[0].Length;
+        var before = new float[channels]; var at = new float[channels]; var after = new float[channels];
+        const float epsilon = .0001f;
+        for (int frame = 0; frame < phases.Length; frame++)
+        {
+            float phase = phases[frame];
+            curve.Evaluate(phase - epsilon, before); curve.Evaluate(phase, at); curve.Evaluate(phase + epsilon, after);
+            for (int channel = 0; channel < channels; channel++)
+            {
+                True(Math.Abs(at[channel] - values[frame][channel]) < 1e-5f);
+                float incoming = (at[channel] - before[channel]) / epsilon;
+                float outgoing = (after[channel] - at[channel]) / epsilon;
+                True(Math.Abs(incoming - outgoing) < .5f);
+            }
+            if (frame == 0) continue;
+            for (int sample = 0; sample <= 80; sample++)
+            {
+                curve.Evaluate(phases[frame - 1] + (phase - phases[frame - 1]) * sample / 80f, at);
+                for (int channel = 0; channel < channels; channel++)
+                {
+                    True(at[channel] >= Math.Min(values[frame - 1][channel], values[frame][channel]) - 1e-5f);
+                    True(at[channel] <= Math.Max(values[frame - 1][channel], values[frame][channel]) + 1e-5f);
+                }
+            }
+        }
+    }
+
+    private static void BoltContinuousCycle()
+    {
+        using JsonDocument document = LoadJson("Assets", "Resources", "MechanicalCatalog", "BoltMotionRig.json");
+        JsonElement rig = document.RootElement, frames = rig.GetProperty("keyframes"), joints = rig.GetProperty("joints");
+        Equal(12f, rig.GetProperty("cycleSeconds").GetSingle());
+        Equal(17, frames.GetArrayLength());
+        var phases = new float[frames.GetArrayLength()]; var values = new float[phases.Length][];
+        for (int frame = 0; frame < phases.Length; frame++)
+        {
+            phases[frame] = frames[frame].GetProperty("phase").GetSingle();
+            values[frame] = new float[8];
+            for (int channel = 0; channel < 8; channel++)
+                values[frame][channel] = frames[frame].GetProperty("angles")[channel].GetSingle();
+            for (int side = 0; side < 8; side += 4)
+                True(Math.Abs(values[frame][side + 1] + values[frame][side + 2] + values[frame][side + 3]) < 1e-5f);
+        }
+        var curve = new PeriodicMotionCurve(phases, values);
+        CheckCurveContinuity(curve, phases, values);
+        var at = new float[8]; var before = new float[8]; var after = new float[8]; var opposite = new float[8];
+        for (int sample = 0; sample < 512; sample++)
+        {
+            float phase = sample / 512f;
+            curve.Evaluate(phase, at); curve.Evaluate(phase - .0001f, before); curve.Evaluate(phase + .0001f, after);
+            curve.Evaluate(phase + .5f, opposite);
+            double activeRateSquared = 0;
+            for (int channel = 0; channel < 8; channel++)
+            {
+                True(float.IsFinite(at[channel]));
+                True(at[channel] >= joints[channel].GetProperty("minimumDegrees").GetSingle());
+                True(at[channel] <= joints[channel].GetProperty("maximumDegrees").GetSingle());
+                if (channel < 4) True(Math.Abs(at[channel] - opposite[channel + 4]) < .001f);
+                if (joints[channel].GetProperty("passive").GetBoolean()) continue;
+                double rate = (after[channel] - before[channel]) / .0002f;
+                activeRateSquared += rate * rate;
+            }
+            // A true turnaround in one joint is fine; the entire robot must
+            // not stop at a pose or at the repeating cycle boundary.
+            True(Math.Sqrt(activeRateSquared) > 15);
+        }
+        curve.Evaluate(.05f, at);
+        True(Math.Abs(at[1]) > 1 && Math.Abs(at[2]) > 1 && Math.Abs(at[5]) > 1 && Math.Abs(at[6]) > 1);
     }
 
     private static void DifficultyStepCounts()

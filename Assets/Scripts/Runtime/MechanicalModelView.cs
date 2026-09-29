@@ -179,6 +179,18 @@ namespace MechMaster.Runtime
             }
         }
 
+        public void RestorePartHitTargets()
+        {
+            // Disabling these targets is temporary and belongs to motion only.
+            // Returning to interaction must not depend on a stale disabled
+            // snapshot. Leave unrelated colliders (trays, helpers, etc.) alone.
+            foreach (Collider target in GetComponentsInChildren<Collider>(true))
+            {
+                MechanicalPartView owner = target.GetComponent<MechanicalPartHitProxy>()?.Owner;
+                if (owner != null && FindPart(owner.PartId) == owner) target.enabled = true;
+            }
+        }
+
         public MechanicalPartView FindPart(string partId)
         {
             MechanicalPartView view;

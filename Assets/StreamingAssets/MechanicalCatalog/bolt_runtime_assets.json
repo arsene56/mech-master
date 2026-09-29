@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "modelId": "robot.odri.bolt.6dof.v1",
+  "sourceTriangles": 2553404,
+  "modules": [
+    {
+      "assemblyId": "body_frame",
+      "resourcePath": "Models/Bolt/Modules/body_frame_LOD0",
+      "partObjects": 34,
+      "triangles": 63746,
+      "bytes": 1622332
+    },
+    {
+      "assemblyId": "electronics",
+      "resourcePath": "Models/Bolt/Modules/electronics_LOD0",
+      "partObjects": 25,
+      "triangles": 20152,
+      "bytes": 495004
+    },
+    {
+      "assemblyId": "left_hip_aa",
+      "resourcePath": "Models/Bolt/Modules/left_hip_aa_LOD0",
+      "partObjects": 48,
+      "triangles": 44838,
+      "bytes": 1257596
+    },
+    {
+      "assemblyId": "left_hip_fe",
+      "resourcePath": "Models/Bolt/Modules/left_hip_fe_LOD0",
+      "partObjects": 41,
+      "triangles": 42388,
+      "bytes": 1167916
+    },
+    {
+      "assemblyId": "left_thigh",
+      "resourcePath": "Models/Bolt/Modules/left_thigh_LOD0",
+      "partObjects": 43,
+      "triangles": 43088,
+      "bytes": 1194156
+    },
+    {
+      "assemblyId": "left_shin",
+      "resourcePath": "Models/Bolt/Modules/left_shin_LOD0",
+      "partObjects": 8,
+      "triangles": 9172,
+      "bytes": 264716
+    },
+    {
+      "assemblyId": "left_foot",
+      "resourcePath": "Models/Bolt/Modules/left_foot_LOD0",
+      "partObjects": 3,
+      "triangles": 18180,
+      "bytes": 391196
+    },
+    {
+      "assemblyId": "right_hip_aa",
+      "resourcePath": "Models/Bolt/Modules/right_hip_aa_LOD0",
+      "partObjects": 48,
+      "triangles": 44838,
+      "bytes": 1257612
+    },
+    {
+      "assemblyId": "right_hip_fe",
+      "resourcePath": "Models/Bolt/Modules/right_hip_fe_LOD0",
+      "partObjects": 41,
+      "triangles": 42388,
+      "bytes": 1167564
+    },
+    {
+      "assemblyId": "right_thigh",
+      "resourcePath": "Models/Bolt/Modules/right_thigh_LOD0",
+      "partObjects": 43,
+      "triangles": 43088,
+      "bytes": 1193708
+    },
+    {
+      "assemblyId": "right_shin",
+      "resourcePath": "Models/Bolt/Modules/right_shin_LOD0",
+      "partObjects": 8,
+      "triangles": 9172,
+      "bytes": 264972
+    },
+    {
+      "assemblyId": "right_foot",
+      "resourcePath": "Models/Bolt/Modules/right_foot_LOD0",
+      "partObjects": 3,
+      "triangles": 18180,
+      "bytes": 391196
+    }
+  ],
+  "interactionSteps": {
+    "Simple": 12,
+    "Standard": 23,
+    "Advanced": 42
+  },
+  "lod1Triangles": 219566,
+  "lod2Triangles": 22000
+}

@@ -56,6 +56,9 @@ namespace MechMaster.Runtime
     // reparenting them. Each frame starts from the original pose, avoiding drift.
     public sealed class MoveoMotionController : MonoBehaviour, IMechanicalMotionController
     {
+        // User-facing 1x advances the authored rig timeline at twice its rate.
+        private const double DefaultTimelineRate = 2.0;
+
         private sealed class Pose
         {
             public Transform Transform;
@@ -301,7 +304,7 @@ namespace MechMaster.Runtime
         private void Advance(float deltaTime)
         {
             if (!IsPlaying || deltaTime <= 0) return;
-            elapsed = (elapsed + deltaTime * Speed / 100.0) % rig.cycleSeconds;
+            elapsed = (elapsed + deltaTime * DefaultTimelineRate * Speed / 100.0) % rig.cycleSeconds;
             ApplyPhase(CyclePhase);
         }
 
