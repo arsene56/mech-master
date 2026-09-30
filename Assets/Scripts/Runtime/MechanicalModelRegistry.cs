@@ -29,6 +29,7 @@ namespace MechMaster.Runtime
         public string id;
         public string displayName;
         public int displayOrder;
+        public float initialViewYawOffset;
         public string catalogResourcePath;
         public string[] moduleResourcePaths;
         public MechanicalAssemblyDefinition[] assemblies;
@@ -129,7 +130,7 @@ namespace MechMaster.Runtime
                     && (model.motion.frontTeeth <= 0 || model.motion.rearTeeth <= 0
                         || model.motion.chainLinks <= 0)
                     || (model.motion.kind == "moveo-articulation-v1" || model.motion.kind == "bolt-articulation-v1"
-                        || model.motion.kind == "opentorque-planetary-v1")
+                        || model.motion.kind == "opentorque-planetary-v1" || model.motion.kind == "carbon-suspension-v1")
                     && string.IsNullOrWhiteSpace(model.motion.rigResourcePath)))
             {
                 throw new InvalidOperationException("机械模型清单包含空值或重复项：" + assetName);

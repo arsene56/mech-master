@@ -1,0 +1,9 @@
+Carbon Frame Bike — Robert Schweier (RobertS Bikes)
+Realtime version and animation: Felix Herbst / prefrontal cortex; additional support: Needle
+Source: https://github.com/prefrontalcortex/glTF-Sample-Models/tree/93c72b11cf78dd6a3cd50b875d752cd7e6dd4ab2/2.0/CarbonFrameBike
+Creative Commons Attribution-ShareAlike 4.0 International: https://creativecommons.org/licenses/by-sa/4.0/
+
+Mech.Master modifications (2026-09-29): baked authored closed pose and skinned hoses, retained metre geometry and node identity, removed separate visible mark meshes and authored image maps, replaced display materials, Chinese service groups, runtime LODs and source-axis suspension demonstration. These adapted model assets and previews are CC BY-SA 4.0.
+No endorsement is implied. This notice does not relicense independent application code or other models.
+Known upstream branding review: https://github.com/KhronosGroup/glTF-Sample-Assets/issues/83
+Removed visible marks do not represent a resolution of that upstream issue or a separate trademark grant.

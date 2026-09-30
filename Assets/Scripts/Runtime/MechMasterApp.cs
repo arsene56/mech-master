@@ -19,9 +19,12 @@ namespace MechMaster.Runtime
         private GameObject modelInstance;
         private MechanicalModelView modelView;
         private IMechanicalMotionController motion;
+        private bool preserveUnavailableModelSelection;
         private bool interactionViewModeBeforeMotion = true;
         private FeedbackAudio feedbackAudio;
         private VoiceNarrator narrator;
+        private Light workshopKeyLight;
+        private Light workshopFillLight;
 
         public static MechMasterApp Instance { get; private set; }
 
@@ -45,19 +48,23 @@ namespace MechMaster.Runtime
         public int MotionCadenceRpm => (motion as BicycleMotionController)?.CadenceRpm ?? 60;
         public int MotionSpeedValue => motion == null ? 60 : motion.Speed;
         private bool UsesMultiplierSpeed => motion is MoveoMotionController || motion is BoltMotionController
-            || motion is OpenTorqueMotionController;
+            || motion is OpenTorqueMotionController || motion is CarbonFrameBikeMotionController;
         public int MotionSpeedStep => UsesMultiplierSpeed ? 25 : 15;
         public string MotionSpeedLabel => UsesMultiplierSpeed
             ? (MotionSpeedValue / 100f).ToString("0.00") + "×"
             : MotionSpeedValue + " 转/分";
-        public string MotionGuide => motion is OpenTorqueMotionController
+        public string MotionGuide => motion is CarbonFrameBikeMotionController
+            ? "前后悬架联动 · 链条与管线暂隐 · 拖动旋转"
+            : motion is OpenTorqueMotionController
             ? "8∶1 减速 · 透明观察 · 拖动旋转"
             : motion is BoltMotionController
             ? "双腿屈伸 · 被动踝随动 · 拖动旋转"
             : motion is MoveoMotionController
             ? "关节联动 · 夹爪开合 · 拖动旋转"
             : "按住刹把制动 · 空白处拖动旋转";
-        public string MotionHint => motion is OpenTorqueMotionController
+        public string MotionHint => motion is CarbonFrameBikeMotionController
+            ? "固定车架展示压缩回弹，后避震器两端随真实安装点联动"
+            : motion is OpenTorqueMotionController
             ? "齿圈固定，太阳轮输入，行星架以八分之一转速输出"
             : motion is BoltMotionController
             ? "六个主动关节联动，固定躯干展示双腿屈伸"
@@ -106,7 +113,31 @@ namespace MechMaster.Runtime
             interaction.Initialize(sceneCamera);
             gameObject.AddComponent<PrototypeUI>();
             Model = MechanicalModelRegistry.FindOrDefault(LocalProgressStore.LoadModelId());
+            string startupWarning = null;
+            if (!TryLoadModulePrefabs(Model, out _, out string missingAtStartup))
+            {
+                MechanicalModelDefinition unavailable = Model;
+                foreach (MechanicalModelDefinition candidate in MechanicalModelRegistry.Models)
+                {
+                    if (!TryLoadModulePrefabs(candidate, out _, out _)) continue;
+                    Model = candidate;
+                    break;
+                }
+                if (Model != unavailable)
+                {
+                    preserveUnavailableModelSelection = true;
+                    startupWarning = "已保存模型缺少模块 " + missingAtStartup
+                        + "，本次临时显示“" + Model.displayName
+                        + "”。请在编辑器执行“机械大师/修复缺失的模型导入”。";
+                    Debug.LogWarning(startupWarning);
+                }
+            }
             CreatePlan(LocalProgressStore.LoadDifficulty(), true);
+            if (startupWarning != null)
+            {
+                StatusMessage = startupWarning;
+                NotifyStateChanged();
+            }
             Debug.Log(
                 "MECH_MASTER_RENDER_INFO screen=" + Screen.width + "x" + Screen.height
                 + ", current=" + Screen.currentResolution.width + "x"
@@ -135,9 +166,19 @@ namespace MechMaster.Runtime
             if (next == null || next == Model)
                 return;
 
+            if (!TryLoadModulePrefabs(next, out _, out string missingResourcePath))
+            {
+                StatusMessage = "暂时无法打开“" + next.displayName + "”：缺少模型模块 "
+                    + missingResourcePath + "。请在编辑器执行“机械大师/修复缺失的模型导入”。";
+                Debug.LogError(StatusMessage);
+                NotifyStateChanged();
+                return;
+            }
+
             PartInteractionController.Instance?.CancelGesture();
             StopMotionInternal();
             narrator.Stop();
+            preserveUnavailableModelSelection = false;
             Model = next;
             PrototypeUI.ResetTrayPage();
             CreatePlan(Plan.Difficulty, true);
@@ -537,6 +578,14 @@ namespace MechMaster.Runtime
 
         private void LoadModel()
         {
+            if (!TryLoadModulePrefabs(Model, out GameObject[] prefabs,
+                out string missingResourcePath))
+            {
+                StatusMessage = "未找到“" + Model.displayName + "”模型模块：" + missingResourcePath;
+                Debug.LogError(StatusMessage);
+                return;
+            }
+
             motion = null;
             if (modelInstance != null)
             {
@@ -545,18 +594,8 @@ namespace MechMaster.Runtime
 
             modelView = null;
             modelInstance = new GameObject("MechanicalModel_" + Model.id);
-            foreach (string resourcePath in Model.moduleResourcePaths)
+            foreach (GameObject prefab in prefabs)
             {
-                GameObject prefab = Resources.Load<GameObject>(resourcePath);
-                if (prefab == null)
-                {
-                    StatusMessage = "未找到“" + Model.displayName + "”模型模块：" + resourcePath;
-                    Debug.LogError(StatusMessage);
-                    Destroy(modelInstance);
-                    modelInstance = null;
-                    return;
-                }
-
                 GameObject module = Instantiate(prefab, modelInstance.transform, false);
                 module.name = prefab.name;
             }
@@ -620,8 +659,20 @@ namespace MechMaster.Runtime
                 if (candidate.Initialize(Model.motion.rigResourcePath, Model.id)) motion = candidate;
                 else Destroy(candidate);
             }
+            if (Model.motion != null && Model.motion.kind == "carbon-suspension-v1")
+            {
+                CarbonFrameBikeMotionController candidate = modelInstance.AddComponent<CarbonFrameBikeMotionController>();
+                if (candidate.Initialize(Model.motion.rigResourcePath, Model.id))
+                {
+                    motion = candidate;
+                    framingPoints.AddRange(candidate.GetFramingPoints());
+                }
+                else Destroy(candidate);
+            }
             // Capture assembled motion poses before restoring any saved removals.
             modelView.Refresh(Plan, true);
+
+            ApplyModelLighting();
 
             OrbitCameraController orbit = Camera.main.GetComponent<OrbitCameraController>();
             if (orbit != null)
@@ -629,9 +680,32 @@ namespace MechMaster.Runtime
                 Transform target = new GameObject("CameraTarget").transform;
                 target.SetParent(modelInstance.transform, false);
                 target.position = modelBounds.center;
-                orbit.Initialize(target, modelBounds, framingPoints.ToArray());
+                orbit.Initialize(target, modelBounds, framingPoints.ToArray(),
+                    Model.initialViewYawOffset);
                 if (Plan.Mode == AssemblyMode.Assemble) FrameStorage();
+#if UNITY_EDITOR
+                Debug.Log("MECH_MASTER_MODEL_CAMERA model=" + Model.id
+                    + " yawOffset=" + Model.initialViewYawOffset
+                    + " yaw=" + orbit.Angles.x
+                    + " cameraYaw=" + Camera.main.transform.eulerAngles.y);
+#endif
             }
+        }
+
+        private static bool TryLoadModulePrefabs(MechanicalModelDefinition model,
+            out GameObject[] prefabs, out string missingResourcePath)
+        {
+            prefabs = new GameObject[model.moduleResourcePaths.Length];
+            for (int i = 0; i < prefabs.Length; i++)
+            {
+                string path = model.moduleResourcePaths[i];
+                prefabs[i] = Resources.Load<GameObject>(path);
+                if (prefabs[i] != null) continue;
+                missingResourcePath = path;
+                return false;
+            }
+            missingResourcePath = null;
+            return true;
         }
 
         private Camera EnsureSceneEnvironment()
@@ -674,13 +748,27 @@ namespace MechMaster.Runtime
                 fillObject.transform.rotation = Quaternion.Euler(25f, 145f, 0f);
             }
 
+            workshopKeyLight = GameObject.Find("Key Light")?.GetComponent<Light>();
+            workshopFillLight = GameObject.Find("Fill Light")?.GetComponent<Light>();
             RenderSettings.ambientLight = new Color(0.24f, 0.28f, 0.34f);
             return sceneCamera;
         }
 
+        private void ApplyModelLighting()
+        {
+            // The assembled camera is model-specific; keep the same key/fill
+            // relationship to its initial view without rotating the meshes.
+            float yawOffset = Model.initialViewYawOffset;
+            if (workshopKeyLight != null)
+                workshopKeyLight.transform.rotation = Quaternion.Euler(42f, -34f + yawOffset, 0f);
+            if (workshopFillLight != null)
+                workshopFillLight.transform.rotation = Quaternion.Euler(25f, 145f + yawOffset, 0f);
+        }
+
         private void SaveAndNotify()
         {
-            LocalProgressStore.Save(Model.id, Plan, NarrationEnabled);
+            LocalProgressStore.Save(Model.id, Plan, NarrationEnabled,
+                !preserveUnavailableModelSelection);
             NotifyStateChanged();
         }
 
@@ -701,7 +789,8 @@ namespace MechMaster.Runtime
             bool arm = motion is MoveoMotionController;
             bool biped = motion is BoltMotionController;
             bool gearbox = motion is OpenTorqueMotionController;
-            string demoName = gearbox ? "行星减速演示" : biped ? "双足机器人关节演示" : arm ? "机械臂关节演示" : "原地踩踏演示";
+            bool suspension = motion is CarbonFrameBikeMotionController;
+            string demoName = suspension ? "软尾悬架演示" : gearbox ? "行星减速演示" : biped ? "双足机器人关节演示" : arm ? "机械臂关节演示" : "原地踩踏演示";
             if (motion.IsPlaying)
             {
                 motion.Pause();
@@ -728,14 +817,18 @@ namespace MechMaster.Runtime
                 interactionViewModeBeforeMotion = PartInteractionController.ViewMode;
                 PartInteractionController.SetViewMode(true);
                 motion.Play();
-                StatusMessage = gearbox
+                StatusMessage = suspension
+                    ? "前后悬架平顺压缩回弹；暂隐链条和管线以观察结构，结束后完整恢复。"
+                    : gearbox
                     ? "齿圈固定，太阳轮驱动行星轮，行星架以八分之一转速输出；透明支承件仅供观察。"
                     : biped
                     ? "固定躯干展示双腿屈伸与被动踝随动，可暂停、调速或结束。"
                     : arm
                     ? "机械臂关节与夹爪循环演示中，可暂停、调速或结束。"
                     : "原地踩踏：左刹控制后轮，右刹控制前轮；按住刹把可制动。";
-                SpeakNarration(gearbox
+                SpeakNarration(suspension
+                    ? "前叉滑动、后摇臂绕转点摆动，后避震器压缩回弹。链条和管线暂隐，不模拟骑行受力。"
+                    : gearbox
                     ? "太阳轮带动行星轮自转和公转，行星架慢速输出。透明壳体便于观察，不改变拆装进度。"
                     : biped
                     ? "六个主动关节驱动双腿屈伸，踝部被动随动；这是固定躯干的教学演示。"
@@ -754,7 +847,8 @@ namespace MechMaster.Runtime
             bool biped = motion is BoltMotionController;
             bool gearbox = motion is OpenTorqueMotionController;
             StopMotionInternal();
-            StatusMessage = gearbox ? "行星减速演示已结束，源装配姿态和不透明材质已恢复。"
+            StatusMessage = motion is CarbonFrameBikeMotionController ? "软尾悬架演示已结束，整车姿态、链条、管线和拆装热区已恢复。"
+                : gearbox ? "行星减速演示已结束，源装配姿态和不透明材质已恢复。"
                 : biped ? "双足机器人关节演示已结束，整机恢复原始姿态。"
                 : arm ? "机械臂关节演示已结束，整机恢复原始姿态。"
                 : "原地踩踏演示已结束，整车恢复静止姿态。";

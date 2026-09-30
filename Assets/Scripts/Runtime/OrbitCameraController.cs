@@ -16,6 +16,7 @@ namespace MechMaster.Runtime
         private Rect lastArea;
         private Vector2Int lastSize;
         private float yaw = -22f;
+        private float defaultYaw = -22f;
         private float pitch = 14f;
         private float zoom = 1f;
         private Vector2 framingOffset;
@@ -44,11 +45,13 @@ namespace MechMaster.Runtime
             ApplyTransform();
         }
 
-        public void Initialize(Transform orbitTarget, Bounds modelBounds, Vector3[] points)
+        public void Initialize(Transform orbitTarget, Bounds modelBounds, Vector3[] points,
+            float initialYawOffset = 0f)
         {
             target = orbitTarget;
             assembledBounds = modelBounds;
             framingPoints = points;
+            defaultYaw = -22f + initialYawOffset;
             sceneCamera = GetComponent<Camera>();
             float modelSize = Mathf.Max(modelBounds.size.x, modelBounds.size.y, modelBounds.size.z);
             sceneCamera.nearClipPlane = Mathf.Clamp(modelSize * 0.001f, 0.0001f, 0.1f);
@@ -77,7 +80,7 @@ namespace MechMaster.Runtime
         {
             activeFramingPoints = framingPoints;
             if (target != null) target.position = assembledBounds.center;
-            yaw = -22f;
+            yaw = defaultYaw;
             pitch = 14f;
             zoom = 1f;
             framingOffset = Vector2.left * (2f * PanStep);
@@ -93,7 +96,7 @@ namespace MechMaster.Runtime
             foreach (Vector3 point in points) bounds.Encapsulate(point);
             target.position = bounds.center;
             activeFramingPoints = points;
-            yaw = viewAngles?.x ?? -22f;
+            yaw = viewAngles?.x ?? defaultYaw;
             pitch = viewAngles?.y ?? 24f;
             zoom = 1f;
             framingOffset = Vector2.zero;

@@ -1,0 +1,1251 @@
+{
+  "schemaVersion": 1,
+  "modelId": "bike.carbon.full-suspension.v1",
+  "cycleSeconds": 4,
+  "rearMaximumDegrees": 8,
+  "forkCompressionM": 0.045,
+  "shockEyeDistanceM": 0.20003045027709013,
+  "rearPivotAnchor": "MM_carbon_rig_rearPivotAnchor",
+  "rearAxisAnchor": "MM_carbon_rig_rearAxisAnchor",
+  "rearWheelAnchor": "MM_carbon_rig_rearWheelAnchor",
+  "shockUpperAnchor": "MM_carbon_rig_shockUpperAnchor",
+  "shockLowerAnchor": "MM_carbon_rig_shockLowerAnchor",
+  "forkAxisStartAnchor": "MM_carbon_rig_forkAxisStartAnchor",
+  "forkAxisEndAnchor": "MM_carbon_rig_forkAxisEndAnchor",
+  "bindings": [
+    {
+      "objectName": "MM_carbon_n0009_rotor",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0011_rotor",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0013_rotor",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0015_rotor",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0017_rotor",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0019_rotor",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0021_rotor",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0023_rotor",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0026_rim",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0029_hub",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0031_hub",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0034_cassette",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0036_cassette",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0038_cassette",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0040_cassette",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0042_cassette",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0044_cassette",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0046_cassette",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0048_cassette",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0050_cassette",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0052_cassette",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0054_cassette",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0056_cassette",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0059_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0061_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0063_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0065_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0067_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0069_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0071_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0073_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0075_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0077_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0079_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0081_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0083_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0085_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0087_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0089_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0091_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0093_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0095_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0097_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0099_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0101_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0103_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0105_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0107_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0109_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0111_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0113_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0115_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0117_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0119_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0121_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0123_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0125_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0127_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0129_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0131_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0133_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0135_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0137_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0139_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0141_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0143_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0145_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0147_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0149_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0151_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0153_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0155_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0157_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0159_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0161_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0163_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0165_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0167_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0169_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0171_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0173_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0175_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0177_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0179_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0181_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0183_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0185_spokes",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0188_tire",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0192_pivot_axle",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0194_pivot_axle",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0196_pivot_axle",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0200_arm_fasteners",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0203_arm_fasteners",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0206_caliper",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0208_caliper",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0210_caliper",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0212_caliper",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0215_dropouts",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0218_dropouts",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0220_left_arm",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0224_arm_fasteners",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0227_arm_fasteners",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0230_dropouts",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0233_dropouts",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0250_right_arm",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0254_shock",
+      "role": "shock_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0255_shock",
+      "role": "shock_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0257_shock",
+      "role": "shock_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0259_shock",
+      "role": "shock_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0261_shock",
+      "role": "shock_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0263_shock",
+      "role": "shock_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0265_shock",
+      "role": "shock_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0266_shock",
+      "role": "shock_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0267_bridge",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0269_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0270_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0271_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0272_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0273_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0274_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0275_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0276_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0277_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0278_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0279_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0280_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0281_derailleur",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0284_return_mount",
+      "role": "rear"
+    },
+    {
+      "objectName": "MM_carbon_n0290_caliper",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0292_caliper",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0294_caliper",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0296_caliper",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0297_lower",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0302_rotor",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0304_rotor",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0306_rotor",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0308_rotor",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0310_rotor",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0312_rotor",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0314_rotor",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0316_rotor",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0319_rim",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0322_tire",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0325_hub",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0327_hub",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0330_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0332_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0334_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0336_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0338_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0340_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0342_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0344_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0346_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0348_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0350_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0352_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0354_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0356_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0358_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0360_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0362_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0364_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0366_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0368_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0370_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0372_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0374_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0376_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0378_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0380_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0382_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0384_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0386_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0388_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0390_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0392_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0394_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0396_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0398_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0400_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0402_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0404_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0406_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0408_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0410_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0412_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0414_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0416_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0418_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0420_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0422_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0424_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0426_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0428_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0430_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0432_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0434_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0436_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0438_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0440_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0442_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0444_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0446_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0448_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0450_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0452_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0454_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0456_spokes",
+      "role": "front_lower"
+    },
+    {
+      "objectName": "MM_carbon_n0460_brake_control_1",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0461_front_lines",
+      "role": "hidden"
+    },
+    {
+      "objectName": "MM_carbon_n0463_brake_control_1",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0466_brake_control_2",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0467_front_lines",
+      "role": "hidden"
+    },
+    {
+      "objectName": "MM_carbon_n0469_brake_control_2",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0472_upper",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0474_upper",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0476_upper",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0478_upper",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0481_bar",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0484_left_grip",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0486_left_grip",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0488_left_grip",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0490_left_grip",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0495_right_grip",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0497_right_grip",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0499_right_grip",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0501_right_grip",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0505_stem",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0508_shock",
+      "role": "shock_upper"
+    },
+    {
+      "objectName": "MM_carbon_n0510_shock",
+      "role": "shock_upper"
+    },
+    {
+      "objectName": "MM_carbon_n0512_shock",
+      "role": "shock_upper"
+    },
+    {
+      "objectName": "MM_carbon_n0515_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0517_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0519_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0522_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0524_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0526_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0529_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0531_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0533_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0536_pivot_bearing",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0538_pivot_bearing",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0540_pivot_bearing",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0542_pivot_bearing",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0544_pivot_bearing",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0546_pivot_bearing",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0548_pivot_bearing",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0550_pivot_bearing",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0552_pivot_bearing",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0555_pivot_hardware",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0556_pivot_hardware",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0559_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0562_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0565_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0568_bumpers",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0572_chainring",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0575_left_crank",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0576_left_crank",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0579_left_pedal",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0581_left_pedal",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0584_right_crank",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0586_right_crank",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0589_right_pedal",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0591_right_pedal",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0594_chain",
+      "role": "hidden"
+    },
+    {
+      "objectName": "MM_carbon_n0597_shock",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0599_shock",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0602_pivot_hardware",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0657_main_frame",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0670_drive_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0674_drive_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0676_drive_cage",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0680_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0682_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0684_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0686_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0688_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0690_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0692_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0694_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0696_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0699_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0701_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0703_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0705_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0707_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0709_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0711_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0713_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0715_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0717_return_idler",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0720_return_mount",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0723_protector",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0727_headset_upper",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0730_headset_lower",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0732_headset_lower",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0735_post_lower",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0739_saddle",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0740_saddle",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0742_saddle",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0744_saddle",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0745_post_upper",
+      "role": "fixed"
+    },
+    {
+      "objectName": "MM_carbon_n0746_front_lines",
+      "role": "hidden"
+    },
+    {
+      "objectName": "MM_carbon_n0747_front_lines",
+      "role": "hidden"
+    },
+    {
+      "objectName": "MM_carbon_n0748_rear_lines",
+      "role": "hidden"
+    },
+    {
+      "objectName": "MM_carbon_n0749_rear_lines",
+      "role": "hidden"
+    }
+  ],
+  "limitations": [
+    "Prescribed fixed-frame suspension kinematics, not riding/contact/force simulation.",
+    "Shock slide is solved from the moving lower mount and fixed upper mount; no damping or pressure simulation.",
+    "Chain and flexible lines are hidden only during this viewing mode; no invented chain or hose deformation.",
+    "Original steering angle and asymmetric wheel geometry are retained; no hardtail drivetrain assumptions."
+  ]
+}

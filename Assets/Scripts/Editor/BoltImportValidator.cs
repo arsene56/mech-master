@@ -106,6 +106,15 @@ namespace MechMaster.Editor
             var meshes = root.GetComponentsInChildren<MeshFilter>().Where(mesh => mesh.name.StartsWith("MM_bolt_", StringComparison.Ordinal)).ToArray();
             Require(meshes.Length == 345 && meshes.Select(mesh => mesh.name).Distinct().Count() == 345, "Lost or duplicated FBX nodes");
             Require(meshes.All(mesh => mesh.sharedMesh.vertexCount > 0 && mesh.GetComponent<Renderer>().sharedMaterials.All(material => material != null)), "Missing geometry / material");
+            var materials = meshes.SelectMany(mesh => mesh.GetComponent<Renderer>().sharedMaterials).ToArray();
+            Require(materials.Any(material => material.name == "Bolt printed transmission" && material.color.b < .45f)
+                && materials.Any(material => material.name == "Bolt control PCB" && material.color.g > material.color.r)
+                && materials.Any(material => material.name == "Bolt motor stator" && material.color.r > material.color.b),
+                "Bolt authored material palette missing");
+            Require(Mathf.Abs(Camera.main.GetComponent<OrbitCameraController>().Angles.x - 33f) < .01f,
+                "Bolt initial view should show the colored drivetrain side");
+            Require(Mathf.Abs(Mathf.DeltaAngle(GameObject.Find("Key Light").transform.eulerAngles.y, 21f)) < .01f,
+                "Bolt key light did not follow the initial view");
             Require(app.MotionAvailable && !app.MotionGuide.Contains("刹") && app.MotionSpeedLabel.Contains("×"), "Bolt motion controls");
             var start = meshes.ToDictionary(mesh => mesh.name, mesh => mesh.transform.position);
             ValidateMotion(app, root, meshes);
@@ -113,6 +122,7 @@ namespace MechMaster.Editor
             Require(view.ExplosionTargetCount == app.Plan.Steps.Count && app.Plan.RemovedCount == 0, "Explosion changed progress");
             app.FrameWholeModel();
             Require(view.ExplosionTargetCount == 0, "Explosion did not reset");
+            if (tier == 0) CaptureDefaultView();
             MotionInteractionRegression.ValidateGui(app, () => FinishValidatedTier(start), error => {
                 Debug.LogException(error);
                 EditorApplication.isPlaying = false;
@@ -170,6 +180,13 @@ namespace MechMaster.Editor
                     Later(() => {
                         Require(app.Model.id.StartsWith("bike.") && app.MotionAvailable, "Bicycle switch regression");
                         app.ResetCurrentPlan();
+                        Require(Mathf.Abs(Camera.main.GetComponent<OrbitCameraController>().Angles.x - 158f) < .01f,
+                            "Bicycle initial view must face the opposite side");
+                        Require(Mathf.Abs(Mathf.DeltaAngle(Camera.main.transform.eulerAngles.y, 158f)) < .01f,
+                            "Bicycle rendered camera did not rotate to the opposite side");
+                        Require(Mathf.Abs(Mathf.DeltaAngle(GameObject.Find("Key Light").transform.eulerAngles.y, 146f)) < .01f,
+                            "Bicycle key light did not follow the opposite-side view");
+                        CaptureBicycleOppositeView(app.Model.id);
                         Later(() => {
                             var bike = GameObject.Find("MechanicalModel_" + app.Model.id);
                             MotionInteractionRegression.ValidateDisassembly(app, bike.GetComponent<BicycleMotionController>());
@@ -350,6 +367,103 @@ namespace MechMaster.Editor
                 camera.targetTexture = null; texture.Release();
                 UnityEngine.Object.DestroyImmediate(texture); UnityEngine.Object.DestroyImmediate(cameraObject);
                 foreach (var item in others) item.Key.enabled = item.Value;
+            }
+        }
+
+        private static void CaptureDefaultView()
+        {
+            Camera camera = Camera.main;
+            var texture = new RenderTexture(1280, 800, 24);
+            var pixels = new Texture2D(1280, 800, TextureFormat.RGB24, false);
+            RenderTexture previous = RenderTexture.active;
+            RenderTexture cameraTarget = camera.targetTexture;
+            try
+            {
+                camera.targetTexture = texture;
+                camera.Render();
+                RenderTexture.active = texture;
+                pixels.ReadPixels(new Rect(0, 0, 1280, 800), 0, 0);
+                pixels.Apply();
+                string output = Path.GetFullPath(Path.Combine(Application.dataPath,
+                    "../Library/MechMaster/BoltSource/converted/preview"));
+                Directory.CreateDirectory(output);
+                File.WriteAllBytes(Path.Combine(output, "BoltDefaultView.png"), pixels.EncodeToPNG());
+            }
+            finally
+            {
+                RenderTexture.active = previous;
+                camera.targetTexture = cameraTarget;
+                texture.Release();
+                UnityEngine.Object.DestroyImmediate(texture);
+                UnityEngine.Object.DestroyImmediate(pixels);
+            }
+        }
+
+        private static void CaptureBicycleOppositeView(string modelId)
+        {
+            GameObject root = GameObject.Find("MechanicalModel_" + modelId);
+            Renderer[] renderers = root.GetComponentsInChildren<Renderer>()
+                .Where(renderer => renderer.enabled).ToArray();
+            Require(renderers.Length > 0, "Bicycle preview has no renderers");
+            Bounds bounds = renderers[0].bounds;
+            foreach (Renderer renderer in renderers) bounds.Encapsulate(renderer.bounds);
+
+            var cameraObject = new GameObject("BicycleOppositeViewValidationCamera");
+            var camera = cameraObject.AddComponent<Camera>();
+            camera.clearFlags = CameraClearFlags.SolidColor;
+            camera.backgroundColor = new Color(.91f, .96f, .98f);
+            camera.orthographic = true;
+            camera.aspect = 1.6f;
+            Quaternion rotation = Quaternion.Euler(24f, 158f, 0f);
+            float halfWidth = 0f;
+            float halfHeight = 0f;
+            foreach (Renderer renderer in renderers)
+            {
+                Bounds item = renderer.bounds;
+                for (int corner = 0; corner < 8; corner++)
+                {
+                    Vector3 point = Quaternion.Inverse(rotation) * (item.center
+                        + Vector3.Scale(item.extents, new Vector3(
+                            (corner & 1) == 0 ? -1 : 1,
+                            (corner & 2) == 0 ? -1 : 1,
+                            (corner & 4) == 0 ? -1 : 1)) - bounds.center);
+                    halfWidth = Mathf.Max(halfWidth, Mathf.Abs(point.x));
+                    halfHeight = Mathf.Max(halfHeight, Mathf.Abs(point.y));
+                }
+            }
+            camera.orthographicSize = Mathf.Max(halfHeight, halfWidth / camera.aspect) * 1.12f;
+            camera.transform.SetPositionAndRotation(bounds.center
+                + rotation * new Vector3(0, 0, -bounds.size.magnitude * 3f), rotation);
+            var texture = new RenderTexture(1280, 800, 24);
+            var pixels = new Texture2D(1280, 800, TextureFormat.RGB24, false);
+            RenderTexture previous = RenderTexture.active;
+            try
+            {
+                camera.targetTexture = texture;
+                camera.Render();
+                RenderTexture.active = texture;
+                pixels.ReadPixels(new Rect(0, 0, 1280, 800), 0, 0);
+                pixels.Apply();
+                string output = Path.GetFullPath(Path.Combine(Application.dataPath,
+                    "../Library/MechMaster/BoltSource/converted/preview"));
+                Directory.CreateDirectory(output);
+                File.WriteAllBytes(Path.Combine(output, "BicycleOppositeView.png"), pixels.EncodeToPNG());
+                Quaternion oldRotation = Quaternion.Euler(24f, -22f, 0f);
+                camera.transform.SetPositionAndRotation(bounds.center
+                    + oldRotation * new Vector3(0, 0, -bounds.size.magnitude * 3f), oldRotation);
+                camera.Render();
+                pixels.ReadPixels(new Rect(0, 0, 1280, 800), 0, 0);
+                pixels.Apply();
+                File.WriteAllBytes(Path.Combine(output, "BicycleOldView.png"), pixels.EncodeToPNG());
+            }
+            finally
+            {
+                camera.targetTexture = null;
+                RenderTexture.active = previous;
+                texture.Release();
+                UnityEngine.Object.DestroyImmediate(texture);
+                UnityEngine.Object.DestroyImmediate(pixels);
+                UnityEngine.Object.DestroyImmediate(cameraObject);
             }
         }
 

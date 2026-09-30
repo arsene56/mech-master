@@ -1,0 +1,2597 @@
+fileFormatVersion: 2
+guid: C3Mety2sUC8GmcdLxLZD1pI7lkBKkeP1nJd2+u/bll7zxWSq/1bnLls=
+ModelImporter:
+  serializedVersion: 22361
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    aCLCompressionLevel: 3
+    aCLCurvePrecision: 0.01
+    aCLFastSampleMode: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+    tuanjieGIEnable: 0
+    tuanjieGIGenSDFFactor: 1
+    tuanjieGIGenSDFBias: 0.25
+    tuanjieGIDoubleSidedMode: 0
+    tuanjieGIGenFacetNums: 12
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    totalVerticesCount: 144255
+    totalTrianglesCount: 114871
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  virtualGeometry:
+    virtualGeometry: 0
+    useTransparent: 0
+    setVGForeachMesh: 0
+    isFirstUse: 1
+    virtualGeometrySettings:
+      generateGeometryBuffer: 0
+      surfaceCompensation: 0
+      allMeshUse: 1
+      ignoreSimpleMesh: 0
+      transformScaleState: 0
+      isPossibleOverflow: 0
+      hasBoneData: 0
+      isBoneCountOverflow: 0
+    virtualGeometryPlatformSettings: []
+    selectedVGMeshes:
+    - index: 0
+      meshName: MM_carbon_n0009_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 1
+      meshName: MM_carbon_n0011_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 2
+      meshName: MM_carbon_n0013_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 3
+      meshName: MM_carbon_n0015_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 4
+      meshName: MM_carbon_n0017_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 5
+      meshName: MM_carbon_n0019_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 6
+      meshName: MM_carbon_n0021_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 7
+      meshName: MM_carbon_n0023_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 8
+      meshName: MM_carbon_n0026_rim
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 9
+      meshName: MM_carbon_n0029_hub
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 10
+      meshName: MM_carbon_n0031_hub
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 11
+      meshName: MM_carbon_n0034_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 12
+      meshName: MM_carbon_n0036_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 13
+      meshName: MM_carbon_n0038_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 14
+      meshName: MM_carbon_n0040_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 15
+      meshName: MM_carbon_n0042_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 16
+      meshName: MM_carbon_n0044_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 17
+      meshName: MM_carbon_n0046_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 18
+      meshName: MM_carbon_n0048_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 19
+      meshName: MM_carbon_n0050_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 20
+      meshName: MM_carbon_n0052_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 21
+      meshName: MM_carbon_n0054_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 22
+      meshName: MM_carbon_n0056_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 23
+      meshName: MM_carbon_n0059_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 24
+      meshName: MM_carbon_n0061_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 25
+      meshName: MM_carbon_n0063_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 26
+      meshName: MM_carbon_n0065_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 27
+      meshName: MM_carbon_n0067_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 28
+      meshName: MM_carbon_n0069_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 29
+      meshName: MM_carbon_n0071_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 30
+      meshName: MM_carbon_n0073_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 31
+      meshName: MM_carbon_n0075_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 32
+      meshName: MM_carbon_n0077_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 33
+      meshName: MM_carbon_n0079_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 34
+      meshName: MM_carbon_n0081_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 35
+      meshName: MM_carbon_n0083_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 36
+      meshName: MM_carbon_n0085_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 37
+      meshName: MM_carbon_n0087_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 38
+      meshName: MM_carbon_n0089_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 39
+      meshName: MM_carbon_n0091_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 40
+      meshName: MM_carbon_n0093_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 41
+      meshName: MM_carbon_n0095_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 42
+      meshName: MM_carbon_n0097_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 43
+      meshName: MM_carbon_n0099_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 44
+      meshName: MM_carbon_n0101_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 45
+      meshName: MM_carbon_n0103_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 46
+      meshName: MM_carbon_n0105_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 47
+      meshName: MM_carbon_n0107_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 48
+      meshName: MM_carbon_n0109_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 49
+      meshName: MM_carbon_n0111_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 50
+      meshName: MM_carbon_n0113_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 51
+      meshName: MM_carbon_n0115_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 52
+      meshName: MM_carbon_n0117_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 53
+      meshName: MM_carbon_n0119_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 54
+      meshName: MM_carbon_n0121_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 55
+      meshName: MM_carbon_n0123_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 56
+      meshName: MM_carbon_n0125_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 57
+      meshName: MM_carbon_n0127_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 58
+      meshName: MM_carbon_n0129_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 59
+      meshName: MM_carbon_n0131_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 60
+      meshName: MM_carbon_n0133_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 61
+      meshName: MM_carbon_n0135_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 62
+      meshName: MM_carbon_n0137_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 63
+      meshName: MM_carbon_n0139_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 64
+      meshName: MM_carbon_n0141_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 65
+      meshName: MM_carbon_n0143_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 66
+      meshName: MM_carbon_n0145_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 67
+      meshName: MM_carbon_n0147_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 68
+      meshName: MM_carbon_n0149_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 69
+      meshName: MM_carbon_n0151_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 70
+      meshName: MM_carbon_n0153_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 71
+      meshName: MM_carbon_n0155_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 72
+      meshName: MM_carbon_n0157_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 73
+      meshName: MM_carbon_n0159_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 74
+      meshName: MM_carbon_n0161_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 75
+      meshName: MM_carbon_n0163_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 76
+      meshName: MM_carbon_n0165_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 77
+      meshName: MM_carbon_n0167_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 78
+      meshName: MM_carbon_n0169_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 79
+      meshName: MM_carbon_n0171_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 80
+      meshName: MM_carbon_n0173_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 81
+      meshName: MM_carbon_n0175_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 82
+      meshName: MM_carbon_n0177_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 83
+      meshName: MM_carbon_n0179_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 84
+      meshName: MM_carbon_n0181_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 85
+      meshName: MM_carbon_n0183_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 86
+      meshName: MM_carbon_n0185_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 87
+      meshName: MM_carbon_n0188_tire
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 88
+      meshName: MM_carbon_n0192_pivot_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 89
+      meshName: MM_carbon_n0194_pivot_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 90
+      meshName: MM_carbon_n0196_pivot_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 91
+      meshName: MM_carbon_n0200_arm_fasteners
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 92
+      meshName: MM_carbon_n0203_arm_fasteners
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 93
+      meshName: MM_carbon_n0206_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 94
+      meshName: MM_carbon_n0208_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 95
+      meshName: MM_carbon_n0210_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 96
+      meshName: MM_carbon_n0212_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 97
+      meshName: MM_carbon_n0215_dropouts
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 98
+      meshName: MM_carbon_n0218_dropouts
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 99
+      meshName: MM_carbon_n0220_left_arm
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 100
+      meshName: MM_carbon_n0224_arm_fasteners
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 101
+      meshName: MM_carbon_n0227_arm_fasteners
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 102
+      meshName: MM_carbon_n0230_dropouts
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 103
+      meshName: MM_carbon_n0233_dropouts
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 104
+      meshName: MM_carbon_n0250_right_arm
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 105
+      meshName: MM_carbon_n0254_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 106
+      meshName: MM_carbon_n0255_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 107
+      meshName: MM_carbon_n0257_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 108
+      meshName: MM_carbon_n0259_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 109
+      meshName: MM_carbon_n0261_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 110
+      meshName: MM_carbon_n0263_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 111
+      meshName: MM_carbon_n0265_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 112
+      meshName: MM_carbon_n0266_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 113
+      meshName: MM_carbon_n0267_bridge
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 114
+      meshName: MM_carbon_n0269_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 115
+      meshName: MM_carbon_n0270_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 116
+      meshName: MM_carbon_n0271_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 117
+      meshName: MM_carbon_n0272_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 118
+      meshName: MM_carbon_n0273_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 119
+      meshName: MM_carbon_n0274_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 120
+      meshName: MM_carbon_n0275_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 121
+      meshName: MM_carbon_n0276_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 122
+      meshName: MM_carbon_n0277_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 123
+      meshName: MM_carbon_n0278_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 124
+      meshName: MM_carbon_n0279_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 125
+      meshName: MM_carbon_n0280_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 126
+      meshName: MM_carbon_n0281_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 127
+      meshName: MM_carbon_n0284_return_mount
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 128
+      meshName: MM_carbon_n0290_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 129
+      meshName: MM_carbon_n0292_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 130
+      meshName: MM_carbon_n0294_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 131
+      meshName: MM_carbon_n0296_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 132
+      meshName: MM_carbon_n0297_lower
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 133
+      meshName: MM_carbon_n0302_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 134
+      meshName: MM_carbon_n0304_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 135
+      meshName: MM_carbon_n0306_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 136
+      meshName: MM_carbon_n0308_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 137
+      meshName: MM_carbon_n0310_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 138
+      meshName: MM_carbon_n0312_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 139
+      meshName: MM_carbon_n0314_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 140
+      meshName: MM_carbon_n0316_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 141
+      meshName: MM_carbon_n0319_rim
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 142
+      meshName: MM_carbon_n0322_tire
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 143
+      meshName: MM_carbon_n0325_hub
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 144
+      meshName: MM_carbon_n0327_hub
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 145
+      meshName: MM_carbon_n0330_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 146
+      meshName: MM_carbon_n0332_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 147
+      meshName: MM_carbon_n0334_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 148
+      meshName: MM_carbon_n0336_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 149
+      meshName: MM_carbon_n0338_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 150
+      meshName: MM_carbon_n0340_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 151
+      meshName: MM_carbon_n0342_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 152
+      meshName: MM_carbon_n0344_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 153
+      meshName: MM_carbon_n0346_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 154
+      meshName: MM_carbon_n0348_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 155
+      meshName: MM_carbon_n0350_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 156
+      meshName: MM_carbon_n0352_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 157
+      meshName: MM_carbon_n0354_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 158
+      meshName: MM_carbon_n0356_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 159
+      meshName: MM_carbon_n0358_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 160
+      meshName: MM_carbon_n0360_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 161
+      meshName: MM_carbon_n0362_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 162
+      meshName: MM_carbon_n0364_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 163
+      meshName: MM_carbon_n0366_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 164
+      meshName: MM_carbon_n0368_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 165
+      meshName: MM_carbon_n0370_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 166
+      meshName: MM_carbon_n0372_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 167
+      meshName: MM_carbon_n0374_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 168
+      meshName: MM_carbon_n0376_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 169
+      meshName: MM_carbon_n0378_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 170
+      meshName: MM_carbon_n0380_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 171
+      meshName: MM_carbon_n0382_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 172
+      meshName: MM_carbon_n0384_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 173
+      meshName: MM_carbon_n0386_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 174
+      meshName: MM_carbon_n0388_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 175
+      meshName: MM_carbon_n0390_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 176
+      meshName: MM_carbon_n0392_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 177
+      meshName: MM_carbon_n0394_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 178
+      meshName: MM_carbon_n0396_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 179
+      meshName: MM_carbon_n0398_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 180
+      meshName: MM_carbon_n0400_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 181
+      meshName: MM_carbon_n0402_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 182
+      meshName: MM_carbon_n0404_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 183
+      meshName: MM_carbon_n0406_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 184
+      meshName: MM_carbon_n0408_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 185
+      meshName: MM_carbon_n0410_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 186
+      meshName: MM_carbon_n0412_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 187
+      meshName: MM_carbon_n0414_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 188
+      meshName: MM_carbon_n0416_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 189
+      meshName: MM_carbon_n0418_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 190
+      meshName: MM_carbon_n0420_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 191
+      meshName: MM_carbon_n0422_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 192
+      meshName: MM_carbon_n0424_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 193
+      meshName: MM_carbon_n0426_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 194
+      meshName: MM_carbon_n0428_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 195
+      meshName: MM_carbon_n0430_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 196
+      meshName: MM_carbon_n0432_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 197
+      meshName: MM_carbon_n0434_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 198
+      meshName: MM_carbon_n0436_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 199
+      meshName: MM_carbon_n0438_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 200
+      meshName: MM_carbon_n0440_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 201
+      meshName: MM_carbon_n0442_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 202
+      meshName: MM_carbon_n0444_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 203
+      meshName: MM_carbon_n0446_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 204
+      meshName: MM_carbon_n0448_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 205
+      meshName: MM_carbon_n0450_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 206
+      meshName: MM_carbon_n0452_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 207
+      meshName: MM_carbon_n0454_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 208
+      meshName: MM_carbon_n0456_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 209
+      meshName: MM_carbon_n0460_brake_control_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 210
+      meshName: MM_carbon_n0461_front_lines
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 211
+      meshName: MM_carbon_n0463_brake_control_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 212
+      meshName: MM_carbon_n0466_brake_control_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 213
+      meshName: MM_carbon_n0467_front_lines
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 214
+      meshName: MM_carbon_n0469_brake_control_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 215
+      meshName: MM_carbon_n0472_upper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 216
+      meshName: MM_carbon_n0474_upper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 217
+      meshName: MM_carbon_n0476_upper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 218
+      meshName: MM_carbon_n0478_upper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 219
+      meshName: MM_carbon_n0481_bar
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 220
+      meshName: MM_carbon_n0484_left_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 221
+      meshName: MM_carbon_n0486_left_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 222
+      meshName: MM_carbon_n0488_left_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 223
+      meshName: MM_carbon_n0490_left_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 224
+      meshName: MM_carbon_n0495_right_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 225
+      meshName: MM_carbon_n0497_right_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 226
+      meshName: MM_carbon_n0499_right_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 227
+      meshName: MM_carbon_n0501_right_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 228
+      meshName: MM_carbon_n0505_stem
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 229
+      meshName: MM_carbon_n0508_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 230
+      meshName: MM_carbon_n0510_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 231
+      meshName: MM_carbon_n0512_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 232
+      meshName: MM_carbon_n0515_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 233
+      meshName: MM_carbon_n0517_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 234
+      meshName: MM_carbon_n0519_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 235
+      meshName: MM_carbon_n0522_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 236
+      meshName: MM_carbon_n0524_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 237
+      meshName: MM_carbon_n0526_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 238
+      meshName: MM_carbon_n0529_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 239
+      meshName: MM_carbon_n0531_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 240
+      meshName: MM_carbon_n0533_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 241
+      meshName: MM_carbon_n0536_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 242
+      meshName: MM_carbon_n0538_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 243
+      meshName: MM_carbon_n0540_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 244
+      meshName: MM_carbon_n0542_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 245
+      meshName: MM_carbon_n0544_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 246
+      meshName: MM_carbon_n0546_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 247
+      meshName: MM_carbon_n0548_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 248
+      meshName: MM_carbon_n0550_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 249
+      meshName: MM_carbon_n0552_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 250
+      meshName: MM_carbon_n0555_pivot_hardware
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 251
+      meshName: MM_carbon_n0556_pivot_hardware
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 252
+      meshName: MM_carbon_n0559_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 253
+      meshName: MM_carbon_n0562_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 254
+      meshName: MM_carbon_n0565_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 255
+      meshName: MM_carbon_n0568_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 256
+      meshName: MM_carbon_n0572_chainring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 257
+      meshName: MM_carbon_n0575_left_crank
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 258
+      meshName: MM_carbon_n0576_left_crank
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 259
+      meshName: MM_carbon_n0579_left_pedal
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 260
+      meshName: MM_carbon_n0581_left_pedal
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 261
+      meshName: MM_carbon_n0584_right_crank
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 262
+      meshName: MM_carbon_n0586_right_crank
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 263
+      meshName: MM_carbon_n0589_right_pedal
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 264
+      meshName: MM_carbon_n0591_right_pedal
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 265
+      meshName: MM_carbon_n0594_chain
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 266
+      meshName: MM_carbon_n0597_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 267
+      meshName: MM_carbon_n0599_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 268
+      meshName: MM_carbon_n0602_pivot_hardware
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 269
+      meshName: MM_carbon_n0657_main_frame
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 270
+      meshName: MM_carbon_n0670_drive_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 271
+      meshName: MM_carbon_n0674_drive_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 272
+      meshName: MM_carbon_n0676_drive_cage
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 273
+      meshName: MM_carbon_n0680_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 274
+      meshName: MM_carbon_n0682_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 275
+      meshName: MM_carbon_n0684_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 276
+      meshName: MM_carbon_n0686_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 277
+      meshName: MM_carbon_n0688_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 278
+      meshName: MM_carbon_n0690_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 279
+      meshName: MM_carbon_n0692_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 280
+      meshName: MM_carbon_n0694_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 281
+      meshName: MM_carbon_n0696_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 282
+      meshName: MM_carbon_n0699_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 283
+      meshName: MM_carbon_n0701_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 284
+      meshName: MM_carbon_n0703_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 285
+      meshName: MM_carbon_n0705_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 286
+      meshName: MM_carbon_n0707_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 287
+      meshName: MM_carbon_n0709_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 288
+      meshName: MM_carbon_n0711_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 289
+      meshName: MM_carbon_n0713_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 290
+      meshName: MM_carbon_n0715_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 291
+      meshName: MM_carbon_n0717_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 292
+      meshName: MM_carbon_n0720_return_mount
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 293
+      meshName: MM_carbon_n0723_protector
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 294
+      meshName: MM_carbon_n0727_headset_upper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 295
+      meshName: MM_carbon_n0730_headset_lower
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 296
+      meshName: MM_carbon_n0732_headset_lower
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 297
+      meshName: MM_carbon_n0735_post_lower
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 298
+      meshName: MM_carbon_n0739_saddle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 299
+      meshName: MM_carbon_n0740_saddle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 300
+      meshName: MM_carbon_n0742_saddle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 301
+      meshName: MM_carbon_n0744_saddle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 302
+      meshName: MM_carbon_n0745_post_upper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 303
+      meshName: MM_carbon_n0746_front_lines
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 304
+      meshName: MM_carbon_n0747_front_lines
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 305
+      meshName: MM_carbon_n0748_rear_lines
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 306
+      meshName: MM_carbon_n0749_rear_lines
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    supportVGMeshes:
+    - index: 0
+      meshName: MM_carbon_n0009_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 1
+      meshName: MM_carbon_n0011_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 2
+      meshName: MM_carbon_n0013_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 3
+      meshName: MM_carbon_n0015_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 4
+      meshName: MM_carbon_n0017_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 5
+      meshName: MM_carbon_n0019_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 6
+      meshName: MM_carbon_n0021_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 7
+      meshName: MM_carbon_n0023_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 8
+      meshName: MM_carbon_n0026_rim
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 9
+      meshName: MM_carbon_n0029_hub
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 10
+      meshName: MM_carbon_n0031_hub
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 11
+      meshName: MM_carbon_n0034_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 12
+      meshName: MM_carbon_n0036_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 13
+      meshName: MM_carbon_n0038_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 14
+      meshName: MM_carbon_n0040_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 15
+      meshName: MM_carbon_n0042_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 16
+      meshName: MM_carbon_n0044_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 17
+      meshName: MM_carbon_n0046_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 18
+      meshName: MM_carbon_n0048_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 19
+      meshName: MM_carbon_n0050_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 20
+      meshName: MM_carbon_n0052_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 21
+      meshName: MM_carbon_n0054_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 22
+      meshName: MM_carbon_n0056_cassette
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 23
+      meshName: MM_carbon_n0059_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 24
+      meshName: MM_carbon_n0061_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 25
+      meshName: MM_carbon_n0063_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 26
+      meshName: MM_carbon_n0065_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 27
+      meshName: MM_carbon_n0067_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 28
+      meshName: MM_carbon_n0069_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 29
+      meshName: MM_carbon_n0071_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 30
+      meshName: MM_carbon_n0073_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 31
+      meshName: MM_carbon_n0075_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 32
+      meshName: MM_carbon_n0077_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 33
+      meshName: MM_carbon_n0079_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 34
+      meshName: MM_carbon_n0081_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 35
+      meshName: MM_carbon_n0083_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 36
+      meshName: MM_carbon_n0085_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 37
+      meshName: MM_carbon_n0087_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 38
+      meshName: MM_carbon_n0089_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 39
+      meshName: MM_carbon_n0091_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 40
+      meshName: MM_carbon_n0093_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 41
+      meshName: MM_carbon_n0095_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 42
+      meshName: MM_carbon_n0097_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 43
+      meshName: MM_carbon_n0099_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 44
+      meshName: MM_carbon_n0101_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 45
+      meshName: MM_carbon_n0103_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 46
+      meshName: MM_carbon_n0105_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 47
+      meshName: MM_carbon_n0107_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 48
+      meshName: MM_carbon_n0109_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 49
+      meshName: MM_carbon_n0111_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 50
+      meshName: MM_carbon_n0113_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 51
+      meshName: MM_carbon_n0115_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 52
+      meshName: MM_carbon_n0117_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 53
+      meshName: MM_carbon_n0119_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 54
+      meshName: MM_carbon_n0121_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 55
+      meshName: MM_carbon_n0123_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 56
+      meshName: MM_carbon_n0125_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 57
+      meshName: MM_carbon_n0127_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 58
+      meshName: MM_carbon_n0129_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 59
+      meshName: MM_carbon_n0131_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 60
+      meshName: MM_carbon_n0133_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 61
+      meshName: MM_carbon_n0135_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 62
+      meshName: MM_carbon_n0137_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 63
+      meshName: MM_carbon_n0139_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 64
+      meshName: MM_carbon_n0141_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 65
+      meshName: MM_carbon_n0143_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 66
+      meshName: MM_carbon_n0145_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 67
+      meshName: MM_carbon_n0147_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 68
+      meshName: MM_carbon_n0149_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 69
+      meshName: MM_carbon_n0151_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 70
+      meshName: MM_carbon_n0153_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 71
+      meshName: MM_carbon_n0155_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 72
+      meshName: MM_carbon_n0157_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 73
+      meshName: MM_carbon_n0159_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 74
+      meshName: MM_carbon_n0161_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 75
+      meshName: MM_carbon_n0163_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 76
+      meshName: MM_carbon_n0165_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 77
+      meshName: MM_carbon_n0167_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 78
+      meshName: MM_carbon_n0169_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 79
+      meshName: MM_carbon_n0171_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 80
+      meshName: MM_carbon_n0173_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 81
+      meshName: MM_carbon_n0175_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 82
+      meshName: MM_carbon_n0177_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 83
+      meshName: MM_carbon_n0179_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 84
+      meshName: MM_carbon_n0181_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 85
+      meshName: MM_carbon_n0183_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 86
+      meshName: MM_carbon_n0185_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 87
+      meshName: MM_carbon_n0188_tire
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 88
+      meshName: MM_carbon_n0192_pivot_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 89
+      meshName: MM_carbon_n0194_pivot_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 90
+      meshName: MM_carbon_n0196_pivot_axle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 91
+      meshName: MM_carbon_n0200_arm_fasteners
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 92
+      meshName: MM_carbon_n0203_arm_fasteners
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 93
+      meshName: MM_carbon_n0206_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 94
+      meshName: MM_carbon_n0208_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 95
+      meshName: MM_carbon_n0210_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 96
+      meshName: MM_carbon_n0212_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 97
+      meshName: MM_carbon_n0215_dropouts
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 98
+      meshName: MM_carbon_n0218_dropouts
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 99
+      meshName: MM_carbon_n0220_left_arm
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 100
+      meshName: MM_carbon_n0224_arm_fasteners
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 101
+      meshName: MM_carbon_n0227_arm_fasteners
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 102
+      meshName: MM_carbon_n0230_dropouts
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 103
+      meshName: MM_carbon_n0233_dropouts
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 104
+      meshName: MM_carbon_n0250_right_arm
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 105
+      meshName: MM_carbon_n0254_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 106
+      meshName: MM_carbon_n0255_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 107
+      meshName: MM_carbon_n0257_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 108
+      meshName: MM_carbon_n0259_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 109
+      meshName: MM_carbon_n0261_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 110
+      meshName: MM_carbon_n0263_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 111
+      meshName: MM_carbon_n0265_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 112
+      meshName: MM_carbon_n0266_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 113
+      meshName: MM_carbon_n0267_bridge
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 114
+      meshName: MM_carbon_n0269_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 115
+      meshName: MM_carbon_n0270_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 116
+      meshName: MM_carbon_n0271_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 117
+      meshName: MM_carbon_n0272_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 118
+      meshName: MM_carbon_n0273_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 119
+      meshName: MM_carbon_n0274_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 120
+      meshName: MM_carbon_n0275_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 121
+      meshName: MM_carbon_n0276_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 122
+      meshName: MM_carbon_n0277_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 123
+      meshName: MM_carbon_n0278_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 124
+      meshName: MM_carbon_n0279_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 125
+      meshName: MM_carbon_n0280_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 126
+      meshName: MM_carbon_n0281_derailleur
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 127
+      meshName: MM_carbon_n0284_return_mount
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 128
+      meshName: MM_carbon_n0290_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 129
+      meshName: MM_carbon_n0292_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 130
+      meshName: MM_carbon_n0294_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 131
+      meshName: MM_carbon_n0296_caliper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 132
+      meshName: MM_carbon_n0297_lower
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 133
+      meshName: MM_carbon_n0302_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 134
+      meshName: MM_carbon_n0304_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 135
+      meshName: MM_carbon_n0306_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 136
+      meshName: MM_carbon_n0308_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 137
+      meshName: MM_carbon_n0310_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 138
+      meshName: MM_carbon_n0312_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 139
+      meshName: MM_carbon_n0314_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 140
+      meshName: MM_carbon_n0316_rotor
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 141
+      meshName: MM_carbon_n0319_rim
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 142
+      meshName: MM_carbon_n0322_tire
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 143
+      meshName: MM_carbon_n0325_hub
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 144
+      meshName: MM_carbon_n0327_hub
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 145
+      meshName: MM_carbon_n0330_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 146
+      meshName: MM_carbon_n0332_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 147
+      meshName: MM_carbon_n0334_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 148
+      meshName: MM_carbon_n0336_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 149
+      meshName: MM_carbon_n0338_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 150
+      meshName: MM_carbon_n0340_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 151
+      meshName: MM_carbon_n0342_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 152
+      meshName: MM_carbon_n0344_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 153
+      meshName: MM_carbon_n0346_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 154
+      meshName: MM_carbon_n0348_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 155
+      meshName: MM_carbon_n0350_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 156
+      meshName: MM_carbon_n0352_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 157
+      meshName: MM_carbon_n0354_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 158
+      meshName: MM_carbon_n0356_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 159
+      meshName: MM_carbon_n0358_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 160
+      meshName: MM_carbon_n0360_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 161
+      meshName: MM_carbon_n0362_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 162
+      meshName: MM_carbon_n0364_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 163
+      meshName: MM_carbon_n0366_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 164
+      meshName: MM_carbon_n0368_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 165
+      meshName: MM_carbon_n0370_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 166
+      meshName: MM_carbon_n0372_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 167
+      meshName: MM_carbon_n0374_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 168
+      meshName: MM_carbon_n0376_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 169
+      meshName: MM_carbon_n0378_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 170
+      meshName: MM_carbon_n0380_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 171
+      meshName: MM_carbon_n0382_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 172
+      meshName: MM_carbon_n0384_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 173
+      meshName: MM_carbon_n0386_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 174
+      meshName: MM_carbon_n0388_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 175
+      meshName: MM_carbon_n0390_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 176
+      meshName: MM_carbon_n0392_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 177
+      meshName: MM_carbon_n0394_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 178
+      meshName: MM_carbon_n0396_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 179
+      meshName: MM_carbon_n0398_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 180
+      meshName: MM_carbon_n0400_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 181
+      meshName: MM_carbon_n0402_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 182
+      meshName: MM_carbon_n0404_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 183
+      meshName: MM_carbon_n0406_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 184
+      meshName: MM_carbon_n0408_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 185
+      meshName: MM_carbon_n0410_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 186
+      meshName: MM_carbon_n0412_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 187
+      meshName: MM_carbon_n0414_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 188
+      meshName: MM_carbon_n0416_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 189
+      meshName: MM_carbon_n0418_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 190
+      meshName: MM_carbon_n0420_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 191
+      meshName: MM_carbon_n0422_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 192
+      meshName: MM_carbon_n0424_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 193
+      meshName: MM_carbon_n0426_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 194
+      meshName: MM_carbon_n0428_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 195
+      meshName: MM_carbon_n0430_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 196
+      meshName: MM_carbon_n0432_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 197
+      meshName: MM_carbon_n0434_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 198
+      meshName: MM_carbon_n0436_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 199
+      meshName: MM_carbon_n0438_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 200
+      meshName: MM_carbon_n0440_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 201
+      meshName: MM_carbon_n0442_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 202
+      meshName: MM_carbon_n0444_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 203
+      meshName: MM_carbon_n0446_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 204
+      meshName: MM_carbon_n0448_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 205
+      meshName: MM_carbon_n0450_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 206
+      meshName: MM_carbon_n0452_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 207
+      meshName: MM_carbon_n0454_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 208
+      meshName: MM_carbon_n0456_spokes
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 209
+      meshName: MM_carbon_n0460_brake_control_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 210
+      meshName: MM_carbon_n0461_front_lines
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 211
+      meshName: MM_carbon_n0463_brake_control_1
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 212
+      meshName: MM_carbon_n0466_brake_control_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 213
+      meshName: MM_carbon_n0467_front_lines
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 214
+      meshName: MM_carbon_n0469_brake_control_2
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 215
+      meshName: MM_carbon_n0472_upper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 216
+      meshName: MM_carbon_n0474_upper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 217
+      meshName: MM_carbon_n0476_upper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 218
+      meshName: MM_carbon_n0478_upper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 219
+      meshName: MM_carbon_n0481_bar
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 220
+      meshName: MM_carbon_n0484_left_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 221
+      meshName: MM_carbon_n0486_left_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 222
+      meshName: MM_carbon_n0488_left_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 223
+      meshName: MM_carbon_n0490_left_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 224
+      meshName: MM_carbon_n0495_right_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 225
+      meshName: MM_carbon_n0497_right_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 226
+      meshName: MM_carbon_n0499_right_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 227
+      meshName: MM_carbon_n0501_right_grip
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 228
+      meshName: MM_carbon_n0505_stem
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 229
+      meshName: MM_carbon_n0508_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 230
+      meshName: MM_carbon_n0510_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 231
+      meshName: MM_carbon_n0512_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 232
+      meshName: MM_carbon_n0515_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 233
+      meshName: MM_carbon_n0517_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 234
+      meshName: MM_carbon_n0519_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 235
+      meshName: MM_carbon_n0522_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 236
+      meshName: MM_carbon_n0524_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 237
+      meshName: MM_carbon_n0526_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 238
+      meshName: MM_carbon_n0529_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 239
+      meshName: MM_carbon_n0531_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 240
+      meshName: MM_carbon_n0533_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 241
+      meshName: MM_carbon_n0536_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 242
+      meshName: MM_carbon_n0538_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 243
+      meshName: MM_carbon_n0540_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 244
+      meshName: MM_carbon_n0542_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 245
+      meshName: MM_carbon_n0544_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 246
+      meshName: MM_carbon_n0546_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 247
+      meshName: MM_carbon_n0548_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 248
+      meshName: MM_carbon_n0550_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 249
+      meshName: MM_carbon_n0552_pivot_bearing
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 250
+      meshName: MM_carbon_n0555_pivot_hardware
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 251
+      meshName: MM_carbon_n0556_pivot_hardware
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 252
+      meshName: MM_carbon_n0559_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 253
+      meshName: MM_carbon_n0562_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 254
+      meshName: MM_carbon_n0565_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 255
+      meshName: MM_carbon_n0568_bumpers
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 256
+      meshName: MM_carbon_n0572_chainring
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 257
+      meshName: MM_carbon_n0575_left_crank
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 258
+      meshName: MM_carbon_n0576_left_crank
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 259
+      meshName: MM_carbon_n0579_left_pedal
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 260
+      meshName: MM_carbon_n0581_left_pedal
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 261
+      meshName: MM_carbon_n0584_right_crank
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 262
+      meshName: MM_carbon_n0586_right_crank
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 263
+      meshName: MM_carbon_n0589_right_pedal
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 264
+      meshName: MM_carbon_n0591_right_pedal
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 265
+      meshName: MM_carbon_n0594_chain
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 266
+      meshName: MM_carbon_n0597_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 267
+      meshName: MM_carbon_n0599_shock
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 268
+      meshName: MM_carbon_n0602_pivot_hardware
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 269
+      meshName: MM_carbon_n0657_main_frame
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 270
+      meshName: MM_carbon_n0670_drive_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 271
+      meshName: MM_carbon_n0674_drive_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 272
+      meshName: MM_carbon_n0676_drive_cage
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 273
+      meshName: MM_carbon_n0680_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 274
+      meshName: MM_carbon_n0682_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 275
+      meshName: MM_carbon_n0684_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 276
+      meshName: MM_carbon_n0686_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 277
+      meshName: MM_carbon_n0688_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 278
+      meshName: MM_carbon_n0690_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 279
+      meshName: MM_carbon_n0692_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 280
+      meshName: MM_carbon_n0694_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 281
+      meshName: MM_carbon_n0696_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 282
+      meshName: MM_carbon_n0699_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 283
+      meshName: MM_carbon_n0701_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 284
+      meshName: MM_carbon_n0703_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 285
+      meshName: MM_carbon_n0705_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 286
+      meshName: MM_carbon_n0707_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 287
+      meshName: MM_carbon_n0709_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 288
+      meshName: MM_carbon_n0711_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 289
+      meshName: MM_carbon_n0713_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 290
+      meshName: MM_carbon_n0715_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 291
+      meshName: MM_carbon_n0717_return_idler
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 292
+      meshName: MM_carbon_n0720_return_mount
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 293
+      meshName: MM_carbon_n0723_protector
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 294
+      meshName: MM_carbon_n0727_headset_upper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 295
+      meshName: MM_carbon_n0730_headset_lower
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 296
+      meshName: MM_carbon_n0732_headset_lower
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 297
+      meshName: MM_carbon_n0735_post_lower
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 298
+      meshName: MM_carbon_n0739_saddle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 299
+      meshName: MM_carbon_n0740_saddle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 300
+      meshName: MM_carbon_n0742_saddle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 301
+      meshName: MM_carbon_n0744_saddle
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 302
+      meshName: MM_carbon_n0745_post_upper
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 303
+      meshName: MM_carbon_n0746_front_lines
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 304
+      meshName: MM_carbon_n0747_front_lines
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 305
+      meshName: MM_carbon_n0748_rear_lines
+      lodLevel: 0
+      meshGeometryBuffer: 0
+    - index: 306
+      meshName: MM_carbon_n0749_rear_lines
+      lodLevel: 0
+      meshGeometryBuffer: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  overrideDefaultPose: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    namedPoseList:
+    - name: Default
+      skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    defaultPoseIndex: -1
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

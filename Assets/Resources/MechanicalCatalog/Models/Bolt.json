@@ -3,6 +3,7 @@
   "id": "robot.odri.bolt.6dof.v1",
   "displayName": "Bolt 双足机器人",
   "displayOrder": 20,
+  "initialViewYawOffset": 55,
   "catalogResourcePath": "MechanicalCatalog/BoltInteractionCatalog",
   "moduleResourcePaths": [
     "Models/Bolt/Modules/body_frame_LOD0",

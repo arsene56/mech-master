@@ -3,6 +3,7 @@
   "id": "bike.hardtail.27_5.2x10.v1",
   "displayName": "2×10 山地自行车",
   "displayOrder": 0,
+  "initialViewYawOffset": 180,
   "catalogResourcePath": "MechanicalCatalog/BicycleInteractionCatalog",
   "moduleResourcePaths": [
     "Models/Bicycle/Modules/frame_LOD0",

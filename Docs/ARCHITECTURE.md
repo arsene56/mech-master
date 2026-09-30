@@ -1,6 +1,6 @@
 # 机械大师：系统架构
 
-本文描述通用机械模型运行时，以及当前的工程自行车、BCN3D Moveo 机械臂、Bolt 双足机器人和 OpenTorque 行星减速器。四者已通过本机引擎编译、导入及目录绑定；后三者三档也通过射线拾取、拖放、爆炸、存档、完整拆装和演示的批处理 Play Mode 回归。用户实际 Game View 全流程与触控仍需人工复核；微信 AppID、开发者工具及真机测试属于后续工作。
+本文描述通用机械模型运行时，以及硬尾自行车、BCN3D Moveo、Bolt、OpenTorque 和 Carbon Frame Bike 软尾车。五者已通过本机引擎编译、导入及目录绑定；后四者三档也通过射线拾取、拖放、爆炸、存档、完整拆装和演示的批处理 Play Mode 回归。用户实际 Game View 全流程与触控仍需人工复核；微信 AppID、开发者工具及真机测试属于后续工作。
 
 ## 1. 架构目标
 
@@ -38,6 +38,8 @@ Bolt 的平行资产链为固定提交 STEP → OCCT/XCAF 叶定义、实例及�
 OpenTorque 复用 OCCT/XCAF 构建依赖，固定标准版 STEP → 13 定义 / 19 实例 → 五模块 LOD0、整机 LOD1/LOD2 → 5/10/17 步目录与独立连续齿轮 rig。源矩阵和身份写入 `opentorque_*.json`，CC BY-SA 4.0 署名、许可和修改说明与模型一起分发。内齿圈与壳体一体，轴承是维修单元，不将采购 BOM 或替代低背隙齿轮追加为源实例；详见 [OpenTorque 接入记录](References/OpenTorque/IMPORT_STATUS.md)。
 
 ## 3. 运行时分层
+
+Carbon 的资产链为固定 GLB + 作者许可 → 第 0 帧闭合装配/蒙皮烘焙 → 307 个稳定节点索引网格、14 模块 LOD0、整车 LOD1/2 → 14/34/51 步目录及七源装配锚点的独立悬架 rig。删除四个标识网格、三张影子平面，不发行作者贴图；中性 PBR、派生 Source/FBX/预览及 CC BY-SA 修改声明可复现。源网格数不是可拆步骤数，密封总成在各级保持完整。详见 [Carbon 接入记录](References/CarbonFrameBike/IMPORT_STATUS.md)。
 
 ```mermaid
 flowchart TB
@@ -159,6 +161,8 @@ stateDiagram-v2
 当前自行车托盘按 14 个模块分区；其他模型按各自清单生成分类，同一模块内部使用稳定槽位索引，分类超过 14 个时界面分页。正式美术阶段仍应在源模型中增加模块级拆装轴与停靠点。
 
 ## 6. 3D 资产架构
+
+Carbon 使用 `carbon-suspension-v1` 与 `CarbonFrameBikeMotionController`。`SuspensionTeachingCycle` 为无引擎依赖的闭合余弦压缩曲线；控制器从 FBX 保留的源锚点读后主轴、后避震上下安装点及前叉滑动轴，每帧从源姿态算摇臂摆动、下叉平移和后避震两眼约束，不换父级/累计变换。后轮向上运动用于判定 FBX 手性后的压缩符号。默认 4 秒，0.50×–1.50×；静态链条和管线在观察中暂隐，退出恢复原可见性和碰撞，通过原有停止/拾取同步路径继续拆装。不复用硬尾车踩踏齿比、链条数量或刹把热区。
 
 ### 6.1 Source
 

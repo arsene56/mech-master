@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "bike.carbon.full-suspension.v1",
+  "displayName": "Carbon 软尾山地车",
+  "displayOrder": 5,
+  "catalogResourcePath": "MechanicalCatalog/CarbonFrameBikeInteractionCatalog",
+  "moduleResourcePaths": [
+    "Models/CarbonFrameBike/Modules/frame_LOD0",
+    "Models/CarbonFrameBike/Modules/rear_suspension_LOD0",
+    "Models/CarbonFrameBike/Modules/shock_LOD0",
+    "Models/CarbonFrameBike/Modules/fork_LOD0",
+    "Models/CarbonFrameBike/Modules/front_wheel_LOD0",
+    "Models/CarbonFrameBike/Modules/rear_wheel_LOD0",
+    "Models/CarbonFrameBike/Modules/front_brake_LOD0",
+    "Models/CarbonFrameBike/Modules/rear_brake_LOD0",
+    "Models/CarbonFrameBike/Modules/transmission_LOD0",
+    "Models/CarbonFrameBike/Modules/pedals_LOD0",
+    "Models/CarbonFrameBike/Modules/chain_guide_LOD0",
+    "Models/CarbonFrameBike/Modules/cockpit_LOD0",
+    "Models/CarbonFrameBike/Modules/seat_LOD0",
+    "Models/CarbonFrameBike/Modules/cables_LOD0"
+  ],
+  "assemblies": [
+    {
+      "id": "frame",
+      "displayName": "主车架"
+    },
+    {
+      "id": "rear_suspension",
+      "displayName": "后摇臂与转点"
+    },
+    {
+      "id": "shock",
+      "displayName": "后避震器"
+    },
+    {
+      "id": "fork",
+      "displayName": "避震前叉"
+    },
+    {
+      "id": "front_wheel",
+      "displayName": "前轮"
+    },
+    {
+      "id": "rear_wheel",
+      "displayName": "后轮"
+    },
+    {
+      "id": "front_brake",
+      "displayName": "前制动器"
+    },
+    {
+      "id": "rear_brake",
+      "displayName": "后制动器"
+    },
+    {
+      "id": "transmission",
+      "displayName": "传动与变速"
+    },
+    {
+      "id": "pedals",
+      "displayName": "脚踏"
+    },
+    {
+      "id": "chain_guide",
+      "displayName": "链条与导链"
+    },
+    {
+      "id": "cockpit",
+      "displayName": "车把与操控"
+    },
+    {
+      "id": "seat",
+      "displayName": "坐垫与座管"
+    },
+    {
+      "id": "cables",
+      "displayName": "柔性管线"
+    }
+  ],
+  "motion": {
+    "kind": "carbon-suspension-v1",
+    "rigResourcePath": "MechanicalCatalog/CarbonFrameBikeMotionRig"
+  }
+}

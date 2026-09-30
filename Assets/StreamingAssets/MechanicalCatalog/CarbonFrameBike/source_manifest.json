@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/prefrontalcortex/glTF-Sample-Models",
+  "commit": "93c72b11cf78dd6a3cd50b875d752cd7e6dd4ab2",
+  "license": "CC-BY-SA-4.0",
+  "authors": [
+    "Robert Schweier (RobertS Bikes)",
+    "Felix Herbst / prefrontal cortex"
+  ],
+  "files": [
+    {
+      "path": "2.0/CarbonFrameBike/glTF-Binary/CarbonFrameBike.glb",
+      "url": "https://raw.githubusercontent.com/prefrontalcortex/glTF-Sample-Models/93c72b11cf78dd6a3cd50b875d752cd7e6dd4ab2/2.0/CarbonFrameBike/glTF-Binary/CarbonFrameBike.glb",
+      "bytes": 12183440,
+      "gitBlob": "121959c4b83c1f88c82a4df94e8a60b481ff6338",
+      "sha256": "95c016737df48d1beaa7bb5d6eb4789d8102013a246c59bdf6a25021fa264373"
+    },
+    {
+      "path": "2.0/CarbonFrameBike/README.md",
+      "url": "https://raw.githubusercontent.com/prefrontalcortex/glTF-Sample-Models/93c72b11cf78dd6a3cd50b875d752cd7e6dd4ab2/2.0/CarbonFrameBike/README.md",
+      "bytes": 1747,
+      "gitBlob": "a8dd670e6be576f838ef5218a578f7cdf2f139b1",
+      "sha256": "40c64f5b2d8d7809db7638879f3c974408e2dc93f0a1e50acd328682fa1320e3"
+    }
+  ]
+}

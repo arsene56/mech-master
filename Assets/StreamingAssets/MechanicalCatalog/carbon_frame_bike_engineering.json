@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "modelId": "bike.carbon.full-suspension.v1",
+  "units": "m",
+  "license": "CC-BY-SA-4.0",
+  "shockEyeDistanceM": 0.20003045027709013,
+  "shockSourceDesignation": "200-57; 200 mm eye distance verified, 57 mm is authored designation, not measured usable travel",
+  "wheelSourceDesignations": {
+    "front": "Reifen_584x75 / Felge_584x24_32Loch",
+    "rear": "Reifen_507x100 / Felge_507x46_32Loch_Kabra"
+  },
+  "materials": [
+    {
+      "name": "CarbonBike Bremsscheiben",
+      "metallic": 1.0,
+      "roughness": 0.18000000715255737
+    },
+    {
+      "name": "CarbonBike Bremskloetze",
+      "metallic": 0.7400000095367432,
+      "roughness": 0.44999998807907104
+    },
+    {
+      "name": "CarbonBike Schrauben",
+      "metallic": 0.9399999976158142,
+      "roughness": 0.18000000715255737
+    },
+    {
+      "name": "CarbonBike FelgeInnen",
+      "metallic": 0.6899999976158142,
+      "roughness": 0.18000000715255737
+    },
+    {
+      "name": "CarbonBike Rahmen",
+      "metallic": 0.800000011920929,
+      "roughness": 0.3100000023841858
+    },
+    {
+      "name": "CarbonBike Sattel",
+      "metallic": 0.0,
+      "roughness": 0.6399999856948853
+    },
+    {
+      "name": "CarbonBike Getriebe",
+      "metallic": 0.7200000286102295,
+      "roughness": 0.3400000035762787
+    },
+    {
+      "name": "CarbonBike FelgenStab",
+      "metallic": 0.6499999761581421,
+      "roughness": 0.33000001311302185
+    },
+    {
+      "name": "CarbonBike FelgenBefestigung",
+      "metallic": 0.9699999690055847,
+      "roughness": 0.1899999976158142
+    },
+    {
+      "name": "CarbonBike Reifen",
+      "metallic": 0.0,
+      "roughness": 0.6800000071525574
+    },
+    {
+      "name": "CarbonBike Reifen_innen",
+      "metallic": 0.0,
+      "roughness": 0.6800000071525574
+    },
+    {
+      "name": "CarbonBike MetalMedGloss",
+      "metallic": 1.0,
+      "roughness": 0.44999998807907104
+    },
+    {
+      "name": "CarbonBike Carbon",
+      "metallic": 0.0,
+      "roughness": 0.4399999976158142
+    },
+    {
+      "name": "CarbonBike MetalHighGloss",
+      "metallic": 0.9100000262260437,
+      "roughness": 0.13999998569488525
+    },
+    {
+      "name": "CarbonBike Feder",
+      "metallic": 0.8399999141693115,
+      "roughness": 0.17000001668930054
+    },
+    {
+      "name": "CarbonBike Bremse",
+      "metallic": 0.47999995946884155,
+      "roughness": 0.7300000190734863
+    },
+    {
+      "name": "CarbonBike Pedale",
+      "metallic": 1.0,
+      "roughness": 0.6100000143051147
+    },
+    {
+      "name": "CarbonBike RotesTeil",
+      "metallic": 0.5199999809265137,
+      "roughness": 0.2200000286102295
+    },
+    {
+      "name": "CarbonBike GummiDunkel",
+      "metallic": 0.0,
+      "roughness": 0.6800000071525574
+    },
+    {
+      "name": "CarbonBike BremsHebel",
+      "metallic": 1.0,
+      "roughness": 0.2799999713897705
+    },
+    {
+      "name": "CarbonBike MetalLenker",
+      "metallic": 1.0,
+      "roughness": 0.4399999976158142
+    },
+    {
+      "name": "CarbonBike GriffSeiten",
+      "metallic": 0.0,
+      "roughness": 0.1499999761581421
+    },
+    {
+      "name": "CarbonBike Griffe",
+      "metallic": 0.0,
+      "roughness": 0.7300000190734863
+    },
+    {
+      "name": "CarbonBike chain",
+      "metallic": 1.0,
+      "roughness": 0.3709999918937683
+    },
+    {
+      "name": "CarbonBike Unterschutzplatte",
+      "metallic": 1.0,
+      "roughness": 0.44999998807907104
+    },
+    {
+      "name": "CarbonBike Schlauch",
+      "metallic": 0.0,
+      "roughness": 0.6800000071525574
+    }
+  ],
+  "limitations": [
+    "Prescribed fixed-frame suspension kinematics, not riding/contact/force simulation.",
+    "Shock slide is solved from the moving lower mount and fixed upper mount; no damping or pressure simulation.",
+    "Chain and flexible lines are hidden only during this viewing mode; no invented chain or hose deformation.",
+    "Original steering angle and asymmetric wheel geometry are retained; no hardtail drivetrain assumptions.",
+    "Source CAD labels may disagree with mesh dimensions; wheel/tire labels are provenance, not validated sizing specifications.",
+    "This custom bike is not a Santa Cruz V10 and has no VPP linkage added."
+  ]
+}

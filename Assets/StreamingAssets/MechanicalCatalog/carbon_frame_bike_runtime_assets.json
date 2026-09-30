@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "modelId": "bike.carbon.full-suspension.v1",
+  "modules": [
+    {
+      "assemblyId": "frame",
+      "partObjects": 15,
+      "triangles": 7670,
+      "resourcePath": "Models/CarbonFrameBike/Modules/frame_LOD0",
+      "bytes": 375868
+    },
+    {
+      "assemblyId": "rear_suspension",
+      "partObjects": 26,
+      "triangles": 8474,
+      "resourcePath": "Models/CarbonFrameBike/Modules/rear_suspension_LOD0",
+      "bytes": 493900
+    },
+    {
+      "assemblyId": "shock",
+      "partObjects": 13,
+      "triangles": 3598,
+      "resourcePath": "Models/CarbonFrameBike/Modules/shock_LOD0",
+      "bytes": 227996
+    },
+    {
+      "assemblyId": "fork",
+      "partObjects": 5,
+      "triangles": 1636,
+      "resourcePath": "Models/CarbonFrameBike/Modules/fork_LOD0",
+      "bytes": 101164
+    },
+    {
+      "assemblyId": "front_wheel",
+      "partObjects": 68,
+      "triangles": 17894,
+      "resourcePath": "Models/CarbonFrameBike/Modules/front_wheel_LOD0",
+      "bytes": 1095420
+    },
+    {
+      "assemblyId": "rear_wheel",
+      "partObjects": 68,
+      "triangles": 18567,
+      "resourcePath": "Models/CarbonFrameBike/Modules/rear_wheel_LOD0",
+      "bytes": 1134076
+    },
+    {
+      "assemblyId": "front_brake",
+      "partObjects": 12,
+      "triangles": 6152,
+      "resourcePath": "Models/CarbonFrameBike/Modules/front_brake_LOD0",
+      "bytes": 345420
+    },
+    {
+      "assemblyId": "rear_brake",
+      "partObjects": 12,
+      "triangles": 6156,
+      "resourcePath": "Models/CarbonFrameBike/Modules/rear_brake_LOD0",
+      "bytes": 338636
+    },
+    {
+      "assemblyId": "transmission",
+      "partObjects": 30,
+      "triangles": 21599,
+      "resourcePath": "Models/CarbonFrameBike/Modules/transmission_LOD0",
+      "bytes": 1069804
+    },
+    {
+      "assemblyId": "pedals",
+      "partObjects": 4,
+      "triangles": 986,
+      "resourcePath": "Models/CarbonFrameBike/Modules/pedals_LOD0",
+      "bytes": 70860
+    },
+    {
+      "assemblyId": "chain_guide",
+      "partObjects": 25,
+      "triangles": 6987,
+      "resourcePath": "Models/CarbonFrameBike/Modules/chain_guide_LOD0",
+      "bytes": 468044
+    },
+    {
+      "assemblyId": "cockpit",
+      "partObjects": 17,
+      "triangles": 11118,
+      "resourcePath": "Models/CarbonFrameBike/Modules/cockpit_LOD0",
+      "bytes": 563724
+    },
+    {
+      "assemblyId": "seat",
+      "partObjects": 6,
+      "triangles": 1454,
+      "resourcePath": "Models/CarbonFrameBike/Modules/seat_LOD0",
+      "bytes": 96396
+    },
+    {
+      "assemblyId": "cables",
+      "partObjects": 6,
+      "triangles": 2580,
+      "resourcePath": "Models/CarbonFrameBike/Modules/cables_LOD0",
+      "bytes": 117900
+    }
+  ],
+  "interactionSteps": {
+    "Simple": 14,
+    "Standard": 34,
+    "Advanced": 51
+  },
+  "sourceTriangles": 114871,
+  "lod0Triangles": 114871,
+  "lod1Triangles": 63168,
+  "lod2Triangles": 22000
+}

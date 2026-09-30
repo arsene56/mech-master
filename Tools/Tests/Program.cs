@@ -33,11 +33,111 @@ internal static class Program
         Run("OpenTorque standard source and complete service coverage", OpenTorqueSourceAndTierCoverage);
         Run("OpenTorque motion bindings and source limitations", OpenTorqueMotionRig);
         Run("Fixed-ring planetary ratio, continuous phase and closed cycle", PlanetaryKinematics);
+        Run("Carbon bike provenance and conservative complete service groups", CarbonBikeServiceGroups);
+        Run("Carbon suspension source bindings and continuous teaching cycle", CarbonSuspensionCycle);
 
         Console.WriteLine(failures == 0
             ? "All MechMaster domain tests passed."
             : failures + " test(s) failed.");
         return failures == 0 ? 0 : 1;
+    }
+
+    private static void CarbonBikeServiceGroups()
+    {
+        using JsonDocument source = LoadJson("Assets", "StreamingAssets", "MechanicalCatalog", "carbon_frame_bike_model_manifest.json");
+        JsonElement manifest = source.RootElement;
+        Equal("93c72b11cf78dd6a3cd50b875d752cd7e6dd4ab2", manifest.GetProperty("sourceCommit").GetString());
+        Equal("95c016737df48d1beaa7bb5d6eb4789d8102013a246c59bdf6a25021fa264373", manifest.GetProperty("glbSha256").GetString());
+        Equal("m", manifest.GetProperty("units").GetString()); Equal(307, manifest.GetProperty("partObjectCount").GetInt32());
+        Equal(757, manifest.GetProperty("sourceNodeCount").GetInt32()); Equal(312, manifest.GetProperty("sourceMeshCount").GetInt32());
+        False(manifest.GetProperty("authoredImagesRedistributed").GetBoolean());
+        var names = new HashSet<string>(); var ids = new HashSet<string>(); var indices = new HashSet<int>();
+        var shock = new HashSet<string>(); var bearing = new HashSet<string>();
+        foreach (JsonElement part in manifest.GetProperty("parts").EnumerateArray())
+        {
+            string name = part.GetProperty("object").GetString(); True(names.Add(name)); True(name.StartsWith("MM_carbon_n"));
+            True(ids.Add(part.GetProperty("id").GetString())); True(indices.Add(part.GetProperty("sourceNodeIndex").GetInt32()));
+            True(part.GetProperty("sourceTriangles").GetInt32() > 0);
+            False(part.GetProperty("sourcePath").GetString().ToLowerInvariant().Contains("logo"));
+            if (part.GetProperty("assemblyId").GetString() == "shock") shock.Add(name);
+            if (part.GetProperty("serviceBoundary").GetString() == "sealed-bearing") bearing.Add(name);
+        }
+        Equal(307, names.Count); Equal(13, shock.Count); Equal(27, bearing.Count);
+        Equal(7, manifest.GetProperty("excludedReferences").GetArrayLength());
+        int marks = 0, shadows = 0;
+        foreach (JsonElement excluded in manifest.GetProperty("excludedReferences").EnumerateArray())
+        {
+            False(indices.Contains(excluded.GetProperty("nodeIndex").GetInt32()));
+            if (excluded.GetProperty("reason").GetString() == "visible-brand-mark") marks++;
+            else if (excluded.GetProperty("reason").GetString() == "display-shadow") shadows++;
+            else throw new InvalidOperationException("Unexpected omitted physical geometry");
+        }
+        Equal(4, marks); Equal(3, shadows);
+        using JsonDocument catalog = LoadJson("Assets", "Resources", "MechanicalCatalog", "CarbonFrameBikeInteractionCatalog.json");
+        int level = 0;
+        foreach (JsonElement plan in catalog.RootElement.GetProperty("plans").EnumerateArray())
+        {
+            Equal(new[] { "Simple", "Standard", "Advanced" }[level], plan.GetProperty("difficulty").GetString());
+            Equal(new[] { 14, 34, 51 }[level++], plan.GetProperty("steps").GetArrayLength());
+            var covered = new HashSet<string>(); var stepIds = new HashSet<string>(); int shocks = 0;
+            foreach (JsonElement step in plan.GetProperty("steps").EnumerateArray())
+            {
+                True(stepIds.Add(step.GetProperty("id").GetString()));
+                var members = new HashSet<string>();
+                foreach (JsonElement name in step.GetProperty("objectNames").EnumerateArray())
+                { True(covered.Add(name.GetString())); True(members.Add(name.GetString())); }
+                if (step.GetProperty("assemblyId").GetString() == "shock") { shocks++; True(members.SetEquals(shock)); }
+                foreach (string field in new[] { "simpleSummary", "mechanism", "advancedNote" })
+                { string text = step.GetProperty(field).GetString(); True(!string.IsNullOrWhiteSpace(text) && text.Length <= 50); }
+            }
+            True(covered.SetEquals(names)); Equal(1, shocks);
+        }
+        Equal(3, level);
+        string folder = Path.Combine("Assets", "StreamingAssets", "MechanicalCatalog", "CarbonFrameBike");
+        string attribution = File.ReadAllText(Path.Combine(folder, "ATTRIBUTION.txt"));
+        True(attribution.Contains("Robert Schweier") && attribution.Contains("Felix Herbst") && attribution.Contains("CC BY-SA 4.0"));
+        True(attribution.Contains("modifications") && attribution.Contains("does not relicense independent"));
+        True(File.ReadAllText(Path.Combine(folder, "CC-BY-SA-4.0-LICENSE.txt")).Contains("Attribution-ShareAlike 4.0"));
+        using JsonDocument runtime = LoadJson("Assets", "StreamingAssets", "MechanicalCatalog", "carbon_frame_bike_runtime_assets.json");
+        Equal(14, runtime.RootElement.GetProperty("modules").GetArrayLength());
+        Equal(114871, runtime.RootElement.GetProperty("lod0Triangles").GetInt32());
+        Equal(22000, runtime.RootElement.GetProperty("lod2Triangles").GetInt32());
+    }
+
+    private static void CarbonSuspensionCycle()
+    {
+        using JsonDocument data = LoadJson("Assets", "Resources", "MechanicalCatalog", "CarbonFrameBikeMotionRig.json");
+        JsonElement rig = data.RootElement;
+        Equal("bike.carbon.full-suspension.v1", rig.GetProperty("modelId").GetString());
+        Equal(4.0, rig.GetProperty("cycleSeconds").GetDouble()); Equal(8.0, rig.GetProperty("rearMaximumDegrees").GetDouble());
+        Equal(.045, rig.GetProperty("forkCompressionM").GetDouble());
+        True(Math.Abs(rig.GetProperty("shockEyeDistanceM").GetDouble() - .2) < .00015);
+        var bindings = new HashSet<string>(); var roles = new HashSet<string>();
+        foreach (JsonElement binding in rig.GetProperty("bindings").EnumerateArray())
+        { True(bindings.Add(binding.GetProperty("objectName").GetString())); roles.Add(binding.GetProperty("role").GetString()); }
+        Equal(307, bindings.Count); True(roles.SetEquals(new[] { "fixed", "rear", "front_lower", "shock_upper", "shock_lower", "hidden" }));
+        var anchors = new HashSet<string>();
+        foreach (string key in new[] { "rearPivotAnchor", "rearAxisAnchor", "rearWheelAnchor", "shockUpperAnchor", "shockLowerAnchor", "forkAxisStartAnchor", "forkAxisEndAnchor" })
+        { string name = rig.GetProperty(key).GetString(); True(anchors.Add(name)); True(name.StartsWith("MM_carbon_rig_")); }
+        Equal(7, anchors.Count); True(rig.GetProperty("limitations").GetArrayLength() >= 4);
+        Equal(0.0, SuspensionTeachingCycle.CompressionFraction(0)); Equal(1.0, SuspensionTeachingCycle.CompressionFraction(.5));
+        Equal(0.0, SuspensionTeachingCycle.CompressionFraction(1));
+        double previous = 0;
+        for (int i = 1; i <= 512; i++)
+        {
+            double phase = i / 1024.0, amount = SuspensionTeachingCycle.CompressionFraction(phase);
+            True(amount >= 0 && amount <= 1 && amount > previous);
+            True(Math.Abs(amount - SuspensionTeachingCycle.CompressionFraction(phase + 12)) < 1e-12);
+            True(Math.Abs(amount - SuspensionTeachingCycle.CompressionFraction(1 - phase)) < 1e-12);
+            previous = amount;
+        }
+        double h = 1e-5;
+        foreach (double phase in new[] { 0.0, .25, .5, .75, 1.0 })
+        {
+            double left = (SuspensionTeachingCycle.CompressionFraction(phase) - SuspensionTeachingCycle.CompressionFraction(phase - h)) / h;
+            double right = (SuspensionTeachingCycle.CompressionFraction(phase + h) - SuspensionTeachingCycle.CompressionFraction(phase)) / h;
+            True(Math.Abs(left - right) < .0003);
+        }
     }
 
     private static void OpenTorqueSourceAndTierCoverage()

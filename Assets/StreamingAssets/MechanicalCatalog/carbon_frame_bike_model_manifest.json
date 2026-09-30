@@ -1,0 +1,5271 @@
+{
+  "schemaVersion": 1,
+  "modelId": "bike.carbon.full-suspension.v1",
+  "sourceCommit": "93c72b11cf78dd6a3cd50b875d752cd7e6dd4ab2",
+  "glbSha256": "95c016737df48d1beaa7bb5d6eb4789d8102013a246c59bdf6a25021fa264373",
+  "units": "m",
+  "sourcePoseFrame": 0,
+  "sourceNodeCount": 757,
+  "sourceMeshCount": 312,
+  "partObjectCount": 307,
+  "parts": [
+    {
+      "id": "carbon.n0009",
+      "object": "MM_carbon_n0009_rotor",
+      "assemblyId": "rear_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 9,
+      "sourceName": "Shape_6441",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/Bremsscheibe_Hope_200mm/Bremsscheibe_Hope_200mm_4431/Shape_6441",
+      "sourceTriangles": 2652,
+      "motionRole": "rear",
+      "centerM": [
+        0.5990505814552307,
+        -0.060999784618616104,
+        0.3331061601638794
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0011",
+      "object": "MM_carbon_n0011_rotor",
+      "assemblyId": "rear_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 11,
+      "sourceName": "Shape_6353",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/Bremsscheibe_Hope_200mm/Bremsscheibe_Hope_200mm_113644/Shape_6353",
+      "sourceTriangles": 1476,
+      "motionRole": "rear",
+      "centerM": [
+        0.5990022420883179,
+        -0.061500854790210724,
+        0.3331247568130493
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0013",
+      "object": "MM_carbon_n0013_rotor",
+      "assemblyId": "rear_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 13,
+      "sourceName": "Shape_6485",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/Bremsscheibe_Hope_200mm/Bremsscheibe_Hope_200mm_133906/Shape_6485",
+      "sourceTriangles": 166,
+      "motionRole": "rear",
+      "centerM": [
+        0.6596875786781311,
+        -0.06099610775709152,
+        0.3727302551269531
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0015",
+      "object": "MM_carbon_n0015_rotor",
+      "assemblyId": "rear_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 15,
+      "sourceName": "Shape_6309",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/Bremsscheibe_Hope_200mm/Bremsscheibe_Hope_200mm_139752/Shape_6309",
+      "sourceTriangles": 162,
+      "motionRole": "rear",
+      "centerM": [
+        0.5949960947036743,
+        -0.060995589941740036,
+        0.4054930806159973
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0017",
+      "object": "MM_carbon_n0017_rotor",
+      "assemblyId": "rear_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 17,
+      "sourceName": "Shape_6397",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/Bremsscheibe_Hope_200mm/Bremsscheibe_Hope_200mm_139781/Shape_6397",
+      "sourceTriangles": 160,
+      "motionRole": "rear",
+      "centerM": [
+        0.5343099236488342,
+        -0.06099260598421097,
+        0.36589252948760986
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0019",
+      "object": "MM_carbon_n0019_rotor",
+      "assemblyId": "rear_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 19,
+      "sourceName": "Shape_6177",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/Bremsscheibe_Hope_200mm/Bremsscheibe_Hope_200mm_139810/Shape_6177",
+      "sourceTriangles": 158,
+      "motionRole": "rear",
+      "centerM": [
+        0.5383174419403076,
+        -0.061009228229522705,
+        0.29351162910461426
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0021",
+      "object": "MM_carbon_n0021_rotor",
+      "assemblyId": "rear_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 21,
+      "sourceName": "Shape_6265",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/Bremsscheibe_Hope_200mm/Bremsscheibe_Hope_200mm_139839/Shape_6265",
+      "sourceTriangles": 154,
+      "motionRole": "rear",
+      "centerM": [
+        0.6029936671257019,
+        -0.06100919097661972,
+        0.2607274055480957
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0023",
+      "object": "MM_carbon_n0023_rotor",
+      "assemblyId": "rear_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 23,
+      "sourceName": "Shape_6221",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/Bremsscheibe_Hope_200mm/Bremsscheibe_Hope_200mm_139868/Shape_6221",
+      "sourceTriangles": 170,
+      "motionRole": "rear",
+      "centerM": [
+        0.6636796593666077,
+        -0.061004284769296646,
+        0.3003960847854614
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0026",
+      "object": "MM_carbon_n0026_rim",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "rim",
+      "sourceNodeIndex": 26,
+      "sourceName": "Shape_10432",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/Felge_507x46_32Loch_Kabra/Felge_507x46_32Loch_Kabra_23315/Shape_10432",
+      "sourceTriangles": 5086,
+      "motionRole": "rear",
+      "centerM": [
+        0.5990002155303955,
+        -3.8016587495803833e-06,
+        0.3331259489059448
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0029",
+      "object": "MM_carbon_n0029_hub",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "hub",
+      "sourceNodeIndex": 29,
+      "sourceName": "Shape_10317",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Nabe_Tune_Kong_MK_150mm/HR_Nabe_Tune_Kong_MK_150mm_4921/Shape_10317",
+      "sourceTriangles": 72,
+      "motionRole": "rear",
+      "centerM": [
+        0.5989445447921753,
+        3.46451997756958e-06,
+        0.3331703245639801
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0031",
+      "object": "MM_carbon_n0031_hub",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "hub",
+      "sourceNodeIndex": 31,
+      "sourceName": "Shape_10361",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Nabe_Tune_Kong_MK_150mm/HR_Nabe_Tune_Kong_MK_150mm_66801/Shape_10361",
+      "sourceTriangles": 1490,
+      "motionRole": "rear",
+      "centerM": [
+        0.5990113019943237,
+        0.004529507830739021,
+        0.3331683278083801
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0034",
+      "object": "MM_carbon_n0034_cassette",
+      "assemblyId": "transmission",
+      "serviceKey": "cassette",
+      "sourceNodeIndex": 34,
+      "sourceName": "Shape_10150",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Ritzelpaket_SRAM_X01_Eagle/HR_Ritzelpaket_SRAM_X01_Eagle_736_Ritzel 42Z/Shape_10150",
+      "sourceTriangles": 1273,
+      "motionRole": "rear",
+      "centerM": [
+        0.599000096321106,
+        0.035494036972522736,
+        0.3331260681152344
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0036",
+      "object": "MM_carbon_n0036_cassette",
+      "assemblyId": "transmission",
+      "serviceKey": "cassette",
+      "sourceNodeIndex": 36,
+      "sourceName": "Shape_9842",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Ritzelpaket_SRAM_X01_Eagle/HR_Ritzelpaket_SRAM_X01_Eagle_1611_Ritzel 36Z/Shape_9842",
+      "sourceTriangles": 1110,
+      "motionRole": "rear",
+      "centerM": [
+        0.599000096321106,
+        0.039149872958660126,
+        0.33312591910362244
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0038",
+      "object": "MM_carbon_n0038_cassette",
+      "assemblyId": "transmission",
+      "serviceKey": "cassette",
+      "sourceNodeIndex": 38,
+      "sourceName": "Shape_9974",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Ritzelpaket_SRAM_X01_Eagle/HR_Ritzelpaket_SRAM_X01_Eagle_2386_Ritzel 32Z/Shape_9974",
+      "sourceTriangles": 1012,
+      "motionRole": "rear",
+      "centerM": [
+        0.599000096321106,
+        0.04282774031162262,
+        0.3331260085105896
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0040",
+      "object": "MM_carbon_n0040_cassette",
+      "assemblyId": "transmission",
+      "serviceKey": "cassette",
+      "sourceNodeIndex": 40,
+      "sourceName": "Shape_9798",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Ritzelpaket_SRAM_X01_Eagle/HR_Ritzelpaket_SRAM_X01_Eagle_3097_Ritzel 28Z/Shape_9798",
+      "sourceTriangles": 972,
+      "motionRole": "rear",
+      "centerM": [
+        0.599000096321106,
+        0.04643397778272629,
+        0.3331259489059448
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0042",
+      "object": "MM_carbon_n0042_cassette",
+      "assemblyId": "transmission",
+      "serviceKey": "cassette",
+      "sourceNodeIndex": 42,
+      "sourceName": "Shape_9886",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Ritzelpaket_SRAM_X01_Eagle/HR_Ritzelpaket_SRAM_X01_Eagle_3744_Ritzel 24Z/Shape_9886",
+      "sourceTriangles": 763,
+      "motionRole": "rear",
+      "centerM": [
+        0.5990001559257507,
+        0.050100527703762054,
+        0.3331259489059448
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0044",
+      "object": "MM_carbon_n0044_cassette",
+      "assemblyId": "transmission",
+      "serviceKey": "cassette",
+      "sourceNodeIndex": 44,
+      "sourceName": "Shape_10238",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Ritzelpaket_SRAM_X01_Eagle/HR_Ritzelpaket_SRAM_X01_Eagle_4327_Ritzel 21Z/Shape_10238",
+      "sourceTriangles": 722,
+      "motionRole": "rear",
+      "centerM": [
+        0.5990873575210571,
+        0.05374975502490997,
+        0.33312588930130005
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0046",
+      "object": "MM_carbon_n0046_cassette",
+      "assemblyId": "transmission",
+      "serviceKey": "cassette",
+      "sourceNodeIndex": 46,
+      "sourceName": "Shape_10194",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Ritzelpaket_SRAM_X01_Eagle/HR_Ritzelpaket_SRAM_X01_Eagle_4862_Ritzel 18Z/Shape_10194",
+      "sourceTriangles": 608,
+      "motionRole": "rear",
+      "centerM": [
+        0.599000096321106,
+        0.05737331882119179,
+        0.3331240117549896
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0048",
+      "object": "MM_carbon_n0048_cassette",
+      "assemblyId": "transmission",
+      "serviceKey": "cassette",
+      "sourceNodeIndex": 48,
+      "sourceName": "Shape_10018",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Ritzelpaket_SRAM_X01_Eagle/HR_Ritzelpaket_SRAM_X01_Eagle_5349_Ritzel 16Z/Shape_10018",
+      "sourceTriangles": 384,
+      "motionRole": "rear",
+      "centerM": [
+        0.599000096321106,
+        0.06105004996061325,
+        0.33312591910362244
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0050",
+      "object": "MM_carbon_n0050_cassette",
+      "assemblyId": "transmission",
+      "serviceKey": "cassette",
+      "sourceNodeIndex": 50,
+      "sourceName": "Shape_9930",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Ritzelpaket_SRAM_X01_Eagle/HR_Ritzelpaket_SRAM_X01_Eagle_5612_Ritzel 14Z/Shape_9930",
+      "sourceTriangles": 338,
+      "motionRole": "rear",
+      "centerM": [
+        0.599000096321106,
+        0.06470005214214325,
+        0.3331259489059448
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0052",
+      "object": "MM_carbon_n0052_cassette",
+      "assemblyId": "transmission",
+      "serviceKey": "cassette",
+      "sourceNodeIndex": 52,
+      "sourceName": "Shape_10106",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Ritzelpaket_SRAM_X01_Eagle/HR_Ritzelpaket_SRAM_X01_Eagle_5843_Ritzel 12Z/Shape_10106",
+      "sourceTriangles": 306,
+      "motionRole": "rear",
+      "centerM": [
+        0.599000096321106,
+        0.06834931671619415,
+        0.3331257700920105
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0054",
+      "object": "MM_carbon_n0054_cassette",
+      "assemblyId": "transmission",
+      "serviceKey": "cassette",
+      "sourceNodeIndex": 54,
+      "sourceName": "Shape_10062",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Ritzelpaket_SRAM_X01_Eagle/HR_Ritzelpaket_SRAM_X01_Eagle_6042_Ritzel 10Z/Shape_10062",
+      "sourceTriangles": 248,
+      "motionRole": "rear",
+      "centerM": [
+        0.599000096321106,
+        0.07200000435113907,
+        0.3331258296966553
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0056",
+      "object": "MM_carbon_n0056_cassette",
+      "assemblyId": "transmission",
+      "serviceKey": "cassette",
+      "sourceNodeIndex": 56,
+      "sourceName": "Shape_9754",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Ritzelpaket_SRAM_X01_Eagle/HR_Ritzelpaket_SRAM_X01_Eagle_17295_Ritzel 42Z/Shape_9754",
+      "sourceTriangles": 1364,
+      "motionRole": "rear",
+      "centerM": [
+        0.5990238189697266,
+        0.031851205974817276,
+        0.3331265151500702
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0059",
+      "object": "MM_carbon_n0059_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 59,
+      "sourceName": "Shape_13215",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_5673/Shape_13215",
+      "sourceTriangles": 36,
+      "motionRole": "rear",
+      "centerM": [
+        0.7223881483078003,
+        0.019982650876045227,
+        0.3708363175392151
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0061",
+      "object": "MM_carbon_n0061_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 61,
+      "sourceName": "Shape_12203",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_6967/Shape_12203",
+      "sourceTriangles": 66,
+      "motionRole": "rear",
+      "centerM": [
+        0.8388360738754272,
+        0.009711160324513912,
+        0.3817572593688965
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0063",
+      "object": "MM_carbon_n0063_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 63,
+      "sourceName": "Shape_10839",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17348/Shape_10839",
+      "sourceTriangles": 38,
+      "motionRole": "rear",
+      "centerM": [
+        0.7129685878753662,
+        0.01995348185300827,
+        0.2723073363304138
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0065",
+      "object": "MM_carbon_n0065_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 65,
+      "sourceName": "Shape_12687",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17349/Shape_12687",
+      "sourceTriangles": 64,
+      "motionRole": "rear",
+      "centerM": [
+        0.8028459548950195,
+        0.009748794138431549,
+        0.19703131914138794
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0067",
+      "object": "MM_carbon_n0067_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 67,
+      "sourceName": "Shape_13083",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17422/Shape_13083",
+      "sourceTriangles": 30,
+      "motionRole": "rear",
+      "centerM": [
+        0.6365402936935425,
+        0.020001713186502457,
+        0.2095143347978592
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0069",
+      "object": "MM_carbon_n0069_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 69,
+      "sourceName": "Shape_12951",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17423/Shape_12951",
+      "sourceTriangles": 64,
+      "motionRole": "rear",
+      "centerM": [
+        0.6476012468338013,
+        0.009682904928922653,
+        0.09328027814626694
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0071",
+      "object": "MM_carbon_n0071_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 71,
+      "sourceName": "Shape_12335",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17496/Shape_12335",
+      "sourceTriangles": 60,
+      "motionRole": "rear",
+      "centerM": [
+        0.46296757459640503,
+        0.009637625887989998,
+        0.12922872602939606
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0073",
+      "object": "MM_carbon_n0073_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 73,
+      "sourceName": "Shape_11763",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17497/Shape_11763",
+      "sourceTriangles": 30,
+      "motionRole": "rear",
+      "centerM": [
+        0.5384407043457031,
+        0.02007659152150154,
+        0.21918046474456787
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0075",
+      "object": "MM_carbon_n0075_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 75,
+      "sourceName": "Shape_12291",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17570/Shape_12291",
+      "sourceTriangles": 60,
+      "motionRole": "rear",
+      "centerM": [
+        0.3591483533382416,
+        0.00977146066725254,
+        0.28451454639434814
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0077",
+      "object": "MM_carbon_n0077_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 77,
+      "sourceName": "Shape_12511",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17571/Shape_12511",
+      "sourceTriangles": 32,
+      "motionRole": "rear",
+      "centerM": [
+        0.47554752230644226,
+        0.020010201260447502,
+        0.2956203818321228
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0079",
+      "object": "MM_carbon_n0079_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 79,
+      "sourceName": "Shape_12643",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17644/Shape_12643",
+      "sourceTriangles": 54,
+      "motionRole": "rear",
+      "centerM": [
+        0.39498454332351685,
+        0.009834318421781063,
+        0.4690975248813629
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0081",
+      "object": "MM_carbon_n0081_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 81,
+      "sourceName": "Shape_10575",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17645/Shape_10575",
+      "sourceTriangles": 28,
+      "motionRole": "rear",
+      "centerM": [
+        0.48488545417785645,
+        0.020135901868343353,
+        0.3937642574310303
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0083",
+      "object": "MM_carbon_n0083_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 83,
+      "sourceName": "Shape_12863",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17718/Shape_12863",
+      "sourceTriangles": 62,
+      "motionRole": "rear",
+      "centerM": [
+        0.5505177974700928,
+        0.009643224999308586,
+        0.5729590654373169
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0085",
+      "object": "MM_carbon_n0085_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 85,
+      "sourceName": "Shape_11807",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17719/Shape_11807",
+      "sourceTriangles": 36,
+      "motionRole": "rear",
+      "centerM": [
+        0.5614879727363586,
+        0.020051710307598114,
+        0.45653867721557617
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0087",
+      "object": "MM_carbon_n0087_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 87,
+      "sourceName": "Shape_13039",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17792/Shape_13039",
+      "sourceTriangles": 40,
+      "motionRole": "rear",
+      "centerM": [
+        0.6598418951034546,
+        0.019950907677412033,
+        0.4471103549003601
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0089",
+      "object": "MM_carbon_n0089_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 89,
+      "sourceName": "Shape_10927",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_17793/Shape_10927",
+      "sourceTriangles": 62,
+      "motionRole": "rear",
+      "centerM": [
+        0.7349424362182617,
+        0.00975606869906187,
+        0.5369661450386047
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0091",
+      "object": "MM_carbon_n0091_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 91,
+      "sourceName": "Shape_11147",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_18216/Shape_11147",
+      "sourceTriangles": 32,
+      "motionRole": "rear",
+      "centerM": [
+        0.5380126237869263,
+        0.019447531551122665,
+        0.4471611976623535
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0093",
+      "object": "MM_carbon_n0093_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 93,
+      "sourceName": "Shape_12071",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_18388/Shape_12071",
+      "sourceTriangles": 70,
+      "motionRole": "rear",
+      "centerM": [
+        0.4629886746406555,
+        0.009729351848363876,
+        0.5370005369186401
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0095",
+      "object": "MM_carbon_n0095_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 95,
+      "sourceName": "Shape_12775",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_18713/Shape_12775",
+      "sourceTriangles": 42,
+      "motionRole": "rear",
+      "centerM": [
+        0.6364650726318359,
+        0.019238945096731186,
+        0.45656639337539673
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0097",
+      "object": "MM_carbon_n0097_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 97,
+      "sourceName": "Shape_12247",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_18715/Shape_12247",
+      "sourceTriangles": 62,
+      "motionRole": "rear",
+      "centerM": [
+        0.6476038694381714,
+        0.00980061013251543,
+        0.5729663372039795
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0099",
+      "object": "MM_carbon_n0099_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 99,
+      "sourceName": "Shape_12907",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_18788/Shape_12907",
+      "sourceTriangles": 32,
+      "motionRole": "rear",
+      "centerM": [
+        0.713045597076416,
+        0.01918691024184227,
+        0.39372575283050537
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0101",
+      "object": "MM_carbon_n0101_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 101,
+      "sourceName": "Shape_11983",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_18789/Shape_11983",
+      "sourceTriangles": 62,
+      "motionRole": "rear",
+      "centerM": [
+        0.8028234243392944,
+        0.009929152205586433,
+        0.4692041277885437
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0103",
+      "object": "MM_carbon_n0103_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 103,
+      "sourceName": "Shape_11543",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_18862/Shape_11543",
+      "sourceTriangles": 66,
+      "motionRole": "rear",
+      "centerM": [
+        0.8388094902038574,
+        0.009703835472464561,
+        0.2845686078071594
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0105",
+      "object": "MM_carbon_n0105_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 105,
+      "sourceName": "Shape_12819",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_18863/Shape_12819",
+      "sourceTriangles": 34,
+      "motionRole": "rear",
+      "centerM": [
+        0.722449779510498,
+        0.01913839392364025,
+        0.29573535919189453
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0107",
+      "object": "MM_carbon_n0107_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 107,
+      "sourceName": "Shape_10883",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_18936/Shape_10883",
+      "sourceTriangles": 56,
+      "motionRole": "rear",
+      "centerM": [
+        0.7350513935089111,
+        0.009709890000522137,
+        0.12914717197418213
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0109",
+      "object": "MM_carbon_n0109_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 109,
+      "sourceName": "Shape_12555",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_18937/Shape_12555",
+      "sourceTriangles": 36,
+      "motionRole": "rear",
+      "centerM": [
+        0.6597938537597656,
+        0.019205981865525246,
+        0.21914434432983398
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0111",
+      "object": "MM_carbon_n0111_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 111,
+      "sourceName": "Shape_13127",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_19010/Shape_13127",
+      "sourceTriangles": 56,
+      "motionRole": "rear",
+      "centerM": [
+        0.5505070686340332,
+        0.009748178534209728,
+        0.09328576177358627
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0113",
+      "object": "MM_carbon_n0113_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 113,
+      "sourceName": "Shape_10619",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_19011/Shape_10619",
+      "sourceTriangles": 40,
+      "motionRole": "rear",
+      "centerM": [
+        0.5615205764770508,
+        0.019239628687500954,
+        0.2097940444946289
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0115",
+      "object": "MM_carbon_n0115_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 115,
+      "sourceName": "Shape_11895",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_19084/Shape_11895",
+      "sourceTriangles": 58,
+      "motionRole": "rear",
+      "centerM": [
+        0.3951142728328705,
+        0.009784728288650513,
+        0.19719767570495605
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0117",
+      "object": "MM_carbon_n0117_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 117,
+      "sourceName": "Shape_12467",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_19085/Shape_12467",
+      "sourceTriangles": 36,
+      "motionRole": "rear",
+      "centerM": [
+        0.4849892258644104,
+        0.0191638246178627,
+        0.27243536710739136
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0119",
+      "object": "MM_carbon_n0119_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 119,
+      "sourceName": "Shape_10971",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_19158/Shape_10971",
+      "sourceTriangles": 32,
+      "motionRole": "rear",
+      "centerM": [
+        0.4753325879573822,
+        0.019262026995420456,
+        0.37045568227767944
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0121",
+      "object": "MM_carbon_n0121_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 121,
+      "sourceName": "Shape_11675",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_19159/Shape_11675",
+      "sourceTriangles": 55,
+      "motionRole": "rear",
+      "centerM": [
+        0.3591947555541992,
+        0.00978146493434906,
+        0.38171088695526123
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0123",
+      "object": "MM_carbon_n0123_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 123,
+      "sourceName": "Shape_11235",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_25777/Shape_11235",
+      "sourceTriangles": 30,
+      "motionRole": "rear",
+      "centerM": [
+        0.7273629903793335,
+        -0.02703552506864071,
+        0.3464336097240448
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0125",
+      "object": "MM_carbon_n0125_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 125,
+      "sourceName": "Shape_12379",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_25949/Shape_12379",
+      "sourceTriangles": 56,
+      "motionRole": "rear",
+      "centerM": [
+        0.8436502814292908,
+        -0.009851795621216297,
+        0.33292633295059204
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0127",
+      "object": "MM_carbon_n0127_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 127,
+      "sourceName": "Shape_13347",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26274/Shape_13347",
+      "sourceTriangles": 34,
+      "motionRole": "rear",
+      "centerM": [
+        0.6988041400909424,
+        -0.02703722193837166,
+        0.25086867809295654
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0129",
+      "object": "MM_carbon_n0129_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 129,
+      "sourceName": "Shape_11455",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26276/Shape_11455",
+      "sourceTriangles": 58,
+      "motionRole": "rear",
+      "centerM": [
+        0.7726532220840454,
+        -0.009853458032011986,
+        0.15987078845500946
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0131",
+      "object": "MM_carbon_n0131_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 131,
+      "sourceName": "Shape_11015",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26349/Shape_11015",
+      "sourceTriangles": 34,
+      "motionRole": "rear",
+      "centerM": [
+        0.6119546294212341,
+        -0.026946669444441795,
+        0.20476441085338593
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0133",
+      "object": "MM_carbon_n0133_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 133,
+      "sourceName": "Shape_13171",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26350/Shape_13171",
+      "sourceTriangles": 62,
+      "motionRole": "rear",
+      "centerM": [
+        0.5987297296524048,
+        -0.0097928736358881,
+        0.08845978230237961
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0135",
+      "object": "MM_carbon_n0135_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 135,
+      "sourceName": "Shape_10751",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26423/Shape_10751",
+      "sourceTriangles": 56,
+      "motionRole": "rear",
+      "centerM": [
+        0.4257500171661377,
+        -0.009810486808419228,
+        0.15944257378578186
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0137",
+      "object": "MM_carbon_n0137_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 137,
+      "sourceName": "Shape_11191",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26424/Shape_11191",
+      "sourceTriangles": 40,
+      "motionRole": "rear",
+      "centerM": [
+        0.5168988704681396,
+        -0.026995666325092316,
+        0.23311379551887512
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0139",
+      "object": "MM_carbon_n0139_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 139,
+      "sourceName": "Shape_11631",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26497/Shape_11631",
+      "sourceTriangles": 60,
+      "motionRole": "rear",
+      "centerM": [
+        0.3543432652950287,
+        -0.009804463014006615,
+        0.33331191539764404
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0141",
+      "object": "MM_carbon_n0141_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 141,
+      "sourceName": "Shape_13303",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26498/Shape_13303",
+      "sourceTriangles": 38,
+      "motionRole": "rear",
+      "centerM": [
+        0.470427930355072,
+        -0.02700626663863659,
+        0.3199607729911804
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0143",
+      "object": "MM_carbon_n0143_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 143,
+      "sourceName": "Shape_10795",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26571/Shape_10795",
+      "sourceTriangles": 56,
+      "motionRole": "rear",
+      "centerM": [
+        0.4250974655151367,
+        -0.009930534288287163,
+        0.5061061382293701
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0145",
+      "object": "MM_carbon_n0145_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 145,
+      "sourceName": "Shape_11367",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26572/Shape_11367",
+      "sourceTriangles": 38,
+      "motionRole": "rear",
+      "centerM": [
+        0.4990004301071167,
+        -0.026889698579907417,
+        0.41492825746536255
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0147",
+      "object": "MM_carbon_n0147_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 147,
+      "sourceName": "Shape_11587",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26645/Shape_11587",
+      "sourceTriangles": 60,
+      "motionRole": "rear",
+      "centerM": [
+        0.599212110042572,
+        -0.00958961434662342,
+        0.5777683854103088
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0149",
+      "object": "MM_carbon_n0149_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 149,
+      "sourceName": "Shape_12115",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26646/Shape_12115",
+      "sourceTriangles": 30,
+      "motionRole": "rear",
+      "centerM": [
+        0.5859084725379944,
+        -0.026992425322532654,
+        0.46152371168136597
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0151",
+      "object": "MM_carbon_n0151_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 151,
+      "sourceName": "Shape_11939",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26719/Shape_11939",
+      "sourceTriangles": 40,
+      "motionRole": "rear",
+      "centerM": [
+        0.6808608174324036,
+        -0.02680465579032898,
+        0.4329531788825989
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0153",
+      "object": "MM_carbon_n0153_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 153,
+      "sourceName": "Shape_11323",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_26720/Shape_11323",
+      "sourceTriangles": 62,
+      "motionRole": "rear",
+      "centerM": [
+        0.7720776200294495,
+        -0.009869655594229698,
+        0.5066083669662476
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0155",
+      "object": "MM_carbon_n0155_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 155,
+      "sourceName": "Shape_11851",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_30193/Shape_11851",
+      "sourceTriangles": 38,
+      "motionRole": "rear",
+      "centerM": [
+        0.48527926206588745,
+        -0.025930937379598618,
+        0.3939874470233917
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0157",
+      "object": "MM_carbon_n0157_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 157,
+      "sourceName": "Shape_12159",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_30366/Shape_12159",
+      "sourceTriangles": 64,
+      "motionRole": "rear",
+      "centerM": [
+        0.37301552295684814,
+        -0.009829433634877205,
+        0.4273347556591034
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0159",
+      "object": "MM_carbon_n0159_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 159,
+      "sourceName": "Shape_10707",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_30692/Shape_10707",
+      "sourceTriangles": 60,
+      "motionRole": "rear",
+      "centerM": [
+        0.5052909851074219,
+        -0.009761231020092964,
+        0.5593492984771729
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0161",
+      "object": "MM_carbon_n0161_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 161,
+      "sourceName": "Shape_11059",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_30694/Shape_11059",
+      "sourceTriangles": 36,
+      "motionRole": "rear",
+      "centerM": [
+        0.5617879629135132,
+        -0.026449918746948242,
+        0.4567073881626129
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0163",
+      "object": "MM_carbon_n0163_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 163,
+      "sourceName": "Shape_12423",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_30767/Shape_12423",
+      "sourceTriangles": 36,
+      "motionRole": "rear",
+      "centerM": [
+        0.6601212024688721,
+        -0.026147181168198586,
+        0.44694072008132935
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0165",
+      "object": "MM_carbon_n0165_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 165,
+      "sourceName": "Shape_11499",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_30768/Shape_11499",
+      "sourceTriangles": 60,
+      "motionRole": "rear",
+      "centerM": [
+        0.6934349536895752,
+        -0.00990381557494402,
+        0.5590900182723999
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0167",
+      "object": "MM_carbon_n0167_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 167,
+      "sourceName": "Shape_11719",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_30841/Shape_11719",
+      "sourceTriangles": 32,
+      "motionRole": "rear",
+      "centerM": [
+        0.7229585647583008,
+        -0.026098158210515976,
+        0.37042856216430664
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0169",
+      "object": "MM_carbon_n0169_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 169,
+      "sourceName": "Shape_11279",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_30842/Shape_11279",
+      "sourceTriangles": 54,
+      "motionRole": "rear",
+      "centerM": [
+        0.8253368735313416,
+        -0.009827700443565845,
+        0.42694199085235596
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0171",
+      "object": "MM_carbon_n0171_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 171,
+      "sourceName": "Shape_12995",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_30915/Shape_12995",
+      "sourceTriangles": 34,
+      "motionRole": "rear",
+      "centerM": [
+        0.7126914262771606,
+        -0.02613808587193489,
+        0.2721328139305115
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0173",
+      "object": "MM_carbon_n0173_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 173,
+      "sourceName": "Shape_12731",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_30916/Shape_12731",
+      "sourceTriangles": 56,
+      "motionRole": "rear",
+      "centerM": [
+        0.8249936103820801,
+        -0.009838307276368141,
+        0.23877254128456116
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0175",
+      "object": "MM_carbon_n0175_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 175,
+      "sourceName": "Shape_13259",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_30989/Shape_13259",
+      "sourceTriangles": 38,
+      "motionRole": "rear",
+      "centerM": [
+        0.6361817121505737,
+        -0.026212023571133614,
+        0.20932240784168243
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0177",
+      "object": "MM_carbon_n0177_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 177,
+      "sourceName": "Shape_10663",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_30990/Shape_10663",
+      "sourceTriangles": 62,
+      "motionRole": "rear",
+      "centerM": [
+        0.6927091479301453,
+        -0.009850832633674145,
+        0.10682599246501923
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0179",
+      "object": "MM_carbon_n0179_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 179,
+      "sourceName": "Shape_12027",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_31063/Shape_12027",
+      "sourceTriangles": 62,
+      "motionRole": "rear",
+      "centerM": [
+        0.504633903503418,
+        -0.009818537160754204,
+        0.1071423888206482
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0181",
+      "object": "MM_carbon_n0181_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 181,
+      "sourceName": "Shape_11103",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_31064/Shape_11103",
+      "sourceTriangles": 36,
+      "motionRole": "rear",
+      "centerM": [
+        0.5379635095596313,
+        -0.02622557431459427,
+        0.21940766274929047
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0183",
+      "object": "MM_carbon_n0183_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 183,
+      "sourceName": "Shape_11411",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_31137/Shape_11411",
+      "sourceTriangles": 56,
+      "motionRole": "rear",
+      "centerM": [
+        0.37270107865333557,
+        -0.009790086187422276,
+        0.23930823802947998
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0185",
+      "object": "MM_carbon_n0185_spokes",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 185,
+      "sourceName": "Shape_12599",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/HR_Speichen/HR_Speichen_31138/Shape_12599",
+      "sourceTriangles": 34,
+      "motionRole": "rear",
+      "centerM": [
+        0.47514474391937256,
+        -0.026148688048124313,
+        0.2959141135215759
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0188",
+      "object": "MM_carbon_n0188_tire",
+      "assemblyId": "rear_wheel",
+      "serviceKey": "tire",
+      "sourceNodeIndex": 188,
+      "sourceName": "Shape_10504",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RadHinten/ZB_HR/Reifen_507x100_Vee-Tire/Reifen_507x100_Vee-Tire_7571/Shape_10504",
+      "sourceTriangles": 8876,
+      "motionRole": "rear",
+      "centerM": [
+        0.5990001559257507,
+        2.9802322387695312e-08,
+        0.3332808017730713
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0192",
+      "object": "MM_carbon_n0192_pivot_axle",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_axle",
+      "sourceNodeIndex": 192,
+      "sourceName": "Shape_4266",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Hauptlager_Achse/ISO_10642_M8x20_Senkkopfschraube/ISO_10642_M8x20_Senkkopfschraube_717_PartBody/Shape_4266",
+      "sourceTriangles": 232,
+      "motionRole": "fixed",
+      "centerM": [
+        0.11401186883449554,
+        -0.0002666488289833069,
+        0.5486313104629517
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0194",
+      "object": "MM_carbon_n0194_pivot_axle",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_axle",
+      "sourceNodeIndex": 194,
+      "sourceName": "Shape_3562",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Hauptlager_Achse/RobertS2016_Rahmen_Hauptlager_Achse_14517/Shape_3562",
+      "sourceTriangles": 122,
+      "motionRole": "fixed",
+      "centerM": [
+        0.11407618969678879,
+        0.010082924738526344,
+        0.5484873056411743
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0196",
+      "object": "MM_carbon_n0196_pivot_axle",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_axle",
+      "sourceNodeIndex": 196,
+      "sourceName": "Shape_3606",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Hauptlager_Achse/RobertS2016_Rahmen_Hauptlager_Achse_14704/Shape_3606",
+      "sourceTriangles": 114,
+      "motionRole": "fixed",
+      "centerM": [
+        0.11417698115110397,
+        -0.035586174577474594,
+        0.5487245321273804
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0200",
+      "object": "MM_carbon_n0200_arm_fasteners",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "arm_fasteners",
+      "sourceNodeIndex": 200,
+      "sourceName": "Shape_2242",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_links/ISO_10642_M6x40_Senkkopfschraube/ISO_10642_M6x40_Senkkopfschraube_717_PartBody/Shape_2242",
+      "sourceTriangles": 76,
+      "motionRole": "rear",
+      "centerM": [
+        0.23832695186138153,
+        -0.041844386607408524,
+        0.4480355381965637
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0203",
+      "object": "MM_carbon_n0203_arm_fasteners",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "arm_fasteners",
+      "sourceNodeIndex": 203,
+      "sourceName": "Shape_2242 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_links/ISO_10642_M6x40_Senkkopfschraube 1/ISO_10642_M6x40_Senkkopfschraube_717_PartBody 1/Shape_2242 1",
+      "sourceTriangles": 76,
+      "motionRole": "rear",
+      "centerM": [
+        0.25226521492004395,
+        -0.04184439033269882,
+        0.4852637052536011
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0206",
+      "object": "MM_carbon_n0206_caliper",
+      "assemblyId": "rear_brake",
+      "serviceKey": "caliper",
+      "sourceNodeIndex": 206,
+      "sourceName": "Shape_4185",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_links/Magura_MT7/Magura_MT7_90781/Shape_4185",
+      "sourceTriangles": 64,
+      "motionRole": "rear",
+      "centerM": [
+        0.5439512729644775,
+        -0.08169867843389511,
+        0.40825650095939636
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0208",
+      "object": "MM_carbon_n0208_caliper",
+      "assemblyId": "rear_brake",
+      "serviceKey": "caliper",
+      "sourceNodeIndex": 208,
+      "sourceName": "Shape_4053",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_links/Magura_MT7/Magura_MT7_90799/Shape_4053",
+      "sourceTriangles": 62,
+      "motionRole": "rear",
+      "centerM": [
+        0.564651370048523,
+        -0.08171840012073517,
+        0.41964346170425415
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0210",
+      "object": "MM_carbon_n0210_caliper",
+      "assemblyId": "rear_brake",
+      "serviceKey": "caliper",
+      "sourceNodeIndex": 210,
+      "sourceName": "Shape_4141",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_links/Magura_MT7/Magura_MT7_90817/Shape_4141",
+      "sourceTriangles": 888,
+      "motionRole": "rear",
+      "centerM": [
+        0.5458228588104248,
+        -0.06294804066419601,
+        0.42186903953552246
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0212",
+      "object": "MM_carbon_n0212_caliper",
+      "assemblyId": "rear_brake",
+      "serviceKey": "caliper",
+      "sourceNodeIndex": 212,
+      "sourceName": "Shape_4097",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_links/Magura_MT7/Magura_MT7_97647/Shape_4097",
+      "sourceTriangles": 44,
+      "motionRole": "rear",
+      "centerM": [
+        0.5117362141609192,
+        -0.048919275403022766,
+        0.41918617486953735
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0215",
+      "object": "MM_carbon_n0215_dropouts",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "dropouts",
+      "sourceNodeIndex": 215,
+      "sourceName": "Shape_1765",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_links/RobertS2016_Rahmen_HR-Aufnahme_li_au/RobertS2016_Rahmen_HR-Aufnahme_li_au_880/Shape_1765",
+      "sourceTriangles": 124,
+      "motionRole": "rear",
+      "centerM": [
+        0.5990025401115417,
+        -0.09074492007493973,
+        0.33304113149642944
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0218",
+      "object": "MM_carbon_n0218_dropouts",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "dropouts",
+      "sourceNodeIndex": 218,
+      "sourceName": "Shape_1695",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_links/RobertS2016_Rahmen_HR-Aufnahme_li_in/RobertS2016_Rahmen_HR-Aufnahme_li_in_880/Shape_1695",
+      "sourceTriangles": 120,
+      "motionRole": "rear",
+      "centerM": [
+        0.5990080833435059,
+        -0.0797732025384903,
+        0.3330674171447754
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0220",
+      "object": "MM_carbon_n0220_left_arm",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "left_arm",
+      "sourceNodeIndex": 220,
+      "sourceName": "Shape_3482",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_links/RobertS2016_Rahmen_Schwinge_links_837/Shape_3482",
+      "sourceTriangles": 2026,
+      "motionRole": "rear",
+      "centerM": [
+        0.3573930263519287,
+        -0.06273439526557922,
+        0.4411565959453583
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0224",
+      "object": "MM_carbon_n0224_arm_fasteners",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "arm_fasteners",
+      "sourceNodeIndex": 224,
+      "sourceName": "Shape_2242 2",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/ISO_10642_M6x40_Senkkopfschraube 2/ISO_10642_M6x40_Senkkopfschraube_717_PartBody 2/Shape_2242 2",
+      "sourceTriangles": 76,
+      "motionRole": "rear",
+      "centerM": [
+        0.25288403034210205,
+        0.04184449464082718,
+        0.4852637052536011
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0227",
+      "object": "MM_carbon_n0227_arm_fasteners",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "arm_fasteners",
+      "sourceNodeIndex": 227,
+      "sourceName": "Shape_2242 3",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/ISO_10642_M6x40_Senkkopfschraube 3/ISO_10642_M6x40_Senkkopfschraube_717_PartBody 3/Shape_2242 3",
+      "sourceTriangles": 76,
+      "motionRole": "rear",
+      "centerM": [
+        0.23865477740764618,
+        0.04184450954198837,
+        0.44777536392211914
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0230",
+      "object": "MM_carbon_n0230_dropouts",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "dropouts",
+      "sourceNodeIndex": 230,
+      "sourceName": "Shape_1835",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/RobertS2016_Rahmen_HR-Aufnahme_re_au/RobertS2016_Rahmen_HR-Aufnahme_re_au_1003/Shape_1835",
+      "sourceTriangles": 110,
+      "motionRole": "rear",
+      "centerM": [
+        0.5989714860916138,
+        0.08795773237943649,
+        0.33312517404556274
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0233",
+      "object": "MM_carbon_n0233_dropouts",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "dropouts",
+      "sourceNodeIndex": 233,
+      "sourceName": "Shape_3973",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/RobertS2016_Rahmen_Schaltwerkauge/RobertS2016_Rahmen_Schaltwerkauge_1207/Shape_3973",
+      "sourceTriangles": 190,
+      "motionRole": "rear",
+      "centerM": [
+        0.5938465595245361,
+        0.07805725932121277,
+        0.3144749104976654
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0250",
+      "object": "MM_carbon_n0250_right_arm",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "right_arm",
+      "sourceNodeIndex": 250,
+      "sourceName": "Shape_3900",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/RobertS2016_Rahmen_Schwinge_rechts_51279/Shape_3900",
+      "sourceTriangles": 1925,
+      "motionRole": "rear",
+      "centerM": [
+        0.35745441913604736,
+        0.06273853778839111,
+        0.44135037064552307
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0254",
+      "object": "MM_carbon_n0254_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 254,
+      "sourceName": "Shape_813",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/RobertS2016_Rahmen_Schwinge_Verbinder_Fraesteil_20160816_53685/Daempfer_Cane-Creek_DB_200-57/Daempfer_Cane-Creek_DB_200-57_83584/Shape_813",
+      "sourceTriangles": 1081,
+      "motionRole": "shock_lower",
+      "centerM": [
+        0.23745174705982208,
+        -1.162942498922348e-05,
+        0.5416865944862366
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0255",
+      "object": "MM_carbon_n0255_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 255,
+      "sourceName": "Shape_818",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/RobertS2016_Rahmen_Schwinge_Verbinder_Fraesteil_20160816_53685/Daempfer_Cane-Creek_DB_200-57/Daempfer_Cane-Creek_DB_200-57_83584/Shape_818",
+      "sourceTriangles": 45,
+      "motionRole": "shock_lower",
+      "centerM": [
+        0.2587392032146454,
+        9.685754776000977e-08,
+        0.5655111074447632
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0257",
+      "object": "MM_carbon_n0257_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 257,
+      "sourceName": "Shape_1085",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/RobertS2016_Rahmen_Schwinge_Verbinder_Fraesteil_20160816_53685/Daempfer_Cane-Creek_DB_200-57/Daempfer_Cane-Creek_DB_200-57_142697/Shape_1085",
+      "sourceTriangles": 72,
+      "motionRole": "shock_lower",
+      "centerM": [
+        0.19806531071662903,
+        0.009503442794084549,
+        0.5311044454574585
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0259",
+      "object": "MM_carbon_n0259_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 259,
+      "sourceName": "Shape_1129",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/RobertS2016_Rahmen_Schwinge_Verbinder_Fraesteil_20160816_53685/Daempfer_Cane-Creek_DB_200-57/Daempfer_Cane-Creek_DB_200-57_144693/Shape_1129",
+      "sourceTriangles": 70,
+      "motionRole": "shock_lower",
+      "centerM": [
+        0.19807179272174835,
+        -0.00953694898635149,
+        0.5313927531242371
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0261",
+      "object": "MM_carbon_n0261_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 261,
+      "sourceName": "Shape_997",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/RobertS2016_Rahmen_Schwinge_Verbinder_Fraesteil_20160816_53685/Daempfer_Cane-Creek_DB_200-57/Daempfer_Cane-Creek_DB_200-57_149572/Shape_997",
+      "sourceTriangles": 130,
+      "motionRole": "shock_lower",
+      "centerM": [
+        0.2526096999645233,
+        -0.005513815209269524,
+        0.48532384634017944
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0263",
+      "object": "MM_carbon_n0263_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 263,
+      "sourceName": "Shape_909",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/RobertS2016_Rahmen_Schwinge_Verbinder_Fraesteil_20160816_53685/Daempfer_Cane-Creek_DB_200-57/Daempfer_Cane-Creek_DB_200-57_149573/Shape_909",
+      "sourceTriangles": 128,
+      "motionRole": "shock_lower",
+      "centerM": [
+        0.25266745686531067,
+        0.005524251610040665,
+        0.48538076877593994
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0265",
+      "object": "MM_carbon_n0265_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 265,
+      "sourceName": "Shape_861",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/RobertS2016_Rahmen_Schwinge_Verbinder_Fraesteil_20160816_53685/Daempfer_Cane-Creek_DB_200-57/Daempfer_Cane-Creek_DB_200-57_154654/Shape_861",
+      "sourceTriangles": 1081,
+      "motionRole": "shock_lower",
+      "centerM": [
+        0.23745174705982208,
+        -1.162942498922348e-05,
+        0.5416865944862366
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0266",
+      "object": "MM_carbon_n0266_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 266,
+      "sourceName": "Shape_866",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/RobertS2016_Rahmen_Schwinge_Verbinder_Fraesteil_20160816_53685/Daempfer_Cane-Creek_DB_200-57/Daempfer_Cane-Creek_DB_200-57_154654/Shape_866",
+      "sourceTriangles": 45,
+      "motionRole": "shock_lower",
+      "centerM": [
+        0.2587392032146454,
+        9.685754776000977e-08,
+        0.5655111074447632
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0267",
+      "object": "MM_carbon_n0267_bridge",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "bridge",
+      "sourceNodeIndex": 267,
+      "sourceName": "Shape_1202",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/RobertS2016_Rahmen_Schwinge_Verbinder_Fraesteil_20160816_53685/Shape_1202",
+      "sourceTriangles": 2117,
+      "motionRole": "rear",
+      "centerM": [
+        0.22107648849487305,
+        -0.00024992041289806366,
+        0.48728644847869873
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0269",
+      "object": "MM_carbon_n0269_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 269,
+      "sourceName": "SOLID",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID",
+      "sourceTriangles": 1598,
+      "motionRole": "rear",
+      "centerM": [
+        0.5918805599212646,
+        0.09462016075849533,
+        0.28748640418052673
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0270",
+      "object": "MM_carbon_n0270_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 270,
+      "sourceName": "SOLID.001",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID.001",
+      "sourceTriangles": 256,
+      "motionRole": "rear",
+      "centerM": [
+        0.6190263032913208,
+        0.09046095609664917,
+        0.2954068183898926
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0271",
+      "object": "MM_carbon_n0271_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 271,
+      "sourceName": "SOLID.002",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID.002",
+      "sourceTriangles": 489,
+      "motionRole": "rear",
+      "centerM": [
+        0.5634560585021973,
+        0.10443536192178726,
+        0.27296143770217896
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0272",
+      "object": "MM_carbon_n0272_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 272,
+      "sourceName": "SOLID.003",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID.003",
+      "sourceTriangles": 514,
+      "motionRole": "rear",
+      "centerM": [
+        0.5689569115638733,
+        0.07990503311157227,
+        0.27548491954803467
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0273",
+      "object": "MM_carbon_n0273_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 273,
+      "sourceName": "SOLID.004",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID.004",
+      "sourceTriangles": 1641,
+      "motionRole": "rear",
+      "centerM": [
+        0.5539281964302063,
+        0.08480273932218552,
+        0.2689876854419708
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0274",
+      "object": "MM_carbon_n0274_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 274,
+      "sourceName": "SOLID.005",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID.005",
+      "sourceTriangles": 977,
+      "motionRole": "rear",
+      "centerM": [
+        0.5612480044364929,
+        0.05907239764928818,
+        0.20815375447273254
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0275",
+      "object": "MM_carbon_n0275_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 275,
+      "sourceName": "SOLID.006",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID.006",
+      "sourceTriangles": 1214,
+      "motionRole": "rear",
+      "centerM": [
+        0.563998818397522,
+        0.059072405099868774,
+        0.26308494806289673
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0276",
+      "object": "MM_carbon_n0276_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 276,
+      "sourceName": "SOLID.007",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID.007",
+      "sourceTriangles": 864,
+      "motionRole": "rear",
+      "centerM": [
+        0.5613275766372681,
+        0.05907239764928818,
+        0.20819467306137085
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0277",
+      "object": "MM_carbon_n0277_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 277,
+      "sourceName": "SOLID.008",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID.008",
+      "sourceTriangles": 864,
+      "motionRole": "rear",
+      "centerM": [
+        0.5640783309936523,
+        0.059072405099868774,
+        0.26312583684921265
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0278",
+      "object": "MM_carbon_n0278_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 278,
+      "sourceName": "SOLID.009",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID.009",
+      "sourceTriangles": 944,
+      "motionRole": "rear",
+      "centerM": [
+        0.565337061882019,
+        0.06057240068912506,
+        0.22912704944610596
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0279",
+      "object": "MM_carbon_n0279_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 279,
+      "sourceName": "SOLID.010",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID.010",
+      "sourceTriangles": 532,
+      "motionRole": "rear",
+      "centerM": [
+        0.568494439125061,
+        0.05407239869236946,
+        0.227351576089859
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0280",
+      "object": "MM_carbon_n0280_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 280,
+      "sourceName": "SOLID.011",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID.011",
+      "sourceTriangles": 127,
+      "motionRole": "rear",
+      "centerM": [
+        0.5613037347793579,
+        0.059573158621788025,
+        0.2081911563873291
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0281",
+      "object": "MM_carbon_n0281_derailleur",
+      "assemblyId": "transmission",
+      "serviceKey": "derailleur",
+      "sourceNodeIndex": 281,
+      "sourceName": "SOLID.012",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Schwinge_rechts/Schaltwerk/SOLID.012",
+      "sourceTriangles": 127,
+      "motionRole": "rear",
+      "centerM": [
+        0.5640461444854736,
+        0.05957280844449997,
+        0.26312583684921265
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0284",
+      "object": "MM_carbon_n0284_return_mount",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_mount",
+      "sourceNodeIndex": 284,
+      "sourceName": "Shape_1359",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Federachse/RobertS2016_Rahmen_Umlenkrollenhalter_Leertrum/RobertS2016_Rahmen_Umlenkrollenhalter_Leertrum_1880/Shape_1359",
+      "sourceTriangles": 100,
+      "motionRole": "rear",
+      "centerM": [
+        0.23547951877117157,
+        0.02802436240017414,
+        0.42701417207717896
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0290",
+      "object": "MM_carbon_n0290_caliper",
+      "assemblyId": "front_brake",
+      "serviceKey": "caliper",
+      "sourceNodeIndex": 290,
+      "sourceName": "Shape_4185 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/Federgabel_967_Body.4/Magura_MT7 1/Magura_MT7_90781 1/Shape_4185 1",
+      "sourceTriangles": 64,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.44268539547920227,
+        -0.0355386957526207,
+        0.35832005739212036
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0292",
+      "object": "MM_carbon_n0292_caliper",
+      "assemblyId": "front_brake",
+      "serviceKey": "caliper",
+      "sourceNodeIndex": 292,
+      "sourceName": "Shape_4053 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/Federgabel_967_Body.4/Magura_MT7 1/Magura_MT7_90799 1/Shape_4053 1",
+      "sourceTriangles": 62,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4436647295951843,
+        -0.028271928429603577,
+        0.33583706617355347
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0294",
+      "object": "MM_carbon_n0294_caliper",
+      "assemblyId": "front_brake",
+      "serviceKey": "caliper",
+      "sourceNodeIndex": 294,
+      "sourceName": "Shape_4141 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/Federgabel_967_Body.4/Magura_MT7 1/Magura_MT7_90817 1/Shape_4141 1",
+      "sourceTriangles": 888,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4495949149131775,
+        -0.015800710767507553,
+        0.35905611515045166
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0296",
+      "object": "MM_carbon_n0296_caliper",
+      "assemblyId": "front_brake",
+      "serviceKey": "caliper",
+      "sourceNodeIndex": 296,
+      "sourceName": "Shape_4097 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/Federgabel_967_Body.4/Magura_MT7 1/Magura_MT7_97647 1/Shape_4097 1",
+      "sourceTriangles": 44,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4406196177005768,
+        -0.0036941375583410263,
+        0.39258912205696106
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0297",
+      "object": "MM_carbon_n0297_lower",
+      "assemblyId": "fork",
+      "serviceKey": "lower",
+      "sourceNodeIndex": 297,
+      "sourceName": "Shape_13870",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/Federgabel_967_Body.4/Shape_13870",
+      "sourceTriangles": 1020,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4701777696609497,
+        -0.017685577273368835,
+        0.5094199180603027
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0302",
+      "object": "MM_carbon_n0302_rotor",
+      "assemblyId": "front_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 302,
+      "sourceName": "Shape_6441 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/Bremsscheibe_Hope_200mm 1/Bremsscheibe_Hope_200mm_4431 1/Shape_6441 1",
+      "sourceTriangles": 2652,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5281651020050049,
+        -0.06775440275669098,
+        0.34099042415618896
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0304",
+      "object": "MM_carbon_n0304_rotor",
+      "assemblyId": "front_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 304,
+      "sourceName": "Shape_6353 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/Bremsscheibe_Hope_200mm 1/Bremsscheibe_Hope_200mm_113644 1/Shape_6353 1",
+      "sourceTriangles": 1472,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5279005169868469,
+        -0.0681537389755249,
+        0.34086233377456665
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0306",
+      "object": "MM_carbon_n0306_rotor",
+      "assemblyId": "front_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 306,
+      "sourceName": "Shape_6485 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/Bremsscheibe_Hope_200mm 1/Bremsscheibe_Hope_200mm_133906 1/Shape_6485 1",
+      "sourceTriangles": 166,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4765711724758148,
+        -0.044491179287433624,
+        0.3862212896347046
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0308",
+      "object": "MM_carbon_n0308_rotor",
+      "assemblyId": "front_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 308,
+      "sourceName": "Shape_6309 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/Bremsscheibe_Hope_200mm 1/Bremsscheibe_Hope_200mm_139752 1/Shape_6309 1",
+      "sourceTriangles": 162,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5267149806022644,
+        -0.09115999937057495,
+        0.40959981083869934
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0310",
+      "object": "MM_carbon_n0310_rotor",
+      "assemblyId": "front_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 310,
+      "sourceName": "Shape_6397 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/Bremsscheibe_Hope_200mm 1/Bremsscheibe_Hope_200mm_139781 1/Shape_6397 1",
+      "sourceTriangles": 160,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5782600045204163,
+        -0.11463196575641632,
+        0.3644198775291443
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0312",
+      "object": "MM_carbon_n0312_rotor",
+      "assemblyId": "front_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 312,
+      "sourceName": "Shape_6177 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/Bremsscheibe_Hope_200mm 1/Bremsscheibe_Hope_200mm_139810 1/Shape_6177 1",
+      "sourceTriangles": 158,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5798021554946899,
+        -0.09120239317417145,
+        0.295839786529541
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0314",
+      "object": "MM_carbon_n0314_rotor",
+      "assemblyId": "front_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 314,
+      "sourceName": "Shape_6265 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/Bremsscheibe_Hope_200mm 1/Bremsscheibe_Hope_200mm_139839 1/Shape_6265 1",
+      "sourceTriangles": 154,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.52963787317276,
+        -0.044340960681438446,
+        0.2722242474555969
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0316",
+      "object": "MM_carbon_n0316_rotor",
+      "assemblyId": "front_brake",
+      "serviceKey": "rotor",
+      "sourceNodeIndex": 316,
+      "sourceName": "Shape_6221 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/Bremsscheibe_Hope_200mm 1/Bremsscheibe_Hope_200mm_139868 1/Shape_6221 1",
+      "sourceTriangles": 170,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4781301021575928,
+        -0.020983818918466568,
+        0.3175853192806244
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0319",
+      "object": "MM_carbon_n0319_rim",
+      "assemblyId": "front_wheel",
+      "serviceKey": "rim",
+      "sourceNodeIndex": 319,
+      "sourceName": "Shape_9656",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/Felge_584x24_32Loch/Felge_584x24_32Loch_23315/Shape_9656",
+      "sourceTriangles": 4806,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5560624599456787,
+        -0.03324149549007416,
+        0.3531804084777832
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0322",
+      "object": "MM_carbon_n0322_tire",
+      "assemblyId": "front_wheel",
+      "serviceKey": "tire",
+      "sourceNodeIndex": 322,
+      "sourceName": "Shape_6556",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/Reifen_584x75/Reifen_584x75_7571/Shape_6556",
+      "sourceTriangles": 8552,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5551484823226929,
+        -0.032702863216400146,
+        0.35357701778411865
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0325",
+      "object": "MM_carbon_n0325_hub",
+      "assemblyId": "front_wheel",
+      "serviceKey": "hub",
+      "sourceNodeIndex": 325,
+      "sourceName": "Shape_9470",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Nabe_Tune_King_Boost_110mm/VR_Nabe_Tune_King_Boost_110mm_4921/Shape_9470",
+      "sourceTriangles": 68,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5552176237106323,
+        -0.032675355672836304,
+        0.3537050187587738
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0327",
+      "object": "MM_carbon_n0327_hub",
+      "assemblyId": "front_wheel",
+      "serviceKey": "hub",
+      "sourceNodeIndex": 327,
+      "sourceName": "Shape_9514",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Nabe_Tune_King_Boost_110mm/VR_Nabe_Tune_King_Boost_110mm_66801/Shape_9514",
+      "sourceTriangles": 1413,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5561439990997314,
+        -0.033207967877388,
+        0.35500937700271606
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0330",
+      "object": "MM_carbon_n0330_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 330,
+      "sourceName": "Shape_7375",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_5673/Shape_7375",
+      "sourceTriangles": 34,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4524853229522705,
+        0.04514676332473755,
+        0.4225521683692932
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0332",
+      "object": "MM_carbon_n0332_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 332,
+      "sourceName": "Shape_8255",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_6967/Shape_8255",
+      "sourceTriangles": 60,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.3343067169189453,
+        0.10162035375833511,
+        0.45558619499206543
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0334",
+      "object": "MM_carbon_n0334_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 334,
+      "sourceName": "Shape_7507",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17348/Shape_7507",
+      "sourceTriangles": 36,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4633136987686157,
+        0.0751221776008606,
+        0.3160824477672577
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0336",
+      "object": "MM_carbon_n0336_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 336,
+      "sourceName": "Shape_8871",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17349/Shape_8871",
+      "sourceTriangles": 62,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.36981648206710815,
+        0.1470544934272766,
+        0.25051841139793396
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0338",
+      "object": "MM_carbon_n0338_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 338,
+      "sourceName": "Shape_6935",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17422/Shape_6935",
+      "sourceTriangles": 36,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5350276231765747,
+        0.04970374330878258,
+        0.23428362607955933
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0340",
+      "object": "MM_carbon_n0340_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 340,
+      "sourceName": "Shape_8607",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17423/Shape_8607",
+      "sourceTriangles": 66,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5137298703193665,
+        0.0880034863948822,
+        0.10697345435619354
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0342",
+      "object": "MM_carbon_n0342_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 342,
+      "sourceName": "Shape_8035",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17496/Shape_8035",
+      "sourceTriangles": 56,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6829901933670044,
+        -0.042625755071640015,
+        0.10750452429056168
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0344",
+      "object": "MM_carbon_n0344_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 344,
+      "sourceName": "Shape_7463",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17497/Shape_7463",
+      "sourceTriangles": 36,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6234083771705627,
+        -0.0146285779774189,
+        0.22525933384895325
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0346",
+      "object": "MM_carbon_n0346_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 346,
+      "sourceName": "Shape_8387",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17570/Shape_8387",
+      "sourceTriangles": 64,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.7765871286392212,
+        -0.1662580966949463,
+        0.25164490938186646
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0348",
+      "object": "MM_carbon_n0348_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 348,
+      "sourceName": "Shape_7243",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17571/Shape_7243",
+      "sourceTriangles": 36,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6792680025100708,
+        -0.08264979720115662,
+        0.29425910115242004
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0350",
+      "object": "MM_carbon_n0350_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 350,
+      "sourceName": "Shape_8959",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17644/Shape_8959",
+      "sourceTriangles": 58,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.7411420345306396,
+        -0.21141575276851654,
+        0.45700302720069885
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0352",
+      "object": "MM_carbon_n0352_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 352,
+      "sourceName": "Shape_9135",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17645/Shape_9135",
+      "sourceTriangles": 40,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6681853532791138,
+        -0.11222502589225769,
+        0.40066778659820557
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0354",
+      "object": "MM_carbon_n0354_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 354,
+      "sourceName": "Shape_7331",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17718/Shape_7331",
+      "sourceTriangles": 60,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5961130857467651,
+        -0.15251147747039795,
+        0.6004893779754639
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0356",
+      "object": "MM_carbon_n0356_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 356,
+      "sourceName": "Shape_7683",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17719/Shape_7683",
+      "sourceTriangles": 38,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5982940196990967,
+        -0.08699633926153183,
+        0.48257797956466675
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0358",
+      "object": "MM_carbon_n0358_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 358,
+      "sourceName": "Shape_9223",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17792/Shape_9223",
+      "sourceTriangles": 30,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5082222819328308,
+        -0.02071790024638176,
+        0.49171194434165955
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0360",
+      "object": "MM_carbon_n0360_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 360,
+      "sourceName": "Shape_9355",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_17793/Shape_9355",
+      "sourceTriangles": 58,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4277111291885376,
+        -0.022882461547851562,
+        0.6000117659568787
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0362",
+      "object": "MM_carbon_n0362_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 362,
+      "sourceName": "Shape_8563",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_18216/Shape_8563",
+      "sourceTriangles": 36,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6210039258003235,
+        -0.09888731688261032,
+        0.4663519263267517
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0364",
+      "object": "MM_carbon_n0364_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 364,
+      "sourceName": "Shape_8123",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_18388/Shape_8123",
+      "sourceTriangles": 62,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6778731346130371,
+        -0.19392649829387665,
+        0.5434684753417969
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0366",
+      "object": "MM_carbon_n0366_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 366,
+      "sourceName": "Shape_6759",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_18713/Shape_6759",
+      "sourceTriangles": 38,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5316373705863953,
+        -0.04137590155005455,
+        0.49799370765686035
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0368",
+      "object": "MM_carbon_n0368_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 368,
+      "sourceName": "Shape_7067",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_18715/Shape_7067",
+      "sourceTriangles": 62,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5074926614761353,
+        -0.09228028357028961,
+        0.6204255819320679
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0370",
+      "object": "MM_carbon_n0370_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 370,
+      "sourceName": "Shape_7639",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_18788/Shape_7639",
+      "sourceTriangles": 40,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.46211254596710205,
+        0.028691895306110382,
+        0.44824057817459106
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0372",
+      "object": "MM_carbon_n0372_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 372,
+      "sourceName": "Shape_8783",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_18789/Shape_8783",
+      "sourceTriangles": 62,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.36648011207580566,
+        0.045884665101766586,
+        0.5417354106903076
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0374",
+      "object": "MM_carbon_n0374_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 374,
+      "sourceName": "Shape_7287",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_18862/Shape_7287",
+      "sourceTriangles": 54,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.33553147315979004,
+        0.13722163438796997,
+        0.35278618335723877
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0376",
+      "object": "MM_carbon_n0376_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 376,
+      "sourceName": "Shape_6671",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_18863/Shape_6671",
+      "sourceTriangles": 34,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4536641836166382,
+        0.07214415818452835,
+        0.3453920781612396
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0378",
+      "object": "MM_carbon_n0378_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 378,
+      "sourceName": "Shape_7991",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_18936/Shape_7991",
+      "sourceTriangles": 64,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4328956604003906,
+        0.12947344779968262,
+        0.1636424958705902
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0380",
+      "object": "MM_carbon_n0380_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 380,
+      "sourceName": "Shape_8915",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_18937/Shape_8915",
+      "sourceTriangles": 38,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5113591551780701,
+        0.06196139007806778,
+        0.25146231055259705
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0382",
+      "object": "MM_carbon_n0382_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 382,
+      "sourceName": "Shape_9179",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_19010/Shape_9179",
+      "sourceTriangles": 56,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6025684475898743,
+        0.027551231905817986,
+        0.08705753087997437
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0384",
+      "object": "MM_carbon_n0384_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 384,
+      "sourceName": "Shape_6627",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_19011/Shape_6627",
+      "sourceTriangles": 34,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6000480651855469,
+        0.0041293492540717125,
+        0.21966581046581268
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0386",
+      "object": "MM_carbon_n0386_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 386,
+      "sourceName": "Shape_8343",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_19084/Shape_8343",
+      "sourceTriangles": 64,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.7445854544639587,
+        -0.11050809919834137,
+        0.16579288244247437
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0388",
+      "object": "MM_carbon_n0388_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 388,
+      "sourceName": "Shape_9091",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_19085/Shape_9091",
+      "sourceTriangles": 38,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6700592041015625,
+        -0.06598947942256927,
+        0.26941150426864624
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0390",
+      "object": "MM_carbon_n0390_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 390,
+      "sourceName": "Shape_7771",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_19158/Shape_7771",
+      "sourceTriangles": 40,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6785678267478943,
+        -0.10932984948158264,
+        0.3719566762447357
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0392",
+      "object": "MM_carbon_n0392_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 392,
+      "sourceName": "Shape_9311",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_19159/Shape_9311",
+      "sourceTriangles": 62,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.7752025127410889,
+        -0.20181304216384888,
+        0.3544556796550751
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0394",
+      "object": "MM_carbon_n0394_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 394,
+      "sourceName": "Shape_7199",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_25777/Shape_7199",
+      "sourceTriangles": 32,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4299182891845703,
+        0.03331923857331276,
+        0.38856807351112366
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0396",
+      "object": "MM_carbon_n0396_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 396,
+      "sourceName": "Shape_8299",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_25949/Shape_8299",
+      "sourceTriangles": 60,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.33002719283103943,
+        0.12151593714952469,
+        0.4052913784980774
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0398",
+      "object": "MM_carbon_n0398_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 398,
+      "sourceName": "Shape_9047",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26274/Shape_9047",
+      "sourceTriangles": 32,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.45810434222221375,
+        0.049495868384838104,
+        0.2824088931083679
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0400",
+      "object": "MM_carbon_n0400_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 400,
+      "sourceName": "Shape_8079",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26276/Shape_8079",
+      "sourceTriangles": 64,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.397665411233902,
+        0.14106309413909912,
+        0.20437145233154297
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0402",
+      "object": "MM_carbon_n0402_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 402,
+      "sourceName": "Shape_7947",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26349/Shape_7947",
+      "sourceTriangles": 36,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5378024578094482,
+        0.0113413967192173,
+        0.21565116941928864
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0404",
+      "object": "MM_carbon_n0404_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 404,
+      "sourceName": "Shape_8739",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26350/Shape_8739",
+      "sourceTriangles": 58,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5586186647415161,
+        0.059168193489313126,
+        0.09166978299617767
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0406",
+      "object": "MM_carbon_n0406_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 406,
+      "sourceName": "Shape_6979",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26423/Shape_6979",
+      "sourceTriangles": 62,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.7161973714828491,
+        -0.07782350480556488,
+        0.13173061609268188
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0408",
+      "object": "MM_carbon_n0408_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 408,
+      "sourceName": "Shape_6891",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26424/Shape_6891",
+      "sourceTriangles": 32,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6242674589157104,
+        -0.0577598437666893,
+        0.227633535861969
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0410",
+      "object": "MM_carbon_n0410_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 410,
+      "sourceName": "Shape_8431",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26497/Shape_8431",
+      "sourceTriangles": 53,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.7798119783401489,
+        -0.187603160738945,
+        0.30178120732307434
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0412",
+      "object": "MM_carbon_n0412_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 412,
+      "sourceName": "Shape_7815",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26498/Shape_7815",
+      "sourceTriangles": 30,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6648519039154053,
+        -0.11917150765657425,
+        0.3115275502204895
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0414",
+      "object": "MM_carbon_n0414_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 414,
+      "sourceName": "Shape_7419",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26571/Shape_7419",
+      "sourceTriangles": 52,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.7120506763458252,
+        -0.207100972533226,
+        0.5024832487106323
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0416",
+      "object": "MM_carbon_n0416_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 416,
+      "sourceName": "Shape_9399",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26572/Shape_9399",
+      "sourceTriangles": 36,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6363240480422974,
+        -0.13544118404388428,
+        0.417411208152771
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0418",
+      "object": "MM_carbon_n0418_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 418,
+      "sourceName": "Shape_6803",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26645/Shape_6803",
+      "sourceTriangles": 64,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.551831066608429,
+        -0.12485851347446442,
+        0.6150173544883728
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0420",
+      "object": "MM_carbon_n0420_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 420,
+      "sourceName": "Shape_7727",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26646/Shape_7727",
+      "sourceTriangles": 32,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5562881231307983,
+        -0.09759379923343658,
+        0.4842475354671478
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0422",
+      "object": "MM_carbon_n0422_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 422,
+      "sourceName": "Shape_8695",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26719/Shape_8695",
+      "sourceTriangles": 32,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.47061508893966675,
+        -0.028562232851982117,
+        0.472501277923584
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0424",
+      "object": "MM_carbon_n0424_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 424,
+      "sourceName": "Shape_7023",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_26720/Shape_7023",
+      "sourceTriangles": 56,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.39350318908691406,
+        0.011859875172376633,
+        0.5750439763069153
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0426",
+      "object": "MM_carbon_n0426_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 426,
+      "sourceName": "Shape_8211",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_30193/Shape_8211",
+      "sourceTriangles": 39,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6505483388900757,
+        -0.13680996000766754,
+        0.38916051387786865
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0428",
+      "object": "MM_carbon_n0428_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 428,
+      "sourceName": "Shape_8475",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_30366/Shape_8475",
+      "sourceTriangles": 56,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.7614182233810425,
+        -0.21083733439445496,
+        0.4075966775417328
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0430",
+      "object": "MM_carbon_n0430_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 430,
+      "sourceName": "Shape_9003",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_30692/Shape_9003",
+      "sourceTriangles": 58,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6382254362106323,
+        -0.17663919925689697,
+        0.5760936737060547
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0432",
+      "object": "MM_carbon_n0432_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 432,
+      "sourceName": "Shape_6715",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_30694/Shape_6715",
+      "sourceTriangles": 38,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5802720785140991,
+        -0.11270993947982788,
+        0.47239768505096436
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0434",
+      "object": "MM_carbon_n0434_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 434,
+      "sourceName": "Shape_7859",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_30767/Shape_7859",
+      "sourceTriangles": 32,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.49139338731765747,
+        -0.047313153743743896,
+        0.48373425006866455
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0436",
+      "object": "MM_carbon_n0436_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 436,
+      "sourceName": "Shape_8519",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_30768/Shape_8519",
+      "sourceTriangles": 64,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4651780128479004,
+        -0.0585610568523407,
+        0.6147447228431702
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0438",
+      "object": "MM_carbon_n0438_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 438,
+      "sourceName": "Shape_7903",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_30841/Shape_7903",
+      "sourceTriangles": 39,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4340006113052368,
+        0.019268427044153214,
+        0.416366845369339
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0440",
+      "object": "MM_carbon_n0440_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 440,
+      "sourceName": "Shape_7155",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_30842/Shape_7155",
+      "sourceTriangles": 62,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.3458426296710968,
+        0.07527973502874374,
+        0.5010254383087158
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0442",
+      "object": "MM_carbon_n0442_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 442,
+      "sourceName": "Shape_8167",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_30915/Shape_8167",
+      "sourceTriangles": 38,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.443390816450119,
+        0.050291914492845535,
+        0.3100932240486145
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0444",
+      "object": "MM_carbon_n0444_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 444,
+      "sourceName": "Shape_7111",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_30916/Shape_7111",
+      "sourceTriangles": 54,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.3486276865005493,
+        0.14472955465316772,
+        0.29978862404823303
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0446",
+      "object": "MM_carbon_n0446_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 446,
+      "sourceName": "Shape_9267",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_30989/Shape_9267",
+      "sourceTriangles": 34,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.5135628581047058,
+        0.026261115446686745,
+        0.22668683528900146
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0448",
+      "object": "MM_carbon_n0448_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 448,
+      "sourceName": "Shape_8651",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_30990/Shape_8651",
+      "sourceTriangles": 64,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.4715501666069031,
+        0.11062605679035187,
+        0.1306965947151184
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0450",
+      "object": "MM_carbon_n0450_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 450,
+      "sourceName": "Shape_6847",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_31063/Shape_6847",
+      "sourceTriangles": 58,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6446371674537659,
+        -0.007047466933727264,
+        0.09209519624710083
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0452",
+      "object": "MM_carbon_n0452_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 452,
+      "sourceName": "Shape_7595",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_31064/Shape_7595",
+      "sourceTriangles": 40,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6026614904403687,
+        -0.038548633456230164,
+        0.21559463441371918
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0454",
+      "object": "MM_carbon_n0454_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 454,
+      "sourceName": "Shape_7551",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_31137/Shape_7551",
+      "sourceTriangles": 60,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.7642160058021545,
+        -0.14099332690238953,
+        0.20619848370552063
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0456",
+      "object": "MM_carbon_n0456_spokes",
+      "assemblyId": "front_wheel",
+      "serviceKey": "spokes",
+      "sourceNodeIndex": 456,
+      "sourceName": "Shape_8827",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Federung/RadVorn/ZB_VR/VR_Speichen/VR_Speichen_31138/Shape_8827",
+      "sourceTriangles": 34,
+      "motionRole": "front_lower",
+      "centerM": [
+        -0.6595414876937866,
+        -0.10557733476161957,
+        0.2828490436077118
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0460",
+      "object": "MM_carbon_n0460_brake_control_1",
+      "assemblyId": "cockpit",
+      "serviceKey": "brake_control_1",
+      "sourceNodeIndex": 460,
+      "sourceName": "Shape_373 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Bremsgriff/Bremsgriff_717_PartBody 1/Shape_373 1",
+      "sourceTriangles": 266,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.3827677369117737,
+        0.12483282387256622,
+        1.0637013912200928
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0461",
+      "object": "MM_carbon_n0461_front_lines",
+      "assemblyId": "cables",
+      "serviceKey": "front_lines",
+      "sourceNodeIndex": 461,
+      "sourceName": "Bremsschlauchm?ndung_01",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Bremsgriff/Bremsgriff_717_PartBody 1/Shape_373 1/Bremsschlauchm?ndung_01",
+      "sourceTriangles": 234,
+      "motionRole": "hidden",
+      "centerM": [
+        -0.37684035301208496,
+        0.09560438990592957,
+        1.0433084964752197
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0463",
+      "object": "MM_carbon_n0463_brake_control_1",
+      "assemblyId": "cockpit",
+      "serviceKey": "brake_control_1",
+      "sourceNodeIndex": 463,
+      "sourceName": "Shape_417",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Bremsgriff/Bremsgriff_885_Body.2/Shape_417",
+      "sourceTriangles": 132,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.42346853017807007,
+        0.16568689048290253,
+        1.0683870315551758
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0466",
+      "object": "MM_carbon_n0466_brake_control_2",
+      "assemblyId": "cockpit",
+      "serviceKey": "brake_control_2",
+      "sourceNodeIndex": 466,
+      "sourceName": "Shape_373",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Bremsgriff 1/Bremsgriff_717_PartBody/Shape_373",
+      "sourceTriangles": 266,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.13126125931739807,
+        -0.20085763931274414,
+        0.94618821144104
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0467",
+      "object": "MM_carbon_n0467_front_lines",
+      "assemblyId": "cables",
+      "serviceKey": "front_lines",
+      "sourceNodeIndex": 467,
+      "sourceName": "Bremsschlauchm?ndung_02",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Bremsgriff 1/Bremsgriff_717_PartBody/Shape_373/Bremsschlauchm?ndung_02",
+      "sourceTriangles": 234,
+      "motionRole": "hidden",
+      "centerM": [
+        -0.16396693885326385,
+        -0.18103478848934174,
+        0.9429861307144165
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0469",
+      "object": "MM_carbon_n0469_brake_control_2",
+      "assemblyId": "cockpit",
+      "serviceKey": "brake_control_2",
+      "sourceNodeIndex": 469,
+      "sourceName": "Shape_417 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Bremsgriff 1/Bremsgriff_885_Body.2 1/Shape_417 1",
+      "sourceTriangles": 132,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.10863475501537323,
+        -0.24644941091537476,
+        0.9223035573959351
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0472",
+      "object": "MM_carbon_n0472_upper",
+      "assemblyId": "fork",
+      "serviceKey": "upper",
+      "sourceNodeIndex": 472,
+      "sourceName": "Shape_13826",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Federgabel/Federgabel_736_PartBody/Shape_13826",
+      "sourceTriangles": 418,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.29185158014297485,
+        -0.0006445161998271942,
+        0.8292605876922607
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0474",
+      "object": "MM_carbon_n0474_upper",
+      "assemblyId": "fork",
+      "serviceKey": "upper",
+      "sourceNodeIndex": 474,
+      "sourceName": "Shape_13914",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Federgabel/Federgabel_953_Body.2/Shape_13914",
+      "sourceTriangles": 72,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.319603830575943,
+        -0.05450650304555893,
+        0.681969165802002
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0476",
+      "object": "MM_carbon_n0476_upper",
+      "assemblyId": "fork",
+      "serviceKey": "upper",
+      "sourceNodeIndex": 476,
+      "sourceName": "Shape_13958",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Federgabel/Federgabel_960_Body.2/Shape_13958",
+      "sourceTriangles": 74,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.3957567811012268,
+        0.044688787311315536,
+        0.7175078392028809
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0478",
+      "object": "MM_carbon_n0478_upper",
+      "assemblyId": "fork",
+      "serviceKey": "upper",
+      "sourceNodeIndex": 478,
+      "sourceName": "Shape_14002",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Federgabel/Federgabel_24173/Shape_14002",
+      "sourceTriangles": 52,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.2465362548828125,
+        0.00014471262693405151,
+        0.9237880706787109
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0481",
+      "object": "MM_carbon_n0481_bar",
+      "assemblyId": "cockpit",
+      "serviceKey": "bar",
+      "sourceNodeIndex": 481,
+      "sourceName": "Shape_13751",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Lenker 1/Lenker_23103/Shape_13751",
+      "sourceTriangles": 570,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.22007420659065247,
+        -0.016601204872131348,
+        1.0276697874069214
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0484",
+      "object": "MM_carbon_n0484_left_grip",
+      "assemblyId": "cockpit",
+      "serviceKey": "left_grip",
+      "sourceNodeIndex": 484,
+      "sourceName": "Shape_5559 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Lenkergriff/Lenkergriff_1060/Shape_5559 1",
+      "sourceTriangles": 132,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.0782223641872406,
+        -0.22622820734977722,
+        0.9467658996582031
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0486",
+      "object": "MM_carbon_n0486_left_grip",
+      "assemblyId": "cockpit",
+      "serviceKey": "left_grip",
+      "sourceNodeIndex": 486,
+      "sourceName": "Shape_5691",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Lenkergriff/Lenkergriff_1343/Shape_5691",
+      "sourceTriangles": 3944,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.03572654351592064,
+        -0.26845765113830566,
+        0.9344179630279541
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0488",
+      "object": "MM_carbon_n0488_left_grip",
+      "assemblyId": "cockpit",
+      "serviceKey": "left_grip",
+      "sourceNodeIndex": 488,
+      "sourceName": "Shape_5603",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Lenkergriff/Lenkergriff_12219/Shape_5603",
+      "sourceTriangles": 148,
+      "motionRole": "fixed",
+      "centerM": [
+        0.006702162325382233,
+        -0.3106014132499695,
+        0.921989917755127
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0490",
+      "object": "MM_carbon_n0490_left_grip",
+      "assemblyId": "cockpit",
+      "serviceKey": "left_grip",
+      "sourceNodeIndex": 490,
+      "sourceName": "Shape_5735",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Lenkergriff/Lenkergriff_13166 1/Shape_5735",
+      "sourceTriangles": 48,
+      "motionRole": "fixed",
+      "centerM": [
+        0.009493507444858551,
+        -0.3135600686073303,
+        0.9213438630104065
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0495",
+      "object": "MM_carbon_n0495_right_grip",
+      "assemblyId": "cockpit",
+      "serviceKey": "right_grip",
+      "sourceNodeIndex": 495,
+      "sourceName": "Shape_5559",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Lenkergriff 1/Lenkergriff_1060 1/Shape_5559",
+      "sourceTriangles": 132,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.3892238140106201,
+        0.1785956621170044,
+        1.091764211654663
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0497",
+      "object": "MM_carbon_n0497_right_grip",
+      "assemblyId": "cockpit",
+      "serviceKey": "right_grip",
+      "sourceNodeIndex": 497,
+      "sourceName": "Shape_5691 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Lenkergriff 1/Lenkergriff_1343 1/Shape_5691 1",
+      "sourceTriangles": 3944,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.417291522026062,
+        0.2286681830883026,
+        1.1124083995819092
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0499",
+      "object": "MM_carbon_n0499_right_grip",
+      "assemblyId": "cockpit",
+      "serviceKey": "right_grip",
+      "sourceNodeIndex": 499,
+      "sourceName": "Shape_5603 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Lenkergriff 1/Lenkergriff_12219 1/Shape_5603 1",
+      "sourceTriangles": 148,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.44559741020202637,
+        0.2786952257156372,
+        1.1329786777496338
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0501",
+      "object": "MM_carbon_n0501_right_grip",
+      "assemblyId": "cockpit",
+      "serviceKey": "right_grip",
+      "sourceNodeIndex": 501,
+      "sourceName": "Shape_5735 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Lenkergriff 1/Lenkergriff_13166/Shape_5735 1",
+      "sourceTriangles": 48,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.44758743047714233,
+        0.28197556734085083,
+        1.1345257759094238
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0505",
+      "object": "MM_carbon_n0505_stem",
+      "assemblyId": "cockpit",
+      "serviceKey": "stem",
+      "sourceNodeIndex": 505,
+      "sourceName": "Shape_4758",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Lenker/Vorbau_Hope_FR_35mm/Vorbau_Hope_FR_35mm_27679/Shape_4758",
+      "sourceTriangles": 532,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.234298437833786,
+        -0.016397345811128616,
+        0.9892277717590332
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0508",
+      "object": "MM_carbon_n0508_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 508,
+      "sourceName": "Shape_1041",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Daempfer_Cane-Creek_DB_200-57_30305/Shape_1041",
+      "sourceTriangles": 554,
+      "motionRole": "shock_upper",
+      "centerM": [
+        0.26323696970939636,
+        -0.006618510000407696,
+        0.6345663070678711
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0510",
+      "object": "MM_carbon_n0510_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 510,
+      "sourceName": "Shape_953",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Daempfer_Cane-Creek_DB_200-57_148918/Shape_953",
+      "sourceTriangles": 114,
+      "motionRole": "shock_upper",
+      "centerM": [
+        0.2677207887172699,
+        -0.0055202823132276535,
+        0.6847357749938965
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0512",
+      "object": "MM_carbon_n0512_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 512,
+      "sourceName": "Shape_769",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Daempfer_Cane-Creek_DB_200-57_149470/Shape_769",
+      "sourceTriangles": 102,
+      "motionRole": "shock_upper",
+      "centerM": [
+        0.2677293121814728,
+        0.005519389640539885,
+        0.6847360730171204
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0515",
+      "object": "MM_carbon_n0515_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 515,
+      "sourceName": "Shape_1606 2",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Gummi-Metall-Element_20x15_Typ-B/Gummi-Metall-Element_20x15_Typ-B_1026 1/Shape_1606 2",
+      "sourceTriangles": 120,
+      "motionRole": "fixed",
+      "centerM": [
+        0.1213720440864563,
+        1.2475065886974335e-05,
+        0.3600090444087982
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0517",
+      "object": "MM_carbon_n0517_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 517,
+      "sourceName": "Shape_1562 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Gummi-Metall-Element_20x15_Typ-B/Gummi-Metall-Element_20x15_Typ-B_1412 2/Shape_1562 1",
+      "sourceTriangles": 68,
+      "motionRole": "fixed",
+      "centerM": [
+        0.11577141284942627,
+        -5.948822945356369e-06,
+        0.35671329498291016
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0519",
+      "object": "MM_carbon_n0519_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 519,
+      "sourceName": "Shape_1518 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Gummi-Metall-Element_20x15_Typ-B/Gummi-Metall-Element_20x15_Typ-B_1472/Shape_1518 1",
+      "sourceTriangles": 56,
+      "motionRole": "fixed",
+      "centerM": [
+        0.13367100059986115,
+        0.00013196002691984177,
+        0.3655640184879303
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0522",
+      "object": "MM_carbon_n0522_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 522,
+      "sourceName": "Shape_1606 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Gummi-Metall-Element_20x15_Typ-B 1/Gummi-Metall-Element_20x15_Typ-B_1026/Shape_1606 1",
+      "sourceTriangles": 120,
+      "motionRole": "fixed",
+      "centerM": [
+        0.18392311036586761,
+        0.020012468099594116,
+        0.27861344814300537
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0524",
+      "object": "MM_carbon_n0524_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 524,
+      "sourceName": "Shape_1562 2",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Gummi-Metall-Element_20x15_Typ-B 1/Gummi-Metall-Element_20x15_Typ-B_1412/Shape_1562 2",
+      "sourceTriangles": 68,
+      "motionRole": "fixed",
+      "centerM": [
+        0.18402962386608124,
+        0.019994044676423073,
+        0.27190303802490234
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0526",
+      "object": "MM_carbon_n0526_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 526,
+      "sourceName": "Shape_1518",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Gummi-Metall-Element_20x15_Typ-B 1/Gummi-Metall-Element_20x15_Typ-B_1472 1/Shape_1518",
+      "sourceTriangles": 56,
+      "motionRole": "fixed",
+      "centerM": [
+        0.18395496904850006,
+        0.020131954923272133,
+        0.2943551540374756
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0529",
+      "object": "MM_carbon_n0529_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 529,
+      "sourceName": "Shape_1606",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Gummi-Metall-Element_20x15_Typ-B 2/Gummi-Metall-Element_20x15_Typ-B_1026 2/Shape_1606",
+      "sourceTriangles": 120,
+      "motionRole": "fixed",
+      "centerM": [
+        0.18392311036586761,
+        -0.01998753473162651,
+        0.27861344814300537
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0531",
+      "object": "MM_carbon_n0531_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 531,
+      "sourceName": "Shape_1562",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Gummi-Metall-Element_20x15_Typ-B 2/Gummi-Metall-Element_20x15_Typ-B_1412 1/Shape_1562",
+      "sourceTriangles": 68,
+      "motionRole": "fixed",
+      "centerM": [
+        0.18402962386608124,
+        -0.020005960017442703,
+        0.27190303802490234
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0533",
+      "object": "MM_carbon_n0533_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 533,
+      "sourceName": "Shape_1518 2",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Gummi-Metall-Element_20x15_Typ-B 2/Gummi-Metall-Element_20x15_Typ-B_1472 2/Shape_1518 2",
+      "sourceTriangles": 56,
+      "motionRole": "fixed",
+      "centerM": [
+        0.18395496904850006,
+        -0.019868047907948494,
+        0.2943551540374756
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0536",
+      "object": "MM_carbon_n0536_pivot_bearing",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_bearing",
+      "sourceNodeIndex": 536,
+      "sourceName": "Shape_2691",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/inafag_61805-2rsr/inafag_61805-2rsr_2342_1/Shape_2691",
+      "sourceTriangles": 230,
+      "motionRole": "fixed",
+      "centerM": [
+        0.15414924919605255,
+        0.055000100284814835,
+        0.5336259603500366
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0538",
+      "object": "MM_carbon_n0538_pivot_bearing",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_bearing",
+      "sourceNodeIndex": 538,
+      "sourceName": "Shape_2471",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/inafag_61805-2rsr/inafag_61805-2rsr_2533_9/Shape_2471",
+      "sourceTriangles": 112,
+      "motionRole": "fixed",
+      "centerM": [
+        0.15400005877017975,
+        0.058220088481903076,
+        0.5336259603500366
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0540",
+      "object": "MM_carbon_n0540_pivot_bearing",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_bearing",
+      "sourceNodeIndex": 540,
+      "sourceName": "Shape_2339",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/inafag_61805-2rsr/inafag_61805-2rsr_3304_8/Shape_2339",
+      "sourceTriangles": 110,
+      "motionRole": "fixed",
+      "centerM": [
+        0.15400005877017975,
+        0.051830098032951355,
+        0.533475935459137
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0542",
+      "object": "MM_carbon_n0542_pivot_bearing",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_bearing",
+      "sourceNodeIndex": 542,
+      "sourceName": "Shape_2515",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/inafag_61805-2rsr/inafag_61805-2rsr_4066_7/Shape_2515",
+      "sourceTriangles": 8,
+      "motionRole": "fixed",
+      "centerM": [
+        0.13811896741390228,
+        0.05500008910894394,
+        0.5336609482765198
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0544",
+      "object": "MM_carbon_n0544_pivot_bearing",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_bearing",
+      "sourceNodeIndex": 544,
+      "sourceName": "Shape_2383",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/inafag_61805-2rsr/inafag_61805-2rsr_4815_6/Shape_2383",
+      "sourceTriangles": 6,
+      "motionRole": "fixed",
+      "centerM": [
+        0.1544967144727707,
+        0.05511150509119034,
+        0.5184000134468079
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0546",
+      "object": "MM_carbon_n0546_pivot_bearing",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_bearing",
+      "sourceNodeIndex": 546,
+      "sourceName": "Shape_2427",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/inafag_61805-2rsr/inafag_61805-2rsr_5565_5/Shape_2427",
+      "sourceTriangles": 8,
+      "motionRole": "fixed",
+      "centerM": [
+        0.1695682257413864,
+        0.05516621470451355,
+        0.5335425138473511
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0548",
+      "object": "MM_carbon_n0548_pivot_bearing",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_bearing",
+      "sourceNodeIndex": 548,
+      "sourceName": "Shape_2603",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/inafag_61805-2rsr/inafag_61805-2rsr_6314_4/Shape_2603",
+      "sourceTriangles": 8,
+      "motionRole": "fixed",
+      "centerM": [
+        0.1539650410413742,
+        0.05489452928304672,
+        0.5492990612983704
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0550",
+      "object": "MM_carbon_n0550_pivot_bearing",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_bearing",
+      "sourceNodeIndex": 550,
+      "sourceName": "Shape_2559",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/inafag_61805-2rsr/inafag_61805-2rsr_7065_3/Shape_2559",
+      "sourceTriangles": 202,
+      "motionRole": "fixed",
+      "centerM": [
+        0.1540078967809677,
+        0.055000096559524536,
+        0.5336259603500366
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0552",
+      "object": "MM_carbon_n0552_pivot_bearing",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_bearing",
+      "sourceNodeIndex": 552,
+      "sourceName": "Shape_2647",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/inafag_61805-2rsr/inafag_61805-2rsr_7872_2/Shape_2647",
+      "sourceTriangles": 200,
+      "motionRole": "fixed",
+      "centerM": [
+        0.15400002896785736,
+        0.05500009283423424,
+        0.5336259603500366
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0555",
+      "object": "MM_carbon_n0555_pivot_hardware",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_hardware",
+      "sourceNodeIndex": 555,
+      "sourceName": "Shape_1284",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/ISO_7380_M8x50_Linsenkopfschraube_bearbeitet/ISO_7380_M8x50_Linsenkopfschraube_bearbeitet_717_PartBody/Shape_1284",
+      "sourceTriangles": 71,
+      "motionRole": "fixed",
+      "centerM": [
+        0.2677322328090668,
+        0.0005022343248128891,
+        0.6846610307693481
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0556",
+      "object": "MM_carbon_n0556_pivot_hardware",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_hardware",
+      "sourceNodeIndex": 556,
+      "sourceName": "Shape_1289",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/ISO_7380_M8x50_Linsenkopfschraube_bearbeitet/ISO_7380_M8x50_Linsenkopfschraube_bearbeitet_717_PartBody/Shape_1289",
+      "sourceTriangles": 17,
+      "motionRole": "fixed",
+      "centerM": [
+        0.2677322328090668,
+        0.021899085491895676,
+        0.6846610307693481
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0559",
+      "object": "MM_carbon_n0559_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 559,
+      "sourceName": "Shape_1430 2",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/ISO_10642_M6x12_Senkkopfschraube/ISO_10642_M6x12_Senkkopfschraube_717_PartBody 3/Shape_1430 2",
+      "sourceTriangles": 64,
+      "motionRole": "fixed",
+      "centerM": [
+        0.15409031510353088,
+        0.0552939735352993,
+        0.5338687896728516
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0562",
+      "object": "MM_carbon_n0562_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 562,
+      "sourceName": "Shape_1430 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/ISO_10642_M6x12_Senkkopfschraube 1/ISO_10642_M6x12_Senkkopfschraube_717_PartBody/Shape_1430 1",
+      "sourceTriangles": 64,
+      "motionRole": "fixed",
+      "centerM": [
+        0.1839672476053238,
+        -0.019915437325835228,
+        0.273122102022171
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0565",
+      "object": "MM_carbon_n0565_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 565,
+      "sourceName": "Shape_1430 3",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/ISO_10642_M6x12_Senkkopfschraube 2/ISO_10642_M6x12_Senkkopfschraube_717_PartBody 2/Shape_1430 3",
+      "sourceTriangles": 64,
+      "motionRole": "fixed",
+      "centerM": [
+        0.18396729230880737,
+        0.020084571093320847,
+        0.2736220359802246
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0568",
+      "object": "MM_carbon_n0568_bumpers",
+      "assemblyId": "frame",
+      "serviceKey": "bumpers",
+      "sourceNodeIndex": 568,
+      "sourceName": "Shape_1430",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/ISO_10642_M6x12_Senkkopfschraube 3/ISO_10642_M6x12_Senkkopfschraube_717_PartBody 1/Shape_1430",
+      "sourceTriangles": 64,
+      "motionRole": "fixed",
+      "centerM": [
+        0.11521252244710922,
+        -9.026424959301949e-05,
+        0.3552246689796448
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0572",
+      "object": "MM_carbon_n0572_chainring",
+      "assemblyId": "transmission",
+      "serviceKey": "chainring",
+      "sourceNodeIndex": 572,
+      "sourceName": "Shape_5859",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Pedale/Kettenblatt_SRAM_directmount_26Z/Kettenblatt_SRAM_directmount_26Z_49887/Shape_5859",
+      "sourceTriangles": 1232,
+      "motionRole": "fixed",
+      "centerM": [
+        0.1840001940727234,
+        0.056984059512615204,
+        0.33112597465515137
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0575",
+      "object": "MM_carbon_n0575_left_crank",
+      "assemblyId": "transmission",
+      "serviceKey": "left_crank",
+      "sourceNodeIndex": 575,
+      "sourceName": "Shape_14199",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Pedale/Kurbel_X01_DH_li/Kurbel_X01_DH_li_6634_PartBody/Shape_14199",
+      "sourceTriangles": 432,
+      "motionRole": "fixed",
+      "centerM": [
+        0.11873702704906464,
+        -0.017970843240618706,
+        0.2893221974372864
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0576",
+      "object": "MM_carbon_n0576_left_crank",
+      "assemblyId": "transmission",
+      "serviceKey": "left_crank",
+      "sourceNodeIndex": 576,
+      "sourceName": "Shape_14204",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Pedale/Kurbel_X01_DH_li/Kurbel_X01_DH_li_6634_PartBody/Shape_14204",
+      "sourceTriangles": 36,
+      "motionRole": "fixed",
+      "centerM": [
+        0.1841486096382141,
+        -0.058000147342681885,
+        0.33112606406211853
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0579",
+      "object": "MM_carbon_n0579_left_pedal",
+      "assemblyId": "pedals",
+      "serviceKey": "left_pedal",
+      "sourceNodeIndex": 579,
+      "sourceName": "Shape_5930",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Pedale/Kurbel_X01_DH_li/Pedal_Funn_Bigfoot_le/Pedal_Funn_Bigfoot_le_28132/Shape_5930",
+      "sourceTriangles": 392,
+      "motionRole": "fixed",
+      "centerM": [
+        0.046295735985040665,
+        -0.14695551991462708,
+        0.2402697503566742
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0581",
+      "object": "MM_carbon_n0581_left_pedal",
+      "assemblyId": "pedals",
+      "serviceKey": "left_pedal",
+      "sourceNodeIndex": 581,
+      "sourceName": "Shape_5974",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Pedale/Kurbel_X01_DH_li/Pedal_Funn_Bigfoot_le/Pedal_Funn_Bigfoot_le_30507/Shape_5974",
+      "sourceTriangles": 92,
+      "motionRole": "fixed",
+      "centerM": [
+        0.04626438021659851,
+        -0.0983126312494278,
+        0.2402248978614807
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0584",
+      "object": "MM_carbon_n0584_right_crank",
+      "assemblyId": "transmission",
+      "serviceKey": "right_crank",
+      "sourceNodeIndex": 584,
+      "sourceName": "Shape_14127",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Pedale/Kurbel_X01_DH_re/Kurbel_X01_DH_re_963_Body.2/Shape_14127",
+      "sourceTriangles": 84,
+      "motionRole": "fixed",
+      "centerM": [
+        0.18398422002792358,
+        0.06598515063524246,
+        0.3311322033405304
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0586",
+      "object": "MM_carbon_n0586_right_crank",
+      "assemblyId": "transmission",
+      "serviceKey": "right_crank",
+      "sourceNodeIndex": 586,
+      "sourceName": "Shape_14083",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Pedale/Kurbel_X01_DH_re/Kurbel_X01_DH_re_6634_PartBody/Shape_14083",
+      "sourceTriangles": 568,
+      "motionRole": "fixed",
+      "centerM": [
+        0.24920102953910828,
+        0.07256786525249481,
+        0.3732088804244995
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0589",
+      "object": "MM_carbon_n0589_right_pedal",
+      "assemblyId": "pedals",
+      "serviceKey": "right_pedal",
+      "sourceNodeIndex": 589,
+      "sourceName": "Shape_6045",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Pedale/Kurbel_X01_DH_re/Pedal_Funn_Bigfoot_re/Pedal_Funn_Bigfoot_re_8287/Shape_6045",
+      "sourceTriangles": 410,
+      "motionRole": "fixed",
+      "centerM": [
+        0.3216973841190338,
+        0.14700232446193695,
+        0.4220428466796875
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0591",
+      "object": "MM_carbon_n0591_right_pedal",
+      "assemblyId": "pedals",
+      "serviceKey": "right_pedal",
+      "sourceNodeIndex": 591,
+      "sourceName": "Shape_6089",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Pedale/Kurbel_X01_DH_re/Pedal_Funn_Bigfoot_re/Pedal_Funn_Bigfoot_re_25783/Shape_6089",
+      "sourceTriangles": 92,
+      "motionRole": "fixed",
+      "centerM": [
+        0.3217321038246155,
+        0.09827429056167603,
+        0.4221632778644562
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0594",
+      "object": "MM_carbon_n0594_chain",
+      "assemblyId": "chain_guide",
+      "serviceKey": "chain",
+      "sourceNodeIndex": 594,
+      "sourceName": "Shape_682",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Kette/RobertS2016_Kette_1210/Shape_682",
+      "sourceTriangles": 4042,
+      "motionRole": "hidden",
+      "centerM": [
+        0.38252755999565125,
+        0.05500153452157974,
+        0.3798486590385437
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0597",
+      "object": "MM_carbon_n0597_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 597,
+      "sourceName": "Shape_1905",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Daempferaufnahme_oben/RobertS2016_Rahmen_Daempferaufnahme_oben_868/Shape_1905",
+      "sourceTriangles": 96,
+      "motionRole": "fixed",
+      "centerM": [
+        0.2675209939479828,
+        0.01699689030647278,
+        0.6846276521682739
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0599",
+      "object": "MM_carbon_n0599_shock",
+      "assemblyId": "shock",
+      "serviceKey": "shock",
+      "sourceNodeIndex": 599,
+      "sourceName": "Shape_1949",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Daempferaufnahme_oben/RobertS2016_Rahmen_Daempferaufnahme_oben_978/Shape_1949",
+      "sourceTriangles": 80,
+      "motionRole": "fixed",
+      "centerM": [
+        0.2677267789840698,
+        -0.01699218526482582,
+        0.684687614440918
+      ],
+      "serviceBoundary": "sealed-shock"
+    },
+    {
+      "id": "carbon.n0602",
+      "object": "MM_carbon_n0602_pivot_hardware",
+      "assemblyId": "rear_suspension",
+      "serviceKey": "pivot_hardware",
+      "sourceNodeIndex": 602,
+      "sourceName": "Shape_3829",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Hauptlager_Zwischenhuelse/RobertS2016_Rahmen_Hauptlager_Zwischenhuelse_3348/Shape_3829",
+      "sourceTriangles": 118,
+      "motionRole": "fixed",
+      "centerM": [
+        0.11400005221366882,
+        7.450580596923828e-08,
+        0.5486259460449219
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0657",
+      "object": "MM_carbon_n0657_main_frame",
+      "assemblyId": "frame",
+      "serviceKey": "main_frame",
+      "sourceNodeIndex": 657,
+      "sourceName": "Shape_2835",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Hauptrahmen_837/Shape_2835",
+      "sourceTriangles": 6306,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.008924156427383423,
+        -4.1715800762176514e-05,
+        0.6238663196563721
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0670",
+      "object": "MM_carbon_n0670_drive_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "drive_idler",
+      "sourceNodeIndex": 670,
+      "sourceName": "Shape_2171",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Gewindehuelse/RobertS2016_Rahmen_Umlenkrolle_Gewindehuelse_4309/Shape_2171",
+      "sourceTriangles": 68,
+      "motionRole": "fixed",
+      "centerM": [
+        0.15400008857250214,
+        0.04300008714199066,
+        0.5336259603500366
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0674",
+      "object": "MM_carbon_n0674_drive_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "drive_idler",
+      "sourceNodeIndex": 674,
+      "sourceName": "Shape_3686",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Kaefig/RobertS2016_Rahmen_Umlenkrolle/RobertS2016_Rahmen_Umlenkrolle_99015/Shape_3686",
+      "sourceTriangles": 948,
+      "motionRole": "fixed",
+      "centerM": [
+        0.15400058031082153,
+        0.05499820411205292,
+        0.5336267352104187
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0676",
+      "object": "MM_carbon_n0676_drive_cage",
+      "assemblyId": "chain_guide",
+      "serviceKey": "drive_cage",
+      "sourceNodeIndex": 676,
+      "sourceName": "Shape_2029",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Kaefig/RobertS2016_Rahmen_Umlenkrolle_Kaefig_838/Shape_2029",
+      "sourceTriangles": 156,
+      "motionRole": "fixed",
+      "centerM": [
+        0.1405891478061676,
+        0.05557366460561752,
+        0.5468976497650146
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0680",
+      "object": "MM_carbon_n0680_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 680,
+      "sourceName": "Shape_3304",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs/inafag_626-2rs_2342_1 1/Shape_3304",
+      "sourceTriangles": 191,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22851291298866272,
+        0.06061382591724396,
+        0.3985198140144348
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0682",
+      "object": "MM_carbon_n0682_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 682,
+      "sourceName": "Shape_3348 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs/inafag_626-2rs_2533_9/Shape_3348 1",
+      "sourceTriangles": 48,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22877107560634613,
+        0.06330917775630951,
+        0.3984626233577728
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0684",
+      "object": "MM_carbon_n0684_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 684,
+      "sourceName": "Shape_3392 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs/inafag_626-2rs_3304_8 1/Shape_3392 1",
+      "sourceTriangles": 48,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22848816215991974,
+        0.05788138881325722,
+        0.3985663950443268
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0686",
+      "object": "MM_carbon_n0686_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 686,
+      "sourceName": "Shape_3128 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs/inafag_626-2rs_4066_7 1/Shape_3128 1",
+      "sourceTriangles": 4,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22179503738880157,
+        0.0603807270526886,
+        0.39871224761009216
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0688",
+      "object": "MM_carbon_n0688_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 688,
+      "sourceName": "Shape_3040",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs/inafag_626-2rs_4815_6 1/Shape_3040",
+      "sourceTriangles": 4,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22901926934719086,
+        0.0604231059551239,
+        0.3917258083820343
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0690",
+      "object": "MM_carbon_n0690_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 690,
+      "sourceName": "Shape_3084 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs/inafag_626-2rs_5565_5/Shape_3084 1",
+      "sourceTriangles": 6,
+      "motionRole": "fixed",
+      "centerM": [
+        0.23552019894123077,
+        0.06058792397379875,
+        0.398454487323761
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0692",
+      "object": "MM_carbon_n0692_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 692,
+      "sourceName": "Shape_3172",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs/inafag_626-2rs_6314_4/Shape_3172",
+      "sourceTriangles": 4,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22846998274326324,
+        0.06039012223482132,
+        0.40487897396087646
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0694",
+      "object": "MM_carbon_n0694_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 694,
+      "sourceName": "Shape_3260",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs/inafag_626-2rs_7065_3/Shape_3260",
+      "sourceTriangles": 142,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22849155962467194,
+        0.06060005724430084,
+        0.3985259532928467
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0696",
+      "object": "MM_carbon_n0696_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 696,
+      "sourceName": "Shape_3216 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs/inafag_626-2rs_7872_2/Shape_3216 1",
+      "sourceTriangles": 84,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22849617898464203,
+        0.06060014292597771,
+        0.3984251618385315
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0699",
+      "object": "MM_carbon_n0699_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 699,
+      "sourceName": "Shape_3304 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs 1/inafag_626-2rs_2342_1/Shape_3304 1",
+      "sourceTriangles": 166,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22851333022117615,
+        0.052587054669857025,
+        0.39852744340896606
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0701",
+      "object": "MM_carbon_n0701_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 701,
+      "sourceName": "Shape_3348",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs 1/inafag_626-2rs_2533_9 1/Shape_3348",
+      "sourceTriangles": 54,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22859300673007965,
+        0.055310070514678955,
+        0.3986293077468872
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0703",
+      "object": "MM_carbon_n0703_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 703,
+      "sourceName": "Shape_3392",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs 1/inafag_626-2rs_3304_8/Shape_3392",
+      "sourceTriangles": 48,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22848816215991974,
+        0.04988139495253563,
+        0.3985663950443268
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0705",
+      "object": "MM_carbon_n0705_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 705,
+      "sourceName": "Shape_3128",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs 1/inafag_626-2rs_4066_7/Shape_3128",
+      "sourceTriangles": 4,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22179503738880157,
+        0.05238073319196701,
+        0.39871224761009216
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0707",
+      "object": "MM_carbon_n0707_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 707,
+      "sourceName": "Shape_3040 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs 1/inafag_626-2rs_4815_6/Shape_3040 1",
+      "sourceTriangles": 4,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22901926934719086,
+        0.05242311209440231,
+        0.3917258083820343
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0709",
+      "object": "MM_carbon_n0709_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 709,
+      "sourceName": "Shape_3084",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs 1/inafag_626-2rs_5565_5 1/Shape_3084",
+      "sourceTriangles": 6,
+      "motionRole": "fixed",
+      "centerM": [
+        0.23552019894123077,
+        0.052587930113077164,
+        0.398454487323761
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0711",
+      "object": "MM_carbon_n0711_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 711,
+      "sourceName": "Shape_3172 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs 1/inafag_626-2rs_6314_4 1/Shape_3172 1",
+      "sourceTriangles": 4,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22846998274326324,
+        0.05239012837409973,
+        0.40487897396087646
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0713",
+      "object": "MM_carbon_n0713_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 713,
+      "sourceName": "Shape_3260 1",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs 1/inafag_626-2rs_7065_3 1/Shape_3260 1",
+      "sourceTriangles": 142,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22849155962467194,
+        0.052600063383579254,
+        0.3985259532928467
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0715",
+      "object": "MM_carbon_n0715_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 715,
+      "sourceName": "Shape_3216",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/inafag_626-2rs 1/inafag_626-2rs_7872_2 1/Shape_3216",
+      "sourceTriangles": 94,
+      "motionRole": "fixed",
+      "centerM": [
+        0.22850291430950165,
+        0.0525980219244957,
+        0.39849379658699036
+      ],
+      "serviceBoundary": "sealed-bearing"
+    },
+    {
+      "id": "carbon.n0717",
+      "object": "MM_carbon_n0717_return_idler",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_idler",
+      "sourceNodeIndex": 717,
+      "sourceName": "Shape_2980",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Leertrum/RobertS2016_Rahmen_Umlenkrolle_Leertrum_6500/Shape_2980",
+      "sourceTriangles": 468,
+      "motionRole": "fixed",
+      "centerM": [
+        0.228498637676239,
+        0.05669477581977844,
+        0.398528516292572
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0720",
+      "object": "MM_carbon_n0720_return_mount",
+      "assemblyId": "chain_guide",
+      "serviceKey": "return_mount",
+      "sourceNodeIndex": 720,
+      "sourceName": "Shape_2100",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Umlenkrolle_Nabe/RobertS2016_Rahmen_Umlenkrolle_Nabe_18308/Shape_2100",
+      "sourceTriangles": 152,
+      "motionRole": "fixed",
+      "centerM": [
+        0.15400448441505432,
+        0.05220641940832138,
+        0.5336422324180603
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0723",
+      "object": "MM_carbon_n0723_protector",
+      "assemblyId": "frame",
+      "serviceKey": "protector",
+      "sourceNodeIndex": 723,
+      "sourceName": "Shape_3757",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Rahmen_Unterschutzplatte_Rockman_mini/RobertS2016_Rahmen_Unterschutzplatte_Rockman_mini_88437/Shape_3757",
+      "sourceTriangles": 376,
+      "motionRole": "fixed",
+      "centerM": [
+        0.15155471861362457,
+        -1.5465542674064636e-05,
+        0.3156090974807739
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0727",
+      "object": "MM_carbon_n0727_headset_upper",
+      "assemblyId": "cockpit",
+      "serviceKey": "headset_upper",
+      "sourceNodeIndex": 727,
+      "sourceName": "Shape_496",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Steuersatz_ob/Steuersatz_ob_12402/Shape_496",
+      "sourceTriangles": 250,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.23226206004619598,
+        -5.3727999329566956e-06,
+        0.9578022956848145
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0730",
+      "object": "MM_carbon_n0730_headset_lower",
+      "assemblyId": "cockpit",
+      "serviceKey": "headset_lower",
+      "sourceNodeIndex": 730,
+      "sourceName": "Shape_611",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Steuersatz_un/Steuersatz_un_7607/Shape_611",
+      "sourceTriangles": 174,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.2780801057815552,
+        1.1455267667770386e-07,
+        0.8560407161712646
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0732",
+      "object": "MM_carbon_n0732_headset_lower",
+      "assemblyId": "cockpit",
+      "serviceKey": "headset_lower",
+      "sourceNodeIndex": 732,
+      "sourceName": "Shape_567",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/Steuersatz_un/Steuersatz_un_22775/Shape_567",
+      "sourceTriangles": 252,
+      "motionRole": "fixed",
+      "centerM": [
+        -0.27972880005836487,
+        1.0026618838310242e-05,
+        0.8517791032791138
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0735",
+      "object": "MM_carbon_n0735_post_lower",
+      "assemblyId": "seat",
+      "serviceKey": "post_lower",
+      "sourceNodeIndex": 735,
+      "sourceName": "Shape_13500",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Sattelstange/Sattel_1879/Shape_13500",
+      "sourceTriangles": 332,
+      "motionRole": "fixed",
+      "centerM": [
+        0.23969778418540955,
+        -1.0642223060131073e-05,
+        0.7450505495071411
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0739",
+      "object": "MM_carbon_n0739_saddle",
+      "assemblyId": "seat",
+      "serviceKey": "saddle",
+      "sourceNodeIndex": 739,
+      "sourceName": "Shape_13676",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Sattelstange/Sattelstange2/Sattel_43985/Sattel_736_sattel/Shape_13676",
+      "sourceTriangles": 410,
+      "motionRole": "fixed",
+      "centerM": [
+        0.3247133493423462,
+        6.664544343948364e-05,
+        0.9424896240234375
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0740",
+      "object": "MM_carbon_n0740_saddle",
+      "assemblyId": "seat",
+      "serviceKey": "saddle",
+      "sourceNodeIndex": 740,
+      "sourceName": "Shape_13681",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Sattelstange/Sattelstange2/Sattel_43985/Sattel_736_sattel/Shape_13681",
+      "sourceTriangles": 344,
+      "motionRole": "fixed",
+      "centerM": [
+        0.3247133493423462,
+        1.3615936040878296e-05,
+        0.9409955739974976
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0742",
+      "object": "MM_carbon_n0742_saddle",
+      "assemblyId": "seat",
+      "serviceKey": "saddle",
+      "sourceNodeIndex": 742,
+      "sourceName": "Shape_13588",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Sattelstange/Sattelstange2/Sattel_43985/Sattel_24139/Shape_13588",
+      "sourceTriangles": 110,
+      "motionRole": "fixed",
+      "centerM": [
+        0.3260808289051056,
+        -0.024539990350604057,
+        0.932152509689331
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0744",
+      "object": "MM_carbon_n0744_saddle",
+      "assemblyId": "seat",
+      "serviceKey": "saddle",
+      "sourceNodeIndex": 744,
+      "sourceName": "Shape_13632",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Sattelstange/Sattelstange2/Sattel_43985/Sattel_26656/Shape_13632",
+      "sourceTriangles": 118,
+      "motionRole": "fixed",
+      "centerM": [
+        0.3260408341884613,
+        0.024848347529768944,
+        0.9319677352905273
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0745",
+      "object": "MM_carbon_n0745_post_upper",
+      "assemblyId": "seat",
+      "serviceKey": "post_upper",
+      "sourceNodeIndex": 745,
+      "sourceName": "Shape_13544",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/Sattelstange/Sattelstange2/Sattel_43985/Shape_13544",
+      "sourceTriangles": 140,
+      "motionRole": "fixed",
+      "centerM": [
+        0.309521347284317,
+        -7.225200533866882e-06,
+        0.847785472869873
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0746",
+      "object": "MM_carbon_n0746_front_lines",
+      "assemblyId": "cables",
+      "serviceKey": "front_lines",
+      "sourceNodeIndex": 746,
+      "sourceName": "Schlauch_01",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Schlauch_01",
+      "sourceTriangles": 528,
+      "motionRole": "hidden",
+      "centerM": [
+        -0.22219020128250122,
+        -0.07662695646286011,
+        0.9392661452293396
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0747",
+      "object": "MM_carbon_n0747_front_lines",
+      "assemblyId": "cables",
+      "serviceKey": "front_lines",
+      "sourceNodeIndex": 747,
+      "sourceName": "Schlauch_02",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Schlauch_02",
+      "sourceTriangles": 528,
+      "motionRole": "hidden",
+      "centerM": [
+        -0.2875469923019409,
+        0.03086482733488083,
+        0.9807621836662292
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0748",
+      "object": "MM_carbon_n0748_rear_lines",
+      "assemblyId": "cables",
+      "serviceKey": "rear_lines",
+      "sourceNodeIndex": 748,
+      "sourceName": "Schlauch_03",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Schlauch_03",
+      "sourceTriangles": 528,
+      "motionRole": "hidden",
+      "centerM": [
+        -0.358480840921402,
+        -0.0383978933095932,
+        0.6183691024780273
+      ],
+      "serviceBoundary": "source-service-group"
+    },
+    {
+      "id": "carbon.n0749",
+      "object": "MM_carbon_n0749_rear_lines",
+      "assemblyId": "cables",
+      "serviceKey": "rear_lines",
+      "sourceNodeIndex": 749,
+      "sourceName": "Schlauch_04",
+      "sourcePath": "CarbonFrameBike/Bike/Rahmen/Schlauch_04",
+      "sourceTriangles": 528,
+      "motionRole": "hidden",
+      "centerM": [
+        0.38670966029167175,
+        -0.047311171889305115,
+        0.4317346215248108
+      ],
+      "serviceBoundary": "source-service-group"
+    }
+  ],
+  "excludedReferences": [
+    {
+      "nodeIndex": 660,
+      "sourceName": "schild_RobertS_logo (1)",
+      "reason": "visible-brand-mark"
+    },
+    {
+      "nodeIndex": 663,
+      "sourceName": "schild_RobertS_logo (2)",
+      "reason": "visible-brand-mark"
+    },
+    {
+      "nodeIndex": 666,
+      "sourceName": "Shape_2906",
+      "reason": "visible-brand-mark"
+    },
+    {
+      "nodeIndex": 667,
+      "sourceName": "Shape_2911",
+      "reason": "visible-brand-mark"
+    },
+    {
+      "nodeIndex": 752,
+      "sourceName": "ShadowQuad (AR)",
+      "reason": "display-shadow"
+    },
+    {
+      "nodeIndex": 754,
+      "sourceName": "ShadowQuad (AR)",
+      "reason": "display-shadow"
+    },
+    {
+      "nodeIndex": 756,
+      "sourceName": "ShadowQuad (AR)",
+      "reason": "display-shadow"
+    }
+  ],
+  "authoredImagesRedistributed": false,
+  "materialPolicy": "All source maps replaced with neutral, texture-free PBR; separate visible mark geometry omitted."
+}

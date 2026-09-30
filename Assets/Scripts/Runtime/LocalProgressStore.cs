@@ -59,9 +59,11 @@ namespace MechMaster.Runtime
         public static void Save(
             string modelId,
             DisassemblyPlan plan,
-            bool narrationEnabled)
+            bool narrationEnabled,
+            bool saveModelSelection = true)
         {
-            PlayerPrefs.SetString(Prefix + "modelId", modelId);
+            if (saveModelSelection)
+                PlayerPrefs.SetString(Prefix + "modelId", modelId);
             PlayerPrefs.SetInt(Prefix + "difficulty", (int)plan.Difficulty);
             PlayerPrefs.SetInt(Prefix + "narration", narrationEnabled ? 1 : 0);
             PlayerPrefs.SetInt(ProgressKey(modelId, plan.Difficulty, "removed"), plan.RemovedCount);

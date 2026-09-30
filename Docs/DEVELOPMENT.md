@@ -12,9 +12,11 @@
 
 1. 克隆仓库并确认当前分支为 `main`。
 2. 用引擎 Hub 打开仓库根目录。
-3. 等待自行车、Moveo、Bolt 与 OpenTorque 的 FBX、JSON 和 C# 脚本导入。
+3. 等待硬尾自行车、Moveo、Bolt、OpenTorque 与 Carbon 软尾的 FBX、JSON 和 C# 脚本导入。
 4. 打开 `Assets/Scenes/Main.unity` 并进入 Play Mode。
 5. 运行入口由 `MechMasterApp.Bootstrap` 创建，不需要在场景中手工绑定脚本。
+
+如果选择模型后画面空白，先看 Editor Console 是否提示缺少 `Models/...` 模块。曾出现 Bolt `left_foot_LOD0.fbx` 上次导入器崩溃后被登记为默认文件、`Resources.Load<GameObject>` 返回空的情况。退出 Play 后执行菜单“机械大师 → 修复缺失的模型导入”，它只强制重导入当前无法加载且磁盘上存在的 FBX；然后再进入 Play。切换模型现在会先检查全部模块，失败时保留当前模型并显示缺失路径；启动时若已保存模型不可用，会暂时显示其它可用模型，但不覆盖原模型选择存档。此时不要删除源 FBX 或整个 `Library`。硬尾车的新初始视角由 `Bicycle.json` 的 `initialViewYawOffset: 180` 控制，相机与工作室主/辅光一起转，模型、关节和拆装坐标不变。Bolt 的初始偏航为 55°，让电路板、电机和传动件更容易从默认角度看到；原始材质以浅色打印结构为主，另有深色、绿色和铜色，并非全身彩色外壳。
 
 ## 完整资产流水线
 
@@ -91,7 +93,7 @@ Moveo 基线：9 模块、87 个源零件定义、366 实体；三档为 9 / 20 
 
 Bolt 基线：12 模块、56 个源叶零件定义、345 个叶实例；三档为 12 / 23 / 42 步，每档完整覆盖同一批实例。左右腿的髋屈伸—膝、膝—踝轴距均为 200 mm；Source / LOD0 / LOD1 / LOD2 为 2,553,404 / 399,230 / 219,566 / 22,000 三角面。源验证成功标记为 `BOLT_SOURCE_VALIDATION_OK` 与 `BOLT_TRANSFORM_VALIDATION_OK`。
 
-.NET 测试共 22 项，应全部显示 `PASS`，覆盖状态机、BOM、继承数量、尺寸基准、三档计数、模型绑定、Moveo 内容与五轴/四连杆配置，以及 Bolt 源身份、维修分组、六主动/两被动轴与闭合教学关键帧。两项连续曲线回归直接编译不依赖 Unity 的 `PeriodicMotionCurve.cs`，检查非等间隔关键帧、保形不超调、周期速度连续及连续双腿动作；新增 OpenTorque 固定源/三级完整覆盖/许可、19 实例运动绑定与限制、固定齿圈连续运动学/真正闭合周期三项。
+.NET 测试共 24 项，应全部显示 `PASS`，覆盖状态机、BOM、继承数量、尺寸基准、三档计数、模型绑定、Moveo 内容与五轴/四连杆配置，以及 Bolt 源身份、维修分组、六主动/两被动轴与闭合教学关键帧。两项连续曲线回归直接编译不依赖 Unity 的 `PeriodicMotionCurve.cs`，检查非等间隔关键帧、保形不超调、周期速度连续及连续双腿动作；另含 OpenTorque 固定源/三级完整覆盖/许可、19 实例运动绑定与限制、固定齿圈连续运动学/真正闭合周期，以及 Carbon 来源/完整覆盖/悬架周期两项。
 
 ## OpenTorque 分级爆炸布局
 
@@ -102,6 +104,12 @@ Bolt 基线：12 模块、56 个源叶零件定义、345 个叶实例；三档�
 同角度、统一 1600×900 的引擎补充渲染输出为 `Docs/Preview/OpenTorqueExplosionSimple.png`、`OpenTorqueExplosionStandard.png`、`OpenTorqueExplosionAdvanced.png`；这是实际分件姿态的对比渲染，不是含 UI 的 Game View 截屏。正式界面取景单独按当前屏幕验证。当前 Editor 已打开时，复制必要资产/脚本到忽略的独立测试工程，使用不同 company/product 隔离存档，不关闭用户 Editor。
 
 ## 修改工程模型
+
+### Carbon 软尾资产与回归
+
+运行 `Tools/Content/fetch_carbon_frame_bike_sources.py` 验证作者固定 GLB/README，再用 Blender 执行 `Tools/Blender/import_carbon_frame_bike.py` 和 `validate_carbon_frame_bike.py`。内容规则位于 `Tools/Content/carbon_frame_bike_content.py`；不要手改生成 JSON/FBX。GLB 原件仅在忽略缓存，派生 Source、无标识 PBR 运行模型与 CC BY-SA 署名一起保留。完整命令和权利/尺寸边界见 [Carbon 接入记录](References/CarbonFrameBike/IMPORT_STATUS.md)。
+
+专用引擎入口 `MechMaster.Editor.CarbonFrameBikeImportValidator.ValidateFromCommandLine` 不加 `-quit`，自行进入/退出 Play。三档 14/34/51 步完整覆盖 307 个网格，检查 257 相位悬架、后避震约 200 mm 眼距、暂停/调速、演示后六组单件爆炸/拖放、原生按钮、存档重载和五模型切换。使用独立 company/product 工程隔离存档，不关闭用户 Editor。当前 .NET 24 项、Blender Source/全部 LOD、引擎完整回归与全部绑定均通过；日志在 `Library/MechMaster/CarbonFrameBikeSource/`。微信帧率、内存、分包与实际触控仍待验证。
 
 1. 在 `bicycle_engineering.json` 修改尺寸、部件或数量。
 2. 在 `generate_engineering_bicycle.py` 更新对应几何。
