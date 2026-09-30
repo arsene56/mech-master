@@ -16,7 +16,7 @@
 4. 打开 `Assets/Scenes/Main.unity` 并进入 Play Mode。
 5. 运行入口由 `MechMasterApp.Bootstrap` 创建，不需要在场景中手工绑定脚本。
 
-如果选择模型后画面空白，先看 Editor Console 是否提示缺少 `Models/...` 模块。曾出现 Bolt `left_foot_LOD0.fbx` 上次导入器崩溃后被登记为默认文件、`Resources.Load<GameObject>` 返回空的情况。退出 Play 后执行菜单“机械大师 → 修复缺失的模型导入”，它只强制重导入当前无法加载且磁盘上存在的 FBX；然后再进入 Play。切换模型现在会先检查全部模块，失败时保留当前模型并显示缺失路径；启动时若已保存模型不可用，会暂时显示其它可用模型，但不覆盖原模型选择存档。此时不要删除源 FBX 或整个 `Library`。硬尾车的新初始视角由 `Bicycle.json` 的 `initialViewYawOffset: 180` 控制，相机与工作室主/辅光一起转，模型、关节和拆装坐标不变。Bolt 的初始偏航为 55°，让电路板、电机和传动件更容易从默认角度看到；原始材质以浅色打印结构为主，另有深色、绿色和铜色，并非全身彩色外壳。
+如果选择模型后画面空白，先看 Editor Console 是否提示缺少 `Models/...` 模块。曾出现 Bolt `left_foot_LOD0.fbx` 上次导入器崩溃后被登记为默认文件、`Resources.Load<GameObject>` 返回空的情况。退出 Play 后执行菜单“机械大师 → 修复缺失的模型导入”，它只强制重导入当前无法加载且磁盘上存在的 FBX；然后再进入 Play。切换模型现在会先检查全部模块，失败时保留当前模型并显示缺失路径；启动时若已保存模型不可用，会暂时显示其它可用模型，但不覆盖原模型选择存档。此时不要删除源 FBX 或整个 `Library`。硬尾车的新初始视角由 `Bicycle.json` 的 `initialViewYawOffset: 180` 控制；工作室主/辅方向光保持相机相对角度，所有模型旋转视角及改变俯仰时都持续朝观察面补光，模型、关节和拆装坐标不变。Bolt 的初始偏航为 55°，让电路板、电机和传动件更容易从默认角度看到；原始材质以浅色打印结构为主，另有深色、绿色和铜色，并非全身彩色外壳。
 
 ## 完整资产流水线
 
@@ -109,6 +109,10 @@ Bolt 基线：12 模块、56 个源叶零件定义、345 个叶实例；三档�
 
 运行 `Tools/Content/fetch_carbon_frame_bike_sources.py` 验证作者固定 GLB/README，再用 Blender 执行 `Tools/Blender/import_carbon_frame_bike.py` 和 `validate_carbon_frame_bike.py`。内容规则位于 `Tools/Content/carbon_frame_bike_content.py`；不要手改生成 JSON/FBX。GLB 原件仅在忽略缓存，派生 Source、无标识 PBR 运行模型与 CC BY-SA 署名一起保留。完整命令和权利/尺寸边界见 [Carbon 接入记录](References/CarbonFrameBike/IMPORT_STATUS.md)。
 
+软尾运转默认倍率为显示 1.00×、实际相对源时间线 2.0×；`CarbonFrameBikeMotionRig.json` 保留 4 秒周期，运行一轮约 2 秒。控制器按 `DefaultTimelineRate` 推进，速度按钮仍按新基准显示 0.50×–1.50×。本次按用户要求只改代码与文档，未重新执行回归。
+
+2026-09-30 链条可见性修正：`MM_carbon_n0594_chain` 从与柔性管线共用的 `hidden` 角色改为 `fixed`，演示时保留源链条可见；管线仍暂隐。源生成脚本、Source `.blend` 元数据、运行 rig、清单、UI 提示和引擎压缩预览已同步；当时的引擎日志为 `Library/MechMaster/CarbonFrameBikeSource/editor-runtime-chain-visible.log`。后续发现固定网格使后轮端悬空，已增加仅对链条模块启用 CPU 读取的运行时私有网格：牙盘端固定、后飞轮端随摇臂、中段加权过渡，停止恢复原顶点/法线。三级引擎回归检查前端位移小于 0.01 mm、后端位移大于 20 mm，及复原/拆装/模型切换；日志为 `Library/MechMaster/CarbonFrameBikeSource/editor-runtime-chain-follow.log`，退出码 0。仍不模拟逐节传动或精确链长。
+
 专用引擎入口 `MechMaster.Editor.CarbonFrameBikeImportValidator.ValidateFromCommandLine` 不加 `-quit`，自行进入/退出 Play。三档 14/34/51 步完整覆盖 307 个网格，检查 257 相位悬架、后避震约 200 mm 眼距、暂停/调速、演示后六组单件爆炸/拖放、原生按钮、存档重载和五模型切换。使用独立 company/product 工程隔离存档，不关闭用户 Editor。当前 .NET 24 项、Blender Source/全部 LOD、引擎完整回归与全部绑定均通过；日志在 `Library/MechMaster/CarbonFrameBikeSource/`。微信帧率、内存、分包与实际触控仍待验证。
 
 1. 在 `bicycle_engineering.json` 修改尺寸、部件或数量。
@@ -152,6 +156,8 @@ Moveo 专用自动回归在停止 Editor 后运行：
 按本机安装位置调整 Editor 路径。该入口自动进入和退出 Play 并关闭 Editor，因此不添加 `-quit`；使用正常图形模式以执行拾取和拖入托盘。它检查三档绑定、爆炸不改进度、存档、完整拆装和姿态复原，验证 Moveo 五轴关节、夹爪四连杆、暂停、调速、循环无漂移和视图切换复位，并切回自行车检查动态演示可用性；退出 Play 后恢复验证前的全部模型偏好及进度。成功日志包含 `MECH_MASTER_MOVEO_TIER_OK` 三档记录、`MECH_MASTER_MOVEO_MOTION_OK` 和 `MECH_MASTER_MOVEO_RUNTIME_OK`。
 
 Bolt 的自动回归入口为 `MechMaster.Editor.BoltImportValidator.ValidateFromCommandLine`，参数同上述 Moveo 命令，日志路径改为 `Library/MechMaster/BoltSource/converted/editor-runtime-final.log`。它检查三档 12/23/42 步的绑定、实际射线拾取/拖放、爆炸、存档恢复和任意顺序完整拆装；还检查六主动轴、两被动踝轴、两侧 200 mm 轴距、固定躯干、暂停/调速/循环复位和碰撞恢复，最后切回 Moveo 与自行车检查演示仍可用。退出 Play 后恢复验证前全部模型偏好及进度。成功日志包含三档 `MECH_MASTER_BOLT_MOTION_OK`、`MECH_MASTER_BOLT_TIER_OK` 和最终 `MECH_MASTER_BOLT_RUNTIME_OK`。自动保存的引擎姿态图在忽略的转换缓存 `preview/`，不等同于人工 Game View 全流程验收。
+
+2026-09-30 视角补光回归：工作室两盏方向光挂在运行相机下，以原始相机俯仰 14° / 偏航 -22° 为参考保存相对角度。`CarbonFrameBikeImportValidator` 在硬尾、Moveo、Bolt、OpenTorque 和 Carbon 五模型上分别执行相当于半圈及反向俯仰的相机旋转，检查主/辅光保持相机相对方向；`BoltImportValidator` 再覆盖三档拆装与演示。独立验证日志为 `Library/MechMaster/CarbonFrameBikeSource/editor-runtime-view-locked-lighting.log` 与 `Library/MechMaster/BoltSource/converted/editor-runtime-view-locked-lighting.log`，两者退出码均为 0。该方案保持模型材质和关节坐标不变，但属于固定屏幕工作室补光，不模拟现实世界中固定不动的太阳光。
 
 ## 演示结束后的点击回归（2026-09-29）
 

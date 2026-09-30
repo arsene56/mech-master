@@ -26,6 +26,12 @@ namespace MechMaster.Runtime
     // No reparenting, source asset mutation, pressure or ride/contact simulation.
     public sealed class CarbonFrameBikeMotionController : MonoBehaviour, IMechanicalMotionController
     {
+        // The authored rig stays at four timeline seconds; its former 2.00x
+        // playback is now the displayed 1.00x default (two real seconds/cycle).
+        private const double DefaultTimelineRate = 2.0;
+        private const string ChainObjectName = "MM_carbon_n0594_chain";
+        private const string ChainringObjectName = "MM_carbon_n0572_chainring";
+
         private sealed class Pose
         {
             public Transform Transform;
@@ -42,6 +48,12 @@ namespace MechMaster.Runtime
         private Collider[] colliders;
         private bool[] colliderEnabled;
         private double elapsed;
+        private MeshFilter chainFilter;
+        private Mesh sourceChainMesh, animatedChainMesh;
+        private Vector3[] chainRestVertices, chainRestNormals, chainRootVertices, chainRootNormals,
+            chainAnimatedVertices, chainAnimatedNormals;
+        private float[] chainRearWeights;
+        private Matrix4x4 chainRootToLocal;
 
         public bool IsReady { get; private set; }
         public bool IsActive { get; private set; }
@@ -112,6 +124,7 @@ namespace MechMaster.Runtime
                         LocalRotation = item.localRotation, RestPosition = transform.InverseTransformPoint(item.position),
                         RestRotation = Quaternion.Inverse(transform.rotation) * item.rotation, Renderer = renderer };
                 }).ToArray();
+                InitializeChain(geometry, Anchor(rig.rearWheelAnchor));
                 IsReady = true;
                 return true;
             }
@@ -166,6 +179,79 @@ namespace MechMaster.Runtime
                     pose.Transform.localRotation = pose.LocalRotation;
                 }
             RearDegrees = ForkCompressionM = ShockCompressionM = 0;
+            if (animatedChainMesh != null)
+            {
+                animatedChainMesh.SetVertices(chainRestVertices);
+                animatedChainMesh.SetNormals(chainRestNormals);
+                animatedChainMesh.RecalculateBounds();
+            }
+        }
+
+        private void InitializeChain(Dictionary<string, Transform> geometry, Vector3 rearAxle)
+        {
+            if (!geometry.TryGetValue(ChainObjectName, out Transform chain)
+                || !geometry.TryGetValue(ChainringObjectName, out Transform chainring)
+                || !rig.bindings.Any(binding => binding.objectName == ChainObjectName && binding.role == "fixed"))
+                throw new InvalidOperationException("缺少可见链条或牙盘绑定");
+            chainFilter = chain.GetComponent<MeshFilter>();
+            sourceChainMesh = chainFilter == null ? null : chainFilter.sharedMesh;
+            if (sourceChainMesh == null || !sourceChainMesh.isReadable)
+                throw new InvalidOperationException("链条网格未启用 CPU 读取，请重新导入 chain_guide_LOD0.fbx");
+            Vector3 front = transform.InverseTransformPoint(chainring.position);
+            Vector3 frontToRear = rearAxle - front;
+            if (frontToRear.sqrMagnitude < .04f)
+                throw new InvalidOperationException("链条前后锚点距离无效");
+
+            chainRestVertices = sourceChainMesh.vertices;
+            chainRestNormals = sourceChainMesh.normals;
+            if (chainRestNormals.Length != chainRestVertices.Length)
+                throw new InvalidOperationException("链条网格法线不完整");
+            chainRootVertices = new Vector3[chainRestVertices.Length];
+            chainRootNormals = new Vector3[chainRestVertices.Length];
+            chainAnimatedVertices = new Vector3[chainRestVertices.Length];
+            chainAnimatedNormals = new Vector3[chainRestVertices.Length];
+            chainRearWeights = new float[chainRestVertices.Length];
+            Matrix4x4 localToRoot = transform.worldToLocalMatrix * chain.localToWorldMatrix;
+            chainRootToLocal = localToRoot.inverse;
+            for (int i = 0; i < chainRestVertices.Length; i++)
+            {
+                Vector3 point = localToRoot.MultiplyPoint3x4(chainRestVertices[i]);
+                chainRootVertices[i] = point;
+                chainRootNormals[i] = localToRoot.MultiplyVector(chainRestNormals[i]).normalized;
+                float along = Vector3.Dot(point - front, frontToRear) / frontToRear.sqrMagnitude;
+                // Preserve the front wrap, move the rear cassette wrap rigidly,
+                // and blend the two straight spans of the one-piece source mesh.
+                chainRearWeights[i] = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(.2f, .8f, along));
+            }
+            animatedChainMesh = Instantiate(sourceChainMesh);
+            animatedChainMesh.name = sourceChainMesh.name + " (suspension preview)";
+            animatedChainMesh.MarkDynamic();
+            chainFilter.sharedMesh = animatedChainMesh;
+        }
+
+        private void ApplyChain(Quaternion rear)
+        {
+            if (animatedChainMesh == null) return;
+            for (int i = 0; i < chainRootVertices.Length; i++)
+            {
+                float weight = chainRearWeights[i];
+                if (weight <= 0f)
+                {
+                    chainAnimatedVertices[i] = chainRestVertices[i];
+                    chainAnimatedNormals[i] = chainRestNormals[i];
+                    continue;
+                }
+                Vector3 source = chainRootVertices[i];
+                Vector3 rearPoint = pivot + rear * (source - pivot);
+                chainAnimatedVertices[i] = chainRootToLocal.MultiplyPoint3x4(Vector3.Lerp(source, rearPoint, weight));
+                Vector3 sourceNormal = chainRootNormals[i];
+                Vector3 rearNormal = rear * sourceNormal;
+                chainAnimatedNormals[i] = chainRootToLocal.MultiplyVector(
+                    Vector3.Lerp(sourceNormal, rearNormal, weight)).normalized;
+            }
+            animatedChainMesh.SetVertices(chainAnimatedVertices);
+            animatedChainMesh.SetNormals(chainAnimatedNormals);
+            animatedChainMesh.RecalculateBounds();
         }
 
         public Vector3[] GetFramingPoints()
@@ -188,12 +274,19 @@ namespace MechMaster.Runtime
         }
 
         private void OnDisable() => Stop();
+        private void OnDestroy()
+        {
+            if (animatedChainMesh == null) return;
+            if (chainFilter != null && chainFilter.sharedMesh == animatedChainMesh)
+                chainFilter.sharedMesh = sourceChainMesh;
+            Destroy(animatedChainMesh);
+        }
         private void Update() => Advance(Time.deltaTime);
 
         private void Advance(float deltaTime)
         {
             if (!IsPlaying || deltaTime <= 0 || float.IsNaN(deltaTime) || float.IsInfinity(deltaTime)) return;
-            elapsed = (elapsed + deltaTime * Speed / 100.0) % rig.cycleSeconds;
+            elapsed = (elapsed + deltaTime * DefaultTimelineRate * Speed / 100.0) % rig.cycleSeconds;
             ApplyPhase(CyclePhase);
         }
 
@@ -216,6 +309,7 @@ namespace MechMaster.Runtime
                 else if (pose.Role == "shock_lower") { position = movingLower + shock * (position - lower); rotation = shock * rotation; }
                 pose.Transform.SetPositionAndRotation(transform.TransformPoint(position), transform.rotation * rotation);
             }
+            ApplyChain(rear);
         }
     }
 }

@@ -4523,7 +4523,7 @@
       "sourceName": "Shape_682",
       "sourcePath": "CarbonFrameBike/Bike/Rahmen/Rahmen/RobertS2016_Rahmen_Hauptrahmen/RobertS2016_Kette/RobertS2016_Kette_1210/Shape_682",
       "sourceTriangles": 4042,
-      "motionRole": "hidden",
+      "motionRole": "fixed",
       "centerM": [
         0.38252755999565125,
         0.05500153452157974,

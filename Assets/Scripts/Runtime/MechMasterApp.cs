@@ -54,7 +54,7 @@ namespace MechMaster.Runtime
             ? (MotionSpeedValue / 100f).ToString("0.00") + "×"
             : MotionSpeedValue + " 转/分";
         public string MotionGuide => motion is CarbonFrameBikeMotionController
-            ? "前后悬架联动 · 链条与管线暂隐 · 拖动旋转"
+            ? "前后悬架联动 · 链条可见/管线暂隐 · 拖动旋转"
             : motion is OpenTorqueMotionController
             ? "8∶1 减速 · 透明观察 · 拖动旋转"
             : motion is BoltMotionController
@@ -672,8 +672,6 @@ namespace MechMaster.Runtime
             // Capture assembled motion poses before restoring any saved removals.
             modelView.Refresh(Plan, true);
 
-            ApplyModelLighting();
-
             OrbitCameraController orbit = Camera.main.GetComponent<OrbitCameraController>();
             if (orbit != null)
             {
@@ -750,19 +748,25 @@ namespace MechMaster.Runtime
 
             workshopKeyLight = GameObject.Find("Key Light")?.GetComponent<Light>();
             workshopFillLight = GameObject.Find("Fill Light")?.GetComponent<Light>();
+            // Directional lights are a camera-relative studio rig. Parenting
+            // keeps the illuminated side facing the viewer during every orbit,
+            // including pitch changes and camera framing, without moving parts.
+            Quaternion referenceCamera = Quaternion.Euler(14f, -22f, 0f);
+            AttachViewLight(workshopKeyLight, sceneCamera.transform, referenceCamera,
+                Quaternion.Euler(42f, -34f, 0f));
+            AttachViewLight(workshopFillLight, sceneCamera.transform, referenceCamera,
+                Quaternion.Euler(25f, 145f, 0f));
             RenderSettings.ambientLight = new Color(0.24f, 0.28f, 0.34f);
             return sceneCamera;
         }
 
-        private void ApplyModelLighting()
+        private static void AttachViewLight(Light light, Transform camera,
+            Quaternion referenceCamera, Quaternion referenceLight)
         {
-            // The assembled camera is model-specific; keep the same key/fill
-            // relationship to its initial view without rotating the meshes.
-            float yawOffset = Model.initialViewYawOffset;
-            if (workshopKeyLight != null)
-                workshopKeyLight.transform.rotation = Quaternion.Euler(42f, -34f + yawOffset, 0f);
-            if (workshopFillLight != null)
-                workshopFillLight.transform.rotation = Quaternion.Euler(25f, 145f + yawOffset, 0f);
+            if (light == null) return;
+            light.transform.SetParent(camera, false);
+            light.transform.localPosition = Vector3.zero;
+            light.transform.localRotation = Quaternion.Inverse(referenceCamera) * referenceLight;
         }
 
         private void SaveAndNotify()
@@ -818,7 +822,7 @@ namespace MechMaster.Runtime
                 PartInteractionController.SetViewMode(true);
                 motion.Play();
                 StatusMessage = suspension
-                    ? "前后悬架平顺压缩回弹；暂隐链条和管线以观察结构，结束后完整恢复。"
+                    ? "前后悬架平顺压缩回弹；链条保持可见，柔性管线暂隐，结束后恢复。"
                     : gearbox
                     ? "齿圈固定，太阳轮驱动行星轮，行星架以八分之一转速输出；透明支承件仅供观察。"
                     : biped
@@ -827,7 +831,7 @@ namespace MechMaster.Runtime
                     ? "机械臂关节与夹爪循环演示中，可暂停、调速或结束。"
                     : "原地踩踏：左刹控制后轮，右刹控制前轮；按住刹把可制动。";
                 SpeakNarration(suspension
-                    ? "前叉滑动、后摇臂绕转点摆动，后避震器压缩回弹。链条和管线暂隐，不模拟骑行受力。"
+                    ? "前叉滑动、后摇臂绕转点摆动，后避震器压缩回弹。链条保持可见但不模拟传动，管线暂隐。"
                     : gearbox
                     ? "太阳轮带动行星轮自转和公转，行星架慢速输出。透明壳体便于观察，不改变拆装进度。"
                     : biped

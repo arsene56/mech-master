@@ -144,7 +144,7 @@
   "limitations": [
     "Prescribed fixed-frame suspension kinematics, not riding/contact/force simulation.",
     "Shock slide is solved from the moving lower mount and fixed upper mount; no damping or pressure simulation.",
-    "Chain and flexible lines are hidden only during this viewing mode; no invented chain or hose deformation.",
+    "The source chain stays visible; runtime mesh deformation anchors its front and follows the rear swingarm. No individual link or exact chain-length simulation; flexible lines remain hidden.",
     "Original steering angle and asymmetric wheel geometry are retained; no hardtail drivetrain assumptions.",
     "Source CAD labels may disagree with mesh dimensions; wheel/tire labels are provenance, not validated sizing specifications.",
     "This custom bike is not a Santa Cruz V10 and has no VPP linkage added."

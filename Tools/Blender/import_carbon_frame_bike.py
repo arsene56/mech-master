@@ -46,7 +46,9 @@ def neutral_material(source, materials):
 
 def motion_role(node):
     text = "/".join(node["ancestry"] + [node["name"]])
-    if node["name"].startswith(("Schlauch", "Bremsschlauch")) or "RobertS2016_Kette" in text: return "hidden"
+    # Keep the authored one-piece chain visible in the suspension lesson.
+    # Only flexible lines need hiding until their deformation is modeled.
+    if node["name"].startswith(("Schlauch", "Bremsschlauch")): return "hidden"
     if "Daempferaufnahme_oben" in text: return "fixed"
     if "Daempfer_Cane-Creek" in text:
         return "shock_upper" if any("_" + suffix in text for suffix in ("30305", "148918", "149470")) else "shock_lower"
@@ -187,7 +189,7 @@ def main():
         "bindings": [{"objectName": p["object"], "role": p["motionRole"]} for p in parts],
         "limitations": ["Prescribed fixed-frame suspension kinematics, not riding/contact/force simulation.",
             "Shock slide is solved from the moving lower mount and fixed upper mount; no damping or pressure simulation.",
-            "Chain and flexible lines are hidden only during this viewing mode; no invented chain or hose deformation.",
+            "The source chain stays visible; runtime mesh deformation anchors its front and follows the rear swingarm. No individual link or exact chain-length simulation; flexible lines remain hidden.",
             "Original steering angle and asymmetric wheel geometry are retained; no hardtail drivetrain assumptions."]}
     counts = write_content(parts)
     write_json(ROOT / "Assets/Resources/MechanicalCatalog/CarbonFrameBikeMotionRig.json", rig)

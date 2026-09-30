@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using MechMaster.Domain;
 using MechMaster.Runtime;
+using MechMaster.Runtime.UI;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -120,14 +121,23 @@ namespace MechMaster.Editor
             Require(app.MotionSpeedLabel == "1.00×" && controller.Speed == 100, "Default speed");
             if (tier == 0) CapturePreview(root, "CarbonFrameBikeEngine.png");
             app.ToggleMotion(); Require(app.IsMotionPlaying && colliders.All(c => !c.enabled), "Motion start / collision gate");
-            foreach (var binding in rig.bindings.Where(b => b.role == "hidden")) Require(!all[binding.objectName].GetComponent<Renderer>().enabled, "Static chain/hose not hidden");
-            advance.Invoke(controller, new object[] { 1f });
+            var chain = rig.bindings.Single(b => b.objectName == "MM_carbon_n0594_chain");
+            Require(chain.role == "fixed" && all[chain.objectName].GetComponent<Renderer>().enabled,
+                "Source chain should remain visible during suspension motion");
+            MeshFilter chainFilter = all[chain.objectName].GetComponent<MeshFilter>();
+            Vector3[] chainRestVertices = chainFilter.sharedMesh.vertices;
+            Vector3 chainFront = all["MM_carbon_n0572_chainring"].position;
+            Vector3 chainRear = all[rig.rearWheelAnchor].position;
+            Vector3 chainSpan = chainRear - chainFront;
+            foreach (var binding in rig.bindings.Where(b => b.role == "hidden"))
+                Require(!all[binding.objectName].GetComponent<Renderer>().enabled, "Flexible line not hidden");
+            advance.Invoke(controller, new object[] { .5f });
             Require(Mathf.Abs(controller.CyclePhase - .25f) < 1e-6f && Mathf.Abs(controller.RearDegrees - 4) < .0001f,
                 "Default actual tempo");
             app.ToggleMotion(); float paused = controller.CyclePhase;
             advance.Invoke(controller, new object[] { 2f }); Require(controller.CyclePhase == paused && !app.IsMotionPlaying, "Pause progression");
             app.ChangeMotionSpeed(25); Require(app.MotionSpeedLabel == "1.25×", "Speed label");
-            app.ToggleMotion(); advance.Invoke(controller, new object[] { .8f });
+            app.ToggleMotion(); advance.Invoke(controller, new object[] { .4f });
             Require(Mathf.Abs(controller.CyclePhase - .5f) < 1e-6f, "Resume / actual speed");
             if (tier == 0) CapturePreview(root, "CarbonFrameBikeEngineSuspension.png");
             Vector3 pivot = all[rig.rearPivotAnchor].position;
@@ -156,7 +166,25 @@ namespace MechMaster.Editor
             }
             phase.Invoke(controller, new object[] { .5f });
             Require(controller.ShockCompressionM > .01f, "Rear compression not visible");
+            Vector3[] chainCompressedVertices = chainFilter.sharedMesh.vertices;
+            int frontCount = 0, rearCount = 0;
+            float frontMaximum = 0f, rearMaximum = 0f;
+            for (int i = 0; i < chainRestVertices.Length; i++)
+            {
+                Vector3 sourcePoint = chainFilter.transform.TransformPoint(chainRestVertices[i]);
+                float along = Vector3.Dot(sourcePoint - chainFront, chainSpan) / chainSpan.sqrMagnitude;
+                float displacement = Vector3.Distance(sourcePoint,
+                    chainFilter.transform.TransformPoint(chainCompressedVertices[i]));
+                if (along < .1f) { frontCount++; frontMaximum = Mathf.Max(frontMaximum, displacement); }
+                if (along > .9f) { rearCount++; rearMaximum = Mathf.Max(rearMaximum, displacement); }
+            }
+            Require(frontCount > 0 && rearCount > 0 && frontMaximum < 1e-5f && rearMaximum > .02f,
+                "Chain front anchor or rear-wheel following failed");
             app.StopMotion(); controller.SetSpeed(100);
+            Vector3[] chainRestoredVertices = chainFilter.sharedMesh.vertices;
+            Require(chainRestoredVertices.Length == chainRestVertices.Length
+                && chainRestoredVertices.Select((point, i) => Vector3.Distance(point, chainRestVertices[i])).Max() < 1e-6f,
+                "Stop did not restore source chain shape");
             Require(!app.IsMotionActive && meshes.All(m => Vector3.Distance(m.transform.position, source[m.name].position) < 1e-6f
                 && Quaternion.Angle(m.transform.rotation, source[m.name].rotation) < .04f && m.GetComponent<Renderer>().enabled == renderers[m.name]), "Stop source pose / visible lines");
             Require(colliders.Select((c, i) => c.enabled == enabled[i]).All(value => value), "Collider restore");
@@ -194,6 +222,7 @@ namespace MechMaster.Editor
             var app = MechMasterApp.Instance; app.SetModel(ids[index]); app.ResetCurrentPlan();
             Later(() => {
                 Require(app.Model.id == ids[index] && app.MotionAvailable, "Existing model binding");
+                ValidateViewLockedLighting();
                 var root = GameObject.Find("MechanicalModel_" + app.Model.id);
                 var controller = root.GetComponents<Component>().OfType<IMechanicalMotionController>().Single();
                 var source = root.GetComponentsInChildren<MeshFilter>().ToDictionary(m => m.transform, m => (m.transform.position, m.transform.rotation));
@@ -207,6 +236,33 @@ namespace MechMaster.Editor
                 if (index + 1 < ids.Length) SwitchSmoke(index + 1);
                 else { Debug.Log("MECH_MASTER_CARBON_RUNTIME_OK tiers,source,motion,pointer,toolbar,save,switch"); SessionState.SetInt(Key + ".result", 0); EditorApplication.isPlaying = false; }
             });
+        }
+
+        private static void ValidateViewLockedLighting()
+        {
+            Camera camera = Camera.main;
+            OrbitCameraController orbit = camera.GetComponent<OrbitCameraController>();
+            Light key = GameObject.Find("Key Light")?.GetComponent<Light>();
+            Light fill = GameObject.Find("Fill Light")?.GetComponent<Light>();
+            Require(key != null && fill != null
+                && key.transform.parent == camera.transform && fill.transform.parent == camera.transform,
+                "View-locked studio lights missing");
+            Quaternion referenceCamera = Quaternion.Euler(14f, -22f, 0f);
+            Quaternion keyLocal = Quaternion.Inverse(referenceCamera) * Quaternion.Euler(42f, -34f, 0f);
+            Quaternion fillLocal = Quaternion.Inverse(referenceCamera) * Quaternion.Euler(25f, 145f, 0f);
+            Quaternion keyBefore = key.transform.rotation;
+            float scale = new PixelUILayout(Screen.width, Screen.height).Scale;
+            orbit.Rotate(new Vector2(1000f * scale, -300f * scale));
+            Require(Quaternion.Angle(keyBefore, key.transform.rotation) > 150f,
+                "Key light did not respond to the orbit");
+            Require(Quaternion.Angle(key.transform.rotation, camera.transform.rotation * keyLocal) < .01f
+                && Quaternion.Angle(fill.transform.rotation, camera.transform.rotation * fillLocal) < .01f,
+                "Studio lights no longer face the viewer");
+            orbit.Rotate(new Vector2(1000f * scale, 600f * scale));
+            Require(Quaternion.Angle(key.transform.rotation, camera.transform.rotation * keyLocal) < .01f
+                && Quaternion.Angle(fill.transform.rotation, camera.transform.rotation * fillLocal) < .01f,
+                "Studio lights lost alignment after reverse pitch/orbit");
+            orbit.FrameWholeModel();
         }
 
         private static void CapturePreview(GameObject root, string filename)

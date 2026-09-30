@@ -114,7 +114,12 @@ internal static class Program
         True(Math.Abs(rig.GetProperty("shockEyeDistanceM").GetDouble() - .2) < .00015);
         var bindings = new HashSet<string>(); var roles = new HashSet<string>();
         foreach (JsonElement binding in rig.GetProperty("bindings").EnumerateArray())
-        { True(bindings.Add(binding.GetProperty("objectName").GetString())); roles.Add(binding.GetProperty("role").GetString()); }
+        {
+            string name = binding.GetProperty("objectName").GetString();
+            string role = binding.GetProperty("role").GetString();
+            True(bindings.Add(name)); roles.Add(role);
+            if (name == "MM_carbon_n0594_chain") Equal("fixed", role);
+        }
         Equal(307, bindings.Count); True(roles.SetEquals(new[] { "fixed", "rear", "front_lower", "shock_upper", "shock_lower", "hidden" }));
         var anchors = new HashSet<string>();
         foreach (string key in new[] { "rearPivotAnchor", "rearAxisAnchor", "rearWheelAnchor", "shockUpperAnchor", "shockLowerAnchor", "forkAxisStartAnchor", "forkAxisEndAnchor" })

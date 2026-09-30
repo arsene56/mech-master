@@ -7,7 +7,7 @@ namespace MechMaster.Editor
 {
     public sealed class CarbonFrameBikeAssetImportSettings : AssetPostprocessor
     {
-        public override uint GetVersion() => 1;
+        public override uint GetVersion() => 2;
         private bool IsCarbon => assetPath.StartsWith("Assets/Resources/Models/CarbonFrameBike/", StringComparison.Ordinal);
 
         private void OnPreprocessModel()
@@ -20,6 +20,10 @@ namespace MechMaster.Editor
             importer.importLights = false;
             importer.globalScale = 1;
             importer.useFileScale = true;
+            // Only the chain module needs CPU mesh access for the rear-end
+            // suspension-following deformation; keep other modules GPU-only.
+            if (assetPath.EndsWith("/chain_guide_LOD0.fbx", StringComparison.Ordinal))
+                importer.isReadable = true;
         }
 
         private void OnPostprocessModel(GameObject root)

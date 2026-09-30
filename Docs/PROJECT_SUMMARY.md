@@ -14,9 +14,9 @@
 - 第三个模型是 **Bolt 双足机器人**（`robot.odri.bolt.6dof.v1`）：官方 BSD-3-Clause STEP，**12 模块、56 个叶定义、345 个装配实例、12 / 23 / 42 步**。通过 OCCT/XCAF 免费本地转换，已接拆装、爆炸、中文目录、独立存档及六主动/两被动轴的固定躯干屈伸循环；左右腿两段轴距均为 200 mm。不是平衡行走仿真。详见 [Bolt 接入记录](References/Bolt/IMPORT_STATUS.md)。
 - 第四个模型是 **OpenTorque 行星减速器**（`gearbox.opentorque.planetary.v1`）：官方 CC BY-SA 4.0 标准版 STEP，**5 模块、13 个叶定义、19 个装配实例、5 / 10 / 17 步**；110×110×95 mm。已接拆装、爆炸、中文知识、独立存档、9/27/63 齿连续 8∶1 减速演示和临时透明观察。缺失电机、输入轴、编码器 PCB、磁体及多数紧固件，不补造完整执行器。详见 [OpenTorque 接入记录](References/OpenTorque/IMPORT_STATUS.md)。
 - 原先尝试的 F1 简化模型及 `Docs/Preview/FormulaCar2026.png` 不达写实要求，F1 方向已放弃；仓库当前没有 F1 正式模型或菜单入口。OM10 腕表机芯、Tomaso V8 爆炸发动机仍只是候选，**尚未取得并审计原始 3D 文件，不得声称已接入**。
-- 第五个模型是 **Carbon Frame Bike 软尾山地车**（`bike.carbon.full-suspension.v1`），菜单“Carbon 软尾山地车”：作者 CC BY-SA 4.0 GLB 免登录取得，**14 模块、307 个源网格实例、14 / 34 / 51 步**。保留原硬尾车，支持拆装、爆炸、讲解、独立存档及前后悬架连续联动。后避震安装轴距约 200 mm；密封总成保持整体，派生资产移除可见标识和作者图像。默认 1.00× / 4 秒一轮；链条与管线暂隐，不是踩踏或骑行受力仿真。详见 [Carbon 接入记录](References/CarbonFrameBike/IMPORT_STATUS.md)。
+- 第五个模型是 **Carbon Frame Bike 软尾山地车**（`bike.carbon.full-suspension.v1`），菜单“Carbon 软尾山地车”：作者 CC BY-SA 4.0 GLB 免登录取得，**14 模块、307 个源网格实例、14 / 34 / 51 步**。保留原硬尾车，支持拆装、爆炸、讲解、独立存档及前后悬架连续联动。后避震安装轴距约 200 mm；密封总成保持整体，派生资产移除可见标识和作者图像。默认 1.00× / 约 2 秒一轮（原 2.00× 的实际节奏）；链条可见，后轮端随悬架起伏、牙盘端固定，柔性管线暂隐，不是踩踏或骑行受力仿真。详见 [Carbon 接入记录](References/CarbonFrameBike/IMPORT_STATUS.md)。
 - 当前项目能在本机团结引擎 Editor 运行硬尾自行车、Moveo、Bolt、OpenTorque 与 Carbon 软尾样片，资产、24 项规则测试、绑定和演示自动验证已通过；**微信导出、分包、真机性能和触摸验收均未完成**，不要称为微信已上线或性能达标。
-- 2026-09-30 Bolt 空白故障已定位为本机 `left_foot_LOD0.fbx` 导入器曾崩溃、缓存将其视作默认文件，导致模块资源加载失败；在原 Editor 的“机械大师 → 修复缺失的模型导入”执行单件强制重导入，结果 `repaired=1 failed=0`，随后五模型绑定检查通过。运行时切换前先检查资源，缺件时保留旧模型；已保存模型在启动时缺件则临时显示可用模型，不覆盖原选择。硬尾 2×10 默认相机转 180° 显示另一侧，工作室主/辅光同步旋转，模型实体和拆装坐标不变。Bolt 材质审计确认原有浅色结构、深色传动、绿色电路板与铜色电机均在；默认视角偏转 55° 以显示更多内部配色，未重涂模型。Bolt 三级及 Carbon 五模型回归退出码 0；引擎预览见 `Docs/Preview/BicycleOppositeView.png` 和 `Docs/Preview/BoltDefaultView.png`。用户实际 Game View 与微信真机仍需确认。
+- 2026-09-30 Bolt 空白故障已定位为本机 `left_foot_LOD0.fbx` 导入器曾崩溃、缓存将其视作默认文件，导致模块资源加载失败；在原 Editor 的“机械大师 → 修复缺失的模型导入”执行单件强制重导入，结果 `repaired=1 failed=0`，随后五模型绑定检查通过。运行时切换前先检查资源，缺件时保留旧模型；已保存模型在启动时缺件则临时显示可用模型，不覆盖原选择。硬尾 2×10 默认相机转 180° 显示另一侧；两盏工作室方向光现固定于相机相对角度，五个模型无论继续水平或俯仰旋转，都向当前观察面补光，模型实体和拆装坐标不变。Bolt 材质审计确认原有浅色结构、深色传动、绿色电路板与铜色电机均在；默认视角偏转 55° 以显示更多内部配色，未重涂模型。Bolt 三级及 Carbon 五模型回归退出码 0；引擎预览见 `Docs/Preview/BicycleOppositeView.png` 和 `Docs/Preview/BoltDefaultView.png`。用户实际 Game View 与微信真机仍需确认。
 
 ## 2. 产品目标、范围和底线
 
@@ -155,7 +155,7 @@ Carbon Source/LOD0 为 307 网格 / 114,871 三角面；14 模块，LOD1 为 63,
 
 本轮 .NET **24 项全通过**，Blender Source/全部 LOD 回导通过。团结引擎三级绑定、200 mm 安装轴距、257 相位悬架、每级六组演示后单件爆炸及真实拖放、原生工具栏、准确存档/重载、任意顺序完整拆装和五模型切换均通过。日志 `Library/MechMaster/CarbonFrameBikeSource/editor-runtime-final.log`，最终 `MECH_MASTER_CARBON_RUNTIME_OK`；该交互回归和静态绑定 `editor-catalog-final.log` 进程退出码均为 0。独立验证工程隔离并恢复偏好，没有关闭原工程 Editor。微信真机和用户实际 Game View 全流程仍待验收。
 
-运行适配是 `carbon-suspension-v1` / `CarbonFrameBikeMotionController` / `CarbonFrameBikeMotionRig.json`。七锚点来自源装配，后摇臂摆动、前叉下组件平移、后避震两眼约束；默认 4 秒闭合余弦周期，0.50×–1.50× 调速。链条和管线暂隐仅属观察层，停止后恢复，不模拟踩踏、软管形变、气液阻尼、平衡或接地。
+运行适配是 `carbon-suspension-v1` / `CarbonFrameBikeMotionController` / `CarbonFrameBikeMotionRig.json`。七锚点来自源装配，后摇臂摆动、前叉下组件平移、后避震两眼约束；保留 4 秒源时间线，以 2.0 倍时间推进定义默认 1.00×，实际约 2 秒一轮，0.50×–1.50× 调速。链条始终显示，运行时复制网格并在牙盘端到后飞轮端之间加权形变，结束后还原；不模拟链节循环或严格链长。柔性管线仅在演示期间暂隐，停止后恢复；不模拟踩踏、气液阻尼、平衡或接地。
 
 后续接手先读 [Carbon 接入记录](References/CarbonFrameBike/IMPORT_STATUS.md)、`carbon_frame_bike_content.py`、`import_carbon_frame_bike.py` 与专用引擎验证器。旧段落中的“22 项 / 四模型”属于 OpenTorque 接入时的历史基线；当前以本节、生成清单和最新日志为准。
 
